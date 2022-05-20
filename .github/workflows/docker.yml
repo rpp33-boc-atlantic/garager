@@ -31,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/garager:${{ github.ref_name }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/garager:${{ github.workflow }}_#${{ github.run_number }}
