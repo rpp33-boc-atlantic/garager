@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watch",
     "ci:test": "jest --ci",
-    "build-dev": "webpack --mode development --watch"
+    "build-dev": "webpack --mode development --watch",
+    "start": "nodemon server/app.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,9 @@
   },
   "homepage": "https://github.com/rpp33-boc-atlantic/garager#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
+    "express": "^4.18.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
