@@ -1,5 +1,5 @@
 test('should display something', () => {
-
-  expect('Successful!').toMatch(/^Success(.*)/);
+  
+  expect('Authorization').toMatch(/^Authorization(.*)/);
   expect('Successful Test!!').toMatchInlineSnapshot(`"Successful Test!!"`);
 })
