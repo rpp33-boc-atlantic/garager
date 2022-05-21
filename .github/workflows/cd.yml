@@ -32,4 +32,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/garager:${{ github.workflow }}${{ github.run_number }}
-        
+      -
+        name: SSH
+        uses: appleboy/ssh-action@master
+        env:
+          DUDE: "Mitz"
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_KEY }}
+          script: |
+            whoami
+            echo "I am $DUDE"
