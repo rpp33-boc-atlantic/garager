@@ -36,11 +36,12 @@ jobs:
         name: SSH
         uses: appleboy/ssh-action@master
         env:
-          DUDE: "Mitz"
+          TAGNAME: ${{ github.workflow }}${{ github.run_number }}
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_KEY }}
+          envs: TAGNAME
           script: |
             whoami
-            echo "I am $DUDE"
+            echo "tagname: $TAGNAME"
