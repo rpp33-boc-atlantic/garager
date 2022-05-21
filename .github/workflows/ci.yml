@@ -13,5 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       - name: Run Tests
-       - run: npm run ci:test
+      -
+        name: Run Tests
+        run: npm run ci:test
