@@ -43,5 +43,7 @@ jobs:
           key: ${{ secrets.AWS_KEY }}
           envs: TAGNAME
           script: |
-            whoami
-            echo "tagname: $TAGNAME"
+            docker rm $(docker ps -a -q)
+            docker rmi $(docker images -q)
+            docker pull "joemitz/garager:$TAGNAME"
+            docker run -p 80:3000 -d "joemitz/garager:$TAGNAME"
