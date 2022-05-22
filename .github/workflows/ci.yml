@@ -9,19 +9,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  eslint:
+    name: Lint code base
     runs-on: ubuntu-latest
-
     steps:
-      -
-        name: Test code
-        uses: actions/checkout@v2
-      -
-        name: Install packages
-        run: npm ci
-      -
-        name: Run Tests
-        run: npm run ci:test
-      -
-        name: Run ESLint
-        run: eslint . --ext .js,.jsx
+      - uses: actions/checkout@v1
+
+  build:
+      runs-on: ubuntu-latest
+
+      steps:
+        -
+          name: Test code
+          uses: actions/checkout@v2
+        -
+          name: Install packages
+          run: npm ci
+        -
+          name: Run Tests
+          run: npm run ci:test
+        -
+         name: Run ESLint
+         run: npm run lint
