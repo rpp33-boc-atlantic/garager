@@ -1,7 +1,7 @@
 name: ci
 
 on:
-  push: 
+  push:
     branches:
       - main
       - '*'
@@ -9,16 +9,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # eslint:
+  #   name: Lint code base
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
 
-    steps:
-      -
-        name: Test code
-        uses: actions/checkout@v2
-      - 
-        name: Install packages
-        run: npm ci
-      -
-        name: Run Tests
-        run: npm run ci:test
+  build:
+      runs-on: ubuntu-latest
+
+      steps:
+        -
+          name: Test code
+          uses: actions/checkout@v2
+        -
+          name: Install packages
+          run: npm ci
+        -
+          name: Run Tests
+          run: npm run ci:test
+        -
+         name: Run ESLint
+         run: npm run lint

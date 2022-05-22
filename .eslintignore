@@ -1,0 +1,8 @@
+.eslint*
+**/client/dist
+**/node_modules
+**/bower_components
+**/lib
+**/vendor
+**/*.min.js
+*config*
