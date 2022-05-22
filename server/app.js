@@ -1,6 +1,5 @@
 const app = require('./index.js');
-
-let port = 5000;
+const port = require('../config.js').port;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
