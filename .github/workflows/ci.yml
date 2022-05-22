@@ -30,4 +30,4 @@ jobs:
           run: npm run ci:test
         -
          name: Run ESLint
-         run: npm run lint
+         run: npx run lint
