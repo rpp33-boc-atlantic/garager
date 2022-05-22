@@ -1,4 +1,4 @@
-// EXAMPLE USING REACT BOOTSTRAP IS AT THE BOTTOM OF THIS FILE
+// EXAMPLES USING REACT BOOTSTRAP AND MATERIAL UI BELOW
 
 import React from 'react';
 
@@ -55,6 +55,22 @@ const App = () => (
     </Container>
   </Container>
 );
+
+export default App;
+*/
+
+/* <-- COMMENT OUT ABOVE CODE AND UNCOMMENT FROM THIS POINT TO SEE THIS IN THE BROWSER
+
+// Below is an example of how we can use Material UI for our app. 
+// Example taken from https://mui.com/material-ui/getting-started/usage/
+
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
+
+function App() {
+  return <Button variant="contained">Hello World</Button>;
+}
 
 export default App;
 */
