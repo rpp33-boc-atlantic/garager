@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --watch ./tests",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
     "start": "nodemon server/app.js",
