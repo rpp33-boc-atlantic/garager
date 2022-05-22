@@ -9,11 +9,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  eslint:
-    name: Lint code base
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
+  # eslint:
+  #   name: Lint code base
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v1
 
   build:
       runs-on: ubuntu-latest
