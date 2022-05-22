@@ -1,7 +1,7 @@
 name: ci
 
 on:
-  push: 
+  push:
     branches:
       - main
       - '*'
@@ -16,9 +16,12 @@ jobs:
       -
         name: Test code
         uses: actions/checkout@v2
-      - 
+      -
         name: Install packages
         run: npm ci
       -
         name: Run Tests
         run: npm run ci:test
+      -
+        name: Run ESLint
+        run: eslint . --ext .js,.jsx
