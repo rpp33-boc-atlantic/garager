@@ -10,11 +10,11 @@ on:
 
 jobs:
   eslint:
-    name: Lint Codebase
+    name: Lint code base
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: stefanoeb/eslint-action@1.0.2
+
   build:
       runs-on: ubuntu-latest
 
@@ -30,4 +30,4 @@ jobs:
           run: npm run ci:test
         -
          name: Run ESLint
-         run: eslint . --ext .js,.jsx
+         run: npm run lint
