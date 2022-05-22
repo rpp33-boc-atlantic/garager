@@ -8,7 +8,7 @@
     "ci:test": "jest --ci",
     "build-dev": "webpack --mode development --watch",
     "start": "nodemon server/app.js",
-    "lint": "eslint ."
+    "lint": " npx eslint . --ext .js,.jsx"
   },
   "repository": {
     "type": "git",

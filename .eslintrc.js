@@ -11,7 +11,9 @@ module.exports = {
   parserOptions: {
     ecmaFeatures: {
       'jsx': true
-    }
+    },
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   },
   rules: {
     /* Indentation */
