@@ -32,4 +32,18 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/garager:${{ github.workflow }}${{ github.run_number }}
-        
+      -
+        name: SSH
+        uses: appleboy/ssh-action@master
+        env:
+          TAGNAME: ${{ github.workflow }}${{ github.run_number }}
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_KEY }}
+          envs: TAGNAME
+          script: |
+            docker rm $(docker ps -a -q)
+            docker rmi $(docker images -q)
+            docker pull "joemitz/garager:$TAGNAME"
+            docker run -p 80:3000 -d "joemitz/garager:$TAGNAME"
