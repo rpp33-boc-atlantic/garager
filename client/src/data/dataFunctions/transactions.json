@@ -2,91 +2,111 @@
   "0": {
     "id": 0,
     "productId": 0,
-    "owner": "Jack Barker",
-    "renter": "Jack Barker",
-    "price": 95,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Jack Barker",
+    "ownerId": 3,
+    "renterName": "Pierce Hawthorne",
+    "renterId": 13,
+    "price": 81,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "1": {
     "id": 1,
     "productId": 1,
-    "owner": "Creed Bratton",
-    "renter": "Stanley Hudson",
-    "price": 102,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Lorie Bream",
+    "ownerId": 5,
+    "renterName": "Ron Swanson",
+    "renterId": 0,
+    "price": 16,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "2": {
     "id": 2,
     "productId": 2,
-    "owner": "Michael Scott",
-    "renter": "Donna Meagle",
-    "price": 76,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Leslie Knope",
+    "ownerId": 1,
+    "renterName": "Tom Haverford",
+    "renterId": 9,
+    "price": 82,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "3": {
     "id": 3,
     "productId": 3,
-    "owner": "Donna Meagle",
-    "renter": "Lorie Bream",
-    "price": 88,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Lorie Bream",
+    "ownerId": 5,
+    "renterName": "Ron Swanson",
+    "renterId": 0,
+    "price": 38,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "4": {
     "id": 4,
     "productId": 4,
-    "owner": "Leslie Knope",
-    "renter": "Creed Bratton",
-    "price": 70,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Gavin Belson",
+    "ownerId": 6,
+    "renterName": "Creed Bratton",
+    "renterId": 11,
+    "price": 53,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "5": {
     "id": 5,
     "productId": 5,
-    "owner": "Ron Swanson",
-    "renter": "Leslie Knope",
-    "price": 51,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Jack Barker",
+    "ownerId": 3,
+    "renterName": "Russ Hanneman",
+    "renterId": 2,
+    "price": 43,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "6": {
     "id": 6,
     "productId": 6,
-    "owner": "Donna Meagle",
-    "renter": "Leslie Knope",
-    "price": 78,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Michael Scott",
+    "ownerId": 4,
+    "renterName": "Leslie Knope",
+    "renterId": 1,
+    "price": 99,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "7": {
     "id": 7,
     "productId": 7,
-    "owner": "Ron Swanson",
-    "renter": "Creed Bratton",
-    "price": 13,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Russ Hanneman",
+    "ownerId": 2,
+    "renterName": "Creed Bratton",
+    "renterId": 11,
+    "price": 65,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "8": {
     "id": 8,
     "productId": 8,
-    "owner": "Michael Scott",
-    "renter": "Gavin Belson",
-    "price": 69,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Donna Meagle",
+    "ownerId": 10,
+    "renterName": "Pierce Hawthorne",
+    "renterId": 13,
+    "price": 77,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   },
   "9": {
     "id": 9,
     "productId": 9,
-    "owner": "Lorie Bream",
-    "renter": "Jack Barker",
-    "price": 43,
-    "startDate": "2022-05-23T00:58:49.248Z",
-    "dueDate": "2022-05-23T00:58:49.248Z"
+    "ownerName": "Jack Barker",
+    "ownerId": 3,
+    "renterName": "Donna Meagle",
+    "renterId": 10,
+    "price": 75,
+    "startDate": "2022-05-23T01:11:08.223Z",
+    "dueDate": "2022-05-23T01:11:08.223Z"
   }
 }

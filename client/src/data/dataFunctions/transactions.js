@@ -10,8 +10,12 @@ for (var i = 0; i < 10; i ++) {
 
   transaction['id'] = i;
   transaction['productId'] = i;
-  transaction['owner'] = owners[Math.floor(Math.random() * owners.length)];
-  transaction['renter'] = owners[Math.floor(Math.random() * owners.length)];
+  var ownerId = Math.floor(Math.random() * owners.length);
+  transaction['ownerId'] = ownerId;
+  transaction['ownerName'] = owners[ownerId];
+  var renterId = Math.floor(Math.random() * owners.length);
+  transaction['renterId'] = renterId;
+  transaction['renterName'] = owners[renterId];
   transaction['price'] = Math.floor((Math.random() * 100) + 4);
   transaction['startDate'] = new Date();
   transaction['dueDate'] = new Date(); // these dates need to be changed to different dates that arent too far apart from eachother
