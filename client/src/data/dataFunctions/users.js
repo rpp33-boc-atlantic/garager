@@ -9,17 +9,21 @@ var bool = [true, false];
 
 //this file creates a user for ever user entered above.
 for (var i = 0; i < names.length; i ++) {
-  var item = {};
+  var user = {};
 
-  item['id'] = i;
-  item['phoneNumber'] = `(${444})${342}-${2334})`; // need to figureout better phone number
-  item['Address'] = ''; // need to make a fake address bank
-  item['name'] = names[i];
-  item['IsFBAuthenticated'] = bool[Math.floor((Math.random() * 2))];
-  item['joinedDate'] = new Date();
-  console.log('user', item['name']);
-  item['email'] = item['name'].replace(/ /g, '.') + `@${emails[Math.floor((Math.random() * emails.length))]}.com`;
-  users[i] = item;
+  //user[']
+  //user['zipcode']
+  //user['city']
+  user['id'] = i;
+  user['phoneNumber'] = `(${444})${342}-${2334})`; // need to figureout better phone number
+  user['Address'] = ''; // need to make a fake address bank
+  user['name'] = names[i];
+  user['IsFBAuthenticated'] = bool[Math.floor((Math.random() * 2))];
+  user['joinedDate'] = new Date();
+  console.log('user', user['name']);
+  user['email'] = user['name'].replace(/ /g, '.') + `@${emails[Math.floor((Math.random() * emails.length))]}.com`;
+  users[i] = user;
+
 }
 console.log(users);
 let data = JSON.stringify(users, null, 2);

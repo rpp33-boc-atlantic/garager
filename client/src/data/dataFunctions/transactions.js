@@ -6,16 +6,16 @@ var fs = require('fs');
 
 
 for (var i = 0; i < 10; i ++) {
-  var item = {};
+  var transaction = {};
 
-  item['id'] = i;
-  item['productId'] = i;
-  item['owner'] = owners[Math.floor(Math.random() * owners.length)];
-  item['renter'] = owners[Math.floor(Math.random() * owners.length)];
-  item['price'] = Math.floor((Math.random() * 100) + 4);
-  item['startDate'] = new Date();
-  item['dueDate'] = new Date();
-  transactions[i] = item;
+  transaction['id'] = i;
+  transaction['productId'] = i;
+  transaction['owner'] = owners[Math.floor(Math.random() * owners.length)];
+  transaction['renter'] = owners[Math.floor(Math.random() * owners.length)];
+  transaction['price'] = Math.floor((Math.random() * 100) + 4);
+  transaction['startDate'] = new Date();
+  transaction['dueDate'] = new Date(); // these dates need to be changed to different dates that arent too far apart from eachother
+  transactions[i] = transaction;
 }
 console.log(transactions);
 

@@ -51,6 +51,8 @@ for (var i = 0; i < 40; i ++) {
   var oneToFour = Math.floor((Math.random() * 4));
 
   item['id'] = i;
+  //item['city'] =
+  //item['zipcode'] =
   item['description'] = nouns[categoryNum][oneToFour] + ' -In ' + condition[conditionIndex] + ' condition';
   item['price'] = Math.floor((Math.random() * 100) + 4);
   item['category'] = categories[categoryNum];
