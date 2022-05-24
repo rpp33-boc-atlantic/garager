@@ -7,6 +7,7 @@
     "test": "jest --watch ./tests",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
+    "build-docker": "webpack --mode development",
     "start": "nodemon server/app.js",
     "lint": " npx eslint . --ext .js,.jsx"
   },
