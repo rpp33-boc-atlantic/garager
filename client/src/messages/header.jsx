@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Header = (props) => {
 
   return (
-    <p>{props.thread.productName}</p>
+    <p>Header: {props.thread.theirUsername}, {props.thread.productName}</p>
   );
 };
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const ThreadTile = (props) => {
 
   return (
-    <p>{props.thread.theirUsername}</p>
+    <p>Thread Tile: {props.thread.theirUsername}</p>
   );
 };
 

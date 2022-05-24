@@ -9,7 +9,7 @@ export default [
     lastMessage: 'what do you think of the item?',
     timeUpdated: 1653359934,
     viewed: false,
-    userMessages: [
+    theirMessages: [
       {
         body: 'what do you think of the item?',
         imageUrl: null,
