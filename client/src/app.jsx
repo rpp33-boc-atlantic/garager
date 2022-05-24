@@ -8,7 +8,6 @@ const App = () => {
       <h1>Garager</h1>
       <PostItem />
     </>
-
   );
 };
 
