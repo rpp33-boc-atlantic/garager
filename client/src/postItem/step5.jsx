@@ -11,13 +11,15 @@ import theme from '../utils/theme.js';
 class Step5 extends Component {
   constructor (props) {
     super (props);
-    this.continue = this.continue.bind(this);
+    this.submit = this.submit.bind(this);
     this.back = this.back.bind(this);
   }
 
-  continue (e) {
-    e.preventDefault();
-    this.props.changeToNext();
+  submit (postData) {
+    return (e) => {
+      e.preventDefault();
+      this.props.handleSubmit(postData);
+    };
   }
 
   back (e) {
@@ -57,7 +59,7 @@ class Step5 extends Component {
           onClick={this.back}
         >Back</Button>
         <Button
-          onClick={this.continue}
+          onClick={this.submit(values)}
         >Finish</Button>
       </React.Fragment>
     );

@@ -11,21 +11,24 @@ class PostItem extends Component {
     super (props);
     this.state = {
       step: 0,
-      title: '',
-      category: '',
-      brand: '',
-      model: '',
-      description: '',
-      price: 0,
-      nameYourOwnPrice: false,
-      minimunAcceptedPrice: 0,
-      pickUpLocation: '',
-      availableFrom: '',
-      availableTo: ''
+      postData: {
+        title: '',
+        category: '',
+        brand: '',
+        model: '',
+        description: '',
+        price: 0,
+        nameYourOwnPrice: false,
+        minimunAcceptedPrice: 0,
+        pickUpLocation: '',
+        availableFrom: '',
+        availableTo: ''
+      }
     };
     this.changeToPrevious = this.changeToPrevious.bind(this);
     this.changeToNext = this.changeToNext.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   changeToPrevious () {
@@ -45,16 +48,32 @@ class PostItem extends Component {
   handleChange (input) {
     return (e)=> {
       if (input === 'nameYourOwnPrice') {
-        this.setState ({ [input]: e.target.checked });
+        this.setState ({ postData: { [input]: e.target.checked }});
       } else {
-        this.setState ({ [input]: e.target.value }, () => { console.log(this.state); });
+        this.setState ({ postData: {[input]: e.target.value }}, () => { console.log(this.state); });
       }
     };
   }
 
+  handleSubmit (postData) {
+    //axios post request
+    console.log('post data', postData);
+    let data = postData;
+    for (let key in data) {
+      if (key === 'price') {
+        data[key] = 0;
+      } else if (key === 'nameYourOwnPrice' || 'minimunAcceptedPrice') {
+        data[key] = false;
+      } else {
+        data[key] = '';
+      }
+    }
+    this.setState({ step: 0, data }, () => { console.log(this.state.postData); });
+  }
+
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, pickUpLocation, availableFrom, availableTo } = this.state;
+    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, pickUpLocation, availableFrom, availableTo } = this.state.postData;
     const values = { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, pickUpLocation, availableFrom, availableTo };
 
     switch (step) {
@@ -98,6 +117,7 @@ class PostItem extends Component {
         <Step5
           changeToPrevious={this.changeToPrevious}
           handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
           values={values}
         />
       );
