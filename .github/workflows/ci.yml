@@ -20,11 +20,12 @@ jobs:
           name: Install packages
           run: npm ci
         -
-          name: Run Tests
-          run: npm run ci:test
-        -
           name: Install modules
           run: yarn
         -
+          name: Run Tests
+          run: npm run ci:test
+        -
           name: Run ESLint
           run: npm run lint
+

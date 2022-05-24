@@ -7,7 +7,7 @@ const models = require('../models/example.models.js');
 module.exports = {
   upcomingRentals: {
     get: (req, res) => {
-      res.send('this route will send back rental information');
+      res.send('this route will send back current transaction information');
       /* models.example.get(itemId, (err, data) => {
         if (err) {
           res.status(500).send(err);
@@ -18,15 +18,40 @@ module.exports = {
 
     },
   },
-  account: {
+  pastRentals: {
     get: (req, res) => {
-      models.example.get(itemId, (err, data) => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          res.send(data);
-        }
-      });
+      res.send('this route will send a history of past transactions');
+    //   models.example.get(itemId, (err, data) => {
+    //     if (err) {
+    //       res.status(500).send(err);
+    //     } else {
+    //       res.send(data);
+    //     }
+    //   });
     },
   },
+  listings: {
+    get: (req, res) => {
+      res.send('this route will send user a list of their posted items');
+    //   models.example.get(itemId, (err, data) => {
+    //     if (err) {
+    //       res.status(500).send(err);
+    //     } else {
+    //       res.send(data);
+    //     }
+    //   });
+    },
+  },
+  earnings: {
+    get: (req, res) => {
+      res.send('this route will send back data on money earned');
+    //   models.example.get(itemId, (err, data) => {
+    //     if (err) {
+    //       res.status(500).send(err);
+    //     } else {
+    //       res.send(data);
+    //     }
+    //   });
+    },
+  }
 };
