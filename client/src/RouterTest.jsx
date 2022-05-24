@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RouterTest() {
+const RouterTest = () => {
   return <h1>RouterTest</h1>;
 }
 
