@@ -4,7 +4,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import * as ReactDOM from 'react-dom/client';
 import App from './app.jsx';
 import FAQ from './FAQ.jsx';
