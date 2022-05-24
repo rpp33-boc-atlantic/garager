@@ -1,15 +1,15 @@
 const express = require('express');
 const accountRouter = require('./routes/account.routes.js');
-let app = express();
 
-var bodyParser = require('body-parser');
+
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
+
+app.use('/account/',accountRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-app.use('/account/',accountRouter);
-
-app.get('/test', (req, res) => {
-  res.status(200).send({ message: 'it works!'});
-});
+app.use(express.static(path.join(__dirname, '../client')));
 
 
 module.exports = app;
