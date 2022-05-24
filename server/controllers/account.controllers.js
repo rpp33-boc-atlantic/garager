@@ -8,7 +8,7 @@ module.exports = {
   upcomingRentals: {
     get: (req, res) => {
       res.send('this route will send back rental information');
-     /* models.example.get(itemId, (err, data) => {
+      /* models.example.get(itemId, (err, data) => {
         if (err) {
           res.status(500).send(err);
         } else {
