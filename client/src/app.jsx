@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import Checkout from './checkout/Checkout.jsx';
 
 const App = () => {
 
@@ -11,6 +12,7 @@ const App = () => {
         <Link to='RouterTest'>RouterTest</Link>
       </nav>
       <Outlet />
+      <Checkout />
     </div>
   );
 };
