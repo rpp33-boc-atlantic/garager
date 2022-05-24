@@ -1,1 +1,10 @@
-// We can make individual directories for our features and organize our directory as we see fit.
+import React, { useState } from 'react';
+
+const Checkout = () => {
+
+  return (
+    <h1>Checkout</h1>
+  );
+};
+
+export default Checkout;
