@@ -4,7 +4,6 @@ import { Outlet, Link } from 'react-router-dom';
 import PostItem from './postItem/postItem.jsx';
 
 const App = () => {
-
   return (
     <div>
       <h1>Garager</h1>
