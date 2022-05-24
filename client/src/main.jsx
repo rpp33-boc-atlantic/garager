@@ -1,12 +1,23 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 import App from './app.jsx';
+import FAQ from './FAQ.jsx';
+import RouterTest from './RouterTest.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
-    <App />
+    <Routes>
+      <Route path='/client/index.html' element={<App />}>
+        <Route path='FAQ' element={<FAQ />} />
+        <Route path='RouterTest' element={<RouterTest />} />
+      </Route>
+    </Routes>
   </BrowserRouter>
 );
