@@ -15,7 +15,7 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path='/client/index.html' element={<App />}>
+      <Route path='/' element={<App />}>
         <Route path='FAQ' element={<FAQ />} />
         <Route path='RouterTest' element={<RouterTest />} />
       </Route>
