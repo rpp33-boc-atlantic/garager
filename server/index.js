@@ -11,7 +11,6 @@ app.get('/test', (req, res) => {
   res.send('hi');
 });
 
-
 // All other routes must go above this function
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
