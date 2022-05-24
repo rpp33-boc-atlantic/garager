@@ -9,7 +9,6 @@ module.exports = {
   },
   // parser: "babel-eslint",
   parser: "@babel/eslint-parser",
-  // parser: "../node_modules/@babel/eslint-parser"
   parserOptions: {
     requireConfigFile: false,
     babelOptions: {
@@ -17,11 +16,10 @@ module.exports = {
     },
     ecmaFeatures: {
       'jsx': true,
-
-
     },
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    // "allowImportExportEverywhere": true
+
   },
   rules: {
     /* Indentation */
