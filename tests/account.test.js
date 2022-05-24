@@ -9,10 +9,10 @@ describe('test server routes', function() {
 
   test('Happy Path: GET /test', async() => {
     await supertest(server).get('/test')
-    .expect(200)
-    .then((response) => {
-      expect(response.text).toEqual('{"message":"it works!"}');
-    });
+      .expect(200)
+      .then((response) => {
+        expect(response.text).toEqual('{"message":"it works!"}');
+      });
   });
 
 

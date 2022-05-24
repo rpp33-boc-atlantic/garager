@@ -8,7 +8,7 @@
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
     "start": "nodemon server/app.js",
-    "lint": " npm eslint . --ext .js,.jsx"
+    "lint": " npx eslint . --ext .js,.jsx"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,6 @@
     "@babel/preset-env": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
     "babel-loader": "^8.2.5",
-    "eslint": "^8.16.0",
     "jest": "^28.1.0",
     "supertest": "^6.2.3",
     "webpack": "^5.72.1",
