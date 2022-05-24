@@ -8,6 +8,7 @@ const App = () => {
       <nav>
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'>RouterTest</Link>
+        <Link to='Messages'>Messages</Link>
       </nav>
       <Outlet />
     </div>

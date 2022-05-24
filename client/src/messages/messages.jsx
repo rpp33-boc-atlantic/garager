@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import sampleThreads from './sampleThreads.js';
 
 const Messages = () => {
 
+  const [activeThread, setActiveThread] = useState(0);
+  const [threads, updateThreads] = useState(sampleThreads);
+
   return (
-    <h1>Messages</h1>
+    <p>{threads[0].theirUsername}</p>
   );
 };
 
