@@ -17,6 +17,9 @@ jobs:
           name: Test code
           uses: actions/checkout@v2
         -
+          name: Run ESLint
+          run: npm run lint
+        -
           name: Install packages
           run: npm ci
         -
@@ -25,6 +28,4 @@ jobs:
         -
           name: Install modules
           run: yarn
-        -
-          name: Run ESLint
-          run: npm run lint
+
