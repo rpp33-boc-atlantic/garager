@@ -1,4 +1,4 @@
-/* This is where we can put our higher order components, components that share functionality across different features, etc. 
+/* This is where we can put our higher order components, components that share functionality across different features, etc.
 
 EXAMPLE FROM FEC BELOW:
 
@@ -45,3 +45,4 @@ const withInteractions = (WrappedComponent, widget) => {
 };
 
 export default withInteractions;
+*/
