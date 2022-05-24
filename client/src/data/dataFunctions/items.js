@@ -39,30 +39,36 @@ var brands = [
 
 var condition = ['excellent', 'used', 'good', 'great', 'usable'];
 var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
+
+
 var status = ['unavailable', 'available'];
-var gear = {};
+var gear = [];
 
 //iterate and create i random items.
 for (var i = 0; i < 40; i ++) {
   var item = {};
-
   var conditionIndex = Math.floor((Math.random() * condition.length));
   var categoryNum = Math.floor((Math.random() * categories.length));
   var oneToFour = Math.floor((Math.random() * 4));
 
   item['id'] = i;
   //item['city'] =
-  //item['zipcode'] =
+  item['zipcode'] = Math.floor(Math.random() * 49971 ) + 48001;
+  item['state'] = 'MI';
   item['description'] = nouns[categoryNum][oneToFour] + ' -In ' + condition[conditionIndex] + ' condition';
   item['price'] = Math.floor((Math.random() * 100) + 4);
+  item['minimumPrice'] = Math.floor((Math.random() * item['price'] * .75) + 2);
   item['category'] = categories[categoryNum];
   item['brand'] = brands[categoryNum][Math.floor(Math.random() * 4)];
   item['timesRented'] = Math.floor(Math.random() * 10);
   item['owner'] = owners[Math.floor(Math.random() * owners.length)];
   item['status'] = status[Math.floor(Math.random() * status.length)];
   item['model'] = '';
+
   item['name'] = item['brand'] + ' ' + nouns[categoryNum][oneToFour];
-  gear[item['id']] = item;
+  // gear[item['id']] = item;
+  // add item to gear array
+  gear.push(item);
 
 
 }
