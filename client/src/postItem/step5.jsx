@@ -46,8 +46,8 @@ class Step5 extends Component {
             id="date"
             label="Available From"
             type="date"
-            onChange={handleChange('availableFrom')}
-            defaultValue={values.availableFrom || ''}
+            onChange={handleChange('availableTo')}
+            defaultValue={values.availableTo || ''}
             InputLabelProps={{
               shrink: true,
             }}

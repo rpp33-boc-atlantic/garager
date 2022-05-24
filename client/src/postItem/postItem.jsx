@@ -44,10 +44,10 @@ class PostItem extends Component {
 
   handleChange (input) {
     return (e)=> {
-      if (this.state.step === 3) {
+      if (input === 'nameYourOwnPrice') {
         this.setState ({ [input]: e.target.checked });
       } else {
-        this.setState ({ [input]: e.target.value });
+        this.setState ({ [input]: e.target.value }, () => { console.log(this.state); });
       }
     };
   }
