@@ -17,15 +17,15 @@ jobs:
           name: Test code
           uses: actions/checkout@v2
         -
-          name: Run ESLint
-          run: npm run lint
-        -
           name: Install packages
           run: npm ci
+        -
+          name: Install modules
+          run: yarn
         -
           name: Run Tests
           run: npm run ci:test
         -
-          name: Install modules
-          run: yarn
+          name: Run ESLint
+          run: npm run lint
 

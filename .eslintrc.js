@@ -3,13 +3,13 @@
  * Visit this repo for more information:
  *   https://github.com/reactorcore/eslint-config-hackreactor
  */
-
 module.exports = {
   env: {
     'es6': true
   },
   // parser: "babel-eslint",
   parser: "@babel/eslint-parser",
+  // parser: "../node_modules/@babel/eslint-parser"
   parserOptions: {
     requireConfigFile: false,
     babelOptions: {
