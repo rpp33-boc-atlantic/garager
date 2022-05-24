@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import sampleThreads from './sampleThreads.js';
+import ThreadList from './thread-list.jsx';
+import Header from './header.jsx';
 
 const Messages = () => {
 
-  const [activeThread, setActiveThread] = useState(0);
+  const [activeThread, selectThread] = useState(0);
   const [threads, updateThreads] = useState(sampleThreads);
 
   return (
-    <p>{threads[0].theirUsername}</p>
+    <React.Fragment>
+      <Header thread={threads[activeThread]}/>
+      <ThreadList threads={threads} selectThread={selectThread}/>
+    </React.Fragment>
   );
 };
 
