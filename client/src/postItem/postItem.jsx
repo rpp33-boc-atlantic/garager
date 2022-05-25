@@ -55,20 +55,10 @@ class PostItem extends Component {
     };
   }
 
-  handleSubmit (postData) {
+  handleSubmit (input) {
     //axios post request
-    console.log('post data', postData);
-    let data = postData;
-    for (let key in data) {
-      if (key === 'price') {
-        data[key] = 0;
-      } else if (key === 'nameYourOwnPrice' || 'minimunAcceptedPrice') {
-        data[key] = false;
-      } else {
-        data[key] = '';
-      }
-    }
-    this.setState({ step: 0, data }, () => { console.log(this.state.postData); });
+    console.log('post data', input);
+    // reset postData
   }
 
   render () {

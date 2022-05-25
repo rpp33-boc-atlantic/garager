@@ -15,11 +15,11 @@ class Step5 extends Component {
     this.back = this.back.bind(this);
   }
 
-  submit (postData) {
+  submit (input) {
     return (e) => {
       e.preventDefault();
-      this.props.handleSubmit(postData);
-    };
+    this.props.handleSubmit(input);
+    }
   }
 
   back (e) {
