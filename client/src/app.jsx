@@ -1,8 +1,6 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import PostItem from './postItem/postItem.jsx';
-
 const App = () => {
   return (
     <div>
@@ -10,9 +8,9 @@ const App = () => {
       <nav>
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'>RouterTest</Link>
+        <Link to='PostItem'>Post Item</Link>
       </nav>
       <Outlet />
-      <PostItem />
     </div>
   );
 };

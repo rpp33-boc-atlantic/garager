@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
-import InputLabel from '@material-ui/core/InputLabel';
-import Button from '@material-ui/core/Button';
+import { ThemeProvider } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import Button from '@mui/material/Button';
 import theme from '../utils/theme.js';
 
 //step5 includes time availability

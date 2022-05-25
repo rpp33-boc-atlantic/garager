@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
-import InputLabel from '@material-ui/core/InputLabel';
-import Button from '@material-ui/core/Button';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
+import { ThemeProvider } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import Button from '@mui/material/Button';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 import theme from '../utils/theme.js';
 
 //Step3 includes price, nyop, minimum accepted price
@@ -32,7 +31,7 @@ class Step3 extends Component {
   render () {
     const { values, handleChange } = this.props;
     return (
-      <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         <React.Fragment>
           <h3>How much do you want to rent it for?</h3>
           <Box
@@ -80,7 +79,7 @@ class Step3 extends Component {
             onClick={this.continue}
           >Next</Button>
         </React.Fragment>
-      </MuiThemeProvider>
+      </ThemeProvider>
     );
   }
 }
