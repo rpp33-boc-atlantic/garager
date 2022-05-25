@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 const App = () => {
   return (
     <div>
       <h1>Garager</h1>
       <nav>
+        <Link to='Signup'>Signup</Link>
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'>RouterTest</Link>
         <Link to='PostItem'>Post Item</Link>
