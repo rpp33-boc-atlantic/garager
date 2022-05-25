@@ -1,12 +1,12 @@
 export default [
   {
-    itemId: 3498, // is this necessary?
+    threadId: 3498,
     itemName: 'chaos magic',
     itemImageUrl: null,
     username: 'wanda maximoff',
     userImageUrl: null,
     userRole: 'owner',
-    lastMessage: 'what do you think of the item?',
+    lastMessage: 'what do you think of my power?',
     timeUpdated: 1653359934,
     viewed: false,
     messages: [
