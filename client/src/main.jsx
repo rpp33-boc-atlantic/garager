@@ -1,4 +1,6 @@
 import React from 'react';
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { createRoot } from 'react-dom/client';
 import {
   BrowserRouter,
