@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreadTile from './thread-tile.jsx';
+import ThreadTile from './ThreadTile.jsx';
 
 const ThreadList = (props) => {
 

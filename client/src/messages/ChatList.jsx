@@ -1,6 +1,6 @@
 import React from 'react';
-import ChatBubble from './chat-bubble.jsx';
-import ChatInput from './chat-input.jsx';
+import ChatBubble from './ChatBubble.jsx';
+import ChatInput from './ChatInput.jsx';
 
 const ChatList = (props) => {
 

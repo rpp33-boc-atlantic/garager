@@ -12,7 +12,7 @@ import App from './app.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
 import PostItem from './postItem/postItem.jsx';
-import Messages from './messages/messages.jsx';
+import Messages from './messages/Messages.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

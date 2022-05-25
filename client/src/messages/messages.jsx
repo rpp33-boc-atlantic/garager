@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import sampleThreads from './sampleThreads.js';
-import ThreadList from './thread-list.jsx';
-import Header from './header.jsx';
-import ChatList from './chat-list.jsx';
+import ThreadList from './ThreadList.jsx';
+import Header from './Header.jsx';
+import ChatList from './ChatList.jsx';
 
 const Messages = () => {
 
