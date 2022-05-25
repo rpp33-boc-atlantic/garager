@@ -3,17 +3,23 @@
  * Visit this repo for more information:
  *   https://github.com/reactorcore/eslint-config-hackreactor
  */
-
 module.exports = {
   env: {
     'es6': true
   },
+  // parser: "babel-eslint",
+  parser: "@babel/eslint-parser",
   parserOptions: {
+    requireConfigFile: false,
+    babelOptions: {
+      "presets": ["@babel/preset-react"]
+    },
     ecmaFeatures: {
-      'jsx': true
+      'jsx': true,
     },
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    // "allowImportExportEverywhere": true
+
   },
   rules: {
     /* Indentation */
