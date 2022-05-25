@@ -8,7 +8,7 @@ import {
   Route,
 } from 'react-router-dom';
 import * as ReactDOM from 'react-dom/client';
-import App from './app.jsx';
+import App from './App.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
 import PostItem from './postItem/postItem.jsx';
