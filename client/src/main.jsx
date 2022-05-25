@@ -1,4 +1,6 @@
 import React from 'react';
+// Importing the Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { createRoot } from 'react-dom/client';
 import {
   BrowserRouter,
@@ -9,6 +11,7 @@ import * as ReactDOM from 'react-dom/client';
 import App from './app.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
+import PostItem from './postItem/postItem.jsx';
 import Messages from './messages/messages.jsx';
 
 const container = document.getElementById('root');
@@ -19,6 +22,7 @@ root.render(
       <Route path='/' element={<App />}>
         <Route path='FAQ' element={<FAQ />} />
         <Route path='RouterTest' element={<RouterTest />} />
+        <Route path='PostItem' element={<PostItem />} />
         <Route path='Messages' element={<Messages />} />
       </Route>
     </Routes>
