@@ -7,15 +7,15 @@ import RentForm from './RentForm.jsx';
 
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 100%;
+  display: grid;
+  background: #eee;
+  padding: 1em;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+  justify-items: stretch;
+  // align-items: center;
 
-  .itemName {
-    font-size: 20px;
-    padding: 10px 32px;
-    justify-content: left;
-  }
 `;
 
 class Item extends React.Component {
@@ -25,13 +25,14 @@ class Item extends React.Component {
   }
   render () {
     return (
-      <Container>
-        <h1 className='itemName'>Item!!</h1>
-        <ImageGallery/>
-        <ItemDetails/>
-        <OwnerAndAvailability/>
-        <RentForm/>
-      </Container>
+      <div>
+        <Container>
+          <ImageGallery className='gallery'/>
+          <OwnerAndAvailability className='owner'/>
+          <ItemDetails className='details'/>
+          <RentForm className='form'/>
+        </Container>
+      </div>
     );
   }
 };
