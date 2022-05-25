@@ -18,8 +18,8 @@ class Step5 extends Component {
   submit (input) {
     return (e) => {
       e.preventDefault();
-    this.props.handleSubmit(input);
-    }
+      this.props.handleSubmit(input);
+    };
   }
 
   back (e) {
