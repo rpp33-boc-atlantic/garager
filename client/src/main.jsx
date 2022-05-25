@@ -12,6 +12,7 @@ import App from './app.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
 import PostItem from './postItem/postItem.jsx';
+import Messages from './messages/Messages.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -22,6 +23,7 @@ root.render(
         <Route path='FAQ' element={<FAQ />} />
         <Route path='RouterTest' element={<RouterTest />} />
         <Route path='PostItem' element={<PostItem />} />
+        <Route path='Messages' element={<Messages />} />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -11,6 +11,7 @@ const App = () => {
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'>RouterTest</Link>
         <Link to='PostItem'>Post Item</Link>
+        <Link to='Messages'>Messages</Link>
       </nav>
       <Outlet />
     </div>
@@ -21,9 +22,9 @@ export default App;
 
 /* <-- COMMENT OUT ABOVE CODE AND UNCOMMENT FROM THIS POINT TO SEE THIS IN THE BROWSER
 
-// Below is an example of how we can use React Bootstrap for our app. 
-// Example CSS file named App-CSS-Example.css. 
-// Taken from 'Basic Example' in https://github.com/react-bootstrap/code-sandbox-examples/blob/master/README.md. 
+// Below is an example of how we can use React Bootstrap for our app.
+// Example CSS file named App-CSS-Example.css.
+// Taken from 'Basic Example' in https://github.com/react-bootstrap/code-sandbox-examples/blob/master/README.md.
 // Check out the 'Basic Example with React-Router-Bootstrap' so we can navigate to different pages.
 
 import React, { useState } from 'react';
@@ -69,7 +70,7 @@ export default App;
 
 /* <-- COMMENT OUT ABOVE CODE AND UNCOMMENT FROM THIS POINT TO SEE THIS IN THE BROWSER
 
-// Below is an example of how we can use Material UI for our app. 
+// Below is an example of how we can use Material UI for our app.
 // Example taken from https://mui.com/material-ui/getting-started/usage/
 
 import * as React from 'react';
