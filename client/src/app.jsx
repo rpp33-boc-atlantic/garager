@@ -10,6 +10,7 @@ const App = () => {
       <nav>
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'>RouterTest</Link>
+        <Link to='PostItem'>Post Item</Link>
       </nav>
       <Outlet />
     </div>
