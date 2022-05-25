@@ -6,16 +6,16 @@ import ChatList from './chat-list.jsx';
 
 const Messages = () => {
 
-  const [threads, updateThreads] = useState(sampleThreads);
-  const [activeThread, selectThread] = useState(0);
+  const [ threads, updateThreads ] = useState(sampleThreads);
+  const [ activeThread, selectThread ] = useState(0);
 
   return (
     <React.Fragment>
-      <Header thread={threads[activeThread]}/>
+      <Header thread={ threads[activeThread] }/>
       <ThreadList threads={threads} selectThread={selectThread}/>
       <ChatList
-        theirMessages={threads[activeThread].theirMessages}
-        myMessages={threads[activeThread].myMessages}
+        theirMessages={ threads[activeThread].theirMessages }
+        myMessages={ threads[activeThread].myMessages }
       />
     </React.Fragment>
   );

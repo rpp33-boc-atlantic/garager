@@ -3,7 +3,7 @@ import React from 'react';
 const Header = (props) => {
 
   return (
-    <p>Header: {props.thread.theirUsername}, {props.thread.itemName}</p>
+    <p>Header: { props.thread.theirUsername }, { props.thread.itemName }</p>
   );
 };
 

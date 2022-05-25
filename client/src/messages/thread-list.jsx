@@ -6,7 +6,7 @@ const ThreadList = (props) => {
   const onThreadClick = () => {};
 
   return (
-    <ThreadTile thread={props.threads[0]}/>
+    <ThreadTile thread={ props.threads[0] }/>
   );
 };
 
