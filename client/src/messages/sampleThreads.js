@@ -1,8 +1,8 @@
 export default [
   {
-    productId: 3498,
-    productName: 'wrench',
-    productImageUrl: null,
+    itemId: 3498,
+    itemName: 'wrench',
+    itemImageUrl: null,
     theirRole: 'owner',
     theirUsername: 'dude bro',
     theirImageUrl: null,
@@ -11,14 +11,14 @@ export default [
     viewed: false,
     theirMessages: [
       {
-        body: 'what do you think of the item?',
+        text: 'what do you think of the item?',
         imageUrl: null,
         timeCreated: 1653359934
       }
     ],
     myMessages: [
       {
-        body: `it's okay`,
+        text: `it's okay`,
         imageUrl: null,
         timeCreated: 1653359510
       }

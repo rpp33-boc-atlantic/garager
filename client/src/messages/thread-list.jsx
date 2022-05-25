@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ThreadTile from './thread-tile.jsx';
 
 const ThreadList = (props) => {

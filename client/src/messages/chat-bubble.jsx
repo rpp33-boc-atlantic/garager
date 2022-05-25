@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ChatBubble = (props) => {
 
   const onImageClick = () => {};
 
   return (
-    <p>Bubble: {props.message.body}</p>
+    <p>Bubble: {props.message.text}</p>
   );
 };
 

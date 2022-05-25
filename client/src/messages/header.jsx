@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Header = (props) => {
 
   return (
-    <p>Header: {props.thread.theirUsername}, {props.thread.productName}</p>
+    <p>Header: {props.thread.theirUsername}, {props.thread.itemName}</p>
   );
 };
 

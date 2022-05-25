@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ChatBubble from './chat-bubble.jsx';
 import ChatInput from './chat-input.jsx';
 
