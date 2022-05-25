@@ -7,15 +7,14 @@ import ChatList from './ChatList.jsx';
 const Messages = () => {
 
   const [ threads, updateThreads ] = useState(sampleThreads);
-  const [ activeThread, selectThread ] = useState(0);
+  const [ activeThread, changeThread ] = useState(0);
 
   return (
     <React.Fragment>
       <Header thread={ threads[activeThread] }/>
-      <ThreadList threads={threads} selectThread={selectThread}/>
+      <ThreadList threads={threads} changeThread={changeThread}/>
       <ChatList
-        theirMessages={ threads[activeThread].theirMessages }
-        myMessages={ threads[activeThread].myMessages }
+        messages={ threads[activeThread].messages }
       />
     </React.Fragment>
   );
