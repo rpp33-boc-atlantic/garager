@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   display: grid;
@@ -10,10 +11,17 @@ const Container = styled.div`
 `;
 
 const OwnerAndAvailability = (props) => {
-
+  // console.log('props here', props)
   return (
     <Container>
-      Item name, availability, and owner
+
+      <h2>{props.name}</h2>
+      <h3>This item is: {props.availability ? 'Available' : 'Not Available'}</h3>
+      <h3>Item Owner: {props.owner.name}</h3>
+      <h4>{props.owner.description}</h4>
+      <Link to="/FAQ">
+        <button>Message</button>
+      </Link>
     </Container>
   )
 
