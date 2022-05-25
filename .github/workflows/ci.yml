@@ -1,7 +1,7 @@
 name: ci
 
 on:
-  push: 
+  push:
     branches:
       - main
       - '*'
@@ -10,15 +10,22 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
-    steps:
-      -
-        name: Test code
-        uses: actions/checkout@v2
-      - 
-        name: Install packages
-        run: npm ci
-      -
-        name: Run Tests
-        run: npm run ci:test
+      steps:
+        -
+          name: Test code
+          uses: actions/checkout@v2
+        -
+          name: Install packages
+          run: npm ci
+        -
+          name: Install modules
+          run: yarn
+        -
+          name: Run Tests
+          run: npm run ci:test
+        -
+          name: Run ESLint
+          run: npm run lint
+
