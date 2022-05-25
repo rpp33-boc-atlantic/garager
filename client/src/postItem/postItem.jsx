@@ -50,7 +50,7 @@ class PostItem extends Component {
       if (input === 'nameYourOwnPrice') {
         this.setState ({ postData: { [input]: e.target.checked }});
       } else {
-        this.setState ({ postData: {[input]: e.target.value }}, () => { console.log(this.state); });
+        this.setState ({ postData: {[input]: e.target.value }});
       }
     };
   }
