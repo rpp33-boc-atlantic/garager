@@ -9,6 +9,8 @@ const Container = styled.div`
 
 const NYOP = styled.div``;
 
+const RentButton = styled.div``;
+
 class RentForm extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,6 @@ class RentForm extends React.Component {
       pickUpDate: null,
       returnDate: null,
       suggestedPrice: null
-      // totalCost: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -77,6 +78,9 @@ class RentForm extends React.Component {
     var suggestedPrice = <NYOP><label htmlFor='suggestedPrice'>Suggested price per day ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange}></input> <br></br></NYOP>;
     var suggestedPriceLine = this.props.formInfo.nameYourOwnPrice ? suggestedPrice : null;
 
+    var rentButton = <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit}></input></RentButton>;
+    var rentLine = this.props.availability ? rentButton : 'Item currently unavailable.';
+
     return (
       <Container>
         <form>
@@ -86,7 +90,8 @@ class RentForm extends React.Component {
           <label htmlFor='returnDate'>Return Date:</label>
           <input type='date' id='returnDate' name='returnDate' onChange={this.handleChange}></input><br></br>
           {suggestedPriceLine}
-          <input type='submit' value='Rent' onClick={this.handleSubmit}></input>
+          {rentLine}
+
         </form>
       </Container>
     )
