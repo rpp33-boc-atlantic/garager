@@ -1,12 +1,22 @@
 const express = require('express');
-let app = express();
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
+const messagesRoutes = require('./routes/messages.routes.js');
 
-var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/test', (req, res) => {
-  res.status(200).send({ message: 'it works!'});
+  res.send('hi');
+});
+
+app.use('/messages', messagesRoutes);
+
+// All other routes must go above this function
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 module.exports = app;
