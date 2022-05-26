@@ -3,10 +3,22 @@ import ThreadTile from './ThreadTile.jsx';
 
 const ThreadList = (props) => {
 
-  const onThreadClick = () => {};
+  const handleClick = (index) => {
+    props.changeThread(index);
+  };
 
   return (
-    <ThreadTile thread={ props.threads[0] }/>
+    <React.Fragment>
+      {
+        props.threads.map(( thread, index ) => {
+          return (
+            <div aria-label={ `thread-tile-${index}` } key={ index } onClick={ () => handleClick(index) }>
+              <ThreadTile thread={ thread }/>
+            </div>
+          );
+        })
+      }
+    </React.Fragment>
   );
 };
 
