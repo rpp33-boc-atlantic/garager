@@ -1,23 +1,23 @@
 export default [
   {
-    itemId: 3498,
+    threadId: 3498,
     itemName: 'chaos magic',
     itemImageUrl: null,
-    theirRole: 'owner',
-    theirUsername: 'wanda maximoff',
-    theirImageUrl: null,
-    lastMessage: 'what do you think of the item?',
+    username: 'wanda maximoff',
+    userImageUrl: null,
+    userRole: 'owner',
+    lastMessage: 'what do you think of my power?',
     timeUpdated: 1653359934,
     viewed: false,
-    theirMessages: [
+    messages: [
       {
+        username: 'wanda maximoff',
         text: 'what do you think of my power?',
         imageUrl: null,
         timeCreated: 1653359934
-      }
-    ],
-    myMessages: [
+      },
       {
+        username: 'stephen strange',
         text: `it's a bit much, tbh`,
         imageUrl: null,
         timeCreated: 1653359510
