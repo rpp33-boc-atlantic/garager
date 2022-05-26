@@ -15,9 +15,11 @@ const Messages = () => {
       username: 'stephen strange',
       text: message,
       imageUrl: null,
-      timeCreated: 1653515325
+      timeCreated: Date.now()
     };
     newThreads[ activeThread ].messages.push( newMessage );
+    newThreads[ activeThread ].timeUpdated = Date.now();
+    newThreads[ activeThread ].lastMessage = message;
     updateThreads( newThreads );
   };
 

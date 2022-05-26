@@ -9,7 +9,7 @@ const ThreadTile = (props) => {
         {props.thread.username}<br />
         {props.thread.itemName}<br />
         {props.thread.lastMessage}<br />
-        {moment.unix(props.thread.timeUpdated).fromNow()}
+        {moment(props.thread.timeUpdated).fromNow()}
       </p>
     </React.Fragment>
   );

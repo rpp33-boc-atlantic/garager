@@ -8,27 +8,28 @@ import Header from '../client/src/messages/Header.jsx';
 import Messages from '../client/src/messages/Messages.jsx';
 import ThreadList from '../client/src/messages/ThreadList.jsx';
 import ThreadTile from '../client/src/messages/ThreadTile.jsx';
+import moment from 'moment';
 
 describe('Messages', ()=>{
 
   test('Should render all components with correct data', () => {
     render(<Messages />);
-    expect(screen.getByText('Header: wanda maximoff, chaos magic')).toBeInTheDocument();
-    expect(screen.getByText('Thread tile: chaos magic')).toBeInTheDocument();
-    expect(screen.getByText('wanda maximoff: what do you think of my power?')).toBeInTheDocument();
-    expect(screen.getByText(`stephen strange: it's a bit much, tbh`)).toBeInTheDocument();
+    expect(screen.getByText('wanda maximoff, chaos magic', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('days ago', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('wanda maximoff: what do you think of my power?', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText(`stephen strange: it's a bit much, tbh`, { exact: false })).toBeInTheDocument();
   });
 
   test('Should update messages on chat input submit', () => {
     render(<Messages />);
     fireEvent.change(screen.getByLabelText('chat-input'), {target: {value: 'test message'}});
     fireEvent(screen.getByLabelText('chat-submit'), new MouseEvent('click'));
-    expect(screen.getByText('stephen strange: test message')).toBeInTheDocument();
+    expect(screen.getByText('stephen strange: test message', { exact: false })).toBeInTheDocument();
   });
 
   test('Should update chat window on thread click', () => {
     render(<Messages />);
     fireEvent.click(screen.getByLabelText('thread-tile-1'));
-    expect(screen.getByText('thanos: what do you think of my gauntlet?')).toBeInTheDocument();
+    expect(screen.getByText('thanos: what do you think of my gauntlet?', { exact: false })).toBeInTheDocument();
   });
 });
