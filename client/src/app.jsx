@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
+// placeholder for checkout button until linked with ItemView
+import CheckoutButton from './checkout/CheckoutButton.jsx';
 
 const App = () => {
   return (
@@ -14,6 +16,7 @@ const App = () => {
         <Link to='Messages'>Messages</Link>
       </nav>
       <Outlet />
+      <CheckoutButton />
     </div>
   );
 };
