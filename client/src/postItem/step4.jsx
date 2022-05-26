@@ -16,7 +16,7 @@ class Step4 extends Component {
     this.state = {
       address: '',
       latLng: {}
-    }
+    };
     this.continue = this.continue.bind(this);
     this.back = this.back.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
