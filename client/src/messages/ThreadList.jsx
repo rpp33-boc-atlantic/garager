@@ -12,7 +12,7 @@ const ThreadList = (props) => {
       {
         props.threads.map(( thread, index ) => {
           return (
-            <div key={ index } onClick={ () => handleClick(index) }>
+            <div aria-label={ `thread-tile-${index}` } key={ index } onClick={ () => handleClick(index) }>
               <ThreadTile thread={ thread }/>
             </div>
           );

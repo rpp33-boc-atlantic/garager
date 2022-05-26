@@ -25,4 +25,10 @@ describe('Messages', ()=>{
     fireEvent(screen.getByLabelText('chat-submit'), new MouseEvent('click'));
     expect(screen.getByText('stephen strange: test message')).toBeInTheDocument();
   });
+
+  test('Should update chat window on thread click', () => {
+    render(<Messages />);
+    fireEvent.click(screen.getByLabelText('thread-tile-1'));
+    expect(screen.getByText('thanos: what do you think of my gauntlet?')).toBeInTheDocument();
+  });
 });
