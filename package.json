@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch --coverage ./tests",
-    "test:authentication": "jest client/src/authentication",
     "test:messages": "jest --coverage tests/messages.test.js",
+    "test:authentication": "jest tests/authTest/ --detectOpenHandles --collectCoverage",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
     "build-docker": "webpack --mode development",
