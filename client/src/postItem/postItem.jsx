@@ -21,12 +21,14 @@ class PostItem extends Component {
       minimunAcceptedPrice: 0,
       availableFrom: '',
       availableTo: '',
+      photos: null,
       latLng: {},
       address1: ''
     };
     this.changeToPrevious = this.changeToPrevious.bind(this);
     this.changeToNext = this.changeToNext.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleUploadPhotos = this.handleUploadPhotos.bind(this);
     this.handleSelectLocation = this.handleSelectLocation.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -55,6 +57,10 @@ class PostItem extends Component {
     };
   }
 
+  handleUploadPhotos (photos) {
+    this.setState({ photos: photos }, () => { this.changeToNext(); });
+  }
+
   handleSelectLocation (address, latLng) {
     this.setState ({ address1: address, latLng: latLng });
   }
@@ -67,8 +73,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address1, latLng } = this.state;
-    const values = { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address1, latLng };
+    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
+    const values = { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
 
     switch (step) {
     case 1:
@@ -76,6 +82,7 @@ class PostItem extends Component {
         <Step1
           changeToNext={this.changeToNext}
           handleChange={this.handleChange}
+          handleUploadPhotos={this.handleUploadPhotos}
           values={values}
         />
       );
