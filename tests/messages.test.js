@@ -11,7 +11,7 @@ import ThreadTile from '../client/src/messages/ThreadTile.jsx';
 
 describe('Messages', ()=>{
 
-  test('Should render all components', () => {
+  test('Should render all components with correct data', () => {
     render(<Messages />);
     expect(screen.getByText('Header: wanda maximoff, chaos magic')).toBeInTheDocument();
     expect(screen.getByText('Thread tile: chaos magic')).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe('Messages', ()=>{
     expect(screen.getByText(`stephen strange: it's a bit much, tbh`)).toBeInTheDocument();
   });
 
-  test('Should update messages on submit', () => {
+  test('Should update messages on chat input submit', () => {
     render(<Messages />);
     fireEvent.change(screen.getByLabelText('chat-input'), {target: {value: 'test message'}});
     fireEvent(screen.getByLabelText('chat-submit'), new MouseEvent('click'));
