@@ -17,7 +17,7 @@ var random = function (min = 0, max) {
 };
 
 
-for (var i = 0; i < 10; i ++) {
+for (var i = 0; i < 100; i ++) {
   var transaction = {};
 
   transaction['id'] = i;
@@ -37,9 +37,11 @@ for (var i = 0; i < 10; i ++) {
   transaction['dueDate'] = new Date(); // these dates need to be changed to different dates that arent too far apart from eachother
   transaction['dueDate'].setDate(transaction['dueDate'].getDate() + secondDate);
 
-  transactions[i] = transaction;
+  if (transaction['ownerId'] === 7 ) {
+    transactions[i] = transaction;
+  }
 }
 console.log(transactions);
 
-// let data = JSON.stringify(transactions, null, 2);
-// fs.writeFileSync('transactions.json', data);
+let data = JSON.stringify(transactions, null, 2);
+fs.writeFileSync('transactionsOwnerId7.json', data);
