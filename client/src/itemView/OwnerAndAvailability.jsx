@@ -31,7 +31,7 @@ const OwnerAndAvailability = (props) => {
       <h3>This item is: {props.availability ? 'Available' : 'Not Available'}</h3>
       <h3>Item Owner: {props.owner.name}</h3>
       <h4>{props.owner.description}</h4>
-      <Link to="/FAQ">
+      <Link to="/Messages">
         <button>Message</button>
       </Link>
     </Container>
