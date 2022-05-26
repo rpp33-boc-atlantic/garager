@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const messagesRoutes = require('./routes/messages.routes.js');
+const checkoutRoutes = require('./routes/checkout.routes.js');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
@@ -13,6 +15,8 @@ app.get('/test', (req, res) => {
 });
 
 app.use('/messages', messagesRoutes);
+
+app.use('/checkout', checkoutRoutes);
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
