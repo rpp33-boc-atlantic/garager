@@ -15,7 +15,7 @@ describe('Messages', ()=>{
   test('Should render all components with correct data', () => {
     render(<Messages />);
     expect(screen.getByText('wanda maximoff, chaos magic', { exact: false })).toBeInTheDocument();
-    expect(screen.getByText('days ago', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('not very useful without the inifinity stones', { exact: false })).toBeInTheDocument();
     expect(screen.getByText('wanda maximoff: what do you think of my power?', { exact: false })).toBeInTheDocument();
     expect(screen.getByText(`stephen strange: it's a bit much, tbh`, { exact: false })).toBeInTheDocument();
   });
