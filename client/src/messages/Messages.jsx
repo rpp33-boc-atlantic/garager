@@ -10,7 +10,7 @@ const Messages = () => {
   const [ activeThread, changeThread ] = useState(0);
 
   const addMessage = ( message ) => {
-    let newThreads = { ...threads };
+    let newThreads = [ ...threads ];
     let newMessage = {
       username: 'stephen strange',
       text: message,
