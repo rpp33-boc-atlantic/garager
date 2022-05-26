@@ -11,6 +11,7 @@ const App = () => {
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'> RouterTest</Link>
         <Link to='PostItem'> Post Item</Link>
+        <Link to='Messages'> Messages</Link>
         <Link to='Account'> Account</Link>
       </nav>
       <Outlet />
