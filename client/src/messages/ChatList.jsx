@@ -6,9 +6,11 @@ const ChatList = (props) => {
 
   return (
     <React.Fragment>
-      { props.messages.map(( message, index ) => {
-        return <ChatBubble key={ index } message={ message }/>;
-      })}
+      {
+        props.messages.map(( message, index ) => {
+          return <ChatBubble key={ index } message={ message }/>;
+        })
+      }
       <ChatInput addMessage={ props.addMessage }/>
     </React.Fragment>
   );

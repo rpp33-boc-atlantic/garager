@@ -9,7 +9,7 @@ const ChatInput = (props) => {
     props.addMessage( inputValue );
   };
 
-  const handleChange = (e) => {
+  const handleChange = () => {
     updateValue( e.target.value );
   };
 
