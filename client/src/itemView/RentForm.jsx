@@ -16,6 +16,7 @@ class RentForm extends React.Component {
       pickUpDate: null,
       returnDate: null,
       suggestedPrice: null
+      // totalCost: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,32 +36,45 @@ class RentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this.checkFormData()) {
-      // call server and proceed to checkout
-      console.log('gonna make request to server');
+    var cost = this.checkFormData()
+    if (cost) {
+      console.log('gonna make request to server and send total cost: ', cost);
     }
   }
 
   checkFormData() {
-    if (this.state.suggestedPrice !== null && this.state.suggestedPrice.length !== 0) {
-      if (parseInt(this.state.suggestedPrice) < this.props.formInfo.minimumPrice) {
+    var sugPrice = this.state.suggestedPrice;
+    var sugPriceIsValid = false;
+    if (sugPrice !== null && sugPrice.length !== 0) {
+      if (parseInt(sugPrice) < this.props.formInfo.minimumPrice) {
         alert('Suggested price is too low! Don\'t be cheap!');
         return false;
+      } else {
+        sugPriceIsValid = true;
       }
     }
     const pd = new Date(this.state.pickUpDate);
     const rd = new Date(this.state.returnDate);
+    const diffTime = Math.abs(rd - pd);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    console.log(diffDays + " days");
 
     if (rd > pd) {
-      console.log('All good')
-      return true;
+      var cost;
+      if (sugPriceIsValid) {
+        cost = diffDays * parseInt(sugPrice);
+      } else {
+        cost = diffDays * this.props.formInfo.price;
+      }
+      return cost;
     } else {
       alert('Return date must follow pick up date');
     }
+    return false;
   }
 
   render() {
-    var suggestedPrice = <NYOP><label htmlFor='suggestedPrice'>Suggested Price ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange}></input> <br></br></NYOP>;
+    var suggestedPrice = <NYOP><label htmlFor='suggestedPrice'>Suggested price per day ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange}></input> <br></br></NYOP>;
     var suggestedPriceLine = this.props.formInfo.nameYourOwnPrice ? suggestedPrice : null;
 
     return (
