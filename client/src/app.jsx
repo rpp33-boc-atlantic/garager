@@ -6,7 +6,7 @@ import { Outlet, Link } from 'react-router-dom';
 const App = () => {
   return (
     <div>
-      <h1>Garager!</h1>
+      <h1>Garager</h1>
       <nav style={{marginBottom: '20px'}}>
         <Link style={{marginRight: '10px'}} to='FAQ'>FAQ</Link>
         <Link style={{marginRight: '10px'}} to='RouterTest'>RouterTest</Link>
