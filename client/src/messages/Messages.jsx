@@ -11,15 +11,16 @@ const Messages = () => {
 
   const addMessage = ( message ) => {
     let newThreads = [ ...threads ];
+    let newThread = newThreads[ activeThread ];
     let newMessage = {
       username: 'stephen strange',
       text: message,
       imageUrl: null,
       timeCreated: Date.now()
     };
-    newThreads[ activeThread ].messages.push( newMessage );
-    newThreads[ activeThread ].timeUpdated = Date.now();
-    newThreads[ activeThread ].lastMessage = message;
+    newThread.messages.push( newMessage );
+    newThread.timeUpdated = Date.now();
+    newThread.lastMessage = message;
     updateThreads( newThreads );
   };
 
