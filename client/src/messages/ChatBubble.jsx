@@ -5,7 +5,7 @@ const ChatBubble = (props) => {
   const onImageClick = () => {};
 
   return (
-    <p>Bubble: { props.message.text }</p>
+    <p>{ props.message.username }: { props.message.text }</p>
   );
 };
 
