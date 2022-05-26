@@ -7,14 +7,14 @@ const App = () => {
   return (
     <div>
       <h1>Garager</h1>
-      <nav>
-        <Link to='FAQ'>FAQ</Link>
-        <Link to='RouterTest'> RouterTest</Link>
-        <Link to='PostItem'> Post Item</Link>
-        <Link to='Messages'> Messages</Link>
-        <Link to='Account'> Account</Link>
+      <nav style={{marginBottom: '20px'}}>
+        <Link style={{marginRight: '10px'}} to='FAQ'>FAQ</Link>
+        <Link style={{marginRight: '10px'}} to='RouterTest'>RouterTest</Link>
+        <Link style={{marginRight: '10px'}} to='PostItem'>Post Item</Link>
+        <Link style={{marginRight: '10px'}} to='Messages'>Messages</Link>
+        <Link style={{marginRight: '10px'}} to='Account'> Account</Link>
       </nav>
-      <Outlet />
+      <Outlet/>
     </div>
   );
 };
