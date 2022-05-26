@@ -31,13 +31,13 @@ class RentForm extends React.Component {
       [e.target.id]: e.target.value
     }, ()=> {
       console.log('state', this.state);
-    })
+    });
 
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    var cost = this.checkFormData()
+    var cost = this.checkFormData();
     if (cost) {
       console.log('gonna make request to server and send total cost: ', cost);
     }
@@ -58,7 +58,7 @@ class RentForm extends React.Component {
     const rd = new Date(this.state.returnDate);
     const diffTime = Math.abs(rd - pd);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffDays + " days");
+    console.log(diffDays + 'days');
 
     if (rd > pd) {
       var cost;
@@ -93,9 +93,9 @@ class RentForm extends React.Component {
           {rentLine}
         </form>
       </Container>
-    )
+    );
   }
-};
+}
 
 export default RentForm;
 

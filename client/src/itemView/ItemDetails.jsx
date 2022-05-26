@@ -38,7 +38,7 @@ const ItemDetails = (props) => {
         {props.details.description}
       </div>
     </Container>
-  )
+  );
 
 };
 

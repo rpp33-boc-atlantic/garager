@@ -35,7 +35,7 @@ const OwnerAndAvailability = (props) => {
         <button>Message</button>
       </Link>
     </Container>
-  )
+  );
 
 };
 

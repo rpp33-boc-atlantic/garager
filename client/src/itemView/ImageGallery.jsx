@@ -15,7 +15,7 @@ const ImageGallery = (props) => {
     <Container>
       Images...
     </Container>
-  )
+  );
 
 };
 
