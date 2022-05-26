@@ -9,7 +9,8 @@ const App = () => {
     <div>
       <h1>Garager</h1>
       <nav>
-        <Link to='Signup'>Signup</Link>
+        <Link to='Signup'>Sign Up</Link>
+        <Link to='Login'>Log In</Link>
         <Link to='FAQ'>FAQ</Link>
         <Link to='RouterTest'>RouterTest</Link>
         <Link to='PostItem'>Post Item</Link>
