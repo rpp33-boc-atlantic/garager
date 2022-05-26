@@ -43,6 +43,7 @@ class Step5 extends Component {
             }}
           />
         </form>
+        <br/>
         <form>
           <TextField
             id="date"
