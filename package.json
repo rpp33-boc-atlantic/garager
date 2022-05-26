@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch ./tests",
+    "test": "jest --watch --coverage ./tests",
     "test:authentication": "jest client/src/authentication",
-    "test:messages": "jest tests/messages.test.js",
+    "test:messages": "jest --coverage tests/messages.test.js",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
     "build-docker": "webpack --mode development",

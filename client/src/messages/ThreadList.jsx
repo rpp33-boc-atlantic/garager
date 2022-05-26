@@ -3,9 +3,9 @@ import ThreadTile from './ThreadTile.jsx';
 
 const ThreadList = (props) => {
 
-  const onThreadClick = () => {
-    props.changeThread();
-  };
+  // const onThreadClick = () => {
+  //   props.changeThread();
+  // };
 
   return (
     <ThreadTile thread={ props.threads[0] }/>
