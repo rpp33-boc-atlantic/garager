@@ -20,7 +20,7 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<App />}>
+      <Route path='/' exact element={<App />}>
         <Route path='Signup' element={<Signup />} />
         <Route path='FAQ' element={<FAQ />} />
         <Route path='RouterTest' element={<RouterTest />} />
