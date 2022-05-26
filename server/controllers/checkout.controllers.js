@@ -6,35 +6,32 @@ const YOUR_DOMAIN = 'http://localhost:3000';
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
-      // res.send('TEST: checkout here in controllers');
-      // this is just a placeholder until connection with Item Details Feature
-      const testReq = {
-        itemName: 'circular saw from Sue Lee', // refactor to send to Owner's Stripe Account (i.e. Sue Lee)
-        priceInCents: 1000 // $10
-      };
-
-      const session = await stripe.checkout.sessions.create({
-        line_items: [
-          {
-            // stripe example: Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            // stripe example: price: '{{PRICE_ID}}',
-            price_data: {
-              currency: 'usd',
-              product_data: {
-                name: testReq.itemName
+      try {
+        // console.log('REQ BODY', req.body);
+        const session = await stripe.checkout.sessions.create({
+          line_items: [
+            {
+              price_data: {
+                currency: 'usd',
+                product_data: {
+                  name: req.body.name
+                },
+                unit_amount: req.body.priceInCents,
               },
-              unit_amount: testReq.priceInCents,
+              quantity: 1,
             },
-            quantity: 1, // may not change unless renting more than one of the same item
-          },
-        ],
-        mode: 'payment',
-        // payment_method_types: ['card'], // may not need this - card payments enabled by default
-        success_url: `${YOUR_DOMAIN}?success=true`,
-        cancel_url: `${YOUR_DOMAIN}?canceled=true`,
-      });
-    
-      res.redirect(303, session.url);
+          ],
+          mode: 'payment',
+          success_url: `${YOUR_DOMAIN}?success=true`,
+          cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+        });
+      
+        // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
+        res.json({ url: session.url });
+      } catch (e) {
+        // If there is an error send it to the client
+        res.status(500).json({ error: e.message });
+      }
     },
   },
 };

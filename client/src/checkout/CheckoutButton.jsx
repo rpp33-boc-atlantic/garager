@@ -3,8 +3,22 @@ import axios from 'axios';
 
 const CheckoutButton = () => {
 
-  const handleClick = () => {
+  const handleClick = async () => {
     console.log('clicked here checkout button');
+    // ***** replace with actual ItemView Data *****
+    const itemInfo = {
+      name: 'kayak from Kevin Krim',
+      priceInCents: 2000,
+    };
+    
+    axios.post('/checkout/create-session', itemInfo)
+      .then((response) => {
+        console.log('response from checkoutButton', response);
+        window.location = response.data.url;
+      })
+      .catch((error) => {
+        console.log('ERROR from checkoutButton', error);
+      });
   };
 
   return (
@@ -13,25 +27,3 @@ const CheckoutButton = () => {
 };
 
 export default CheckoutButton;
-
-/* EXAMPLE CODE FROM STRIPE DOCS
-const ProductDisplay = () => (
-  <section>
-    <div className="product">
-      <img
-        src="https://i.imgur.com/EHyR2nP.png"
-        alt="The cover of Stubborn Attachments"
-      />
-      <div className="description">
-        <h3>Stubborn Attachments</h3>
-        <h5>$20.00</h5>
-      </div>
-    </div>
-    <form action="/create-checkout-session" method="POST">
-      <button type="submit">
-        Checkout
-      </button>
-    </form>
-  </section>
-);
-*/
