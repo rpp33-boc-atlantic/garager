@@ -91,7 +91,6 @@ class RentForm extends React.Component {
           <input type='date' id='returnDate' name='returnDate' onChange={this.handleChange}></input><br></br>
           {suggestedPriceLine}
           {rentLine}
-
         </form>
       </Container>
     )

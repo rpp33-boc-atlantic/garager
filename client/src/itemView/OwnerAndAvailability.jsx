@@ -5,9 +5,21 @@ import {Link} from 'react-router-dom';
 const Container = styled.div`
   display: grid;
   background: white;
-  padding: 1em;
+  padding: 2em;
   // justify-self: end;
   grid-row: 1 / 3;
+  grid-template-columns: 1fr;
+
+  h2 {
+    margin-top: .2em;
+  }
+  h3 {
+    margin-top: .2em;
+  }
+  h4 {
+    margin-top: .2em;
+  }
+
 `;
 
 const OwnerAndAvailability = (props) => {

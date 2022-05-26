@@ -13,7 +13,7 @@ const Container = styled.div`
   padding: 1em;
   grid-template-columns: 3fr 2fr;
   grid-gap: 1em;
-  grid-auto-rows: minmax(100px, auto);
+  grid-auto-rows: minmax(150px, auto);
   justify-items: stretch;
   // align-items: center;
 `;

@@ -6,6 +6,7 @@ const Container = styled.div`
   background: white;
   padding: 1em;
   grid-row: 1 / 3;
+  // grid-auto-rows: minmax(100px, auto);
 `;
 
 const ImageGallery = (props) => {
