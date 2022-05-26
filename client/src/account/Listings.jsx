@@ -10,7 +10,7 @@ import BasicTabs from './BasicTabs.jsx';
 
 var Listings = function() {
   // return <Button variant="contained">Hello World</Button>;
-  return <BasicTabs listings = {false} />;
+  return <BasicTabs listings = {false} m='auto' earnings = {454} rentedItems = {3}/>;
 };
 
 export default Listings;
