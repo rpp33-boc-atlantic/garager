@@ -4,13 +4,13 @@ const ChatInput = (props) => {
 
   const [ inputValue, updateValue ] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     props.addMessage( inputValue );
   };
 
-  const handleChange = () => {
-    updateValue( e.target.value );
+  const handleChange = (event) => {
+    updateValue( event.target.value );
   };
 
   return (
