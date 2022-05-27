@@ -16,21 +16,24 @@ import PostItem from './postItem/postItem.jsx';
 import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
 import Login from './authentication/login.jsx';
+import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path='/' exact element={<App />}>
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='FAQ' element={<FAQ />} />
-        <Route path='RouterTest' element={<RouterTest />} />
-        <Route path='Item' element={<Item />} />
-        <Route path='PostItem' element={<PostItem />} />
-        <Route path='Messages' element={<Messages />} />
-      </Route>
-    </Routes>
+      <Routes>
+        <Route path='/' exact element={<App />}>
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='FAQ' element={<FAQ />} />
+          <Route path='RouterTest' element={<RouterTest />} />
+          <Route path='Item' element={<Item />} />
+          <Route path='PostItem' element={<PostItem />} />
+          <Route path='Messages' element={<Messages />} />
+        </Route>
+      </Routes>
   </BrowserRouter>
 );
+
+

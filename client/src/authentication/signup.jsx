@@ -1,23 +1,36 @@
-import React, { useRef } from 'react';
+import React, {useState} from 'react';
 import { Form, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import {useUserAuth} from '../context/UserAuthContext.jsx';
 const Signup = () => {
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  //pass sign up function using useUserAuth hook
+  //const { singUp } = useUserAuth();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError('');
+    try {
+      await signUp(email, password);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
   return (
     <>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Sign Up</h2>
-          <Form>
+          <Form onSubmit = {handleSubmit}>
             <Form.Group id='email'>
               <Form.Label> Email</Form.Label>
-              <Form.Control type='email' ref={emailRef} required />
+              <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value)}/>
             </Form.Group>
             <Form.Group id='password'>
               <Form.Label> Password</Form.Label>
-              <Form.Control type='password' ref={passwordRef} required />
+              <Form.Control type='password' placeholder='Password' onChange = {(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <Button className = 'w-100' type='submit'>Sign Up</Button>
           </Form>
