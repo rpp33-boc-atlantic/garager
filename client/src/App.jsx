@@ -1,35 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 // placeholder for checkout button until linked with ItemView
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 
 const App = () => {
-  const [checkoutResult, setCheckoutResult] = useState('');
+  let navigate = useNavigate();
 
   useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
 
     if (query.get('success')) {
-      setCheckoutResult('success');
+      navigate('/CheckoutSuccess');
     }
 
     if (query.get('canceled')) {
-      setCheckoutResult('canceled');
+      navigate('/CheckoutCancel');
     }
-  }, []);
-  
-  const postCheckout = () => {
-    if (checkoutResult === 'success') {
-      return <CheckoutSuccess />;
-    } else if (checkoutResult === 'canceled') {
-      return <CheckoutCancel />;
-    } else {
-      return <></>;
-    }
-  };
+  });
   
   return (
     <div>
@@ -42,7 +31,6 @@ const App = () => {
       </nav>
       <Outlet/>
       <CheckoutButton />
-      {postCheckout()}
     </div>
   );
 };
