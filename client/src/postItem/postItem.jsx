@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '@mui/material/Button';
+
 import Step1 from './step1.jsx';
 import Step2 from './step2.jsx';
 import Step3 from './step3.jsx';
@@ -15,7 +15,7 @@ class PostItem extends Component {
       category: '',
       brand: '',
       model: '',
-      description: '',
+      item_description: '',
       price: 0,
       nameYourOwnPrice: false,
       minimunAcceptedPrice: 0,
@@ -73,8 +73,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
-    const values = { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
+    const { title, category, brand, model, item_description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
+    const values = { title, category, brand, model, item_description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
 
     switch (step) {
     case 1:
@@ -126,9 +126,11 @@ class PostItem extends Component {
       return (
         <>
           <h5>Post an item for rent in 5 easy steps</h5>
-          <Button
+          <button
+            type="button"
+            className="btn"
             onClick={this.changeToNext}
-          >Let's Go!</Button>
+          >Let's Go!</button>
         </>
       );
     }

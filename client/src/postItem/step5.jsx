@@ -1,71 +1,55 @@
-import React, { Component } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import Button from '@mui/material/Button';
-import theme from '../utils/theme.js';
+import React, { useState } from 'react';
+import Calendar, { onClickDay } from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 //step5 includes time availability
 
-class Step5 extends Component {
-  constructor (props) {
-    super (props);
-    this.submit = this.submit.bind(this);
-    this.back = this.back.bind(this);
-  }
+const Step5 = (props) => {
+  const [date, setDate] = useState(new Date());
+  const onChange = (date) => {
+    setDate(date);
+    props.values.availableFrom = date[0].toDateString();
+    props.values.availableTo = date[1].toDateString();
+  };
 
-  submit (input) {
-    return (e) => {
-      e.preventDefault();
-      this.props.handleSubmit(input);
-    };
-  }
-
-  back (e) {
-    e.preventDefault();
-    this.props.changeToPrevious();
-  }
-
-  render () {
-    const { values, handleChange } = this.props;
-    return (
-      <React.Fragment>
-        <form>
-          <TextField
-            id="date"
-            label="Available From"
-            type="date"
-            onChange={handleChange('availableFrom')}
-            defaultValue={values.availableFrom || ''}
-            InputLabelProps={{
-              shrink: true,
-            }}
+  return (
+    <React.Fragment>
+      <div className='step5'>
+        <h1 className='text-center'>Avaibility Range</h1>
+        <div className='calendar-container'>
+          <Calendar
+            onChange={onChange}
+            value={date}
+            selectRange={true}
           />
-        </form>
-        <br/>
-        <form>
-          <TextField
-            id="date"
-            label="Available From"
-            type="date"
-            onChange={handleChange('availableTo')}
-            defaultValue={values.availableTo || ''}
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-        </form>
-        <Button
-          onClick={this.back}
-        >Back</Button>
-        <Button
-          onClick={this.submit(values)}
-        >Finish</Button>
-      </React.Fragment>
-    );
-  }
-}
+        </div>
+        {date.length > 0 ? (
+          <p className='text-center'>
+            <span className='bold'>Start:</span>{' '}
+            {date[0].toDateString()}
+            &nbsp;|&nbsp;
+            <span className='bold'>End:</span> {date[1].toDateString()}
+          </p>
+        ) : (
+          <p className='text-center'>
+            <span className='bold'>Default selected date:</span>{' '}
+            {date.toDateString()}
+          </p>
+        )}
+      </div>
+
+       <button
+          type="submit" className="btn"
+          onClick={props.changeToPrevious}
+        >Back</button>
+        <button
+          type="submit" className="btn"
+          onClick={props.handleSubmit(props.values)}
+        >Finish</button>
+    </React.Fragment>
+
+  );
+};
 
 export default Step5;
 

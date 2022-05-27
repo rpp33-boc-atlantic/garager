@@ -1,12 +1,4 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-import theme from '../utils/theme.js';
 
 //Step2 includes Category (drop list), brand, model, description
 const categories = ['Automative', 'Household'];
@@ -32,80 +24,39 @@ class Step2 extends Component {
     const { values, handleChange } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          <h3>A little more details...</h3>
-          <Box
-            component="form"
-            sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
-            autoComplete="off"
-          >
-            <InputLabel>Category</InputLabel>
-            <Select
-              required
-              label="Category"
-              onChange={handleChange('category')}
-              value={values.category || ''}
-            >
-              <MenuItem value="Household">Household</MenuItem>
-              <MenuItem value="Automotive">Automotive</MenuItem>
-            </Select>
-          </Box>
-          <Box
-            component="form"
-            sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
-            autoComplete="off"
-          >
-            <br/>
-            <InputLabel>Brand</InputLabel>
-            <TextField
-              lable="Brand"
-              placeholder="Optional"
-
-              onChange={handleChange('brand')}
-              defaultValue={values.brand}
-              margin="normal"
-            />
-          </Box>
-          <Box
-            component="form"
-            sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
-            autoComplete="off"
-          >
-            <br/>
-            <InputLabel>Model</InputLabel>
-            <TextField
-              placeholder="Optional"
-              lable="Model"
-              onChange={handleChange('model')}
-              defaultValue={values.model}
-              margin="normal"
-            />
-          </Box>
-          <Box
-            component="form"
-            sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
-            autoComplete="off"
-          >
-            <br/>
-            <InputLabel>Description</InputLabel>
-            <TextField
-              placeholder="Items with a detailed description rent faster!"
-              lable="Description"
-              onChange={handleChange('description')}
-              defaultValue={values.description}
-              margin="normal"
-            />
-          </Box>
-
-          <Button
+      <React.Fragment>
+        <h3>A little more details...</h3>
+        <form>
+          <div className="form-row">
+            <label htmlFor="category">Category</label>
+            <select className="category" onChange={handleChange('category')} defaultValue={values.category || ''}>
+              <option defaultValue="choose">Choose...</option>
+              <option defaultValue="1">Household</option>
+              <option defaultValue="2">Automative</option>
+            </select>
+          </div>
+          <div className="form-row">
+            <label htmlFor="brand">Brand</label>
+            <input type="text" className="form-control" id="brand" placeholder="Optional"  onChange={handleChange('brand')} value={values.brand}/>
+          </div>
+          <div className="form-row">
+            <label htmlFor="model">Model</label>
+            <input type="text" className="form-control" id="model" placeholder="Optional"  onChange={handleChange('model')} value={values.model}/>
+          </div>
+          <div className="form-row">
+            <label htmlFor="item_description">Description</label>
+            <input type="text" className="form-control" id="description" placeholder="Items with a detailed description rent faster!"  onChange={handleChange('item_description')} value={values.item_description}/>
+          </div>
+        </form>
+          <button
+            type="submit" className="btn"
             onClick={this.back}
-          >Back</Button>
-          <Button
+          >Back</button>
+          <button
+            type="submit" className="btn"
             onClick={this.continue}
-          >Next</Button>
-        </React.Fragment>
-      </ThemeProvider>
+          >Next</button>
+      </React.Fragment>
     );
   }
 }
