@@ -13,10 +13,6 @@ const Step1 = (props) => {
     setImages(imageList);
   };
 
-  const onClick = async (images) => {
-    const photos = await props.handleUploadPhotos(images);
-  };
-
   return (
     <React.Fragment>
       <h3>What do you want to rent out ?</h3>
@@ -27,12 +23,17 @@ const Step1 = (props) => {
         </div>
       </form>
       <h4>Upload Photos</h4>
-      <ImageUploading
+      <form id="imageForm">
+        <input id="imageInput" type="file" accept="image/*" />
+        <button type="submit" onClick={props.handleUploadPhotos}>Upload</button>
+      </form>
+      {/* <ImageUploading
         multiple
         value={images}
         onChange={onChange}
         maxNumber={maxNumber}
         dataURLKey="data_url"
+        id="imageForm"
       >
         {({
           imageList,
@@ -56,7 +57,7 @@ const Step1 = (props) => {
             <button onClick={onImageRemoveAll}>Remove all images</button>
             {imageList.map((image, index) => (
               <div key={index} className="image-item">
-                <img src={image['data_url']} alt="" width="100" />
+                <img src={image['data_url']} alt="" width="100" id="imageInput" />
                 <div className="image-item__btn-wrapper">
                   <br/>
                   <button onClick={() => onImageUpdate(index)}>Update</button>
@@ -67,8 +68,9 @@ const Step1 = (props) => {
             ))}
           </div>
         )}
-      </ImageUploading>
-      <button className="btn" onClick={() => onClick(images)}>Next</button>
+      </ImageUploading> */}
+
+      <button type="submit" className="btn" onClick={props.changeToNext}>Next</button>
     </React.Fragment>
   );
 };

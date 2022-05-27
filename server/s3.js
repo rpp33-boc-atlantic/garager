@@ -15,7 +15,7 @@ const s3 = new aws.S3({
   region,
   accessKeyId,
   secretAccessKey,
-  signatureVersion: '4'
+  signatureVersion: 'v4'
 });
 
 const generateUploadURL = async () => {
@@ -28,6 +28,7 @@ const generateUploadURL = async () => {
   });
 
   const uploadURL = await s3.getSignedUrlPromise('putObject', params);
+  console.log('uploadURL', uploadURL);
   return uploadURL;
 };
 
