@@ -27,7 +27,7 @@ class Step3 extends Component {
         <form>
           <div className="form-row">
             <label htmlFor="price">Rate per day</label>
-            <input type="text" className="form-control" id="price" placeholder="Required"  onChange={handleChange('price')} value={values.price}/>
+            <input type="text" className="form-control" id="price" placeholder="Required" onChange={handleChange('price')} value={values.price}/>
           </div>
           <div className="form-row">
             <label htmlFor="nyop">Name your own price</label>
@@ -37,7 +37,7 @@ class Step3 extends Component {
           </div>
           <div className="form-row">
             <label htmlFor="price">Minimum accepted price</label>
-            <input type="text" className="form-control" id="minimunAcceptedPrice" placeholder="Set the lowest price you will accept..."  onChange={handleChange('minimunAcceptedPrice')} value={values.minimunAcceptedPrice}/>
+            <input type="text" className="form-control" id="minimunAcceptedPrice" placeholder="Set the lowest price you will accept..." onChange={handleChange('minimunAcceptedPrice')} value={values.minimunAcceptedPrice}/>
           </div>
           <button
             type="submit" className="btn"

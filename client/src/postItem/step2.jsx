@@ -37,25 +37,25 @@ class Step2 extends Component {
           </div>
           <div className="form-row">
             <label htmlFor="brand">Brand</label>
-            <input type="text" className="form-control" id="brand" placeholder="Optional"  onChange={handleChange('brand')} value={values.brand}/>
+            <input type="text" className="form-control" id="brand" placeholder="Optional" onChange={handleChange('brand')} value={values.brand}/>
           </div>
           <div className="form-row">
             <label htmlFor="model">Model</label>
-            <input type="text" className="form-control" id="model" placeholder="Optional"  onChange={handleChange('model')} value={values.model}/>
+            <input type="text" className="form-control" id="model" placeholder="Optional" onChange={handleChange('model')} value={values.model}/>
           </div>
           <div className="form-row">
             <label htmlFor="item_description">Description</label>
-            <input type="text" className="form-control" id="description" placeholder="Items with a detailed description rent faster!"  onChange={handleChange('item_description')} value={values.item_description}/>
+            <input type="text" className="form-control" id="description" placeholder="Items with a detailed description rent faster!" onChange={handleChange('itemDescription')} value={values.itemDescription}/>
           </div>
         </form>
-          <button
-            type="submit" className="btn"
-            onClick={this.back}
-          >Back</button>
-          <button
-            type="submit" className="btn"
-            onClick={this.continue}
-          >Next</button>
+        <button
+          type="submit" className="btn"
+          onClick={this.back}
+        >Back</button>
+        <button
+          type="submit" className="btn"
+          onClick={this.continue}
+        >Next</button>
       </React.Fragment>
     );
   }

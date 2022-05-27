@@ -38,14 +38,14 @@ const Step5 = (props) => {
         )}
       </div>
 
-       <button
-          type="submit" className="btn"
-          onClick={props.changeToPrevious}
-        >Back</button>
-        <button
-          type="submit" className="btn"
-          onClick={props.handleSubmit(props.values)}
-        >Finish</button>
+      <button
+        type="submit" className="btn"
+        onClick={props.changeToPrevious}
+      >Back</button>
+      <button
+        type="submit" className="btn"
+        onClick={props.handleSubmit(props.values)}
+      >Finish</button>
     </React.Fragment>
 
   );

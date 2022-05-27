@@ -15,7 +15,7 @@ class PostItem extends Component {
       category: '',
       brand: '',
       model: '',
-      item_description: '',
+      itemDescription: '',
       price: 0,
       nameYourOwnPrice: false,
       minimunAcceptedPrice: 0,
@@ -73,8 +73,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, item_description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
-    const values = { title, category, brand, model, item_description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
+    const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
+    const values = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
 
     switch (step) {
     case 1:

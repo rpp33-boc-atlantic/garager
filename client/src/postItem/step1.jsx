@@ -23,7 +23,7 @@ const Step1 = (props) => {
       <form>
         <div className="form-row">
           <label htmlFor="title">Title</label>
-          <input type="text" className="form-control" id="inputTitle" placeholder="Choose title for your post..."  onChange={props.handleChange('title')} />
+          <input type="text" className="form-control" id="inputTitle" placeholder="Choose title for your post..." onChange={props.handleChange('title')} />
         </div>
       </form>
       <h4>Upload Photos</h4>
