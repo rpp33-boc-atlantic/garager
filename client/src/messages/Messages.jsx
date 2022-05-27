@@ -3,6 +3,7 @@ import sampleThreads from './sampleThreads.js';
 import ThreadList from './ThreadList.jsx';
 import Header from './Header.jsx';
 import ChatList from './ChatList.jsx';
+import { Row, Col } from 'react-bootstrap';
 
 const Messages = () => {
 
@@ -25,15 +26,21 @@ const Messages = () => {
   };
 
   return (
-    <React.Fragment>
+    <section className="vh-100 d-flex flex-column">
       <Header thread={ threads[ activeThread ] }/>
-      <ThreadList threads={ threads } changeThread={ changeThread }/>
-      <ChatList
-        threads={ threads }
-        messages={ threads[ activeThread ].messages }
-        addMessage={ addMessage }
-      />
-    </React.Fragment>
+      <Row className='h-100'>
+        <Col>
+          <ThreadList threads={ threads } changeThread={ changeThread }/>
+        </Col>
+        <Col>
+          <ChatList
+            threads={ threads }
+            messages={ threads[ activeThread ].messages }
+            addMessage={ addMessage }
+          />
+        </Col>
+      </Row>
+    </section>
   );
 };
 

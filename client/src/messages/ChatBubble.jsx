@@ -6,10 +6,10 @@ const ChatBubble = (props) => {
   // const onImageClick = () => {};
 
   return (
-    <p>
+    <React.Fragment>
       { props.message.username }: { props.message.text } <br />
       { moment(props.message.timeCreated).format('LT') }
-    </p>
+    </React.Fragment>
   );
 };
 

@@ -5,12 +5,10 @@ const ThreadTile = (props) => {
 
   return (
     <React.Fragment>
-      <p>
-        { props.thread.username }<br />
-        { props.thread.itemName }<br />
-        { props.thread.lastMessage }<br />
-        { moment(props.thread.timeUpdated).fromNow() }
-      </p>
+      { props.thread.username }<br />
+      { props.thread.itemName }<br />
+      { props.thread.lastMessage }<br />
+      { moment(props.thread.timeUpdated).fromNow() }
     </React.Fragment>
   );
 };

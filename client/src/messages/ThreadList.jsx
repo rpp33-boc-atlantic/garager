@@ -1,5 +1,6 @@
 import React from 'react';
 import ThreadTile from './ThreadTile.jsx';
+import { Stack } from 'react-bootstrap';
 
 const ThreadList = (props) => {
 
@@ -8,7 +9,7 @@ const ThreadList = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Stack gap={3}>
       {
         props.threads.map(( thread, index ) => {
           return (
@@ -18,7 +19,7 @@ const ThreadList = (props) => {
           );
         })
       }
-    </React.Fragment>
+    </Stack>
   );
 };
 
