@@ -7,8 +7,7 @@ const ChatBubble = (props) => {
 
   return (
     <React.Fragment>
-      { props.message.username }: { props.message.text } <br />
-      { moment(props.message.timeCreated).format('LT') }
+      { props.message.text }
     </React.Fragment>
   );
 };

@@ -4,6 +4,7 @@ import ThreadList from './ThreadList.jsx';
 import Header from './Header.jsx';
 import ChatList from './ChatList.jsx';
 import { Row, Col } from 'react-bootstrap';
+import './MessageStyles.css';
 
 const Messages = () => {
 
@@ -14,7 +15,7 @@ const Messages = () => {
     let newThreads = [ ...threads ];
     let newThread = newThreads[ activeThread ];
     let newMessage = {
-      username: 'stephen strange',
+      username: 'Stephen Strange',
       text: message,
       imageUrl: null,
       timeCreated: Date.now()
@@ -26,19 +27,19 @@ const Messages = () => {
   };
 
   return (
-    <section className="vh-100 d-flex flex-column">
+    <section>
       <Header thread={ threads[ activeThread ] }/>
-      <Row className='h-100'>
-        <Col>
-          <ThreadList threads={ threads } changeThread={ changeThread }/>
-        </Col>
-        <Col>
+      <Row id='test'>
+        <div style={{ maxWidth: 300 }}>
+          <ThreadList threads={ threads } activeThread={ activeThread } changeThread={ changeThread }/>
+        </div>
+        <div style={{ maxWidth: 600, marginBottom: 75 }}>
           <ChatList
             threads={ threads }
             messages={ threads[ activeThread ].messages }
             addMessage={ addMessage }
           />
-        </Col>
+        </div>
       </Row>
     </section>
   );

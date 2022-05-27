@@ -1,6 +1,6 @@
 import React from 'react';
 import ThreadTile from './ThreadTile.jsx';
-import { Stack } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 
 const ThreadList = (props) => {
 
@@ -9,17 +9,25 @@ const ThreadList = (props) => {
   };
 
   return (
-    <Stack gap={3}>
+    <ListGroup>
       {
         props.threads.map(( thread, index ) => {
-          return (
-            <div aria-label={ `thread-tile-${index}` } key={ index } onClick={ () => handleClick(index) }>
-              <ThreadTile thread={ thread }/>
-            </div>
-          );
+          if ( index === props.activeThread ) {
+            return (
+              <ListGroup.Item active aria-label={ `thread-tile-${index}` } key={ index } action onClick={ () => handleClick(index) }>
+                <ThreadTile thread={ thread }/>
+              </ListGroup.Item>
+            );
+          } else {
+            return (
+              <ListGroup.Item aria-label={ `thread-tile-${index}` } key={ index } action onClick={ () => handleClick(index) }>
+                <ThreadTile thread={ thread }/>
+              </ListGroup.Item>
+            );
+          }
         })
       }
-    </Stack>
+    </ListGroup>
   );
 };
 
