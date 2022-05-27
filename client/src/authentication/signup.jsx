@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -8,12 +8,16 @@ const Signup = () => {
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth hook
   const { signUp } = useUserAuth();
+  //redirect user back to login page after sign up
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
     try {
       await signUp(email, password);
+      //redirect user back to login page after sign up
+      navigate('/login');
     } catch (err) {
       setError(err.message);
     }
