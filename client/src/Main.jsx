@@ -22,6 +22,7 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
+    <UserAuthContextProvider>
       <Routes>
         <Route path='/' exact element={<App />}>
           <Route path='/signup' element={<Signup />} />
@@ -33,6 +34,7 @@ root.render(
           <Route path='Messages' element={<Messages />} />
         </Route>
       </Routes>
+    </UserAuthContextProvider>
   </BrowserRouter>
 );
 

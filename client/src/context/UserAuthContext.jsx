@@ -1,5 +1,5 @@
 /* eslint-disable func-style */
-import { createContext, useEffect, useState, useContext } from 'react';
+import React, { createContext, useEffect, useState, useContext } from 'react';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -25,6 +25,7 @@ export function UserAuthContextProvider({ children }) {
   //run only once, when the components did mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log('userAuth', currentUser);
       setUser(currentUser);
     });
     return () => {
