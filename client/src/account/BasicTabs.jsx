@@ -17,9 +17,10 @@ function TabPanel(props) {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
+      sx={{ height: '100px', border: '5px solid blue'}}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ height: '90%', border: '5px solid black', div: 3 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -49,21 +50,21 @@ export default function BasicTabs(props) {
 
   return (
     <Box sx={{ width: '55%' }} m= 'auto' margin-top= '20%'>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }} m = 'auto'>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Listings" {...a11yProps(0)} m='auto' />
+      <Box sx={{ borderBottom: 1, borderColor: 'divider', border: '5px solid black' }} m = 'auto'>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
+          <Tab label="Listings" {...a11yProps(0)} />
           <Tab label="Earnings" {...a11yProps(1)} />
           <Tab label="Saved" {...a11yProps(2)} />
         </Tabs>
       </Box>
-
-      <TabPanel value={value} index={0} m='auto'>
+      {/* // border: '5px solid black' */}
+      <TabPanel value={value} index={0} >
         {/* {props.listings === false ? `:( You have no current listings. Click ${<Link to='PostItem'> here</Link>} to list an item` : 'item 1'} */}
        :[ You have no current listings.  Click {<Link to='../PostItem'> here</Link>} to list an item
 
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <h3>You have earned a total of </h3> <h1>  ${props.earnings} </h1> from {props.rentedItems} items.
+        <div style={{size: '20px'}}>You have earned a total of </div> <h1>  ${props.earnings} </h1> from {props.rentedItems} items.
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
