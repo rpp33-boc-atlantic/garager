@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch ./tests",
+    "test": "jest --watch --coverage ./tests",
+    "test:messages": "jest --coverage tests/messages.test.js",
     "test:authentication": "jest tests/authTest/ --detectOpenHandles --collectCoverage",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
@@ -33,6 +34,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "import-lazy": "^4.0.0",
+    "moment": "^2.29.3",
     "nodemon": "^2.0.16",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
