@@ -21,7 +21,7 @@ class PostItem extends Component {
       minimunAcceptedPrice: 0,
       availableFrom: '',
       availableTo: '',
-      photos: null,
+      photos: [],
       latLng: {},
       address1: ''
     };
@@ -60,23 +60,29 @@ class PostItem extends Component {
   handleUploadPhotos (e) {
     e.preventDefault();
     const imageForm = document.querySelector('#imageForm');
-    const imageInput = document.querySelector('#imageInput');
-    imageForm.addEventListener('click', async (e) => {
-      const file = imageInput.files[0];
-      //Get secure url from our server
-      const { url } = await fetch('/s3url').then (res => res.json());
+    const imagesInput = document.querySelector('#imageInput');
+    imageForm.addEventListener('click', (e) => {
+      const files = Array.from(imagesInput.files);
 
-      //Post the image directly to s3 bucket
-      await fetch (url, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        },
-        body: file
-      });
+      if (files) {
+        files.map( async (file) => {
+          //Get secure url from our server
+          const { url } = await fetch('/s3url').then (res => res.json());
 
-      const imageURL = url.split('?')[0];
-      console.log('imageURL', imageURL);
+          //Post the image directly to s3 bucket
+          await fetch (url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            },
+            body: file
+          });
+
+          const imageURL = url.split('?')[0];
+          this.state.photos.push({'data_url': imageURL});
+          console.log('photos', this.state.photos);
+        });
+      }
 
     });
   }

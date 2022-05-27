@@ -24,7 +24,7 @@ const Step1 = (props) => {
       </form>
       <h4>Upload Photos</h4>
       <form id="imageForm">
-        <input id="imageInput" type="file" accept="image/*" />
+        <input id="imageInput" type="file" accept="image/*" multiple/>
         <button type="submit" onClick={props.handleUploadPhotos}>Upload</button>
       </form>
       {/* <ImageUploading
