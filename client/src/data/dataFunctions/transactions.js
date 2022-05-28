@@ -1,7 +1,7 @@
 //audio/visual, automotive, camping, decorations, events, fitness, gardening, hand tools,  power tools, ,, , , sports, recreational vehicles,
 
 var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
-var transactions = {};
+var transactions = [];
 var fs = require('fs');
 
 const today = new Date();
@@ -37,9 +37,9 @@ for (var i = 0; i < 10; i ++) {
   transaction['dueDate'] = new Date(); // these dates need to be changed to different dates that arent too far apart from eachother
   transaction['dueDate'].setDate(transaction['dueDate'].getDate() + secondDate);
 
-  transactions[i] = transaction;
+  transactions.push(transaction);
 }
 console.log(transactions);
 
-// let data = JSON.stringify(transactions, null, 2);
-// fs.writeFileSync('transactions.json', data);
+let data = JSON.stringify(transactions, null, 2);
+fs.writeFileSync('transactions.json', data);

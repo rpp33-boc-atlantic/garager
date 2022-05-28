@@ -11,7 +11,7 @@ import RentalTabs from './RentalTabs.jsx';
 export default function Rentals () {
   // return <Button variant="contained">Hello World</Button>;
   // return <BasicTabs listings = {false} m='auto' earnings = {454} rentedItems = {3}/>;
-  return <RentalTabs current = {false} m='auto' past = {false} />;
+  return <RentalTabs upcoming = {true} m='auto' past = {false} />;
 
 }
 
