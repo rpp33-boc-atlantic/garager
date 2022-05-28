@@ -4,15 +4,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaTools } from 'react-icons/fa';
 
 const NavLinks = () => {
 
   // this navbar uses a menue toggle for that reactively collapses for smaller screens.
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg" bg='blue' variant='light'>
       <Container>
-        <Navbar.Brand href="#home">Garager</Navbar.Brand>
+        <Navbar.Brand as={Link} to='home'>  <FaTools /> GARAGER</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
