@@ -4,42 +4,112 @@ import { differenceInCalendarDays } from 'date-fns';
 import parseISO from 'date-fns/parseISO';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { isWithinInterval } from "date-fns";
+import moment from 'moment';
 
-const disabledDates = ['2022-06-03', '2022-06-04'];
+// const disabledDates = ['2022-06-03', '2022-06-04'];
+// const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
 
-// function tileDisabled({date, view}) {
+// const tileDisabled = ({date, view}) => {
 //   if (view === 'month') {
 //     return disabledDates.find(dDate => isSameDay(parseISO(dDate), date));
 //   }
-// }
+// };
 
-// function isSameDay(a, b) {
+// const isSameDay = (a, b) => {
 //   return differenceInCalendarDays(a, b) === 0;
-// }
+// };
 
-const tileDisabled = ({date, view}) => {
-  if (view === 'month') {
-    return disabledDates.find(dDate => isSameDay(parseISO(dDate), date));
-  }
-};
+// const tileDisabled = ({date, view}) => {
+//   if (view === 'month') {
+//     return isWithinRanges(date, disabledRanges);
+//   }
+// };
 
-const isSameDay = (a, b) => {
-  return differenceInCalendarDays(a, b) === 0;
-};
+// const isWithinRange = (date, range) => {
+//   return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
+// };
+
+// const isWithinRanges = (date, ranges) => {
+//   return ranges.some(range => isWithinRange(date, range));
+// };
+
 
 const CalendarView = (props) => {
+
+  const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
 
   const [value, setValue] = useState(new Date());
 
   const onChange = (nextValue) => {
+    checkIfConflict(nextValue);
     setValue(nextValue);
     // fix this so that it's handled asynchronously
     props.grabDateRange(nextValue);
   };
 
-  const simpleDate = (locale, date) => {
-    formatDate(date, 'dd MMM YYYY');
+  // const simpleDate = (locale, date) => {
+  //   formatDate(date, 'dd MMM YYYY');
+  // };
+
+  const tileDisabled = ({date, view}) => {
+    if (view === 'month') {
+      return isWithinRanges(date, disabledRanges);
+    }
   };
+
+  const isWithinRange = (date, range) => {
+    // console.log('date right here', date)
+    return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
+  };
+
+  const isWithinRanges = (date, ranges) => {
+    return ranges.some(range => isWithinRange(date, range));
+  };
+
+  const checkIfConflict = (proposedRange) => {
+    // gonna get the first date of every disabled range
+    // then check if that date is within the proposed range
+
+    console.log('sadoifasdfa', proposedRange[0]);
+
+    const formattedRange = [moment(proposedRange[0]).format().substring(0, 10), moment(proposedRange[1]).format().substring(0, 10)];
+    console.log('formatted range', formattedRange);
+
+      var firstDay = disabledRanges[0][0];
+      console.log('first day', moment(firstDay).format('l'))
+
+    // dummy date must look like this
+    const dummyDate1 = new Date('6/11/2022');
+    console.log('first dummy date', dummyDate1);
+
+    //formatted proposed range has to look like this
+    var fakeRange = ['2022-06-10', '2022-06-15'];
+
+    if (isWithinRange(dummyDate1, fakeRange)) {
+      console.log('THERE IS CONFLICT! FIX RANGE');
+    }
+
+    // for (var i = 0; i < disabledRanges.length; i++) {
+    //   var firstDay = disabledRanges[i][0];
+    //   console.log('first day', firstDay)
+    //   if (isWithinRange(firstDay, proposedRange)) {
+    //     console.log('THERE IS CONFLICT! FIX RANGE');
+    //   } else {
+    //     console.log('YOURE GOOD TO GO!');
+    //   }
+    // }
+
+    // const firstDay = parseISO(proposedRange[0]);
+    // if (isWithinRanges(firstDay, disabledRanges)) {
+    //   console.log('THERE IS CONFLICT! FIX RANGE')
+    // } else {
+    //   console.log('YOURE GOOD TO GO!!!')
+    // }
+
+  };
+
+
 
   return (
     <div>
