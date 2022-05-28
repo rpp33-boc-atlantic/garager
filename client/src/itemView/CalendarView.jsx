@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { differenceInCalendarDays } from 'date-fns';
-// var parseISO = require('date-fns/parseISO')
 import parseISO from 'date-fns/parseISO';
-
-
-// const disabledDates = ['Mon May 30 2022 00:00:00 GMT-0700 (Pacific Daylight Time)'];
-const disabledDates = ['2022-06-03', '2022-06-04'];
-
-// REACT CALENDAR OPTION
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-function tileDisabled({date, view}) {
+const disabledDates = ['2022-06-03', '2022-06-04'];
+
+// function tileDisabled({date, view}) {
+//   if (view === 'month') {
+//     return disabledDates.find(dDate => isSameDay(parseISO(dDate), date));
+//   }
+// }
+
+// function isSameDay(a, b) {
+//   return differenceInCalendarDays(a, b) === 0;
+// }
+
+const tileDisabled = ({date, view}) => {
   if (view === 'month') {
     return disabledDates.find(dDate => isSameDay(parseISO(dDate), date));
   }
-}
+};
 
-function isSameDay(a, b) {
+const isSameDay = (a, b) => {
   return differenceInCalendarDays(a, b) === 0;
-}
+};
 
 const CalendarView = (props) => {
 
@@ -30,21 +35,19 @@ const CalendarView = (props) => {
     setValue(nextValue);
     // fix this so that it's handled asynchronously
     props.grabDateRange(nextValue);
-
-
-  }
+  };
 
   const simpleDate = (locale, date) => {
-    formatDate(date, 'dd MMM YYYY')
-  }
+    formatDate(date, 'dd MMM YYYY');
+  };
 
   return (
     <div>
       <Calendar
-      tileDisabled={tileDisabled}
-      minDate={new Date()}
-      selectRange
-      onChange={onChange}
+        tileDisabled={tileDisabled}
+        minDate={new Date()}
+        selectRange
+        onChange={onChange}
       />
       <h6>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
       <h6>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>

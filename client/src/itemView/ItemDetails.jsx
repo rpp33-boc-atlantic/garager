@@ -30,18 +30,18 @@ const ItemDetails = (props) => {
 
   return (
     <Container>
-        <div className='inside'>
-          <h4>Model</h4>
-          {props.details.model}
-        </div>
-        <div className='inside'>
-          <h4>Brand</h4>
-          {props.details.brand}
-        </div>
-        <div className='description inside'>
-          <h4>Description</h4>
-          {props.details.description}
-        </div>
+      <div className='inside'>
+        <h4>Model</h4>
+        {props.details.model}
+      </div>
+      <div className='inside'>
+        <h4>Brand</h4>
+        {props.details.brand}
+      </div>
+      <div className='description inside'>
+        <h4>Description</h4>
+        {props.details.description}
+      </div>
     </Container>
   );
 
