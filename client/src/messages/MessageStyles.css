@@ -49,11 +49,13 @@
 }
 
 .chat-time-from-me {
+  margin-right: 18px;
   text-align: right;
   font-size: 18px;
 }
 
 .chat-time-from-them {
+  margin-left: 18px;
   text-align: left;
   font-size: 18px;
 }
