@@ -39,7 +39,7 @@ class Item extends React.Component {
           <ImageGallery className='gallery' images={fakeProps.images}/>
           <OwnerInfo className='owner' name={fakeProps.name} owner={fakeProps.owner} />
           <ItemDetails className='details' details={fakeProps.details}/>
-          <RentForm className='form' formInfo={fakeProps.formInfo} availability={fakeProps.availability}/>
+          <RentForm className='form' formInfo={fakeProps.formInfo} owner={fakeProps.owner} name={fakeProps.name} itemID={fakeProps.itemID}/>
         </Container>
       </div>
     );

@@ -52,12 +52,14 @@ class RentForm extends React.Component {
 
 
       const itemInfo = {
-        name: 'kayak',
-        itemID: 888888,
-        owner: 'Kevin Krim',
+        name: this.props.name,
+        itemID: this.props.itemID,
+        owner: this.props.owner.name,
         priceInCents: cost,
-        dateRange: ['2022-06-03', '2022-06-04']
+        dateRange: this.state.dateRange
+        // dateRange: ['2022-06-03', '2022-06-04']
       };
+      console.log('item info,', itemInfo)
 
       axios.post('/checkout/create-session', itemInfo)
         .then((response) => {

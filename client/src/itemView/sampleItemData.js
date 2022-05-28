@@ -1,5 +1,6 @@
 var option1 = {
   name: 'Gorilla ladder',
+  itemID: 1234,
   details: {
     brand: 'Bri-Mar',
     model: '3500 lb. Dual Acle',
@@ -21,6 +22,7 @@ var option1 = {
 
 var option2 = {
   name: 'Glamorous Tent',
+  itemID: 1235,
   details: {
     brand: 'Patagonia',
     model: '89',
@@ -42,6 +44,7 @@ var option2 = {
 
 var option3 = {
   name: 'Glamorous Tent',
+  itemID: 1235,
   details: {
     brand: 'Patagonia',
     model: '89',
