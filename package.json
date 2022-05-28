@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/rpp33-boc-atlantic/garager#readme",
   "dependencies": {
+    "aws-sdk": "^2.1144.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.0",
@@ -40,15 +41,17 @@
     "nodemon": "^2.0.16",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
+    "react-calendar": "^3.7.0",
     "react-dom": "^18.1.0",
+    "supertest": "^6.2.3",
     "react-images-uploading": "^3.1.6",
     "react-places-autocomplete": "^7.3.0",
     "react-router-bootstrap": "^0.26.1",
+    "stripe": "^9.4.0",
     "react-router-dom": "^6.3.0",
     "react-test-renderer": "^18.1.0",
-    "stripe": "^9.4.0",
     "styled-components": "^5.3.5",
-    "supertest": "^6.2.3"
+    "util.promisify": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.0",
