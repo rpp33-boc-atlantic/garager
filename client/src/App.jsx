@@ -1,9 +1,25 @@
-// EXAMPLES USING REACT BOOTSTRAP AND MATERIAL UI BELOW
-
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+// placeholder for checkout button until linked with ItemView
+import CheckoutButton from './checkout/CheckoutButton.jsx';
+import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
+import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 
 const App = () => {
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+
+    if (query.get('success')) {
+      navigate('/CheckoutSuccess');
+    }
+
+    if (query.get('canceled')) {
+      navigate('/CheckoutCancel');
+    }
+  });
+  
   return (
     <div>
       <h1>Garager</h1>
@@ -14,6 +30,7 @@ const App = () => {
         <Link style={{marginRight: '10px'}} to='Messages'>Messages</Link>
       </nav>
       <Outlet/>
+      <CheckoutButton />
     </div>
   );
 };
