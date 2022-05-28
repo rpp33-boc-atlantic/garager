@@ -63,27 +63,39 @@ export default [
   },
   {
     threadId: 3498,
-    itemName: 'Infinity Gauntlet',
+    itemName: 'Chaos Magic',
     itemImageUrl: null,
-    username: 'Thanos',
+    username: 'Wanda Maximoff',
     userImageUrl: null,
     userRole: 'owner',
-    lastMessage: 'not very useful without the inifinity stones',
-    timeUpdated: 1653421798000,
+    lastMessage: `it's a bit much, tbh`,
+    timeUpdated: 1653508198000,
     viewed: false,
     messages: [
       {
-        username: 'Thanos',
-        text: 'what do you think of my gauntlet?',
+        username: 'Wanda Maximoff',
+        text: 'what do you think of my power?',
         imageUrl: null,
-        timeCreated: 1653418198000
+        timeCreated: 1653504598000
       },
       {
         username: 'Stephen Strange',
-        text: `not very useful without the inifinity stones`,
+        text: `it's a bit much, tbh`,
         imageUrl: null,
-        timeCreated: 1653421798000
-      }
+        timeCreated: 1653508198000
+      },
+      {
+        username: 'Wanda Maximoff',
+        text: 'yeah, I got the darkhold now',
+        imageUrl: null,
+        timeCreated: 1653504598000
+      },
+      {
+        username: 'Stephen Strange',
+        text: `oh I get it now, you're the scarlet witch`,
+        imageUrl: null,
+        timeCreated: 1653508198000
+      },
     ]
   },
   {
