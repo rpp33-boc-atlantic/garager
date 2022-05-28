@@ -35,19 +35,18 @@ root.render(
     <UserAuthContextProvider>
       <Routes>
         <Route path='/home' element={<Homepage />} />
-        <Route path='/' exact element={<App />}>
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='FAQ' element={<FAQ />} />
-          <Route path='RouterTest' element={<RouterTest />} />
-          <Route path='Item' element={<Item />} />
-          <Route path='PostItem' element={<PostItem />} />
-          <Route path='Messages' element={<Messages />} />
-          <Route path='my-listings' element={<Listings />} />
-          <Route path='my-rentals' element={<Rentals />} />
-          <Route path='/CheckoutSuccess' element={<CheckoutSuccess />} />
-          <Route path='/CheckoutCancel' element={<CheckoutCancel />} />
-        </Route>
+        <Route path='/' exact element={<App />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='FAQ' element={<FAQ />} />
+        <Route path='RouterTest' element={<RouterTest />} />
+        <Route path='Item' element={<Item />} />
+        <Route path='PostItem' element={<PostItem />} />
+        <Route path='Messages' element={<Messages />} />
+        <Route path='my-listings' element={<Listings />} />
+        <Route path='my-rentals' element={<Rentals />} />
+        <Route path='/CheckoutSuccess' element={<CheckoutSuccess />} />
+        <Route path='/CheckoutCancel' element={<CheckoutCancel />} />
       </Routes>
     </UserAuthContextProvider>
   </BrowserRouter>
