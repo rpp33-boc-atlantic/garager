@@ -21,7 +21,19 @@ export default [
         text: `it's a bit much, tbh`,
         imageUrl: null,
         timeCreated: 1653508198000
-      }
+      },
+      {
+        username: 'Wanda Maximoff',
+        text: 'yeah, I got the darkhold now',
+        imageUrl: null,
+        timeCreated: 1653504598000
+      },
+      {
+        username: 'Stephen Strange',
+        text: `oh I get it now, you're the scarlet witch`,
+        imageUrl: null,
+        timeCreated: 1653508198000
+      },
     ]
   },
   {

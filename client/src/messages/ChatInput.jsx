@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
 const ChatInput = (props) => {
 
@@ -15,12 +16,13 @@ const ChatInput = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <form onSubmit={ handleSubmit }>
-        <input type='text' aria-label='chat-input' value={ inputValue } onChange={ handleChange }></input>
-        <input type='submit' aria-label='chat-submit' value='Submit' />
-      </form>
-    </React.Fragment>
+    <Form onSubmit={ handleSubmit } style={{ display: 'inline-flex', width: '550px' }}>
+      <Form.Control type='text' aria-label='chat-input' value={ inputValue }
+        onChange={ handleChange } style={{ borderRadius: '50px', marginRight: 15, marginLeft: 25 }} />
+      <Button variant='primary' type='submit' aria-label='chat-submit'>
+        Submit
+      </Button>
+    </Form>
   );
 };
 

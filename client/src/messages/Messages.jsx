@@ -33,7 +33,7 @@ const Messages = () => {
         <div style={{ maxWidth: 450, marginRight: '15px' }}>
           <ThreadList threads={ threads } activeThread={ activeThread } changeThread={ changeThread }/>
         </div>
-        <div style={{ maxWidth: 600, marginBottom: 0, marginLeft: '-30px', borderLeft: '1px solid rgb(218, 218, 218)'}}>
+        <div style={{ maxWidth: 600, marginBottom: 0, marginLeft: '-30px', borderLeft: '1px solid rgb(218, 218, 218)', borderRight: '1px solid rgb(218, 218, 218)'}}>
           <ChatList
             threads={ threads }
             messages={ threads[ activeThread ].messages }

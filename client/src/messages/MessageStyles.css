@@ -1,8 +1,19 @@
+.list-group-item.active {
+  background-color: #cfe8d1;
+  border-color: #f2f2f2;
+  color: black;
+}
+
+.btn-primary {
+  background-color: #37875a;
+  border-color: #37875a;
+}
+
 .bottom-0 {
   align-self: center;
   bottom: 0!important;
-  margin-bottom: 15px;
-  margin-left: 125px;
+  margin-bottom: 20px;
+  margin-left: 0px;
 }
 
 #test {
@@ -21,7 +32,7 @@
   display: flex;
   flex-direction: column;
   font-family: "SanFrancisco";
-  font-size: 1.25rem;
+  font-size: 20px;
   margin: 0 auto 1rem;
   max-width: 600px;
   padding: 0.5rem 1.5rem;
@@ -47,7 +58,7 @@
 
 p.from-me {
   align-self: flex-end;
-  background-color: #248bf5;
+  background-color: #37875a;
   color: #fff;
 }
 
