@@ -5,6 +5,7 @@ import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 
+// import NavBar from './account/NavBar.jsx';
 const App = () => {
   let navigate = useNavigate();
 
@@ -22,18 +23,23 @@ const App = () => {
 
   return (
     <div>
-      <h1>Garager</h1>
-      <nav style={{marginBottom: '20px'}}>
+      {/* <h1>Garager</h1> */}
+      {/* <nav className="navbar navbar-light bg-light"style={{marginBottom: '20px'}}>
         <Link style={{marginRight: '10px'}} to='FAQ'>FAQ</Link>
         <Link style={{marginRight: '10px'}} to='RouterTest'>RouterTest</Link>
         <Link style={{marginRight: '10px'}} to='SearchBrowse'>Browse</Link>
         <Link style={{marginRight: '10px'}} to='PostItem'>Post Item</Link>
         <Link style={{marginRight: '10px'}} to='Messages'>Messages</Link>
-        <Link style={{marginRight: '10px'}} to='Account'> Account</Link>
-      </nav>
+        <NavLinks/>
+
+
+      </nav> */}
       <Outlet/>
-      <CheckoutButton />
+      {/* /<CheckoutButton /> */}
+      {/* I commented this out because I think Jo implemented it on Rudy's page already. */}
+
     </div>
+
   );
 };
 
