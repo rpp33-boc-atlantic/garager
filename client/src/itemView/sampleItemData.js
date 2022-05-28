@@ -15,7 +15,7 @@ var option1 = {
   owner: {
     name: 'Tom Haverford',
     dateJoined: 'July 2022',
-    address: 'Glendale, California'
+    address: 'Pawnee, Indiana'
   },
 };
 
