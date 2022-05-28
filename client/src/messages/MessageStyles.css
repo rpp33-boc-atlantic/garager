@@ -1,7 +1,8 @@
-.list-group-item.active {
-  background-color: #cfe8d1;
-  border-color: #f2f2f2;
-  color: black;
+@font-face {
+  font-family: "SanFrancisco";
+  src:
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
+    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
 }
 
 .btn-primary {
@@ -9,14 +10,7 @@
   border-color: #37875a;
 }
 
-.bottom-0 {
-  align-self: center;
-  bottom: 0!important;
-  margin-bottom: 20px;
-  margin-left: 0px;
-}
-
-#test {
+#messages-row {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -24,6 +18,62 @@
   right: 0;
   margin-top: 70px;
   /* border-top: 1px solid rgb(218, 218, 218); */
+}
+
+#thread-column {
+  max-width: 450px;
+  margin-right: 15px;
+}
+
+.list-group-item.active {
+  background-color: #cfe8d1;
+  border-color: #f2f2f2;
+  color: black;
+}
+
+.thread-tile {
+  font-size: 18px;
+}
+
+.thread-time {
+  font-size: 16px;
+  color: gray;
+}
+
+#chat-column {
+  max-width: 600px;
+  margin-bottom: 0px;
+  margin-left: -30px;
+  border-left: 1px solid rgb(218, 218, 218);
+  border-right: 1px solid rgb(218, 218, 218);
+}
+
+.chat-time-from-me {
+  text-align: right;
+  font-size: 18px;
+}
+
+.chat-time-from-them {
+  text-align: left;
+  font-size: 18px;
+}
+
+#chat-input-form {
+  display: inline-flex;
+  width: 550px;
+}
+
+#chat-input-field {
+  border-radius: 50px;
+  margin-right: 15px;
+  margin-left: 25px;
+}
+
+.bottom-0 {
+  align-self: center;
+  bottom: 0!important;
+  margin-bottom: 20px;
+  margin-left: 0px;
 }
 
 .imessage {
@@ -72,11 +122,4 @@ p.from-them {
   align-items: flex-start;
   background-color: #e5e5ea;
   color: #000;
-}
-
-@font-face {
-  font-family: "SanFrancisco";
-  src:
-    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
-    url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
 }

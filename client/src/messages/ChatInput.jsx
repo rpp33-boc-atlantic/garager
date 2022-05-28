@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const ChatInput = (props) => {
+const ChatInput = ( props ) => {
 
   const [ inputValue, updateValue ] = useState('');
 
@@ -16,10 +16,20 @@ const ChatInput = (props) => {
   };
 
   return (
-    <Form onSubmit={ handleSubmit } style={{ display: 'inline-flex', width: '550px' }}>
-      <Form.Control type='text' aria-label='chat-input' value={ inputValue }
-        onChange={ handleChange } style={{ borderRadius: '50px', marginRight: 15, marginLeft: 25 }} />
-      <Button variant='primary' type='submit' aria-label='chat-submit'>
+    <Form id='chat-input-form' onSubmit={ handleSubmit }>
+
+      <Form.Control
+        id='chat-input-field'
+        type='text'
+        aria-label='chat-input'
+        value={ inputValue }
+        onChange={ handleChange }
+      />
+
+      <Button
+        variant='primary'
+        type='submit'
+        aria-label='chat-submit'>
         Submit
       </Button>
     </Form>

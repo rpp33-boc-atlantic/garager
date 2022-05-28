@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import sampleThreads from './sampleThreads.js';
 import ThreadList from './ThreadList.jsx';
-import Header from './Header.jsx';
 import ChatList from './ChatList.jsx';
-import { Row, Col } from 'react-bootstrap';
+import { Row, } from 'react-bootstrap';
 import './MessageStyles.css';
 
 const Messages = () => {
@@ -28,18 +27,24 @@ const Messages = () => {
 
   return (
     <section>
-      {/* <Header thread={ threads[ activeThread ] }/> */}
-      <Row id='test'>
-        <div style={{ maxWidth: 450, marginRight: '15px' }}>
-          <ThreadList threads={ threads } activeThread={ activeThread } changeThread={ changeThread }/>
+      <Row id='messages-row'>
+
+        <div id='thread-column'>
+          <ThreadList
+            threads={ threads }
+            activeThread={ activeThread }
+            changeThread={ changeThread }
+          />
         </div>
-        <div style={{ maxWidth: 600, marginBottom: 0, marginLeft: '-30px', borderLeft: '1px solid rgb(218, 218, 218)', borderRight: '1px solid rgb(218, 218, 218)'}}>
+
+        <div id='chat-column'>
           <ChatList
             threads={ threads }
             messages={ threads[ activeThread ].messages }
             addMessage={ addMessage }
           />
         </div>
+
       </Row>
     </section>
   );

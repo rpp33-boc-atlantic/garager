@@ -1,14 +1,22 @@
 import React from 'react';
 import moment from 'moment';
 
-const ThreadTile = (props) => {
+const ThreadTile = ( props ) => {
 
   return (
-    <React.Fragment>
-      <span style={{ fontSize: '18px' }}><strong>{ props.thread.username }</strong> - { props.thread.itemName }</span><br />
+    <div className='thread-tile'>
+
+      <span>
+        <strong>{ props.thread.username }</strong> - { props.thread.itemName }
+      </span><br />
+
       { props.thread.lastMessage }<br />
-      <span style={{ fontSize: '16px', color: 'gray' }}>{ moment(props.thread.timeUpdated).fromNow() }</span>
-    </React.Fragment>
+
+      <span className='thread-time'>
+        { moment( props.thread.timeUpdated ).fromNow() }
+      </span>
+
+    </div>
   );
 };
 
