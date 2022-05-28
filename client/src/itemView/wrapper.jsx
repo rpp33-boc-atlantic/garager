@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ImageGallery from './ImageGallery.jsx';
 import ItemDetails from './ItemDetails.jsx';
-import OwnerAndAvailability from './OwnerAndAvailability.jsx';
+import OwnerInfo from './OwnerInfo.jsx';
 import RentForm from './RentForm.jsx';
 import sampleItemData from './sampleItemData.js';
 
 
 const Container = styled.div`
   display: grid;
-  background: #eee;
+  // background: #eee;
+  background: white:
   padding: 1em;
   grid-template-columns: 3fr 2fr;
   grid-gap: 1em;
@@ -36,7 +37,7 @@ class Item extends React.Component {
       <div>
         <Container>
           <ImageGallery className='gallery' images={fakeProps.images}/>
-          <OwnerAndAvailability className='owner' name={fakeProps.name} owner={fakeProps.owner} availability={fakeProps.availability}/>
+          <OwnerInfo className='owner' name={fakeProps.name} owner={fakeProps.owner} />
           <ItemDetails className='details' details={fakeProps.details}/>
           <RentForm className='form' formInfo={fakeProps.formInfo} availability={fakeProps.availability}/>
         </Container>

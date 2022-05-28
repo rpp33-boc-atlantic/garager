@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   display: grid;
-  background: white;
+  // background: white;
   padding: 2em;
   // justify-self: end;
   grid-row: 1 / 3;
@@ -22,15 +22,15 @@ const Container = styled.div`
 
 `;
 
-const OwnerAndAvailability = (props) => {
+const OwnerInfo = (props) => {
   // console.log('props here', props)
   return (
     <Container>
 
       <h2>{props.name}</h2>
-      <h3>This item is: {props.availability ? 'Available' : 'Not Available'}</h3>
-      <h3>Item Owner: {props.owner.name}</h3>
-      <h4>{props.owner.description}</h4>
+      <h4>{props.owner.address}</h4>
+      <h4>Item Owner: {props.owner.name}</h4>
+      <h4>Member Since: {props.owner.dateJoined}</h4>
       <Link to="/Messages">
         <button>Message</button>
       </Link>
@@ -39,4 +39,4 @@ const OwnerAndAvailability = (props) => {
 
 };
 
-export default OwnerAndAvailability;
+export default OwnerInfo;
