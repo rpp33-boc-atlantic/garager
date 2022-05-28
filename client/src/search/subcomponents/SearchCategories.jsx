@@ -8,8 +8,8 @@ const SearchCategories = (props) => {
       <span>Categories</span>
       <div id="category-seach-icons">
         {Object.keys(props.categories).map((key) =>
-          <a className="category-search" key={key} title={key}>
-            <img src={props.categories[key]} alt={key}></img>
+          <a className="category-search" key={key} title={props.categories[key].name}>
+            <img src={props.categories[key].image} alt={key}></img>
           </a>
         )}
       </div>
