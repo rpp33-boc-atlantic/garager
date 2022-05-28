@@ -4,7 +4,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  signOut,
+  FacebookAuthProvider,
+  signInWithPopup
 } from 'firebase/auth';
 
 import { auth } from '../firebase';
@@ -21,6 +23,10 @@ export function UserAuthContextProvider({ children }) {
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
+  function facebookSignIn() {
+    const facebookAuthProvider = new FacebookAuthProvider();
+    return signInWithPopup(auth, facebookAuthProvider);
+  }
 
   //run only once, when the components did mount
   useEffect(() => {
@@ -36,7 +42,7 @@ export function UserAuthContextProvider({ children }) {
   }, []);
 
   return (
-    <userAuthContext.Provider value={{user, signUp, logIn}}>
+    <userAuthContext.Provider value={{user, signUp, logIn, facebookSignIn}}>
       {children}
     </userAuthContext.Provider>
   );

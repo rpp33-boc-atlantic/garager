@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth hook
-  const { logIn } = useUserAuth();
+  const { logIn, facebookSignIn } = useUserAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -22,6 +22,19 @@ const Login = () => {
       setError(err.message);
     }
   };
+
+  const handleFacebookSignIn = async (event) => {
+    event.preventDefault();
+    setError('');
+    try {
+      await facebookSignIn();
+      //redirect user to homepage
+      navigate('/');
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <>
       <Card>
@@ -40,11 +53,10 @@ const Login = () => {
             <Button className = 'w-100' type='submit'>Log In</Button>
           </Form>
 
-
           <div className='w-100 text-center mt-2'>
             or Log in with Facebook
           </div>
-          <Button className = 'w-100' type='submit'>Facebook Login</Button>
+          <Button className = 'w-100' onClick = {handleFacebookSignIn}>Facebook Login</Button>
           <div className='w-100 text-center mt-2'>
             Don't have an account? <Link to='/Signup'>Sign up</Link>
           </div>
