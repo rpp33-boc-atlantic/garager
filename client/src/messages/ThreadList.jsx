@@ -9,7 +9,7 @@ const ThreadList = (props) => {
   };
 
   return (
-    <ListGroup>
+    <ListGroup variant='flush' id='thread-list'>
       {
         props.threads.map(( thread, index ) => {
           if ( index === props.activeThread ) {
