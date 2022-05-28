@@ -14,12 +14,14 @@ import RouterTest from './RouterTest.jsx';
 import Item from './itemView/wrapper.jsx';
 import PostItem from './postItem/postItem.jsx';
 import Messages from './messages/Messages.jsx';
+import Homepage from './Homepage.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <Routes>
+      <Route path='/home' element={<Homepage />} />
       <Route path='/' exact element={<App />}>
         <Route path='FAQ' element={<FAQ />} />
         <Route path='RouterTest' element={<RouterTest />} />
