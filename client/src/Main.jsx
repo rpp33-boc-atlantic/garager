@@ -34,7 +34,6 @@ root.render(
       <Route path='/home' element={<Homepage />} />
       <Route path='/' exact element={<App />}>
         <Route path='FAQ' element={<FAQ />} />
-        <Route path='RouterTest' element={<RouterTest />} />
         <Route path='Item' element={<Item />} />
         <Route path='PostItem' element={<PostItem />} />
         <Route path='Messages' element={<Messages />} />
