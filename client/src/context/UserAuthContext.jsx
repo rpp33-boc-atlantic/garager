@@ -25,7 +25,13 @@ export function UserAuthContextProvider({ children }) {
   }
   function facebookSignIn() {
     const facebookAuthProvider = new FacebookAuthProvider();
-    return signInWithPopup(auth, facebookAuthProvider);
+    return signInWithPopup(auth, facebookAuthProvider)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }
 
   //run only once, when the components did mount
