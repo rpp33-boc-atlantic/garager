@@ -13,6 +13,7 @@ class Step4 extends Component {
     this.continue = this.continue.bind(this);
     this.back = this.back.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.validateZipcode = this.validateZipcode.bind(this);
     this.handleChangeInStep4 = this.handleChangeInStep4.bind(this);
   }
 
@@ -30,12 +31,39 @@ class Step4 extends Component {
     this.setState({ address });
   }
 
+  validateZipcode (zipcode) {
+    if (zipcode === '20252') {
+      return true;
+    } else {
+      if (zipcode.substring(0,2) === '09') {
+        return false;
+      } else {
+        let first3digits = zipcode.substring(0,3);
+        let regex = /^(?:001|00[6-9]|20[2-5]|340|96[2-8]|)$/;
+        if (first3digits.match(regex)) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  }
+
   handleSelect (address) {
     geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
+      .then((results) => {
+        const zipcode = results[0].address_components[7].long_name;
+        if (this.validateZipcode(zipcode)) {
+          console.log('validation', this.validateZipcode(zipcode));
+          getLatLng(results[0]);
+        } else {
+          alert('Restricted location. Please enter a different location...');
+        }
+      })
       .then(latLng => this.setState({ address: address, latLng: latLng}, () => { this.props.handleSelectLocation(address, latLng); }))
       .catch(error => console.error('Error', error));
   }
+
 
   render () {
     const { values, handleChange } = this.props;
