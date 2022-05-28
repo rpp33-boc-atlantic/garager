@@ -13,8 +13,8 @@ const ChatList = (props) => {
           props.messages.map(( message, index ) => {
             if (message.username === 'Stephen Strange') {
               return (
-                <React.Fragment>
-                  <p className='from-me' key={ index }>
+                <React.Fragment key={ index }>
+                  <p className='from-me'>
                     <ChatBubble key={index} message={ message }/>
                   </p>
                   <div style={{ textAlign: 'right', fontSize: '18px'}}>
@@ -24,8 +24,8 @@ const ChatList = (props) => {
               );
             } else {
               return (
-                <React.Fragment>
-                  <p className='from-them' key={ index }>
+                <React.Fragment key={ index }>
+                  <p className='from-them'>
                     <ChatBubble message={ message }/>
                   </p>
                   <div style={{ textAlign: 'left', fontSize: '18px'}}>
