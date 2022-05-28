@@ -18,7 +18,8 @@ const ThreadList = ( props ) => {
               <ListGroup.Item
                 active aria-label={ `thread-tile-${ index }` }
                 key={ index }
-                action onClick={ () => handleClick( index ) }>
+                action
+                onClick={ () => handleClick( index ) }>
 
                 <ThreadTile thread={ thread }/>
 
