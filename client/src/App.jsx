@@ -28,6 +28,7 @@ const App = () => {
         <Link style={{marginRight: '10px'}} to='RouterTest'>RouterTest</Link>
         <Link style={{marginRight: '10px'}} to='PostItem'>Post Item</Link>
         <Link style={{marginRight: '10px'}} to='Messages'>Messages</Link>
+        <Link style={{marginRight: '10px'}} to='Account'> Account</Link>
       </nav>
       <Outlet/>
       <CheckoutButton />
