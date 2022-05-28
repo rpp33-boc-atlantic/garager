@@ -1,5 +1,7 @@
+// EXAMPLES USING REACT BOOTSTRAP AND MATERIAL UI BELOW
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 // placeholder for checkout button until linked with ItemView
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
