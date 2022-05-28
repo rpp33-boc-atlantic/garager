@@ -17,6 +17,10 @@ import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
 import Login from './authentication/login.jsx';
 import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
+import Account from './account/Account.jsx';
+import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
+import CheckoutCancel from './checkout/CheckoutCancel.jsx';
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -32,6 +36,9 @@ root.render(
           <Route path='Item' element={<Item />} />
           <Route path='PostItem' element={<PostItem />} />
           <Route path='Messages' element={<Messages />} />
+          <Route path='Account' element={<Account />} />
+          <Route path='/CheckoutSuccess' element={<CheckoutSuccess />} />
+          <Route path='/CheckoutCancel' element={<CheckoutCancel />} />
         </Route>
       </Routes>
     </UserAuthContextProvider>

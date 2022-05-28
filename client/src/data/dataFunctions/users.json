@@ -1,0 +1,156 @@
+{
+  "0": {
+    "zipcode": 86556,
+    "state": "MI",
+    "id": 0,
+    "phoneNumber": "(989)707-0158",
+    "Address": "3103 Pine Cir",
+    "name": "Ron Swanson",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.304Z",
+    "email": "Ron.Swanson@iCloud.com"
+  },
+  "1": {
+    "zipcode": 78979,
+    "state": "MI",
+    "id": 1,
+    "phoneNumber": "(313)528-4041",
+    "Address": "4220 Walnut Dr",
+    "name": "Leslie Knope",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.305Z",
+    "email": "Leslie.Knope@hotmail.com"
+  },
+  "2": {
+    "zipcode": 92838,
+    "state": "MI",
+    "id": 2,
+    "phoneNumber": "(989)783-5128",
+    "Address": "2423 Catherine Ctk",
+    "name": "Russ Hanneman",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.305Z",
+    "email": "Russ.Hanneman@yahoo.com"
+  },
+  "3": {
+    "zipcode": 84604,
+    "state": "MI",
+    "id": 3,
+    "phoneNumber": "(248)882-8021",
+    "Address": "2103 Moore Dr",
+    "name": "Jack Barker",
+    "IsFBAuthenticated": true,
+    "joinedDate": "2022-05-24T02:10:17.305Z",
+    "email": "Jack.Barker@gmail.com"
+  },
+  "4": {
+    "zipcode": 53746,
+    "state": "MI",
+    "id": 4,
+    "phoneNumber": "(231)408-0355",
+    "Address": "0343 Skyline Blvd",
+    "name": "Michael Scott",
+    "IsFBAuthenticated": true,
+    "joinedDate": "2022-05-24T02:10:17.305Z",
+    "email": "Michael.Scott@gmail.com"
+  },
+  "5": {
+    "zipcode": 51634,
+    "state": "MI",
+    "id": 5,
+    "phoneNumber": "(616)278-6238",
+    "Address": "2244 Skyline Cir",
+    "name": "Lorie Bream",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Lorie.Bream@yahoo.com"
+  },
+  "6": {
+    "zipcode": 56758,
+    "state": "MI",
+    "id": 6,
+    "phoneNumber": "(906)106-6004",
+    "Address": "1031 Pine Cir",
+    "name": "Gavin Belson",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Gavin.Belson@gmail.com"
+  },
+  "7": {
+    "zipcode": 72077,
+    "state": "MI",
+    "id": 7,
+    "phoneNumber": "(313)561-5535",
+    "Address": "1403 MillPond Dr",
+    "name": "Stanley Hudson",
+    "IsFBAuthenticated": true,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Stanley.Hudson@gmail.com"
+  },
+  "8": {
+    "zipcode": 73069,
+    "state": "MI",
+    "id": 8,
+    "phoneNumber": "(734)563-3064",
+    "Address": "4113 Willow Cir",
+    "name": "Kelly Kapoor",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Kelly.Kapoor@gmail.com"
+  },
+  "9": {
+    "zipcode": 96902,
+    "state": "MI",
+    "id": 9,
+    "phoneNumber": "(231)676-0646",
+    "Address": "3232 Willow Ctk",
+    "name": "Tom Haverford",
+    "IsFBAuthenticated": true,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Tom.Haverford@yahoo.com"
+  },
+  "10": {
+    "zipcode": 73988,
+    "state": "MI",
+    "id": 10,
+    "phoneNumber": "(313)454-2645",
+    "Address": "3311 Pine Street",
+    "name": "Donna Meagle",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Donna.Meagle@yahoo.com"
+  },
+  "11": {
+    "zipcode": 51882,
+    "state": "MI",
+    "id": 11,
+    "phoneNumber": "(906)617-5553",
+    "Address": "3210 Baker Blvd",
+    "name": "Creed Bratton",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Creed.Bratton@hotmail.com"
+  },
+  "12": {
+    "zipcode": 90636,
+    "state": "MI",
+    "id": 12,
+    "phoneNumber": "(269)202-1207",
+    "Address": "0203 Catherine Ctk",
+    "name": "Bob Loblaw",
+    "IsFBAuthenticated": true,
+    "joinedDate": "2022-05-24T02:10:17.306Z",
+    "email": "Bob.Loblaw@iCloud.com"
+  },
+  "13": {
+    "zipcode": 60673,
+    "state": "MI",
+    "id": 13,
+    "phoneNumber": "(269)538-2552",
+    "Address": "4013 Walnut Street",
+    "name": "Pierce Hawthorne",
+    "IsFBAuthenticated": false,
+    "joinedDate": "2022-05-24T02:10:17.307Z",
+    "email": "Pierce.Hawthorne@iCloud.com"
+  }
+}
