@@ -19,12 +19,14 @@ class RentForm extends React.Component {
     this.state = {
       pickUpDate: null,
       returnDate: null,
-      suggestedPrice: null
+      suggestedPrice: null,
+      dateRange: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.checkFormData = this.checkFormData.bind(this);
+    this.grabDateRange = this.grabDateRange.bind(this);
   }
 
   handleChange(e) {
@@ -80,46 +82,45 @@ class RentForm extends React.Component {
         sugPriceIsValid = true;
       }
     }
-    const pd = new Date(this.state.pickUpDate);
-    const rd = new Date(this.state.returnDate);
+
+    const pd = new Date(this.state.dateRange[0].toLocaleDateString('en-US'));
+    const rd = new Date(this.state.dateRange[1].toLocaleDateString('en-US'));
     const diffTime = Math.abs(rd - pd);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     console.log(diffDays + 'days');
 
-    if (rd > pd) {
-      var cost;
-      if (sugPriceIsValid) {
-        cost = diffDays * parseInt(sugPrice);
-      } else {
-        cost = diffDays * this.props.formInfo.price;
-      }
-      return cost * 100;
+    // make sure they can't rent during days that the item isn't available
+    var cost;
+    if (sugPriceIsValid) {
+      cost = diffDays * parseInt(sugPrice);
     } else {
-      alert('Return date must follow pick up date');
+      cost = diffDays * this.props.formInfo.price;
     }
-    return false;
+    return cost * 100;
+  }
+
+  grabDateRange(range) {
+    console.log('this is the date range', range);
+    this.setState({
+      dateRange: range
+    }, () => {
+      console.log('state', this.state.dateRange);
+    });
+
   }
 
   render() {
     var suggestedPrice = <NYOP><label htmlFor='suggestedPrice'>Suggested price per day ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange}></input> <br></br></NYOP>;
     var suggestedPriceLine = this.props.formInfo.nameYourOwnPrice ? suggestedPrice : null;
 
-    var rentButton = <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit}></input></RentButton>;
-    var rentLine = this.props.availability ? rentButton : 'Item currently unavailable.';
-
     return (
       <Container>
-        <CalendarView></CalendarView>
+        <CalendarView grabDateRange={this.grabDateRange}></CalendarView>
         <form>
-          Price per day ($): {this.props.formInfo.price} <br></br>
-          <label htmlFor='pickUpDate'>Pickup Date: </label>
-          <input type='date' id='pickUpDate' name='pickUpDate' onChange={this.handleChange}></input><br></br>
-          <label htmlFor='returnDate'>Return Date:</label>
-          <input type='date' id='returnDate' name='returnDate' onChange={this.handleChange}></input><br></br>
+          <h6>Price per day ($): {this.props.formInfo.price}</h6>
           {suggestedPriceLine}
-          {rentLine}
+          <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit}></input></RentButton>
         </form>
-
       </Container>
     );
   }
@@ -127,3 +128,40 @@ class RentForm extends React.Component {
 
 export default RentForm;
 
+
+
+
+
+
+
+// checkFormData() {
+//   var sugPrice = this.state.suggestedPrice;
+//   var sugPriceIsValid = false;
+//   if (sugPrice !== null && sugPrice.length !== 0) {
+//     if (parseInt(sugPrice) < this.props.formInfo.minimumPrice) {
+//       alert('Suggested price is too low! Don\'t be cheap!');
+//       return false;
+//     } else {
+//       sugPriceIsValid = true;
+//     }
+//   }
+
+//   const pd = new Date(this.state.pickUpDate);
+//   const rd = new Date(this.state.returnDate);
+//   const diffTime = Math.abs(rd - pd);
+//   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+//   console.log(diffDays + 'days');
+
+//   if (rd > pd) {
+//     var cost;
+//     if (sugPriceIsValid) {
+//       cost = diffDays * parseInt(sugPrice);
+//     } else {
+//       cost = diffDays * this.props.formInfo.price;
+//     }
+//     return cost * 100;
+//   } else {
+//     alert('Return date must follow pick up date');
+//   }
+//   return false;
+// }

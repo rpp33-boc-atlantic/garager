@@ -22,12 +22,16 @@ function isSameDay(a, b) {
   return differenceInCalendarDays(a, b) === 0;
 }
 
-const CalendarView = () => {
+const CalendarView = (props) => {
 
   const [value, setValue] = useState(new Date());
 
   const onChange = (nextValue) => {
     setValue(nextValue);
+    // fix this so that it's handled asynchronously
+    props.grabDateRange(nextValue);
+
+
   }
 
   const simpleDate = (locale, date) => {
@@ -42,8 +46,9 @@ const CalendarView = () => {
       selectRange
       onChange={onChange}
       />
+      <h6>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
+      <h6>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>
       {console.log(value)}
-      {value.toString()}
     </div>
   );
 
