@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '@mui/material/Button';
+
 import Step1 from './step1.jsx';
 import Step2 from './step2.jsx';
 import Step3 from './step3.jsx';
@@ -15,13 +15,13 @@ class PostItem extends Component {
       category: '',
       brand: '',
       model: '',
-      description: '',
+      itemDescription: '',
       price: 0,
       nameYourOwnPrice: false,
       minimunAcceptedPrice: 0,
       availableFrom: '',
       availableTo: '',
-      photos: null,
+      photos: [],
       latLng: {},
       address1: ''
     };
@@ -57,8 +57,34 @@ class PostItem extends Component {
     };
   }
 
-  handleUploadPhotos (photos) {
-    this.setState({ photos: photos }, () => { this.changeToNext(); });
+  handleUploadPhotos (e) {
+    e.preventDefault();
+    const imageForm = document.querySelector('#imageForm');
+    const imagesInput = document.querySelector('#imageInput');
+    imageForm.addEventListener('click', (e) => {
+      const files = Array.from(imagesInput.files);
+
+      if (files) {
+        files.map( async (file) => {
+          //Get secure url from our server
+          const { url } = await fetch('/s3url').then (res => res.json());
+
+          //Post the image directly to s3 bucket
+          await fetch (url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            },
+            body: file
+          });
+
+          const imageURL = url.split('?')[0];
+          this.state.photos.push({'data_url': imageURL});
+          console.log('photos', this.state.photos);
+        });
+      }
+
+    });
   }
 
   handleSelectLocation (address, latLng) {
@@ -73,8 +99,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
-    const values = { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
+    const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
+    const values = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
 
     switch (step) {
     case 1:
@@ -126,9 +152,11 @@ class PostItem extends Component {
       return (
         <>
           <h5>Post an item for rent in 5 easy steps</h5>
-          <Button
+          <button
+            type="button"
+            className="btn"
             onClick={this.changeToNext}
-          >Let's Go!</Button>
+          >Let's Go!</button>
         </>
       );
     }

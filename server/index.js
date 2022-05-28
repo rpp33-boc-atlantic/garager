@@ -5,6 +5,7 @@ const accountRouter = require('./routes/account.routes.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+const generateUploadURL = require('./s3.js');
 
 const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
@@ -13,6 +14,11 @@ app.use('/account/', accountRouter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static(path.join(__dirname, '../client')));
+
+app.get('/s3url', async (req, res) => {
+  const url = await generateUploadURL();
+  res.send({url});
+});
 
 app.get('/test', (req, res) => {
   res.send('hi');
