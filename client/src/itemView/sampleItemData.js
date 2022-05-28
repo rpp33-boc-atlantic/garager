@@ -14,7 +14,8 @@ var option1 = {
   images: [],
   owner: {
     name: 'Tom Haverford',
-    description: 'Treat Yo Self',
+    dateJoined: 'July 2022',
+    address: 'Glendale, California'
   },
 };
 
@@ -34,7 +35,8 @@ var option2 = {
   images: [],
   owner: {
     name: 'Donna Meagle',
-    description: 'snitches get stitches',
+    dateJoined: 'March 2022',
+    address: 'Pasadena, California'
   },
 };
 
@@ -54,7 +56,8 @@ var option3 = {
   images: [],
   owner: {
     name: 'Donna Meagle',
-    description: 'snitches get stitches',
+    dateJoined: 'February 2018',
+    address: 'La Cañada Flintridge, California'
   },
 };
 
