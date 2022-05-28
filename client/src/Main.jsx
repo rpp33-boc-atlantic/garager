@@ -11,6 +11,7 @@ import * as ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
+import Item from './itemView/wrapper.jsx';
 import PostItem from './postItem/postItem.jsx';
 import Messages from './messages/Messages.jsx';
 import Account from './account/Account.jsx';
@@ -23,6 +24,7 @@ root.render(
       <Route path='/' exact element={<App />}>
         <Route path='FAQ' element={<FAQ />} />
         <Route path='RouterTest' element={<RouterTest />} />
+        <Route path='Item' element={<Item />} />
         <Route path='PostItem' element={<PostItem />} />
         <Route path='Messages' element={<Messages />} />
         <Route path='Account' element={<Account />} />

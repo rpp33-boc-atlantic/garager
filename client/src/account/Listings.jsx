@@ -5,8 +5,6 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import BasicTabs from './BasicTabs.jsx';
-import CenteredTabs from './CenteredTabs.jsx';
 import ControlledTabs from './ControlledTabs.jsx';
 
 
