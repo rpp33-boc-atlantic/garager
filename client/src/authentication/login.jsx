@@ -39,15 +39,17 @@ const Login = () => {
             </Form.Group>
             <Button className = 'w-100' type='submit'>Log In</Button>
           </Form>
+
+
+          <div className='w-100 text-center mt-2'>
+            or Log in with Facebook
+          </div>
+          <Button className = 'w-100' type='submit'>Facebook Login</Button>
+          <div className='w-100 text-center mt-2'>
+            Don't have an account? <Link to='/Signup'>Sign up</Link>
+          </div>
         </Card.Body>
       </Card>
-      <div className='w-100 text-center mt-2'>
-        or Log in with Facebook
-      </div>
-      <Button className = 'w-100' type='submit'>Facebook Login</Button>
-      <div className='w-100 text-center mt-2'>
-        Don't have an account? <Link to='/Signup'>Sign up</Link>
-      </div>
     </>
   );
 };
