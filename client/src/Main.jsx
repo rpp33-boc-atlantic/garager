@@ -19,7 +19,7 @@ import Listings from './account/Listings.jsx';
 
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
-import NavLinks from './account/NavLinks.jsx';
+import NavLinks from './utils/NavLinks.jsx';
 
 
 const container = document.getElementById('root');

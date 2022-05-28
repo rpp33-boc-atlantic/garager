@@ -4,7 +4,6 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
-import NavLinks from './account/NavLinks.jsx';
 
 // import NavBar from './account/NavBar.jsx';
 const App = () => {
