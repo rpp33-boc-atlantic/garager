@@ -12,6 +12,7 @@ import App from './App.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
 import Item from './itemView/wrapper.jsx';
+import SearchBrowse from './search/SearchBrowse.jsx';
 import PostItem from './postItem/postItem.jsx';
 import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
@@ -19,7 +20,6 @@ import Login from './authentication/login.jsx';
 import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
 import Rentals from './account/Rentals.jsx';
 import Listings from './account/Listings.jsx';
-
 import Homepage from './Homepage.jsx';
 import Account from './account/Account.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
@@ -40,6 +40,7 @@ root.render(
           <Route path='/login' element={<Login />} />
           <Route path='FAQ' element={<FAQ />} />
           <Route path='Item' element={<Item />} />
+          <Route path='SearchBrowse' element={<SearchBrowse />} />
           <Route path='PostItem' element={<PostItem />} />
           <Route path='Messages' element={<Messages />} />
           <Route path='my-listings' element={<Listings />} />
