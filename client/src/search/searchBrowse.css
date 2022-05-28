@@ -1,0 +1,79 @@
+/*---------------------------------------
+SEARCH/BROWSE
+---------------------------------------*/
+
+#search-browse-view {
+  display: flex;
+  flex-direction: row;
+}
+
+/*---------------------------------------
+SEARCH
+---------------------------------------*/
+
+.category-search img {
+  max-width: 33%;
+  padding: 3%;
+}
+
+#category-search-icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#search-categories {
+  display: flex;
+  flex-direction: column;
+}
+
+#search-column {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+}
+
+#mile-radius-search {
+ display: flex;
+ flex-direction: row;
+ max-width: 100%;
+ white-space: nowrap;
+}
+
+#zipcode-search {
+  width: 100%;
+}
+
+/*---------------------------------------
+BROWSE
+---------------------------------------*/
+
+#browse-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rental-listing img {
+  max-width: 25%;
+  padding: 3%;
+}
+
+.rental-listing {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.listing-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.listing-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
