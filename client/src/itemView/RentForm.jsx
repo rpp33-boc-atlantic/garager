@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CalendarView from './CalendarView.jsx';
 
 const Container = styled.div`
   display: grid;
@@ -83,6 +84,7 @@ class RentForm extends React.Component {
 
     return (
       <Container>
+        <CalendarView></CalendarView>
         <form>
           Price per day ($): {this.props.formInfo.price} <br></br>
           <label htmlFor='pickUpDate'>Pickup Date: </label>
