@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import CalendarView from './CalendarView.jsx';
+import axios from 'axios';
 
 const Container = styled.div`
   display: grid;
-  background: white;
+  // background: white;
   padding: 1em;
 `;
 
@@ -40,7 +41,31 @@ class RentForm extends React.Component {
     e.preventDefault();
     var cost = this.checkFormData();
     if (cost) {
-      console.log('gonna make request to server and send total cost: ', cost);
+      console.log('this is the cost in cents:', cost);
+      console.log('clicked here checkout button');
+      // ***** replace with actual ItemView Data *****
+      // send name of rented item
+      // owner's name
+      // date range
+
+
+      const itemInfo = {
+        name: 'kayak',
+        itemID: 888888,
+        owner: 'Kevin Krim',
+        priceInCents: cost,
+        dateRange: ['2022-06-03', '2022-06-04']
+      };
+
+      axios.post('/checkout/create-session', itemInfo)
+        .then((response) => {
+          console.log('response from checkoutButton', response);
+          window.location = response.data.url;
+        })
+        .catch((error) => {
+          console.log('ERROR from checkoutButton', error);
+        });
+
     }
   }
 
@@ -68,7 +93,7 @@ class RentForm extends React.Component {
       } else {
         cost = diffDays * this.props.formInfo.price;
       }
-      return cost;
+      return cost * 100;
     } else {
       alert('Return date must follow pick up date');
     }
@@ -94,6 +119,7 @@ class RentForm extends React.Component {
           {suggestedPriceLine}
           {rentLine}
         </form>
+
       </Container>
     );
   }
