@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import Button from '@mui/material/Button';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
-import theme from '../utils/theme.js';
 
 //Step3 includes price, nyop, minimum accepted price
 
@@ -31,55 +22,33 @@ class Step3 extends Component {
   render () {
     const { values, handleChange } = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <React.Fragment>
-          <h3>How much do you want to rent it for?</h3>
-          <Box
-            component="form"
-            sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
-            autoComplete="off"
-          >
-            <br/>
-            <InputLabel>Price</InputLabel>
-            <TextField
-              required
-              lable="Price"
-              onChange={handleChange('price')}
-              defaultValue={values.price}
-            />
-          </Box>
-          <InputLabel>Name Your Own Price</InputLabel>
-          <FormGroup>
-            <FormControlLabel control={
-              <Switch
-                onChange={handleChange('nameYourOwnPrice')}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-                color={'primary'}
-              />
-            }/>
-          </FormGroup>
-          <Box
-            component="form"
-            sx={{'& .MuiTextField-root': { m: 1, width: '25ch' }}}
-            autoComplete="off"
-          >
-            <br/>
-            <InputLabel>Minimum Accepted Price</InputLabel>
-            <TextField
-              placeholder="Required"
-              lable="Minimum Accepted Price"
-              onChange={handleChange('minimunAcceptedPrice')}
-              defaultValue={values.minimunAcceptedPrice}
-            />
-          </Box>
-          <Button
+      <React.Fragment>
+        <h3>How much do you want to rent it for?</h3>
+        <form>
+          <div className="form-row">
+            <label htmlFor="price">Rate per day</label>
+            <input type="text" className="form-control" id="price" placeholder="Required" onChange={handleChange('price')} value={values.price}/>
+          </div>
+          <div className="form-row">
+            <label htmlFor="nyop">Name your own price</label>
+            <div className="form-check form-switch">
+              <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onChange={handleChange('nameYourOwnPrice')} defaultValue={values.nameYourOwnPrice}/>
+            </div>
+          </div>
+          <div className="form-row">
+            <label htmlFor="price">Minimum accepted price</label>
+            <input type="text" className="form-control" id="minimunAcceptedPrice" placeholder="Set the lowest price you will accept..." onChange={handleChange('minimunAcceptedPrice')} value={values.minimunAcceptedPrice}/>
+          </div>
+          <button
+            type="submit" className="btn"
             onClick={this.back}
-          >Back</Button>
-          <Button
+          >Back</button>
+          <button
+            type="submit" className="btn"
             onClick={this.continue}
-          >Next</Button>
-        </React.Fragment>
-      </ThemeProvider>
+          >Next</button>
+        </form>
+      </React.Fragment>
     );
   }
 }
