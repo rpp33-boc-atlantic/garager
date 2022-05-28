@@ -25,13 +25,12 @@ const Login = () => {
 
   const handleFacebookSignIn = async (event) => {
     event.preventDefault();
-    setError('');
     try {
       await facebookSignIn();
       //redirect user to homepage
       navigate('/');
     } catch (err) {
-      setError(err.message);
+      console.log(err.message);
     }
   };
 
