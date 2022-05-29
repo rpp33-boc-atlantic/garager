@@ -57,34 +57,53 @@ class PostItem extends Component {
     };
   }
 
-  handleUploadPhotos (e) {
-    e.preventDefault();
-    const imageForm = document.querySelector('#imageForm');
-    const imagesInput = document.querySelector('#imageInput');
-    imageForm.addEventListener('click', (e) => {
-      const files = Array.from(imagesInput.files);
+  handleUploadPhotos (files) {
+    console.log('files', files);
+    files.map( async (file) => {
+      //Get secure url from our server
+      const { url } = await fetch('/s3url').then (res => res.json());
 
-      if (files) {
-        files.map( async (file) => {
-          //Get secure url from our server
-          const { url } = await fetch('/s3url').then (res => res.json());
+      //Post the image directly to s3 bucket
+      await fetch (url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        body: file
+      });
 
-          //Post the image directly to s3 bucket
-          await fetch (url, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            },
-            body: file
-          });
-
-          const imageURL = url.split('?')[0];
-          this.state.photos.push({'data_url': imageURL});
-          console.log('photos', this.state.photos);
-        });
-      }
-
+      const imageURL = url.split('?')[0];
+      this.state.photos.push({'data_url': imageURL});
+      console.log('photos', this.state.photos);
     });
+
+    // e.preventDefault();
+    // const imageForm = document.querySelector('#imageForm');
+    // const imagesInput = document.querySelector('#imageInput');
+    // imageForm.addEventListener('click', (e) => {
+    //   const files = Array.from(imagesInput.files);
+    //   console.log('files', files);
+    //   if (files) {
+    //     files.map( async (file) => {
+    //       //Get secure url from our server
+    //       const { url } = await fetch('/s3url').then (res => res.json());
+
+    //       //Post the image directly to s3 bucket
+    //       await fetch (url, {
+    //         method: 'PUT',
+    //         headers: {
+    //           'Content-Type': 'multipart/form-data'
+    //         },
+    //         body: file
+    //       });
+
+    //       const imageURL = url.split('?')[0];
+    //       this.state.photos.push({'data_url': imageURL});
+    //       console.log('photos', this.state.photos);
+    //     });
+    //   }
+
+    // });
   }
 
   handleSelectLocation (address, latLng) {
