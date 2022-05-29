@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import {
   FileUploadContainer,
   FormField,
@@ -50,6 +50,7 @@ const FileUpload = ({
 
   const callUpdateFilesCb = (files) => {
     const filesAsArray = convertNestedObjectToArray(files);
+    console.log('filesAsArray', filesAsArray);
     updateFilesCb(filesAsArray);
   };
 
