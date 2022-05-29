@@ -33,7 +33,9 @@ export function UserAuthContextProvider({ children }) {
         console.log(error.message);
       });
   }
-
+  function logOut() {
+    return signOut(auth);
+  }
   //run only once, when the components did mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,7 +50,7 @@ export function UserAuthContextProvider({ children }) {
   }, []);
 
   return (
-    <userAuthContext.Provider value={{user, signUp, logIn, facebookSignIn}}>
+    <userAuthContext.Provider value={{user, signUp, logIn, facebookSignIn, logOut}}>
       {children}
     </userAuthContext.Provider>
   );
