@@ -25,7 +25,7 @@ import Account from './account/Account.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 import NavLinks from './utils/NavLinks.jsx';
-
+import PrivateRoute from './authentication/privateRoute.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -34,15 +34,15 @@ root.render(
     <NavLinks/>
     <UserAuthContextProvider>
       <Routes>
-        <Route path='/home' element={<Homepage />} />
+        <Route path='/home' element={<Homepage />}/>
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<App />}>
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
           <Route path='FAQ' element={<FAQ />} />
           <Route path='RouterTest' element={<RouterTest />} />
           <Route path='Item' element={<Item />} />
           <Route path='SearchBrowse' element={<SearchBrowse />} />
-          <Route path='PostItem' element={<PostItem />} />
+          <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
           <Route path='Messages' element={<Messages />} />
           <Route path='my-listings' element={<Listings />} />
           <Route path='my-rentals' element={<Rentals />} />
