@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE users (
+  user_id INTEGER NOT NULL,
+  firstName VARCHAR(50) NOT NULL,
+  lastName VARCHAR(50) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  userPhoto CHARACTER VARYING(10485760) DEFAULT NULL,
+  phone VARCHAR(20),
+  address VARCHAR(1000),
+  dateJoined TIMESTAMP,
+  PRIMARY KEY (user_id)
+)
+
