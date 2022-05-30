@@ -1,5 +1,4 @@
 import React from 'react';
-// Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createRoot } from 'react-dom/client';
 import {
@@ -7,7 +6,6 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import * as ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
@@ -27,9 +25,12 @@ import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 import NavLinks from './utils/NavLinks.jsx';
 import { io } from 'socket.io-client';
 
+// sets up client for socketIO connection (for live chat)
 const socketIO = io('ws://127.0.0.1:3000');
+
 const container = document.getElementById('root');
 const root = createRoot(container);
+
 root.render(
   <BrowserRouter>
     <NavLinks socketIO={ socketIO }/>

@@ -12,7 +12,7 @@ const Messages = ( props ) => {
 
   const addMessage = ( message ) => {
 
-    props.socketIO.emit('message', { text: message });
+    // props.socketIO.emit('message', { text: message });
 
     let newThreads = [ ...threads ];
     let newThread = newThreads[ activeThread ];

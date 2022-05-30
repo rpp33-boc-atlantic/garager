@@ -9,18 +9,11 @@ import Badge from 'react-bootstrap/Badge';
 import { GoMail } from 'react-icons/go';
 
 const NavLinks = ( props ) => {
+  // this navbar uses a menu toggle for that reactively collapses for smaller screens.
 
-  // this navbar uses a menue toggle for that reactively collapses for smaller screens.
-
-  const [ unreadCount, updateUnreadCount ] = useState(0);
-
+  // sets up socketIO for new message notifications
   useEffect(() => {
-
-    props.socketIO.on('message', ( message ) => {
-      console.log(message);
-      updateUnreadCount(unreadCount + 1);
-    });
-
+    props.socketIO.on('message', ( message ) => {});
   });
 
   return (
@@ -46,17 +39,9 @@ const NavLinks = ( props ) => {
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
             </NavDropdown>
 
-            {
-              unreadCount > 0
-
-                ? <Nav.Link as={Link} to='Messages'>
-                  <GoMail size='35px' /><Badge pill bg='danger'>{unreadCount}</Badge>
-                </Nav.Link>
-
-                : <Nav.Link as={Link} to='Messages'>
-                  <GoMail size='35px' /><Badge pill bg='danger'></Badge>
-                </Nav.Link>
-            }
+            <Nav.Link as={Link} to='Messages'>
+              <GoMail size='35px' /><Badge pill bg='danger'></Badge>
+            </Nav.Link>
 
           </Nav>
         </Navbar.Collapse>
