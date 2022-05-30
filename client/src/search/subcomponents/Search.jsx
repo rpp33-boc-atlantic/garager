@@ -20,7 +20,13 @@ const Search = (props) => {
         <span> miles from </span>
         <input type="text" id="zipcode-search" placeholder="ZIP Code"></input>
       </div>
-      <SearchCategories categories={props.categories}/>
+      <SearchCategories
+        categories={props.categories}
+        selectedCategories={props.selectedCategories}
+        categorySearch={props.categorySearch}
+        selectAll={props.selectAll}
+        unselectAll={props.unselectAll}
+      />
     </div>
   );
 };

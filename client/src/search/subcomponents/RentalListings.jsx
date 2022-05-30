@@ -47,6 +47,6 @@ class RentalListings extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default RentalListings;

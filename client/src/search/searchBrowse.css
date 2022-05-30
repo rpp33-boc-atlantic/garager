@@ -11,6 +11,14 @@ SEARCH/BROWSE
 SEARCH
 ---------------------------------------*/
 
+.category-icon-off {
+  opacity: 0.6;
+}
+
+#category-multiselect {
+  text-align: center;
+}
+
 .category-search img {
   max-width: 33%;
   padding: 3%;
