@@ -5,12 +5,15 @@ import ChatList from './ChatList.jsx';
 import { Row, } from 'react-bootstrap';
 import './MessageStyles.css';
 
-const Messages = () => {
+const Messages = ( props ) => {
 
   const [ threads, updateThreads ] = useState( sampleThreads );
   const [ activeThread, changeThread ] = useState(0);
 
   const addMessage = ( message ) => {
+
+    props.socketIO.emit('message', { text: message });
+
     let newThreads = [ ...threads ];
     let newThread = newThreads[ activeThread ];
     let newMessage = {

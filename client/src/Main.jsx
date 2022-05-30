@@ -25,13 +25,14 @@ import Account from './account/Account.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 import NavLinks from './utils/NavLinks.jsx';
+import { io } from 'socket.io-client';
 
-
+const socketIO = io('ws://127.0.0.1:3000');
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
-    <NavLinks/>
+    <NavLinks socketIO={ socketIO }/>
     <UserAuthContextProvider>
       <Routes>
         <Route path='/home' element={<Homepage />} />
@@ -43,7 +44,7 @@ root.render(
           <Route path='Item' element={<Item />} />
           <Route path='SearchBrowse' element={<SearchBrowse />} />
           <Route path='PostItem' element={<PostItem />} />
-          <Route path='Messages' element={<Messages />} />
+          <Route path='Messages' element={<Messages socketIO={ socketIO }/>} />
           <Route path='my-listings' element={<Listings />} />
           <Route path='my-rentals' element={<Rentals />} />
           <Route path='/CheckoutSuccess' element={<CheckoutSuccess />} />

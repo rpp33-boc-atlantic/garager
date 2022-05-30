@@ -5,10 +5,23 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaTools } from 'react-icons/fa';
+import Badge from 'react-bootstrap/Badge';
+import { GoMail } from 'react-icons/go';
 
-const NavLinks = () => {
+const NavLinks = ( props ) => {
 
   // this navbar uses a menue toggle for that reactively collapses for smaller screens.
+
+  const [ unreadCount, updateUnreadCount ] = useState(0);
+
+  useEffect(() => {
+
+    props.socketIO.on('message', ( message ) => {
+      console.log(message);
+      updateUnreadCount(unreadCount + 1);
+    });
+
+  });
 
   return (
     <Navbar expand="lg" bg='blue' variant='light' style={{ maxHeight: '70px' }}>
@@ -22,7 +35,6 @@ const NavLinks = () => {
             <Nav.Link as={Link} to='Signup'>Sign Up</Nav.Link>
             <Nav.Link as={Link} to='Login'>Log In</Nav.Link>
             <Nav.Link as={Link} to='PostItem'>Post Item</Nav.Link>
-            <Nav.Link as={Link} to='Messages'>Messages</Nav.Link>
             <Nav.Link as={Link} to='Item'>Checkout</Nav.Link>
             <Nav.Link as={Link} to='SearchBrowse'>Browse</Nav.Link>
 
@@ -33,6 +45,19 @@ const NavLinks = () => {
               {/* <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
             </NavDropdown>
+
+            {
+              unreadCount > 0
+
+                ? <Nav.Link as={Link} to='Messages'>
+                  <GoMail size='35px' /><Badge pill bg='danger'>{unreadCount}</Badge>
+                </Nav.Link>
+
+                : <Nav.Link as={Link} to='Messages'>
+                  <GoMail size='35px' /><Badge pill bg='danger'></Badge>
+                </Nav.Link>
+            }
+
           </Nav>
         </Navbar.Collapse>
       </Container>
