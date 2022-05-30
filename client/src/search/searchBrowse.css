@@ -34,6 +34,10 @@ SEARCH
   max-width: 30%;
 }
 
+.search-query {
+  font-weight: bold;
+}
+
 #mile-radius-search {
  display: flex;
  flex-direction: row;

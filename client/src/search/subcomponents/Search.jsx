@@ -6,7 +6,7 @@ const Search = (props) => {
   return (
     <div id="search-column">
       <span>FIND YOUR NEXT RENTAL</span>
-      <input type="text" id="keyword-search" placeholder="Search Here!"></input>
+      <input type="text" id="keyword-search" placeholder="Search Here!" onChange={props.keywordSearch}></input>
       <div id="mile-radius-search">
         <span>Within </span>
         <select name="distance" id="distance-dropdown">
