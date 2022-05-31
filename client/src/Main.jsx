@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 import App from './App.jsx';
 import FAQ from './FAQ.jsx';
-import RouterTest from './RouterTest.jsx';
 import Item from './itemView/wrapper.jsx';
 import SearchBrowse from './search/SearchBrowse.jsx';
 import PostItem from './postItem/postItem.jsx';
@@ -19,7 +18,6 @@ import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
 import Rentals from './account/Rentals.jsx';
 import Listings from './account/Listings.jsx';
 import Homepage from './Homepage.jsx';
-import Account from './account/Account.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 import NavLinks from './utils/NavLinks.jsx';
@@ -42,7 +40,6 @@ root.render(
         <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
           <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
-          <Route path='RouterTest' element={<RouterTest />} />
           <Route path='Item' element={<PrivateRoute><Item /></PrivateRoute>} />
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
