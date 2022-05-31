@@ -43,8 +43,8 @@ class RentForm extends React.Component {
     e.preventDefault();
     var cost = this.checkFormData();
     if (cost) {
-      console.log('this is the cost in cents:', cost);
-      console.log('clicked here checkout button');
+      // console.log('this is the cost in cents:', cost);
+      // console.log('clicked here checkout button');
       // ***** replace with actual ItemView Data *****
       // send name of rented item
       // owner's name
@@ -57,7 +57,7 @@ class RentForm extends React.Component {
         dateRange: this.state.dateRange
         // dateRange: ['2022-06-03', '2022-06-04']
       };
-      console.log('item info,', itemInfo)
+      // console.log('item info,', itemInfo);
 
       axios.post('/checkout/create-session', itemInfo)
         .then((response) => {

@@ -4,7 +4,7 @@ import { differenceInCalendarDays } from 'date-fns';
 import parseISO from 'date-fns/parseISO';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { isWithinInterval } from "date-fns";
+import { isWithinInterval } from 'date-fns';
 import moment from 'moment';
 
 // const disabledDates = ['2022-06-03', '2022-06-04'];
