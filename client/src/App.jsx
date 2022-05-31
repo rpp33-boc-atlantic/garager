@@ -1,10 +1,14 @@
+// EXAMPLES USING REACT BOOTSTRAP AND MATERIAL UI BELOW
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 // placeholder for checkout button until linked with ItemView
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
+import './App.css';
 
+// import NavBar from './account/NavBar.jsx';
 const App = () => {
   let navigate = useNavigate();
 
@@ -19,19 +23,26 @@ const App = () => {
       navigate('/CheckoutCancel');
     }
   });
-  
+
   return (
     <div>
-      <h1>Garager</h1>
-      <nav style={{marginBottom: '20px'}}>
+      {/* <h1>Garager</h1> */}
+      {/* <nav className="navbar navbar-light bg-light"style={{marginBottom: '20px'}}>
         <Link style={{marginRight: '10px'}} to='FAQ'>FAQ</Link>
         <Link style={{marginRight: '10px'}} to='RouterTest'>RouterTest</Link>
+        <Link style={{marginRight: '10px'}} to='SearchBrowse'>Browse</Link>
         <Link style={{marginRight: '10px'}} to='PostItem'>Post Item</Link>
         <Link style={{marginRight: '10px'}} to='Messages'>Messages</Link>
-      </nav>
+        <NavLinks/>
+
+
+      </nav> */}
       <Outlet/>
-      <CheckoutButton />
+      {/* /<CheckoutButton /> */}
+      {/* I commented this out because I think Jo implemented it on Rudy's page already. */}
+
     </div>
+
   );
 };
 
