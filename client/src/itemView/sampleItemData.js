@@ -1,3 +1,9 @@
+import ladder1 from './samplePhotos/ladder1.jpeg';
+import ladder2 from './samplePhotos/ladder2.jpeg';
+import ladder3 from './samplePhotos/ladder3.jpeg';
+
+
+
 var option1 = {
   name: 'Gorilla ladder',
   itemID: 1234,
@@ -12,7 +18,7 @@ var option1 = {
     nameYourOwnPrice: true,
     minimumPrice: 20,
   },
-  images: [],
+  images: [ladder1, ladder2, ladder3],
   owner: {
     name: 'Tom Haverford',
     dateJoined: 'July 2022',
