@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
+import './App.css';
 
 // import NavBar from './account/NavBar.jsx';
 const App = () => {
