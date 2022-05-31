@@ -40,7 +40,7 @@ const NavLinks = ( props ) => {
             </NavDropdown>
 
             <Nav.Link as={Link} to='Messages'>
-              <GoMail size='35px' /><Badge pill bg='danger'></Badge>
+              <GoMail size='30px' /><Badge pill bg='danger'></Badge>
             </Nav.Link>
 
           </Nav>

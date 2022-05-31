@@ -25,7 +25,7 @@ import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 import NavLinks from './utils/NavLinks.jsx';
 import { io } from 'socket.io-client';
 
-// sets up client for socketIO connection (for live chat)
+// sets up client for socketIO connection
 const socketIO = io('ws://127.0.0.1:3000');
 
 const container = document.getElementById('root');

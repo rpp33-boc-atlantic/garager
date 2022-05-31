@@ -7,9 +7,10 @@ const socketIO = new Server(server);
 
 // sets up server for socket connection
 socketIO.on('connection', ( socket ) => {
+
   // console.log('a user connected');
   // socket.on('message', ( message ) => {
-  //   socketIO.emit('message', 'nice');
+  //   socketIO.emit('message', 'test');
   // });
 });
 
