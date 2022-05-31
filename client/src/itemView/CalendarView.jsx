@@ -42,10 +42,13 @@ const CalendarView = (props) => {
   const [value, setValue] = useState(new Date());
 
   const onChange = (nextValue) => {
-    checkIfConflict(nextValue);
-    setValue(nextValue);
-    // fix this so that it's handled asynchronously
-    props.grabDateRange(nextValue);
+    if (checkIfConflict(nextValue)) {
+      alert('Please fix dates. Make sure proposed rent range does not include dates where item is unavailable');
+    } else {
+      // fix this so that it's handled asynchronously
+      setValue(nextValue);
+      props.grabDateRange(nextValue);
+    }
   };
 
   const tileDisabled = ({date, view}) => {
@@ -85,11 +88,12 @@ const CalendarView = (props) => {
       if (isWithinRange(new Date(firstDay), formattedRange)) {
         console.log('THERE IS CONFLICT! firstDay', firstDay);
         console.log('is in the proposed range:', formattedRange);
-        alert('Please fix dates. Make sure proposed rent range does not include dates where item is unavailable');
+        return true;
       } else {
         console.log('YOURE GOOD TO GO!');
       }
     }
+    return false;
   };
 
   return (
