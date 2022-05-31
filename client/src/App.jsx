@@ -6,8 +6,6 @@ import { Container } from 'react-bootstrap';
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
-import { useUserAuth } from './context/UserAuthContext.jsx';
-import { Button } from 'react-bootstrap';
 import './App.css';
 
 // import NavBar from './account/NavBar.jsx';
@@ -26,15 +24,6 @@ const App = () => {
     }
   });
 
-  //display user
-  const { user, logOut } = useUserAuth();
-  const handleLogOut = async () => {
-    try {
-      await logOut();
-    } catch (err) {
-      console.log(err.messsage);
-    }
-  };
 
   return (
     <div>
@@ -52,14 +41,6 @@ const App = () => {
       <Outlet/>
       {/* /<CheckoutButton /> */}
       {/* I commented this out because I think Jo implemented it on Rudy's page already. */}
-      <div className='p-4 box mt-3 text-center'>
-        Welcome
-        <br></br>
-        {user.email}
-      </div>
-      <div className='d-grid gap-2'>
-        <Button variant='primary' onClick={handleLogOut}>Log Out</Button>
-      </div>
     </div>
 
   );

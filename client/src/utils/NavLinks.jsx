@@ -5,8 +5,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaTools } from 'react-icons/fa';
+import Logout from '../authentication/logout.jsx';
 
 const NavLinks = () => {
+
 
   // this navbar uses a menue toggle for that reactively collapses for smaller screens.
 
@@ -29,17 +31,14 @@ const NavLinks = () => {
               <NavDropdown.Item as={Link} to='my-rentals'>My Rentals</NavDropdown.Item>
               {/* <NavDropdown.Item href="#action/3.3">Saved</NavDropdown.Item> */}
               {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <Logout />
       </Container>
     </Navbar>
   );
-
-
-
-
 
 };
 export default NavLinks;
