@@ -24,6 +24,7 @@ const App = () => {
     }
   });
 
+
   return (
     <div>
       {/* <h1>Garager</h1> */}
@@ -40,7 +41,6 @@ const App = () => {
       <Outlet/>
       {/* /<CheckoutButton /> */}
       {/* I commented this out because I think Jo implemented it on Rudy's page already. */}
-
     </div>
 
   );

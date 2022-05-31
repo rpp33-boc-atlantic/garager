@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaTools } from 'react-icons/fa';
 import Badge from 'react-bootstrap/Badge';
 import { GoMail } from 'react-icons/go';
+import Logout from '../authentication/logout.jsx';
 
 const NavLinks = ( props ) => {
   // this navbar uses a menu toggle for that reactively collapses for smaller screens.
@@ -25,8 +26,6 @@ const NavLinks = ( props ) => {
           <Nav className="me-auto">
             <Nav.Link href="#home">FAQ</Nav.Link>
             <Nav.Link href="#home">RouterTest</Nav.Link>
-            <Nav.Link as={Link} to='Signup'>Sign Up</Nav.Link>
-            <Nav.Link as={Link} to='Login'>Log In</Nav.Link>
             <Nav.Link as={Link} to='PostItem'>Post Item</Nav.Link>
             <Nav.Link as={Link} to='Item'>Checkout</Nav.Link>
             <Nav.Link as={Link} to='SearchBrowse'>Browse</Nav.Link>
@@ -36,7 +35,7 @@ const NavLinks = ( props ) => {
               <NavDropdown.Item as={Link} to='my-rentals'>My Rentals</NavDropdown.Item>
               {/* <NavDropdown.Item href="#action/3.3">Saved</NavDropdown.Item> */}
               {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
             </NavDropdown>
 
             <Nav.Link as={Link} to='Messages'>
@@ -45,13 +44,10 @@ const NavLinks = ( props ) => {
 
           </Nav>
         </Navbar.Collapse>
+        <Logout />
       </Container>
     </Navbar>
   );
-
-
-
-
 
 };
 export default NavLinks;
