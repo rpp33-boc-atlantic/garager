@@ -11,7 +11,7 @@ const NavLinks = () => {
   // this navbar uses a menue toggle for that reactively collapses for smaller screens.
 
   return (
-    <Navbar expand="lg" bg='blue' variant='light'>
+    <Navbar expand="lg" bg='blue' variant='light' style={{ maxHeight: '70px' }}>
       <Container>
         <Navbar.Brand as={Link} to='home'>  <FaTools /> GARAGER</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
