@@ -6,8 +6,13 @@ import { Container } from 'react-bootstrap';
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
+<<<<<<< HEAD
 import { useUserAuth } from './context/UserAuthContext.jsx';
 import { Button } from 'react-bootstrap';
+=======
+import './App.css';
+
+>>>>>>> main
 // import NavBar from './account/NavBar.jsx';
 const App = () => {
   let navigate = useNavigate();
