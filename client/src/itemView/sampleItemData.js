@@ -1,5 +1,6 @@
 var option1 = {
   name: 'Gorilla ladder',
+  itemID: 1234,
   details: {
     brand: 'Bri-Mar',
     model: '3500 lb. Dual Acle',
@@ -14,12 +15,14 @@ var option1 = {
   images: [],
   owner: {
     name: 'Tom Haverford',
-    description: 'Treat Yo Self',
+    dateJoined: 'July 2022',
+    address: 'Pawnee, Indiana'
   },
 };
 
 var option2 = {
   name: 'Glamorous Tent',
+  itemID: 1235,
   details: {
     brand: 'Patagonia',
     model: '89',
@@ -34,12 +37,14 @@ var option2 = {
   images: [],
   owner: {
     name: 'Donna Meagle',
-    description: 'snitches get stitches',
+    dateJoined: 'March 2022',
+    address: 'Pasadena, California'
   },
 };
 
 var option3 = {
   name: 'Glamorous Tent',
+  itemID: 1235,
   details: {
     brand: 'Patagonia',
     model: '89',
@@ -54,7 +59,8 @@ var option3 = {
   images: [],
   owner: {
     name: 'Donna Meagle',
-    description: 'snitches get stitches',
+    dateJoined: 'February 2018',
+    address: 'La Cañada Flintridge, California'
   },
 };
 
