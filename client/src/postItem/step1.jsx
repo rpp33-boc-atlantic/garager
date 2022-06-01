@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FileUpload from './FileUpload.jsx';
 
 //Step1 includes title, and upload photo
@@ -8,7 +8,7 @@ const Step1 = (props) => {
   const [images, setImages] = React.useState({ imageFiles: [] });
 
   const updateUploadedFiles = (files) => {
-    setImages({ ...images, imageFiles: files }, ()=>{console.log(images);});
+    setImages({ ...images, imageFiles: files }, ()=> { console.log(images); });
   };
 
   const handleSubmit = (e) => {
