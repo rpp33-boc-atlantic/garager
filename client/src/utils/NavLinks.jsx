@@ -25,9 +25,7 @@ const NavLinks = ( props ) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">FAQ</Nav.Link>
-            <Nav.Link href="#home">RouterTest</Nav.Link>
-            <Nav.Link as={Link} to='Signup'>Sign Up</Nav.Link>
-            <Nav.Link as={Link} to='Login'>Log In</Nav.Link>
+            <Nav.Link as={Link} to='PostItem'>Post Item</Nav.Link>
             <Nav.Link as={Link} to='Messages'>Messages</Nav.Link>
             <Nav.Link as={Link} to='Item'>Checkout</Nav.Link>
             <Nav.Link as={Link} to='SearchBrowse'>Browse</Nav.Link>
