@@ -41,7 +41,7 @@ const Messages = ( props ) => {
       imageUrl: null,
       timeCreated: Date.now()
     };
-    props.socketIO.emit('message', newMessage);
+    props.socketIO.emit( 'message', newMessage );
   };
 
   return (
@@ -60,7 +60,7 @@ const Messages = ( props ) => {
           <ChatList
             threads={ threads }
             messages={ threads[ activeThread ].messages }
-            addMessage={ addMessage }
+            sendMessage={ sendMessage }
           />
         </div>
 

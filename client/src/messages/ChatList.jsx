@@ -29,7 +29,7 @@ const ChatList = ( props ) => {
       </div>
 
       <div className='position-absolute bottom-0'>
-        <ChatInput addMessage={ props.addMessage }/>
+        <ChatInput sendMessage={ props.sendMessage }/>
       </div>
 
     </React.Fragment>
