@@ -1,24 +1,46 @@
 import React from 'react';
 import ThreadTile from './ThreadTile.jsx';
+import { ListGroup } from 'react-bootstrap';
 
-const ThreadList = (props) => {
+const ThreadList = ( props ) => {
 
-  const handleClick = (index) => {
-    props.changeThread(index);
+  const handleClick = ( index ) => {
+    props.changeThread( index );
   };
 
   return (
-    <React.Fragment>
+    <ListGroup variant='flush' id='thread-list'>
       {
         props.threads.map(( thread, index ) => {
-          return (
-            <div aria-label={ `thread-tile-${index}` } key={ index } onClick={ () => handleClick(index) }>
-              <ThreadTile thread={ thread }/>
-            </div>
-          );
+
+          if ( index === props.activeThread ) {
+            return (
+              <ListGroup.Item
+                active aria-label={ `thread-tile-${ index }` }
+                key={ index }
+                action
+                onClick={ () => handleClick( index ) }>
+
+                <ThreadTile thread={ thread }/>
+
+              </ListGroup.Item>
+            );
+
+          } else {
+            return (
+              <ListGroup.Item
+                aria-label={ `thread-tile-${ index }` }
+                key={ index }
+                action onClick={ () => handleClick( index ) }>
+
+                <ThreadTile thread={ thread }/>
+
+              </ListGroup.Item>
+            );
+          }
         })
       }
-    </React.Fragment>
+    </ListGroup>
   );
 };
 
