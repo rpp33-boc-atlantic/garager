@@ -25,7 +25,7 @@ module.exports = {
           success_url: `${YOUR_DOMAIN}?success=true`,
           cancel_url: `${YOUR_DOMAIN}?canceled=true`,
         });
-      
+
         // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
         res.json({ url: session.url });
       } catch (e) {
