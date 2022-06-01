@@ -39,7 +39,6 @@ root.render(
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='FAQ' element={<FAQ />} />
-          <Route path='RouterTest' element={<RouterTest />} />
           <Route path='Item' element={<Item />} />
           <Route path='SearchBrowse' element={<SearchBrowse />} />
           <Route path='PostItem' element={<PostItem />} />
