@@ -6,7 +6,9 @@ import {
   onAuthStateChanged,
   signOut,
   FacebookAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  fetchSignInMethodsForEmail,
+  linkWithCredential
 } from 'firebase/auth';
 
 import { auth } from '../firebase';
@@ -22,19 +24,41 @@ export function UserAuthContextProvider({ children }) {
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
+
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
+
   function facebookSignIn() {
     const facebookAuthProvider = new FacebookAuthProvider();
     return signInWithPopup(auth, facebookAuthProvider)
       .then((res) => {
         console.log(res.user);
       })
-      .catch((error) => {
-        console.log(error.message);
+      .catch((err) => {
+        //user tries to sign in with with an existing email account
+        console.log(err.message);
+        if (err.code === 'auth/account-exists-with-different-credential') {
+          const pendingCred = FacebookAuthProvider.credentialFromError(err);
+          //console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
+          //TODO: Ask the user for their email and password.
+          signInWithEmailAndPassword(auth, 'arielddw@gmail.com', '123456')
+            .then((res) => {
+              linkWithCredential(res.user, pendingCred)
+                .then((res) => {
+                  console.log('succesfully linked account');
+                })
+                .catch((err) => {
+                  console.log('failed to link account', err.message);
+                });
+            })
+            .catch((err) => {
+              console.log('failed to sign in with email and password', err.message);
+            });
+        }
       });
   }
+
   function logOut() {
     return signOut(auth);
   }
