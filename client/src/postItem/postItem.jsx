@@ -74,7 +74,7 @@ class PostItem extends Component {
       const imageURL = url.split('?')[0];
       this.state.photos.push({'data_url': imageURL}, () => {
         console.log('photos', this.state.photos);
-        // this.changeToNext();
+        this.changeToNext();
       });
 
     });
