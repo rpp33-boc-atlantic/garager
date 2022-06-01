@@ -67,34 +67,38 @@ CREATE INDEX item_index ON transactions(item_id);
 CREATE INDEX owner_index ON transactions(owner_id);
 CREATE INDEX renter_index ON transactions(renter_id);
 
-CREATE TABLE "public.threads" (
-	"id" serial NOT NULL,
+DROP TABLE IF EXISTS threads;
+CREATE TABLE threads (
+	"thread_id" serial NOT NULL,
 	"item_id" int NOT NULL,
 	"owner_id" int NOT NULL,
 	"renter_id" int NOT NULL,
 	"owner_viewed" BOOLEAN NOT NULL DEFAULT 'true',
 	"renter_viewed" BOOLEAN NOT NULL DEFAULT 'true',
 	"last_message_id" int DEFAULT 'null',
-	"time_updated" bigint DEFAULT 'null',
-	CONSTRAINT "threads_pk" PRIMARY KEY ("id")
+	"time_updated" bigint DEFAULT 'null'
+	CONSTRAINT "threads_pk" PRIMARY KEY ("thread_id")
 ) WITH (
   OIDS=FALSE
 );
 
-CREATE TABLE "public.messages" (
-	"id" serial NOT NULL,
+DROP TABLE IF EXISTS messages;
+CREATE TABLE messages (
+	"message_id" serial NOT NULL,
 	"thread_id" int NOT NULL,
 	"user_id" int NOT NULL,
 	"text" TEXT DEFAULT 'null',
 	"image_url" TEXT DEFAULT 'null',
 	"time_created" bigint NOT NULL,
-	CONSTRAINT "messages_pk" PRIMARY KEY ("id")
+	CONSTRAINT "messages_pk" PRIMARY KEY ("message_id")
 ) WITH (
   OIDS=FALSE
 );
 
-ALTER TABLE "threads" ADD CONSTRAINT "threads_fk0" FOREIGN KEY ("last_message_id") REFERENCES "messages"("id");
+CREATE INDEX thread_owner_index ON threads(owner_id);
+CREATE INDEX thread_renter_index ON threads(renter_id);
+CREATE INDEX thread_id_index ON messages(thread_id);
 
-ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") REFERENCES "threads"("id");
+ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") REFERENCES "threads"("thread_id");
 
 -- Sample values
