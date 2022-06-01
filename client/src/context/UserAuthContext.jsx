@@ -27,6 +27,8 @@ export function UserAuthContextProvider({ children }) {
 
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
+    //TODO: if user email already exists through facebook login,
+    //pop up error message and guide the user to login page
   }
 
   function facebookSignIn() {
@@ -40,7 +42,7 @@ export function UserAuthContextProvider({ children }) {
         console.log(err.message);
         if (err.code === 'auth/account-exists-with-different-credential') {
           const pendingCred = FacebookAuthProvider.credentialFromError(err);
-          //console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
+          console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
           //TODO: Ask the user for their email and password.
           signInWithEmailAndPassword(auth, 'arielddw@gmail.com', '123456')
             .then((res) => {
