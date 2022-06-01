@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CalendarView from './CalendarView.jsx';
 import axios from 'axios';
+import moment from 'moment';
 
 const Container = styled.div`
   display: grid;
@@ -42,6 +43,7 @@ class RentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     var cost = this.checkFormData();
+    console.log('cost right here', cost)
     if (cost) {
       // console.log('this is the cost in cents:', cost);
       // console.log('clicked here checkout button');
@@ -87,20 +89,29 @@ class RentForm extends React.Component {
     const rd = new Date(this.state.dateRange[1].toLocaleDateString('en-US'));
     const diffTime = Math.abs(rd - pd);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffDays + 'days');
+    // console.log(diffDays + 'days');
+    const formattedPD = moment(pd).format().substring(0, 10);
+    const formattedRD = moment(rd).format().substring(0, 10);
 
-    // make sure they can't rent during days that the item isn't available
     var cost;
     if (sugPriceIsValid) {
-      cost = diffDays * parseInt(sugPrice);
+      if(formattedPD === formattedRD) {
+        cost = 1 * parseInt(sugPrice);
+      } else {
+        cost = diffDays * parseInt(sugPrice);
+      }
     } else {
-      cost = diffDays * this.props.formInfo.price;
+      if(formattedPD === formattedRD) {
+        cost = this.props.formInfo.price;
+      } else {
+        cost = diffDays * this.props.formInfo.price;
+      }
     }
     return cost * 100;
   }
 
   grabDateRange(range) {
-    console.log('this is the date range', range);
+    // console.log('this is the date range', range);
     this.setState({
       dateRange: range
     }, () => {
