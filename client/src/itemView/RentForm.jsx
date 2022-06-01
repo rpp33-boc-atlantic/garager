@@ -43,7 +43,7 @@ class RentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     var cost = this.checkFormData();
-    console.log('cost right here', cost)
+    // console.log('cost right here', cost);
     if (cost) {
       // console.log('this is the cost in cents:', cost);
       // console.log('clicked here checkout button');
@@ -95,13 +95,13 @@ class RentForm extends React.Component {
 
     var cost;
     if (sugPriceIsValid) {
-      if(formattedPD === formattedRD) {
+      if (formattedPD === formattedRD) {
         cost = 1 * parseInt(sugPrice);
       } else {
         cost = diffDays * parseInt(sugPrice);
       }
     } else {
-      if(formattedPD === formattedRD) {
+      if (formattedPD === formattedRD) {
         cost = this.props.itemInfo.price;
       } else {
         cost = diffDays * this.props.itemInfo.price;

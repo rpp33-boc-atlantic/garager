@@ -51,9 +51,9 @@ var option3 = {
   model: '89',
   description: 'Go glamping with this tent!',
   availability: false,
-    price: 50,
-    nameYourOwnPrice: false,
-    minimumPrice: null,
+  price: 50,
+  nameYourOwnPrice: false,
+  minimumPrice: null,
   images: [],
   rangesBooked: [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']],
   owner: {
