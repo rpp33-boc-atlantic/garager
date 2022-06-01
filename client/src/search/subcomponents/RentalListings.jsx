@@ -28,7 +28,7 @@ class RentalListings extends React.Component {
       <div id="rental-listings">
         {this.props.rentals.map((rental) =>
           <div className="rental-listing" key={rental.id}>
-            <img src={rental.details.image}></img>
+            <img src={rental.details.image[0]}></img>
             <div className="listing-text">
               <div className="listing-header">
                 <span className="rental-title">{rental.details.category} | {this.props.query ?

@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import models from '../../../server/models/browse.models.js';
 import './searchBrowse.css';
 
 import rentalListings from '../data/exampleRentals.js';
@@ -17,12 +19,15 @@ class SearchBrowse extends React.Component {
       selectedCategories: [],
       query: '',
       radius: '',
-      zipCode: ''
+      location: ''
     };
     this.handleKeywordSearch = this.handleKeywordSearch.bind(this);
     this.filterByKeyword = this.filterByKeyword.bind(this);
     this.handleZipCodeSearch = this.handleZipCodeSearch.bind(this);
     this.handleRadiusSearch = this.handleRadiusSearch.bind(this);
+    this.retrieveLocationCoordinates = this.retrieveLocationCoordinates.bind(this);
+    this.calculateDistance = this.calculateDistance.bind(this);
+    this.filterByDistance = this.filterByDistance.bind(this);
     this.handleCategorySearch = this.handleCategorySearch.bind(this);
     this.selectAllCategories = this.selectAllCategories.bind(this);
     this.unselectAllCategories = this.unselectAllCategories.bind(this);
@@ -38,6 +43,7 @@ class SearchBrowse extends React.Component {
     let rentals = this.state.allRentals;
     rentals = this.filterByCategory(rentals);
     rentals = this.filterByKeyword(rentals);
+    rentals = this.filterByDistance(rentals);
     this.setState({
       filteredRentals: rentals
     });
@@ -75,11 +81,6 @@ class SearchBrowse extends React.Component {
     return filteredRentals;
   };
 
-  handleZipCodeSearch = (event) => {
-    event.preventDefault();
-    console.log('zip', event.target.value);
-  };
-
   handleRadiusSearch = (event) => {
     event.preventDefault();
 
@@ -88,10 +89,71 @@ class SearchBrowse extends React.Component {
     this.setState({
       radius: mileRadius
     }, () => {
-      if (this.state.radius && this.state.zipCode) {
+      if (this.state.radius && this.state.location) {
         this.searchRentals();
       }
     });
+  };
+
+  retrieveLocationCoordinates = async (zipCode) => {
+    return models.latLng.get(zipCode);
+  };
+
+  handleZipCodeSearch = async (event) => {
+    event.preventDefault();
+    let zipCode = event.target.value;
+
+    if (zipCode.length < 5 && zipCode.length > 6) {
+      this.setState({
+        location: ''
+      });
+    }
+
+    if (zipCode.length > 4 && zipCode.length < 7) {
+      let latLng = await this.retrieveLocationCoordinates(zipCode);
+      this.setState({
+        location: latLng
+      }, () => {
+        if (this.state.radius && this.state.location) {
+          this.searchRentals();
+        }
+      });
+    }
+  };
+
+  calculateDistance = (destination) => {
+    const degreesToRadians = (degrees) => {
+      return degrees * (Math.PI / 180);
+    };
+
+    const earthRadius = 3960;
+    let origin = this.state.location;
+    let latDestination = degreesToRadians(destination.lat);
+    let latOrigin = degreesToRadians(origin.lat);
+    let latDistance = degreesToRadians(origin.lat - destination.lat);
+    let lngDistance = degreesToRadians(origin.lng - destination.lng);
+
+
+    let a = Math.pow(Math.sin(latDistance / 2), 2)
+        + Math.cos(latDestination) * Math.cos(latOrigin)
+        * Math.pow(Math.sin(lngDistance / 2), 2);
+    let centralAngle = 2 * Math.asin(Math.sqrt(a));
+
+    return (centralAngle * earthRadius);
+  };
+
+  filterByDistance = (rentals) => {
+    let filteredRentals = [];
+    let radius = this.state.radius;
+
+
+    for (const rental of rentals) {
+      let distance = this.calculateDistance(rental.details.location);
+      if (distance < radius || !radius) {
+        filteredRentals.push(rental);
+      }
+    }
+    return filteredRentals;
   };
 
   handleCategorySearch = (event) => {
