@@ -37,7 +37,7 @@ CREATE TABLE items (
     ON DELETE CASCADE
 );
 
-CREATE INDEX item_index ON items(user_id);
+CREATE INDEX user_index ON items(user_id);
 SELECT setval('items_item_id_seq', (SELECT MAX(item_id) FROM items));
 
 DROP TABLE IF EXISTS transactions;
