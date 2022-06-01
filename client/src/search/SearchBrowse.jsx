@@ -24,6 +24,7 @@ class SearchBrowse extends React.Component {
     this.handleKeywordSearch = this.handleKeywordSearch.bind(this);
     this.filterByKeyword = this.filterByKeyword.bind(this);
     this.handleZipCodeSearch = this.handleZipCodeSearch.bind(this);
+    this.validateZipCode = this.validateZipCode.bind(this);
     this.handleRadiusSearch = this.handleRadiusSearch.bind(this);
     this.retrieveLocationCoordinates = this.retrieveLocationCoordinates.bind(this);
     this.calculateDistance = this.calculateDistance.bind(this);
@@ -89,9 +90,7 @@ class SearchBrowse extends React.Component {
     this.setState({
       radius: mileRadius
     }, () => {
-      if (this.state.radius && this.state.location) {
-        this.searchRentals();
-      }
+      this.searchRentals();
     });
   };
 
@@ -103,21 +102,22 @@ class SearchBrowse extends React.Component {
     event.preventDefault();
     let zipCode = event.target.value;
 
-    if (zipCode.length < 5 && zipCode.length > 6) {
-      this.setState({
-        location: ''
-      });
-    }
-
-    if (zipCode.length > 4 && zipCode.length < 7) {
+    if (this.validateZipCode(zipCode)) {
       let latLng = await this.retrieveLocationCoordinates(zipCode);
       this.setState({
         location: latLng
       }, () => {
-        if (this.state.radius && this.state.location) {
-          this.searchRentals();
-        }
+        this.searchRentals();
       });
+    }
+  };
+
+  validateZipCode = (zipCode) => {
+    const zipCodeUSA = /(^\d{5}$)/.test(zipCode);
+    const zipCodeCAN = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i.test(zipCode);
+
+    if (zipCodeUSA || zipCodeCAN) {
+      return true;
     }
   };
 
@@ -160,7 +160,6 @@ class SearchBrowse extends React.Component {
     event.preventDefault();
     let category = event.target.alt;
     let selectedCategories = this.state.selectedCategories;
-    console.log(selectedCategories);
 
     let index = selectedCategories.indexOf(category);
     if (index !== -1) {

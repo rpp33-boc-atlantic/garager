@@ -10,7 +10,7 @@ const Search = (props) => {
       <div id="mile-radius-search">
         <span>Within </span>
         <select name="distance" id="distance-dropdown" onChange={props.radiusSearch}>
-          <option value="">any</option>
+          <option value="24902">any</option>
           <option value="10">10</option>
           <option value="25">25</option>
           <option value="50">50</option>
