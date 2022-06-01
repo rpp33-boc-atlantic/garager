@@ -45,8 +45,8 @@ class Item extends React.Component {
         <Container>
           <CarouselContainer className='gallery' images={fakeProps.images}/>
           <OwnerInfo className='owner' name={fakeProps.name} owner={fakeProps.owner} />
-          <ItemDetails className='details' details={fakeProps.details}/>
-          <RentForm className='form' formInfo={fakeProps.formInfo} owner={fakeProps.owner} name={fakeProps.name} itemID={fakeProps.itemID}/>
+          <ItemDetails className='details' details={fakeProps}/>
+          <RentForm className='form' itemInfo={fakeProps} />
         </Container>
       </div>
     );

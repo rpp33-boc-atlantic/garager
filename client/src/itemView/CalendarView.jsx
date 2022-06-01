@@ -7,37 +7,10 @@ import 'react-calendar/dist/Calendar.css';
 import { isWithinInterval } from 'date-fns';
 import moment from 'moment';
 
-// const disabledDates = ['2022-06-03', '2022-06-04'];
-// const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
-
-// const tileDisabled = ({date, view}) => {
-//   if (view === 'month') {
-//     return disabledDates.find(dDate => isSameDay(parseISO(dDate), date));
-//   }
-// };
-
-// const isSameDay = (a, b) => {
-//   return differenceInCalendarDays(a, b) === 0;
-// };
-
-// const tileDisabled = ({date, view}) => {
-//   if (view === 'month') {
-//     return isWithinRanges(date, disabledRanges);
-//   }
-// };
-
-// const isWithinRange = (date, range) => {
-//   return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
-// };
-
-// const isWithinRanges = (date, ranges) => {
-//   return ranges.some(range => isWithinRange(date, range));
-// };
-
-
 const CalendarView = (props) => {
 
-  const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
+  // const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
+  const disabledRanges = props.rangesBooked;
 
   const [value, setValue] = useState(new Date());
 
@@ -114,54 +87,5 @@ const CalendarView = (props) => {
 };
 
 export default CalendarView;
-
-
-
-
-
-
-
-
-
-// REACT DATE RANGE OPTION
-// import { DateRange } from 'react-date-range';
-// import 'react-date-range/dist/styles.css'; // main css file
-// import 'react-date-range/dist/theme/default.css'; // theme css file
-
-// const disabledDates = ['Mon May 30 2022 00:00:00 GMT-0700 (Pacific Daylight Time)'];
-
-// // function tileDisabled({ date, view }) {
-// //   // Disable tiles in month view only
-// //   if (view === 'month') {
-// //     // Check if a date React-Calendar wants to check is on the list of disabled dates
-// //     return disabledDates.find(dDate => isSameDay(dDate, date));
-// //   }
-// // }
-
-// const CalendarView = () => {
-//   const [state, setState] = useState([
-//     {
-//       startDate: new Date(),
-//       endDate: new Date(),
-//       key: 'selection'
-//     }
-//   ]);
-
-//   return (
-//     <div>
-//       <DateRange
-//         // disabledDates={disabledDates}
-//         editableDateInputs={true}
-//         onChange={item => setState([item.selection])}
-//         moveRangeOnFirstSelection={false}
-//         ranges={state}
-//         minDate={new Date()}
-//         direction="vertical"
-//         scroll={{ enabled: true }}
-//       />
-//       {console.log(state)}
-//     </div>
-//   )
-// }
 
 
