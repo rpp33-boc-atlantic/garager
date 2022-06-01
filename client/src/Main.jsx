@@ -25,28 +25,29 @@ import Account from './account/Account.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
 import NavLinks from './utils/NavLinks.jsx';
-
+import PrivateRoute from './authentication/privateRoute.jsx';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
-    <NavLinks/>
     <UserAuthContextProvider>
+      <NavLinks/>
       <Routes>
-        <Route path='/home' element={<Homepage />} />
-        <Route path='/' exact element={<App />}>
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='FAQ' element={<FAQ />} />
-          <Route path='Item' element={<Item />} />
-          <Route path='SearchBrowse' element={<SearchBrowse />} />
-          <Route path='PostItem' element={<PostItem />} />
-          <Route path='Messages' element={<Messages />} />
-          <Route path='my-listings' element={<Listings />} />
-          <Route path='my-rentals' element={<Rentals />} />
-          <Route path='/CheckoutSuccess' element={<CheckoutSuccess />} />
-          <Route path='/CheckoutCancel' element={<CheckoutCancel />} />
+        <Route path='/home' element={<Homepage />}/>
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
+          <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
+          <Route path='RouterTest' element={<RouterTest />} />
+          <Route path='Item' element={<PrivateRoute><Item /></PrivateRoute>} />
+          <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
+          <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
+          <Route path='Messages' element={<PrivateRoute><Messages /></PrivateRoute>} />
+          <Route path='my-listings' element={<PrivateRoute><Listings /></PrivateRoute>} />
+          <Route path='my-rentals' element={<PrivateRoute><Rentals /></PrivateRoute>} />
+          <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
+          <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />
         </Route>
       </Routes>
     </UserAuthContextProvider>
