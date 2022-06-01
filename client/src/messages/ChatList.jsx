@@ -1,8 +1,11 @@
 import React from 'react';
 import ChatBubble from './ChatBubble.jsx';
 import ChatInput from './ChatInput.jsx';
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 const ChatList = ( props ) => {
+
+  const { user } = useUserAuth();
 
   return (
     <React.Fragment>
@@ -11,7 +14,7 @@ const ChatList = ( props ) => {
         {
           props.messages.map(( message, index ) => {
 
-            if (message.username === 'Stephen Strange') {
+            if (message.username === user.email) {
               return (
                 <ChatBubble key={ index } message={ message } user='me' />
               );
