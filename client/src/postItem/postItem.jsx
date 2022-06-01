@@ -58,14 +58,13 @@ class PostItem extends Component {
   }
 
   handleUploadPhotos (files) {
-    console.log('files', files);
+
     const imageFiles = files.imageFiles;
     if (imageFiles) {
       imageFiles.map( async (file) => {
         //Get secure url from our server
         const { url } = await fetch('/s3url').then (res => res.json());
         //Post the image directly to s3 bucket
-        console.log('url', url);
         await fetch (url, {
           method: 'PUT',
           headers: {
@@ -75,14 +74,11 @@ class PostItem extends Component {
         });
 
         const imageURL = url.split('?')[0];
-        this.state.photos.push({'data_url': imageURL}, () => {
-          console.log('photos', this.state.photos);
-          this.changeToNext();
-        });
-
+        this.state.photos.push({'data_url': imageURL});
       });
     }
-
+    console.log('photos', this.state.photos);
+    this.changeToNext();
   }
 
   handleSelectLocation (address, latLng) {
