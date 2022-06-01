@@ -76,7 +76,7 @@ CREATE TABLE threads (
 	"owner_viewed" BOOLEAN NOT NULL DEFAULT 'true',
 	"renter_viewed" BOOLEAN NOT NULL DEFAULT 'true',
 	"last_message_id" int DEFAULT 'null',
-	"time_updated" bigint DEFAULT 'null'
+	"time_updated" bigint DEFAULT 'null',
 	CONSTRAINT "threads_pk" PRIMARY KEY ("thread_id")
 ) WITH (
   OIDS=FALSE
