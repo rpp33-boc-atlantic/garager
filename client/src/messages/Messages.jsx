@@ -5,6 +5,7 @@ import ChatList from './ChatList.jsx';
 import { Row } from 'react-bootstrap';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 import './MessageStyles.css';
+import axios from 'axios';
 
 const Messages = ( props ) => {
 
@@ -13,10 +14,31 @@ const Messages = ( props ) => {
   const [ activeThread, changeThread ] = useState(0);
 
   useEffect(() => {
+    getThreads();
+
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
     });
   });
+
+  const addThread = async () => {
+    await axios.post('/threads', {
+      threadId: 1,
+      itemName: 'Chaos Magic',
+      itemImageUrl: null,
+      username: 'dude@dude.com',
+      userImageUrl: null,
+      userRole: 'owner',
+      lastMessage: 'nice',
+      timeUpdated: 1653508198000,
+      viewed: false,
+    });
+  };
+
+  const getThreads = async () => {
+    const newThreads = await axios.get('/threads');
+    updateThreads ( newThreads );
+  };
 
   const addMessage = ( message ) => {
     let newThreads = [ ...threads ];
