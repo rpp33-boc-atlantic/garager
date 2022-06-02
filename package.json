@@ -43,7 +43,7 @@
     "nodemon": "^2.0.16",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
-    "react-bootstrap-table-next": "^4.0.3",
+    "react-bootstrap-table-next": "^1.1.0",
     "react-calendar": "^3.7.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.3.1",
@@ -55,6 +55,7 @@
     "stripe": "^9.4.0",
     "styled-components": "^5.3.5",
     "supertest": "^6.2.3",
+    "underscore": "^1.13.3",
     "util.promisify": "^1.1.1"
   },
   "devDependencies": {
