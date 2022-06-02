@@ -35,7 +35,7 @@ const OwnerInfo = (props) => {
       <h4>{props.owner.address}</h4>
       <h4>Owner: {props.owner.name}</h4>
       <h4>Member Since: {props.owner.dateJoined}</h4>
-      <Link to="/Messages">
+      <Link to="/Messages" state={{ itemID: 12345 }}>
         <button>Message</button>
       </Link>
     </Container>
