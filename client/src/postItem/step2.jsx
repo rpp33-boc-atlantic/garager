@@ -31,15 +31,15 @@ const Step2 = (props) => {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label htmlFor="category">Category</Form.Label>
-          <select
+          <Form.Select
             required
             onChange={handleChange('category')}
             defaultValue={values.category || ''}
           >
-            <option>Choose...</option>
+            <option selected disabled value="">Choose...</option>
             <option defaultValue="1">Household</option>
             <option defaultValue="2">Automative</option>
-          </select>
+          </Form.Select>
           <br/>
           <Form.Label htmlFor="brand">Brand</Form.Label>
           <Form.Control
@@ -62,10 +62,7 @@ const Step2 = (props) => {
             id="brand"
             placeholder="Required"
             onChange={handleChange('itemDescription')} />
-          <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-            Please provide a description for your item...
-          </Form.Control.Feedback>
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
         <Button type="button" onClick={changeToPrevious}>Back</Button>
         <Button type="submit">Next</Button>
