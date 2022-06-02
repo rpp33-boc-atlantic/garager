@@ -14,7 +14,6 @@ import {
 import { auth } from '../firebase';
 
 
-
 const userAuthContext = createContext();
 
 // eslint-disable-next-line func-style
@@ -70,6 +69,7 @@ export function UserAuthContextProvider({ children }) {
           })
           .catch((err) => {
             console.log('failed to link account', err.message);
+            //TODO: GOTO APP
           });
       }).catch ((err) => {
         console.log('failed to sign in with email and password', err.message);
