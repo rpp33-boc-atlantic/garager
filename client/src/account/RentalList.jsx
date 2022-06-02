@@ -8,7 +8,7 @@ import moment from 'moment';
 
 export default function RentalList (props) {
   const [checkoutSorted, setcheckoutSorted] = useState(false);
-  const [clickedColumn, setClickedColumn] = useState(['startDate', false]);
+  const [clickedColumn, setClickedColumn] = useState(['pickUpDate', false]);
   const [returnSorted, setReturnSorted] = useState(false);
   const [transactions, setTransactions] = useState(props.rentals);
   const [ownerName, setOwnerName] = useState(false);
@@ -22,10 +22,10 @@ export default function RentalList (props) {
 
     transactions.map(t => {
       tRows.push(<tr key={p++}>
-        <td><Link to='../item'>{t.name}</Link></td>
-        <td>{t.ownerName}</td>
-        <td>{moment(t.startDate).format('MMMM Do YYYY, h:mm:ss a')}</td>
-        <td> {moment(t.dueDate).format('MMMM Do YYYY, h:mm:ss a') }</td>
+        <td><Link to='../item'>{t.title}</Link></td>
+        <td>{t.owner_id}</td>
+        <td>{moment(t.pickUpDate).format('MMMM Do YYYY, h:mm:ss a')}</td>
+        <td> {moment(t.returnDate).format('MMMM Do YYYY, h:mm:ss a') }</td>
       </tr>);
     });
     return tRows;
@@ -56,26 +56,26 @@ export default function RentalList (props) {
       <thead>
         <tr>
           <th onClick ={()=> {
-            setOwnerName(!ownerName);
-            setClickedColumn(['name', ownerName]);
+            setItemName(!itemName);
+            setClickedColumn(['title', itemName]);
             handleSort();
-          }}> Item {ownerName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>
+          }}> Item { itemName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>
 
           <th onClick ={()=> {
             setOwnerName(!ownerName);
-            setClickedColumn(['ownerName', ownerName]);
+            setClickedColumn(['owner_id', ownerName]);
             handleSort();
           }}> Owner Name {ownerName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>
 
           <th onClick ={()=> {
             setcheckoutSorted(!checkoutSorted);
-            setClickedColumn(['startDate', checkoutSorted]);
+            setClickedColumn(['pickUpDate', checkoutSorted]);
             handleSort();
           }}> Checked Out    {checkoutSorted ? <BsSortUpAlt/> : <BsSortDownAlt/>} </th>
 
           <th onClick ={()=> {
             setReturnSorted(!returnSorted);
-            setClickedColumn(['dueDate', returnSorted]);
+            setClickedColumn(['returnDate', returnSorted]);
             handleSort();
           }}>Due  {returnSorted ? <BsSortUpAlt/> : <BsSortDownAlt/>}</th>
 

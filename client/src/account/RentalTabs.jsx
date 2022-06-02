@@ -32,14 +32,12 @@ export default function RentalTabs(props) {
     var p = 0;
     transactions.map((t) => {
 
+      t.title = items[Math.floor(Math.random( ) * 40)].title;
       var newDate = new Date();
       if (moment(t.dueDate).isBefore(moment(newDate))) {
-        t.name = items[Math.floor(Math.random( ) * 40)].name;
         pastRentals.push(t);
-
         //if (moment(t.dueDate).isBefore(moment(newDate)))
       } else {
-        t.name = items[Math.floor(Math.random( ) * 40)].name;
         currentRentals.push(t);
       }
 
