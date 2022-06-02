@@ -4,13 +4,11 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-import ControlledTabs from './ControlledTabs.jsx';
+import ListingTabs from './ListingTabs.jsx';
 
 
-var Listings = function() {
+export default function Listings () {
 
-  return <ControlledTabs listings = {false} m='auto' earnings = {454} rentedItems = {3}/>;
+  return <ListingTabs listings = {[2, 2]} m='auto' earnings = {454} rentedItems = {3}/>;
 
-};
-
-export default Listings;
+}
