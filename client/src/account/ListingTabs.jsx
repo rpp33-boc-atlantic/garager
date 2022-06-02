@@ -15,15 +15,21 @@ export default function ListingTabs(props) {
     //   text: 'Number of times rented',
     //   sort: true
     // }, {
-    dataField: 'product_id',
-    text: 'Product Name'
+    dataField: 'title',
+    text: 'Item Name',
+    link: '../item'
   }, {
     dataField: 'price',
     text: 'Current Price per Day',
     sort: true
   }, {
-    dataField: '',
-    text: 'Current Price per Day',
+    dataField: 'min_price',
+    text: 'Minimum Price',
+    sort: true
+  },
+  {
+    dataField: 'photos',
+    text: 'image',
     sort: true
   }];
 
@@ -44,7 +50,7 @@ export default function ListingTabs(props) {
 
         <Tab eventKey="listings" title="Listings">
           {/* {props.listings.length === 0 ? <PostMessage/> : <ListingList/>} */}
-          {props.transactions.length === 0 ? <PostMessage/> : <Tables columns = {columns} rentals = {props.transactions}/>}
+          {props.transactions.length === 0 ? <PostMessage/> : <Tables columns = {columns} values = {props.items}/>}
 
           {/*  <TabContent text='true'/> */}
         </Tab>

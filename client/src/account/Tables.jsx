@@ -15,24 +15,36 @@ export default function Tables (props) {
   const [checkoutSorted, setcheckoutSorted] = useState(false);
   const [clickedColumn, setClickedColumn] = useState(['startDate', false]);
   const [returnSorted, setReturnSorted] = useState(false);
-  const [transactions, setTransactions] = useState(props.rentals);
+  const [values, setValues] = useState(props.values);
   const [ownerName, setOwnerName] = useState(false);
   const [itemName, setItemName] = useState(false);
 
   console.log('STATE', state);
-
+  console.log('props', values);
   var mapRows = ()=> {
     var tRows = [];
     var p = 0;
+    var c = 0;
+    values.map(t => {
 
-    transactions.map(t => {
       tRows.push(
         <tr key={p++}>
-          {props.columns.map(col => {
+          {props.columns.map((col) => {
           // <td><Link to='../item'>{col.dataField}</Link></td>
-            return <td>{transactions[col.dataField]}</td>;
+            // return col.link ? console.log('col', col.link) : console.log('col.notHere');
+            // console.log('photos:', t.photos);
+            // console.l/og('col.dataField:', t[col.dataField]);
+            return col.link ? <td key={c++}> <Link to={col.link}>{t[col.dataField]}</Link> </td> : col.dataField === 'photos' && t[col.dataField].length > 0 ? <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td> : <td key={c++}>{t[col.dataField]}</td>;
+
+            // return   {col.link ? <td> <Link to={col.link}>{t.name}</Link> </td> :
+
+            //   }
+            // }
+            // return <td> <Link to={col.link}>{t.name}</Link> </td>;
+
 
           })}
+          <td><button> { moment(t.availableTo).isBefore(moment(new Date())) ? <p>available</p> : <p>unavailable</p>}</button></td>
         </tr>);
     });
 
@@ -45,14 +57,14 @@ export default function Tables (props) {
 
   var handleSort = () => {
 
-    const sortedList = [...transactions].sort((a, b) => {
+    const sortedList = [...values].sort((a, b) => {
       if (clickedColumn[1] === false) {
         return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0;
       } else {
         return a[clickedColumn[0]] > b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] < b[clickedColumn[0]] ? 1 : 0;
       }
     });
-    setTransactions(sortedList);
+    setValues(sortedList);
   };
   var changeState = (name, value) => {
     setState(prev =>({
@@ -63,7 +75,7 @@ export default function Tables (props) {
 
   useEffect(()=> {
     console.log('clickedC', clickedColumn);
-    setTransactions(props.rentals);
+    setValues(props.values);
 
 
 

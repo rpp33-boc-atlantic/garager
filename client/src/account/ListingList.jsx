@@ -1,12 +1,9 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-// import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-// import BootstrapTable from 'react-bootstrap-table-next';
 
-var transactions = require('../data/dataFunctions/transactions.json');
-var items = [];
-const products = transactions;
+// var transactions = require('../data/dataFunctions/transactions.json');
+
 const columns = [{
 //   dataField: 'Numner of times rented',
 //   text: 'Number of times rented',
@@ -31,6 +28,9 @@ const columns = [{
 //   <BootstrapTable keyField='id' data={ products } columns={ columns } />
 
 export default function ListingList (props) {
+  var items = props.items;
+  const products = props.transactions;
+
   console.log('props', props);
   return (
     <React.Fragment>
