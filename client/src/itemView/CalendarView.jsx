@@ -76,6 +76,7 @@ const CalendarView = (props) => {
         minDate={new Date()}
         selectRange
         onChange={onChange}
+        calendarType={'US'}
       />
       <h6>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
       <h6>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>
