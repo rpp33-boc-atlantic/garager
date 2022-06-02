@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { Form, Button, Card, Alert, Container} from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
+import {
+  signInWithEmailAndPassword,
+  FacebookAuthProvider,
+  fetchSignInMethodsForEmail,
+  linkWithCredential
+} from 'firebase/auth';
+import { auth } from '../firebase';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -26,12 +33,44 @@ const Login = () => {
   const handleFacebookSignIn = async (event) => {
     event.preventDefault();
     try {
-      await facebookSignIn();
-      //redirect user to homepage
-      navigate('/');
+      await facebookSignIn()
+        .then((res) => {
+          console.log(res.user);
+          //redirect user to homepage
+          navigate('/');
+        })
+        .catch((err) => {
+        //user tries to sign in with with an existing email account
+          console.log(err.message);
+          if (err.code === 'auth/account-exists-with-different-credential') {
+            const pendingCred = FacebookAuthProvider.credentialFromError(err);
+            console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
+            //TODO: promp the user to enter email and password, async
+            let email = prompt('Please enter your registered email');
+            let password = prompt('Please enter your password');
+            linkAccount(email, password, pendingCred);
+          }
+        });
     } catch (err) {
       console.log(err.message);
     }
+  };
+
+  const linkAccount = (email, password, pendingCred) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        linkWithCredential(res.user, pendingCred)
+          .then((res) => {
+            console.log('succesfully linked account');
+            navigate('/');
+          })
+          .catch((err) => {
+            console.log('failed to link account', err.message);
+          });
+      }).catch ((err) => {
+        console.log('failed to sign in with email and password', err.message);
+        navigate('/Login');
+      });
   };
 
   return (

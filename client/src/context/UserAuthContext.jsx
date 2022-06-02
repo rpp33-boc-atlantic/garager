@@ -6,9 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
   FacebookAuthProvider,
-  signInWithPopup,
-  fetchSignInMethodsForEmail,
-  linkWithCredential
+  signInWithPopup
 } from 'firebase/auth';
 
 import { auth } from '../firebase';
@@ -21,7 +19,6 @@ const userAuthContext = createContext();
 //wrapping all of the logic of handling state, updating state and pushing out these values to the child components
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
-  const [cred, setCred] = useState({});
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -35,47 +32,13 @@ export function UserAuthContextProvider({ children }) {
 
   function facebookSignIn() {
     const facebookAuthProvider = new FacebookAuthProvider();
-    return signInWithPopup(auth, facebookAuthProvider)
-      .then((res) => {
-        console.log(res.user);
-      })
-      .catch((err) => {
-        //user tries to sign in with with an existing email account
-        console.log(err.message);
-        if (err.code === 'auth/account-exists-with-different-credential') {
-          const pendingCred = FacebookAuthProvider.credentialFromError(err);
-          setCred(pendingCred);
-          console.log('cred', cred);
-          console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
-          //TODO: Ask the user for their email and password.
-          let email = prompt('Please enter your registered email');
-          let password = prompt('Please enter your password');
-          linkAccount(email, password, pendingCred);
-        }
-      });
+    return signInWithPopup(auth, facebookAuthProvider);
   }
 
   function logOut() {
     return signOut(auth);
   }
 
-
-  const linkAccount = (email, password, pendingCred) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        linkWithCredential(res.user, pendingCred)
-          .then((res) => {
-            console.log('succesfully linked account');
-          })
-          .catch((err) => {
-            console.log('failed to link account', err.message);
-            //TODO: GOTO APP
-          });
-      }).catch ((err) => {
-        console.log('failed to sign in with email and password', err.message);
-      });
-
-  };
 
   //run only once, when the components did mount
   useEffect(() => {
@@ -87,7 +50,6 @@ export function UserAuthContextProvider({ children }) {
       //clean up while components un-mount
       unsubscribe();
     };
-
   }, []);
 
 
