@@ -6,7 +6,12 @@ import {Link } from 'react-router-dom';
 import moment from 'moment';
 
 
-export default function RentalList (props) {
+export default function Tables (props) {
+  const [state, setState] = useState(false);
+
+  // props.columns.map((colu) => {
+  //   const [colu, setState] = useState(false);
+  // });
   const [checkoutSorted, setcheckoutSorted] = useState(false);
   const [clickedColumn, setClickedColumn] = useState(['startDate', false]);
   const [returnSorted, setReturnSorted] = useState(false);
@@ -14,20 +19,25 @@ export default function RentalList (props) {
   const [ownerName, setOwnerName] = useState(false);
   const [itemName, setItemName] = useState(false);
 
-
+  console.log('STATE', state);
 
   var mapRows = ()=> {
     var tRows = [];
     var p = 0;
 
     transactions.map(t => {
-      tRows.push(<tr key={p++}>
-        <td><Link to='../item'>{t.name}</Link></td>
-        <td>{t.ownerName}</td>
-        <td>{moment(t.startDate).format('MMMM Do YYYY, h:mm:ss a')}</td>
-        <td> {moment(t.dueDate).format('MMMM Do YYYY, h:mm:ss a') }</td>
-      </tr>);
+      tRows.push(
+        <tr key={p++}>
+          {props.columns.map(col => {
+          // <td><Link to='../item'>{col.dataField}</Link></td>
+            return <td>{transactions[col.dataField]}</td>;
+
+          })}
+        </tr>);
     });
+
+
+
     return tRows;
   };
 
@@ -44,10 +54,20 @@ export default function RentalList (props) {
     });
     setTransactions(sortedList);
   };
+  var changeState = (name, value) => {
+    setState(prev =>({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   useEffect(()=> {
     console.log('clickedC', clickedColumn);
     setTransactions(props.rentals);
+
+
+
+
   }, []);
 
   // console.log('props', props.rentals);
@@ -55,7 +75,15 @@ export default function RentalList (props) {
     <Table striped bordered hover>
       <thead>
         <tr>
-          <th onClick ={()=> {
+          {props.columns.map((col, i)=> {
+            return <th key = {i} onClick ={()=> {
+              setState(col.text, !state);
+              setClickedColumn(['name', ]);
+
+              handleSort();
+            }}> {col.text}{ownerName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>;
+          })}
+          {/* <th onClick ={()=> {
             setOwnerName(!ownerName);
             setClickedColumn(['name', ownerName]);
             handleSort();
@@ -77,13 +105,12 @@ export default function RentalList (props) {
             setReturnSorted(!returnSorted);
             setClickedColumn(['dueDate', returnSorted]);
             handleSort();
-          }}>Due  {returnSorted ? <BsSortUpAlt/> : <BsSortDownAlt/>}</th>
+          }}>Due  {returnSorted ? <BsSortUpAlt/> : <BsSortDownAlt/>}</th> */}
 
 
         </tr>
       </thead>
       <tbody>
-        {/* {props.rentals} */}
         {tableRows}
       </tbody>
     </Table>

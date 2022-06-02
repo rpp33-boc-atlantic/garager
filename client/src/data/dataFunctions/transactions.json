@@ -7,8 +7,8 @@
     "renterId": 7,
     "renterName": "Stanley Hudson",
     "price": 82,
-    "startDate": "2022-05-23T08:43:01.426Z",
-    "dueDate": "2022-05-23T08:43:01.426Z"
+    "startDate": "2022-06-22T08:43:01.426Z",
+    "dueDate": "2022-06-23T08:43:01.426Z"
   },
   {
     "id": 1,
@@ -18,8 +18,8 @@
     "renterId": 2,
     "renterName": "Russ Hanneman",
     "price": 89,
-    "startDate": "2022-05-20T08:43:01.426Z",
-    "dueDate": "2022-05-23T08:43:01.426Z"
+    "startDate": "2022-06-20T08:43:01.426Z",
+    "dueDate": "2022-06-23T08:43:01.426Z"
   },
   {
     "id": 2,

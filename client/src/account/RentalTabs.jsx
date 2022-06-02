@@ -33,27 +33,25 @@ export default function RentalTabs(props) {
     transactions.map((t) => {
 
       var newDate = new Date();
-
       if (moment(t.dueDate).isBefore(moment(newDate))) {
-        pastRentals.push(<tr key={p++}>
-          <td><Link to='../item'>{items[Math.floor(Math.random( ) * 40)].name}</Link></td>
-          <td>{t.ownerName}</td>
-          <td>{moment(t.startDate).format('MMMM Do YYYY, h:mm:ss a')}</td>
-          <td> {moment(t.dueDate).format('MMMM Do YYYY, h:mm:ss a') }</td>
-        </tr>);
+        t.name = items[Math.floor(Math.random( ) * 40)].name;
+        pastRentals.push(t);
+
         //if (moment(t.dueDate).isBefore(moment(newDate)))
       } else {
-        currentRentals.push(<tr key={c++}>
-          <td><Link to='../item'>{items[Math.floor(Math.random( ) * 40)].name}</Link></td>
-          <td>{t.ownerName}</td>
-          <td>{moment(t.startDate).format('MMMM Do YYYY, h:mm:ss a')}</td>
-          <td> {moment(t.dueDate).format('MMMM Do YYYY, h:mm:ss a') }</td>
-        </tr>);
+        t.name = items[Math.floor(Math.random( ) * 40)].name;
+        currentRentals.push(t);
       }
 
     });
-    // console.log('Current', currentRentals);
-    // console.log('Past', pastRentals);
+    // console.log('rentals first', pastRentals);
+    var clickedColumn = 'startDate';
+    currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
+    var clickedColumn = 'dueDate';
+    pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
+    // console.log('rentals second', pastRentals);
+    console.log('Current', currentRentals);
+    console.log('Past', pastRentals);
     return [currentRentals, pastRentals];
   };
 

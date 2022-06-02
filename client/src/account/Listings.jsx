@@ -5,10 +5,11 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 import ListingTabs from './ListingTabs.jsx';
-
+var transactions = require('../data/dataFunctions/transactions.json');
+var items = require('../data/dataFunctions/items.json');
 
 export default function Listings () {
 
-  return <ListingTabs listings = {[2, 2]} m='auto' earnings = {454} rentedItems = {3}/>;
+  return <ListingTabs transactions = {transactions} items={items} m='auto' earnings = {454} rentedItems = {3}/>;
 
 }
