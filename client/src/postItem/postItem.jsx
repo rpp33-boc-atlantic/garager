@@ -82,7 +82,7 @@ class PostItem extends Component {
   }
 
   handleSelectLocation (address, latLng) {
-    this.setState ({ address1: address, latLng: latLng });
+    this.setState ({ address: address, latLng: latLng });
   }
 
   handleSubmit (input) {
