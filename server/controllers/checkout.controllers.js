@@ -34,4 +34,10 @@ module.exports = {
       }
     },
   },
+  onboardUser: {
+    post: (req, res) => {
+      console.log('IN ONBOARD USER');
+      res.send('BOARDING USER');
+    },
+  }
 };
