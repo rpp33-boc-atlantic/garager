@@ -152,5 +152,16 @@
     "address": "3484 Emerson Blvd, Menominee, MI 51665",
     "dateJoined": "2022-06-02T01:27:01.620Z",
     "stripe_id": 13
+  },
+  "14": {
+    "user_id": 13,
+    "firstName": "Pierce",
+    "lastName": "Hawthorne",
+    "email": "Pierce.Hawthorne@hotmail.com",
+    "userPhoto": "",
+    "phone": "(586)451-3737",
+    "address": "3484 Emerson Blvd, Menominee, MI 51665",
+    "dateJoined": "2022-06-02T01:27:01.620Z",
+    "stripe_id": 13
   }
 }

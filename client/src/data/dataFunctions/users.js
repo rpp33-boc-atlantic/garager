@@ -1,6 +1,6 @@
 
 /******************************************************************* */
-var fullNames = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
+var fullNames = ['Wanda Maximoff', 'Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
 var emails = ['gmail', 'yahoo', 'iCloud', 'hotmail'];
 var fs = require('fs');
 var bool = [true, false];
@@ -20,7 +20,7 @@ var randomPhone = function() {
   for (var i = 0; i < 7; i++) {
     number += Math.floor(Math.random() * 9);
     if ( i === 2) {
-      number += '-';
+      number += '.';
     }
   }
   return number;
@@ -43,7 +43,7 @@ var randomAddress = function () {
 };
 //this file creates a user for ever user entered above.
 var createUsers = function (fullNames) {
-  var users = {};
+  var users = [];
   for (var i = 0; i < fullNames.length; i ++) {
 
     var user = {};
@@ -58,7 +58,7 @@ var createUsers = function (fullNames) {
     // set userPhoto
     user['userPhoto'] = '';
     // set phone number
-    user['phone'] = `(${areacodes[Math.floor(Math.random() * areacodes.length)]})${randomPhone()}`;
+    user['phone'] = `${areacodes[Math.floor(Math.random() * areacodes.length)]}.${randomPhone()}`;
     // set address
     user['address'] = randomAddress();
     // set dateJoined
@@ -66,7 +66,7 @@ var createUsers = function (fullNames) {
     user['stripe_id'] = i;
     // user['IsFBAuthenticated'] = bool[Math.floor((Math.random() * 2))];
 
-    users[i] = user;
+    users.push(user);
 
   }
   // console.log(users);
@@ -77,5 +77,5 @@ var createUsers = function (fullNames) {
 
 
 createUsers(fullNames);
-createItems(fullNames);
-createTransactions(fullNames);
+// createItems(fullNames);
+// createTransactions(fullNames);

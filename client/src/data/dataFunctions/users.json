@@ -1,0 +1,167 @@
+[
+  "0": {
+    "user_id": 0,
+    "firstName": "Wanda",
+    "lastName": "Maximoff",
+    "email": "WandaVision@ucsf.edu",
+    "userPhoto": "https://larb-main-img-cdn.azureedge.net/unsafe/1280x0/filters:format(jpeg)/https%3A%2F%2Fdev.lareviewofbooks.org%2Fwp-content%2Fuploads%2F2021%2F03%2Fwandavision.feat_-scaled.jpeg",
+    "phone": " 858.216.5117",
+    "address": "2800 Sherwood Drive, Westview, New Jersey 08801",
+    "dateJoined": "2022-06-02T01:34:58.740Z",
+    "stripe_id": 0
+  },
+  {
+    "user_id": 1,
+    "firstName": "Ron",
+    "lastName": "Swanson",
+    "email": "Ron.Swanson@iCloud.com",
+    "userPhoto": "https://static.parade.com/wp-content/uploads/2013/10/tv-show-best-boss-ron-swanson.jpg",
+    "phone": "586.101.3041",
+    "address": "9301 Cedar Crest Drive, Marquette, MI 59348",
+    "dateJoined": "2022-06-02T01:38:09.478Z",
+    "stripe_id": 1
+  },
+  {
+    "user_id": 2,
+    "firstName": "Leslie",
+    "lastName": "Knope",
+    "email": "Leslie.Knope@hotmail.com",
+    "userPhoto": "",
+    "phone": "734.041.6532",
+    "address": "7060 Catherine Street, Menominee, MI 81143",
+    "dateJoined": "2022-06-02T01:38:09.478Z",
+    "stripe_id": 2
+  },
+  {
+    "user_id": 3,
+    "firstName": "Russ",
+    "lastName": "Hanneman",
+    "email": "Russ.Hanneman@iCloud.com",
+    "userPhoto": "",
+    "phone": "616.570.8611",
+    "address": "2528 Skyline Street, Lansing, MI 68761",
+    "dateJoined": "2022-06-02T01:38:09.478Z",
+    "stripe_id": 3
+  },
+  {
+    "user_id": 4,
+    "firstName": "Jack",
+    "lastName": "Barker",
+    "email": "Jack.Barker@hotmail.com",
+    "userPhoto": "",
+    "phone": "586.508.0125",
+    "address": "3185 Moore Ct, Marquette, MI 52345",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 4
+  },
+  {
+    "user_id": 5,
+    "firstName": "Michael",
+    "lastName": "Scott",
+    "email": "Michael.Scott@gmail.com",
+    "userPhoto": "",
+    "phone": "586.055.5712",
+    "address": "3430 Locust Cir, Lansing, MI 83651",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 5
+  },
+  {
+    "user_id": 6,
+    "firstName": "Lorie",
+    "lastName": "Bream",
+    "email": "Lorie.Bream@gmail.com",
+    "userPhoto": "",
+    "phone": "586.207.6803",
+    "address": "1753 Ellen Ct, Menominee, MI 72052",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 6
+  },
+  {
+    "user_id": 7,
+    "firstName": "Gavin",
+    "lastName": "Belson",
+    "email": "Gavin.Belson@yahoo.com",
+    "userPhoto": "",
+    "phone": "810.521.0446",
+    "address": "1162 Pine Rd, Menominee, MI 89348",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 7
+  },
+  {
+    "user_id": 8,
+    "firstName": "Stanley",
+    "lastName": "Hudson",
+    "email": "Stanley.Hudson@gmail.com",
+    "userPhoto": "",
+    "phone": "231.687.4015",
+    "address": "5161 Baker Blvd, Menominee, MI 61131",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 8
+  },
+  {
+    "user_id": 9,
+    "firstName": "Kelly",
+    "lastName": "Kapoor",
+    "email": "Kelly.Kapoor@iCloud.com",
+    "userPhoto": "",
+    "phone": "231.284.2701",
+    "address": "6162 Willow Pkwy, Lansing, MI 93237",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 9
+  },
+  {
+    "user_id": 10,
+    "firstName": "Tom",
+    "lastName": "Haverford",
+    "email": "Tom.Haverford@iCloud.com",
+    "userPhoto": "",
+    "phone": "734.728.7406",
+    "address": "6111 Baker Ct, Marquette, MI 87221",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 10
+  },
+  {
+    "user_id": 11,
+    "firstName": "Donna",
+    "lastName": "Meagle",
+    "email": "Donna.Meagle@hotmail.com",
+    "userPhoto": "",
+    "phone": "810.234.7474",
+    "address": "1711 Emerson Street, Menominee, MI 68080",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 11
+  },
+  {
+    "user_id": 12,
+    "firstName": "Creed",
+    "lastName": "Bratton",
+    "email": "Creed.Bratton@hotmail.com",
+    "userPhoto": "",
+    "phone": "269.807.7306",
+    "address": "7147 Emerson Blvd, Lansing, MI 88052",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 12
+  },
+  {
+    "user_id": 13,
+    "firstName": "Bob",
+    "lastName": "Loblaw",
+    "email": "Bob.Loblaw@yahoo.com",
+    "userPhoto": "",
+    "phone": "616.331.8732",
+    "address": "7621 Ellen Pkwy, Menominee, MI 53663",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 13
+  },
+  {
+    "user_id": 14,
+    "firstName": "Pierce",
+    "lastName": "Hawthorne",
+    "email": "Pierce.Hawthorne@iCloud.com",
+    "userPhoto": "",
+    "phone": "616.674.5011",
+    "address": "3260 Moore Blvd, Houghton, MI 65935",
+    "dateJoined": "2022-06-02T01:38:09.479Z",
+    "stripe_id": 14
+  }
+]
