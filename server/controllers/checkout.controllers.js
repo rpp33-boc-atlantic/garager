@@ -26,7 +26,7 @@ module.exports = {
           success_url: `${YOUR_DOMAIN}?success=true`,
           cancel_url: `${YOUR_DOMAIN}?canceled=true`,
         }, {
-          stripeAccount: 'acct_1L65TH4covfuEldK',
+          stripeAccount: 'acct_1L65TH4covfuEldK', // ***** REFACTOR WITH OWNER'S STRIPE ACCOUNT ID
         });
 
         // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
