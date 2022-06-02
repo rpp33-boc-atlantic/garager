@@ -2,7 +2,6 @@ require('dotenv').config();
 const RDS_PASSWORD = require('../../config.js').RDS_PASSWORD;
 const { Client } = require('pg');
 
-
 const client = new Client({
   user: 'garagerAdmin',
   host: 'garager.c11jhqw8tzhf.us-east-1.rds.amazonaws.com',
@@ -18,3 +17,5 @@ client.connect((err, res) => {
     console.log('connected to GARAGER database');
   }
 });
+
+module.exports = client;
