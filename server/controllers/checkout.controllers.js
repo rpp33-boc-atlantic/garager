@@ -7,14 +7,15 @@ module.exports = {
   checkoutSession: {
     post: async (req, res) => {
       try {
-        // console.log('REQ BODY', req.body);
+        console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
+        // THINGS I NEED: price, owner's stripe account id, successful - item id (pass to meesages), once successful - data range to make call to database to make it unavailable
         const checkoutSession = await stripe.checkout.sessions.create({
           line_items: [
             {
               price_data: {
                 currency: 'usd',
                 product_data: {
-                  name: req.body.name
+                  name: `${req.body.name} from ${req.body.owner}`,
                 },
                 unit_amount: req.body.priceInCents,
               },
@@ -24,6 +25,8 @@ module.exports = {
           mode: 'payment',
           success_url: `${YOUR_DOMAIN}?success=true`,
           cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+        }, {
+          stripeAccount: 'acct_1L65TH4covfuEldK',
         });
 
         // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
@@ -43,7 +46,8 @@ module.exports = {
 
         // Store the ID of the new Standard connected account.
         req.session.accountID = account.id;
-        console.log('session accountID', req.session.accountID);
+        // console.log('session accountID', req.session.accountID);
+        // ***** ONCE DATABASE IS DEPLOYED, UPDATE USER TABLE WITH ACCOUNT ID ***** ID INSIDE DATABASE
 
         const origin = `${req.headers.origin}`;
 
@@ -84,6 +88,25 @@ module.exports = {
           error: err.message,
         });
       }
-    }
-  }
+    },
+  },
+  checkAccountCompletion: {
+    get: async (req, res) => {
+      // console.log('SESSION ACCOUNT ID', req.session.accountID);
+      // ***** REFACTOR TO CHECK DATABASE - IF NO STRIPE_ID, 'SETUP INCOMPLETE'
+      if (!req.session.accountID) {
+        res.send('Stripe account setup incomplete');
+      } else {
+        const accountInfo = await stripe.accounts.retrieve(
+          req.session.accountID // ***** REFACTOR WITH STRIPE_ID
+        );
+        // console.log('accountInfo charges enabled:', accountInfo.details_submitted);
+        if (!accountInfo.details_submitted) {
+          res.send('Please complete the account setup proccess');
+        } else {
+          res.send('Completed Account Setup - Thank you!');
+        }
+      }
+    },
+  },
 };
