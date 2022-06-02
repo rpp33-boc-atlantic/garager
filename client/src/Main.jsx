@@ -25,7 +25,7 @@ import { io } from 'socket.io-client';
 import PrivateRoute from './authentication/privateRoute.jsx';
 
 // sets up client for socketIO connection
-const socketIO = io('ws://127.0.0.1:3000');
+const socketIO = io();
 
 const container = document.getElementById('root');
 const root = createRoot(container);
