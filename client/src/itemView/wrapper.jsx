@@ -38,7 +38,7 @@ class Item extends React.Component {
       }
     })
       .then(response => {
-        console.log('GETTING THE ITEM INFO');
+        // console.log('GETTING THE ITEM INFO');
       })
       .catch(error => {
         console.log('ERROR IN GETTING THE ITEM INFO');
