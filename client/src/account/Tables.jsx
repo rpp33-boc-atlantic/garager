@@ -86,14 +86,18 @@ export default function Tables (props) {
   return (
     <Table striped bordered hover>
       <thead>
+
+
         <tr>
           {props.columns.map((col, i)=> {
-            return <th key = {i} onClick ={()=> {
+
+            return col.sort ? <th key = {i} onClick ={()=> {
               setState(col.text, !state);
               setClickedColumn(['name', ]);
 
               handleSort();
-            }}> {col.text}{ownerName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>;
+            }}> {col.text}{ownerName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
+              <th key = {i}>{col.text}</th>;
           })}
           {/* <th onClick ={()=> {
             setOwnerName(!ownerName);

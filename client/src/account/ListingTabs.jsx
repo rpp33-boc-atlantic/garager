@@ -29,8 +29,7 @@ export default function ListingTabs(props) {
   },
   {
     dataField: 'photos',
-    text: 'image',
-    sort: true
+    text: 'image'
   }];
 
 
