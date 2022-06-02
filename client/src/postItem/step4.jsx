@@ -33,7 +33,7 @@ const Step4 = (props) => {
       if (zipcode.substring(0, 2) === '09') {
         return false;
       } else {
-        let first3digits = zipcode.substring(0,3);
+        let first3digits = zipcode.substring(0, 3);
         let regex = /^(?:001|00[6-9]|20[2-5]|340|96[2-8]|)$/;
         if (first3digits.match(regex)) {
           return false;
