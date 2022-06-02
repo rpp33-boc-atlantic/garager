@@ -23,8 +23,8 @@ module.exports = {
             },
           ],
           mode: 'payment',
-          success_url: `${YOUR_DOMAIN}?success=true`,
-          cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+          success_url: `${YOUR_DOMAIN}/CheckoutSuccess`,
+          cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
         }, {
           stripeAccount: 'acct_1L65TH4covfuEldK', // ***** REFACTOR WITH OWNER'S STRIPE ACCOUNT ID
         });
