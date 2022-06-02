@@ -2,9 +2,11 @@ const app = require('./index.js');
 const port = require('../config.js').port;
 const http = require('http');
 const server = http.createServer(app);
-const { Server } = require('socket.io');
-const socketIO = new Server(server);
-const controller = require('./controllers/messages.controllers.js');
+const socketIO = require('socket.io')(server, {
+  cors: {
+    origin: '*'
+  }
+});
 
 // sets up server for socket connection
 socketIO.on('connection', ( socket ) => {
