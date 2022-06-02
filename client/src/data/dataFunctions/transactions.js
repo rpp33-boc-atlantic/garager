@@ -1,47 +1,56 @@
+/* eslint-disable camelcase */
 //audio/visual, automotive, camping, decorations, events, fitness, gardening, hand tools,  power tools, ,, , , sports, recreational vehicles,
 
-var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
-var transactions = {};
+// var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
+var transactions = [];
 var fs = require('fs');
 
-const today = new Date();
-const threedaysFromNow = new Date(today);
-threedaysFromNow.setDate( threedaysFromNow.getDate() + 3);
-console.log(today, threedaysFromNow);
+// const today = new Date();
+// const threedaysFromNow = new Date(today);
+// threedaysFromNow.setDate( threedaysFromNow.getDate() + 3);
+// console.log(today, threedaysFromNow);
 
 var random = function (min = 0, max) {
 
   var randomNum = Math.floor(Math.random() * max) + min;
-  console.log('randomNum', randomNum);
   return randomNum;
 };
+module.exports = createTransactions = function (fullnames) {
+  var transactions = [];
 
+  for (var i = 0; i < 100; i ++) {
+    var transaction = {};
+    // set transaction_id
+    transaction['transaction_id'] = i;
+    // set rate
+    transaction['rate'] = Math.floor((Math.random() * 100) + 4);
+    //set pickup date
+    transaction['pickUpDate'] = new Date();
+    var firstDate = random(-10, 30);
+    // console.log('first', firstDate);
+    transaction['pickUpDate'].setDate(transaction['pickUpDate'].getDate() + firstDate);
+    //set dueDate
+    var secondDate = random(firstDate + 5, firstDate);
+    transaction['returnDate'] = new Date();
+    transaction['returnDate'].setDate(transaction['returnDate'].getDate() + secondDate);
+    // set owner_id
+    var owner_id = Math.floor(Math.random() * fullnames.length);
+    transaction['owner_id'] = owner_id;
+    // set renter_id
+    var renter_id = Math.floor(Math.random() * fullnames.length);
+    transaction['renter_id'] = renter_id;
+    //set item_id
+    transaction['item_id'] = random(0, 20);
 
-for (var i = 0; i < 100; i ++) {
-  var transaction = {};
+    // remove eventually
+    // transaction['owner_name'] = fullnames[owner_id];
+    // transaction['renterName'] = fullnames[renter_id];
+    // transaction['itemName'] = 'x';
 
-  transaction['id'] = i;
-  transaction['productId'] = i;
-  var ownerId = Math.floor(Math.random() * owners.length);
-  transaction['ownerId'] = ownerId;
-  transaction['ownerName'] = owners[ownerId];
-  var renterId = Math.floor(Math.random() * owners.length);
-  transaction['renterId'] = renterId;
-  transaction['renterName'] = owners[renterId];
-  transaction['price'] = Math.floor((Math.random() * 100) + 4);
-  transaction['startDate'] = new Date();
-  var firstDate = random(-10, 10);
-  console.log('first', firstDate);
-  transaction['startDate'].setDate(transaction['startDate'].getDate() + firstDate);
-  var secondDate = random(firstDate + 5, firstDate);
-  transaction['dueDate'] = new Date(); // these dates need to be changed to different dates that arent too far apart from eachother
-  transaction['dueDate'].setDate(transaction['dueDate'].getDate() + secondDate);
-
-  if (transaction['ownerId'] === 7 ) {
-    transactions[i] = transaction;
+    transactions.push(transaction);
   }
-}
-console.log(transactions);
+  // console.log(transactions);
 
-let data = JSON.stringify(transactions, null, 2);
-fs.writeFileSync('transactionsOwnerId7.json', data);
+  let data = JSON.stringify(transactions, null, 2);
+  fs.writeFileSync('client/src/data/dataFunctions/transactions.json', data);
+};
