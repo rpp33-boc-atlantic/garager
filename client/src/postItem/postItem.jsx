@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
-import Step1 from './step1.jsx';
-import Step2 from './step2.jsx';
-import Step3 from './step3.jsx';
-import Step4 from './step4.jsx';
-import Step5 from './step5.jsx';
+import Step1 from './Step1.jsx';
+import Step2 from './Step2.jsx';
+import Step3 from './Step3.jsx';
+import Step4 from './Step4.jsx';
+import Step5 from './Step5.jsx';
 
 class PostItem extends Component {
   constructor (props) {
@@ -23,7 +24,7 @@ class PostItem extends Component {
       availableTo: '',
       photos: [],
       latLng: {},
-      address1: ''
+      address: ''
     };
     this.changeToPrevious = this.changeToPrevious.bind(this);
     this.changeToNext = this.changeToNext.bind(this);
@@ -57,34 +58,27 @@ class PostItem extends Component {
     };
   }
 
-  handleUploadPhotos (e) {
-    e.preventDefault();
-    const imageForm = document.querySelector('#imageForm');
-    const imagesInput = document.querySelector('#imageInput');
-    imageForm.addEventListener('click', (e) => {
-      const files = Array.from(imagesInput.files);
+  handleUploadPhotos (files) {
 
-      if (files) {
-        files.map( async (file) => {
-          //Get secure url from our server
-          const { url } = await fetch('/s3url').then (res => res.json());
-
-          //Post the image directly to s3 bucket
-          await fetch (url, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            },
-            body: file
-          });
-
-          const imageURL = url.split('?')[0];
-          this.state.photos.push({'data_url': imageURL});
-          console.log('photos', this.state.photos);
+    const imageFiles = files.imageFiles;
+    if (imageFiles) {
+      imageFiles.map( async (file) => {
+        //Get secure url from our server
+        const { url } = await fetch('/s3url').then (res => res.json());
+        //Post the image directly to s3 bucket
+        await fetch (url, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          body: file
         });
-      }
 
-    });
+        const imageURL = url.split('?')[0];
+        this.state.photos.push({'data_url': imageURL});
+      });
+    }
+    this.changeToNext();
   }
 
   handleSelectLocation (address, latLng) {
@@ -99,8 +93,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
-    const values = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
+    const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address, latLng } = this.state;
+    const values = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address, latLng };
 
     switch (step) {
     case 1:
@@ -152,11 +146,11 @@ class PostItem extends Component {
       return (
         <>
           <h5>Post an item for rent in 5 easy steps</h5>
-          <button
+          <Button
             type="button"
             className="btn"
             onClick={this.changeToNext}
-          >Let's Go!</button>
+          >Let's Go!</Button>
         </>
       );
     }

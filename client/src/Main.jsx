@@ -13,7 +13,7 @@ import FAQ from './FAQ.jsx';
 import RouterTest from './RouterTest.jsx';
 import Item from './itemView/wrapper.jsx';
 import SearchBrowse from './search/SearchBrowse.jsx';
-import PostItem from './postItem/postItem.jsx';
+import PostItem from './postItem/PostItem.jsx';
 import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
 import Login from './authentication/login.jsx';
