@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '@mui/material/Button';
+
 import Step1 from './step1.jsx';
 import Step2 from './step2.jsx';
 import Step3 from './step3.jsx';
@@ -11,23 +11,25 @@ class PostItem extends Component {
     super (props);
     this.state = {
       step: 0,
-      postData: {
-        title: '',
-        category: '',
-        brand: '',
-        model: '',
-        description: '',
-        price: 0,
-        nameYourOwnPrice: false,
-        minimunAcceptedPrice: 0,
-        pickUpLocation: '',
-        availableFrom: '',
-        availableTo: ''
-      }
+      title: '',
+      category: '',
+      brand: '',
+      model: '',
+      itemDescription: '',
+      price: 0,
+      nameYourOwnPrice: false,
+      minimunAcceptedPrice: 0,
+      availableFrom: '',
+      availableTo: '',
+      photos: [],
+      latLng: {},
+      address1: ''
     };
     this.changeToPrevious = this.changeToPrevious.bind(this);
     this.changeToNext = this.changeToNext.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleUploadPhotos = this.handleUploadPhotos.bind(this);
+    this.handleSelectLocation = this.handleSelectLocation.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -48,11 +50,45 @@ class PostItem extends Component {
   handleChange (input) {
     return (e)=> {
       if (input === 'nameYourOwnPrice') {
-        this.setState ({ postData: { [input]: e.target.checked }});
+        this.setState ({ [input]: e.target.checked });
       } else {
-        this.setState ({ postData: {[input]: e.target.value }});
+        this.setState ({ [input]: e.target.value });
       }
     };
+  }
+
+  handleUploadPhotos (e) {
+    e.preventDefault();
+    const imageForm = document.querySelector('#imageForm');
+    const imagesInput = document.querySelector('#imageInput');
+    imageForm.addEventListener('click', (e) => {
+      const files = Array.from(imagesInput.files);
+
+      if (files) {
+        files.map( async (file) => {
+          //Get secure url from our server
+          const { url } = await fetch('/s3url').then (res => res.json());
+
+          //Post the image directly to s3 bucket
+          await fetch (url, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            },
+            body: file
+          });
+
+          const imageURL = url.split('?')[0];
+          this.state.photos.push({'data_url': imageURL});
+          console.log('photos', this.state.photos);
+        });
+      }
+
+    });
+  }
+
+  handleSelectLocation (address, latLng) {
+    this.setState ({ address1: address, latLng: latLng });
   }
 
   handleSubmit (input) {
@@ -63,8 +99,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, pickUpLocation, availableFrom, availableTo } = this.state.postData;
-    const values = { title, category, brand, model, description, price, nameYourOwnPrice, minimunAcceptedPrice, pickUpLocation, availableFrom, availableTo };
+    const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng } = this.state;
+    const values = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address1, latLng };
 
     switch (step) {
     case 1:
@@ -72,6 +108,7 @@ class PostItem extends Component {
         <Step1
           changeToNext={this.changeToNext}
           handleChange={this.handleChange}
+          handleUploadPhotos={this.handleUploadPhotos}
           values={values}
         />
       );
@@ -98,7 +135,7 @@ class PostItem extends Component {
         <Step4
           changeToPrevious={this.changeToPrevious}
           changeToNext={this.changeToNext}
-          handleChange={this.handleChange}
+          handleSelectLocation={this.handleSelectLocation}
           values={values}
         />
       );
@@ -115,9 +152,11 @@ class PostItem extends Component {
       return (
         <>
           <h5>Post an item for rent in 5 easy steps</h5>
-          <Button
+          <button
+            type="button"
+            className="btn"
             onClick={this.changeToNext}
-          >Let's Go!</Button>
+          >Let's Go!</button>
         </>
       );
     }

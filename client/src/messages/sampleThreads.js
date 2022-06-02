@@ -1,26 +1,63 @@
 export default [
   {
-    itemId: 3498,
-    itemName: 'chaos magic',
+    threadId: 3498,
+    itemName: 'Chaos Magic',
     itemImageUrl: null,
-    theirRole: 'owner',
-    theirUsername: 'wanda maximoff',
-    theirImageUrl: null,
-    lastMessage: 'what do you think of the item?',
-    timeUpdated: 1653359934,
+    username: 'Wanda Maximoff',
+    userImageUrl: null,
+    userRole: 'owner',
+    lastMessage: `it's a bit much, tbh`,
+    timeUpdated: 1653508198000,
     viewed: false,
-    theirMessages: [
+    messages: [
       {
+        username: 'Wanda Maximoff',
         text: 'what do you think of my power?',
         imageUrl: null,
-        timeCreated: 1653359934
-      }
-    ],
-    myMessages: [
+        timeCreated: 1653504598000
+      },
       {
+        username: 'Stephen Strange',
         text: `it's a bit much, tbh`,
         imageUrl: null,
-        timeCreated: 1653359510
+        timeCreated: 1653508198000
+      },
+      {
+        username: 'Wanda Maximoff',
+        text: 'yeah, I got the darkhold now',
+        imageUrl: null,
+        timeCreated: 1653504598000
+      },
+      {
+        username: 'Stephen Strange',
+        text: `oh I get it now, you're the scarlet witch`,
+        imageUrl: null,
+        timeCreated: 1653508198000
+      },
+    ]
+  },
+  {
+    threadId: 3498,
+    itemName: 'Infinity Gauntlet',
+    itemImageUrl: null,
+    username: 'Thanos',
+    userImageUrl: null,
+    userRole: 'owner',
+    lastMessage: 'not very useful without the inifinity stones',
+    timeUpdated: 1653421798000,
+    viewed: false,
+    messages: [
+      {
+        username: 'Thanos',
+        text: 'what do you think of my gauntlet?',
+        imageUrl: null,
+        timeCreated: 1653418198000
+      },
+      {
+        username: 'Stephen Strange',
+        text: `not very useful without the inifinity stones`,
+        imageUrl: null,
+        timeCreated: 1653421798000
       }
     ]
   }

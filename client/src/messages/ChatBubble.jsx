@@ -1,11 +1,18 @@
 import React from 'react';
+import moment from 'moment';
 
-const ChatBubble = (props) => {
-
-  const onImageClick = () => {};
+const ChatBubble = ( props ) => {
 
   return (
-    <p>Bubble: { props.message.text }</p>
+    <React.Fragment>
+
+      <p className={ `from-${ props.user }` }>{ props.message.text }</p>
+
+      <div className={ `chat-time-from-${ props.user }` }>
+        { moment( props.message.timeCreated ).format('LT') }
+      </div>
+
+    </React.Fragment>
   );
 };
 

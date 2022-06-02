@@ -1,9 +1,22 @@
 import React from 'react';
+import moment from 'moment';
 
-const ThreadTile = (props) => {
+const ThreadTile = ( props ) => {
 
   return (
-    <p>Thread tile: { props.thread.itemName }</p>
+    <div className='thread-tile'>
+
+      <span>
+        <strong>{ props.thread.username }</strong> - { props.thread.itemName }
+      </span><br />
+
+      { props.thread.lastMessage }<br />
+
+      <span className='thread-time'>
+        { moment( props.thread.timeUpdated ).fromNow() }
+      </span>
+
+    </div>
   );
 };
 
