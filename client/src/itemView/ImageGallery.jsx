@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: grid;
-  background: white;
+  background: #eee;
   padding: 1em;
   grid-row: 1 / 3;
   // grid-auto-rows: minmax(100px, auto);
