@@ -53,4 +53,8 @@ jobs:
             docker rm $(docker ps -a -q)
             docker rmi $(docker images -q)
             docker pull "joemitz/garager:$TAGNAME"
-            docker run -p 80:3000 -d --env AWS_SECRET_KEY=${{ secrets.AWS_SECRET_KEY }} --env AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }} "joemitz/garager:$TAGNAME"
+            docker run -p 80:3000 -d \
+            --env AWS_SECRET_KEY=${{ secrets.AWS_SECRET_KEY }} \
+            --env AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }} \
+            --env RDS_PASSWORD=${{ secrets.RDS_PASSWORD }} \
+            "joemitz/garager:$TAGNAME"
