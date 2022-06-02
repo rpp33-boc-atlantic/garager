@@ -14,7 +14,7 @@ CREATE TABLE users (
   address VARCHAR(1000) DEFAULT NULL,
   dateJoined DATE DEFAULT NULL,
   stripe_id INTEGER DEFAULT NULL
-)
+);
 
 DROP TABLE IF EXISTS items CASCADE;
 CREATE TABLE items (
@@ -76,8 +76,8 @@ CREATE TABLE threads (
 	"renter_id" int NOT NULL,
 	"owner_viewed" BOOLEAN NOT NULL DEFAULT 'true',
 	"renter_viewed" BOOLEAN NOT NULL DEFAULT 'true',
-	"last_message_id" int DEFAULT 'null',
-	"time_updated" bigint DEFAULT 'null',
+	"last_message_id" int,
+	"time_updated" bigint,
 	CONSTRAINT "threads_pk" PRIMARY KEY ("thread_id")
 ) WITH (
   OIDS=FALSE
