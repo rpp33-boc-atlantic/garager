@@ -5,9 +5,7 @@ import ItemDetails from './ItemDetails.jsx';
 import OwnerInfo from './OwnerInfo.jsx';
 import RentForm from './RentForm.jsx';
 import sampleItemData from './sampleItemData.js';
-import ladder1 from './samplePhotos/ladder1.jpeg';
-import ladder2 from './samplePhotos/ladder2.jpeg';
-import ladder3 from './samplePhotos/ladder3.jpeg';
+import axios from 'axios';
 
 
 const Container = styled.div`
@@ -33,12 +31,22 @@ class Item extends React.Component {
   }
 
   componentDidMount() {
-
+    axios.get('/item/ItemInfo', {
+      params: {
+        ID: 12345,
+        name: 'ladder'
+      }
+    })
+      .then(response => {
+        console.log('GETTING THE ITEM INFO');
+      })
+      .catch(error => {
+        console.log('ERROR IN GETTING THE ITEM INFO');
+      })
   }
 
   render () {
     var fakeProps = sampleItemData.option1;
-    var dummyImages = [ladder1, ladder2, ladder3];
     // console.log('this is fakeProps', fakeProps);
     return (
       <div>

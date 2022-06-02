@@ -9,6 +9,8 @@ const generateUploadURL = require('./s3.js');
 
 const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
+const itemRoutes = require('./routes/item.routes.js');
+
 
 app.use('/account/', accountRouter);
 app.use(bodyParser.json());
@@ -26,6 +28,7 @@ app.get('/test', (req, res) => {
 
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
+app.use('/item', itemRoutes);
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
