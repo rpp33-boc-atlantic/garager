@@ -30,7 +30,7 @@ const Step1 = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <div className="mx-auto" style={{padding: '5em'}}>
       <h3>What do you want to rent out ?</h3>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group>
@@ -55,11 +55,11 @@ const Step1 = (props) => {
             updateFilesCb={updateUploadedFiles}
           />
         </Form.Group>
-
-        <Button type="submit">Next</Button>
-
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <Button type="submit">Next</Button>
+        </div>
       </Form>
-    </React.Fragment>
+    </div>
   );
 };
 

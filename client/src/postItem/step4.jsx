@@ -23,7 +23,6 @@ const Step4 = (props) => {
       e.stopPropagation();
       changeToNext();
     }
-
   };
 
   const validateZipcode = (zipcode) => {
@@ -68,7 +67,7 @@ const Step4 = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <div className="mx-auto" style={{padding: '5em'}}>
       <h3>Where can I pick up your item?</h3>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group>
@@ -113,11 +112,13 @@ const Step4 = (props) => {
             )}
           </PlacesAutocomplete>
           <br/>
-          <Button onClick={changeToPrevious}>Back</Button>
-          <Button type="submit">Next</Button>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <Button type="button" onClick={changeToPrevious}>Back</Button>
+            <Button type="submit">Next</Button>
+          </div>
         </Form.Group>
       </Form>
-    </React.Fragment>
+    </div>
   );
 };
 

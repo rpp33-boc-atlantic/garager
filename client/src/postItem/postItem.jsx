@@ -144,14 +144,13 @@ class PostItem extends Component {
       );
     default:
       return (
-        <>
-          <h5>Post an item for rent in 5 easy steps</h5>
-          <Button
-            type="button"
-            className="btn"
-            onClick={this.changeToNext}
-          >Let's Go!</Button>
-        </>
+        <div className="mx-auto" style={{padding: '5em'}}>
+          <h5 className="text-center">Post an item for rent in 5 easy steps</h5>
+          <br/>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-center">
+            <Button type="submit" onClick={this.changeToNext}>Let's GO</Button>
+          </div>
+        </div>
       );
     }
   }

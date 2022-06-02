@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 //Step3 includes price, nyop, minimum accepted price
 
@@ -22,7 +23,7 @@ class Step3 extends Component {
   render () {
     const { values, handleChange } = this.props;
     return (
-      <React.Fragment>
+      <div className="mx-auto" style={{padding: '5em'}}>
         <h3>How much do you want to rent it for?</h3>
         <form>
           <div className="form-row">
@@ -39,16 +40,13 @@ class Step3 extends Component {
             <label htmlFor="price">Minimum accepted price</label>
             <input type="text" className="form-control" id="minimunAcceptedPrice" placeholder="Set the lowest price you will accept..." onChange={handleChange('minimunAcceptedPrice')} value={values.minimunAcceptedPrice}/>
           </div>
-          <button
-            type="submit" className="btn"
-            onClick={this.back}
-          >Back</button>
-          <button
-            type="submit" className="btn"
-            onClick={this.continue}
-          >Next</button>
+          <br/>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <Button type="button" onClick={this.back}>Back</Button>
+            <Button type="submit" onClick={this.continue}>Next</Button>
+          </div>
         </form>
-      </React.Fragment>
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calendar, { onClickDay } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { Button } from 'react-bootstrap';
 
 //step5 includes time availability
 
@@ -13,15 +14,17 @@ const Step5 = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <div className='step5'>
+    <div className="mx-auto" style={{padding: '5em'}}>
+      <div>
         <h1 className='text-center'>Avaibility Range</h1>
-        <div className='calendar-container'>
+        <br/>
+        <div className='calendar-container d-flex justify-content-center' >
           <Calendar
             onChange={onChange}
             value={date}
             selectRange={true}
           />
+          <br/>
         </div>
         {date.length > 0 ? (
           <p className='text-center'>
@@ -37,19 +40,14 @@ const Step5 = (props) => {
           </p>
         )}
       </div>
-
-      <button
-        type="submit" className="btn"
-        onClick={props.changeToPrevious}
-      >Back</button>
-      <button
-        type="submit" className="btn"
-        onClick={props.handleSubmit(props.values)}
-      >Finish</button>
-    </React.Fragment>
+      <br/>
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+        <Button type="button" onClick={props.changeToPrevious}>Back</Button>
+        <Button type="submit" onClick={props.handleSubmit(props.values)}>Finish</Button>
+      </div>
+    </div>
 
   );
 };
 
 export default Step5;
-
