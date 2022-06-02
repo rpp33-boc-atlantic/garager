@@ -36,8 +36,6 @@ module.exports = {
   },
   onboardUser: {
     post: async (req, res) => {
-      console.log('IN ONBOARD USER');
-      // res.send('BOARDING USER');
       try {
         const account = await stripe.accounts.create({
           type: 'standard',
@@ -45,22 +43,47 @@ module.exports = {
 
         // Store the ID of the new Standard connected account.
         req.session.accountID = account.id;
+        console.log('session accountID', req.session.accountID);
 
         const origin = `${req.headers.origin}`;
 
         const accountLink = await stripe.accountLinks.create({
           account: account.id,
-          refresh_url: `${origin}/onboard-user/refresh`,
+          refresh_url: `${origin}/checkout/onboard-user/refresh`,
           return_url: `${origin}/Stripe-Account-Setup`,
           type: 'account_onboarding',
         });
-    
-        res.redirect(303, accountLink.url);
+
+        res.json({ url: accountLink.url });
+        // res.redirect(303, accountLink.url);
       } catch (err) {
         res.status(500).send({
           error: err.message,
         });
       }
     },
+    get: async (req, res) => {
+      if (!req.session.accountID) {
+        res.redirect('/checkout/onboard-user');
+        return;
+      }
+    
+      try {
+        const { accountID } = req.session;
+        const origin = `${req.secure ? 'https://' : 'http://'}${req.headers.host}`;
+        const accountLink = await stripe.accountLinks.create({
+          type: 'account_onboarding',
+          account: accountID,
+          refresh_url: `${origin}/checkout/onboard-user/refresh`,
+          return_url: `${origin}/Stripe-Account-Setup`,
+        });
+        // res.json({ url: accountLink.url }); <-- DID NOT WORK
+        res.redirect(303, accountLink.url);
+      } catch (err) {
+        res.status(500).send({
+          error: err.message,
+        });
+      }
+    }
   }
 };
