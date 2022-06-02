@@ -46,8 +46,8 @@ const Step1 = (props) => {
             Please provide a title for your post...
           </Form.Control.Feedback>
         </Form.Group>
+        <br/>
         <Form.Group>
-          <Form.Label htmlFor="uploadPhotos">Upload Photos</Form.Label>
           <FileUpload
             accept=".jpg,.png,.jpeg"
             label="Upload Image(s)"

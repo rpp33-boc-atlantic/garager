@@ -54,7 +54,8 @@ const Step2 = (props) => {
             id="brand"
             placeholder="Optional"
             onChange={handleChange('model')} />
-
+        </Form.Group>
+        <Form.Group>
           <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control
             required
@@ -62,7 +63,10 @@ const Step2 = (props) => {
             id="brand"
             placeholder="Required"
             onChange={handleChange('itemDescription')} />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please provide a description for your item...
+          </Form.Control.Feedback>
         </Form.Group>
         <Button type="button" onClick={changeToPrevious}>Back</Button>
         <Button type="submit">Next</Button>
