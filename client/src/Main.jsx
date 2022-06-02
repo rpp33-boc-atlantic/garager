@@ -6,6 +6,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useParams
 } from 'react-router-dom';
 import * as ReactDOM from 'react-dom/client';
 import App from './App.jsx';
@@ -40,7 +41,7 @@ root.render(
           <Route path='/login' element={<Login />} />
           <Route path='FAQ' element={<FAQ />} />
           <Route path='RouterTest' element={<RouterTest />} />
-          <Route path='Item' element={<Item />} />
+          <Route path='Item/:id' element={<Item />} />
           <Route path='SearchBrowse' element={<SearchBrowse />} />
           <Route path='PostItem' element={<PostItem />} />
           <Route path='Messages' element={<Messages />} />
