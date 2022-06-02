@@ -42,7 +42,7 @@ class Item extends React.Component {
       })
       .catch(error => {
         console.log('ERROR IN GETTING THE ITEM INFO');
-      })
+      });
   }
 
   render () {
