@@ -35,7 +35,7 @@ const Login = () => {
     try {
       await facebookSignIn()
         .then((res) => {
-          console.log(res.user);
+          //console.log(res.user);
           //redirect user to homepage
           navigate('/');
         })

@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 
 const Logout = () => {
   const { user, logOut } = useUserAuth();
+
   const handleLogOut = async () => {
     try {
       await logOut();

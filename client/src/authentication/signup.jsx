@@ -8,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth custom hook
-  const { signUp } = useUserAuth();
+  const { signUp, logOut} = useUserAuth();
   //redirect user back to login page after sign up
   const navigate = useNavigate();
 
@@ -17,8 +17,9 @@ const Signup = () => {
     setError('');
     try {
       await signUp(email, password);
-      //redirect user back to login page after sign up
+      logOut();
       navigate('/login');
+      //redirect user back to login page after sign up
     } catch (err) {
       setError(err.message);
     }
