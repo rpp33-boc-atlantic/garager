@@ -13,6 +13,8 @@ import {
 
 import { auth } from '../firebase';
 
+
+
 const userAuthContext = createContext();
 
 // eslint-disable-next-line func-style
@@ -20,6 +22,7 @@ const userAuthContext = createContext();
 //wrapping all of the logic of handling state, updating state and pushing out these values to the child components
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
+  const [cred, setCred] = useState({});
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -42,21 +45,13 @@ export function UserAuthContextProvider({ children }) {
         console.log(err.message);
         if (err.code === 'auth/account-exists-with-different-credential') {
           const pendingCred = FacebookAuthProvider.credentialFromError(err);
+          setCred(pendingCred);
+          console.log('cred', cred);
           console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
           //TODO: Ask the user for their email and password.
-          signInWithEmailAndPassword(auth, 'arielddw@gmail.com', '123456')
-            .then((res) => {
-              linkWithCredential(res.user, pendingCred)
-                .then((res) => {
-                  console.log('succesfully linked account');
-                })
-                .catch((err) => {
-                  console.log('failed to link account', err.message);
-                });
-            })
-            .catch((err) => {
-              console.log('failed to sign in with email and password', err.message);
-            });
+          let email = prompt('Please enter your registered email');
+          let password = prompt('Please enter your password');
+          linkAccount(email, password, pendingCred);
         }
       });
   }
@@ -64,6 +59,24 @@ export function UserAuthContextProvider({ children }) {
   function logOut() {
     return signOut(auth);
   }
+
+
+  const linkAccount = (email, password, pendingCred) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        linkWithCredential(res.user, pendingCred)
+          .then((res) => {
+            console.log('succesfully linked account');
+          })
+          .catch((err) => {
+            console.log('failed to link account', err.message);
+          });
+      }).catch ((err) => {
+        console.log('failed to sign in with email and password', err.message);
+      });
+
+  };
+
   //run only once, when the components did mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -76,6 +89,7 @@ export function UserAuthContextProvider({ children }) {
     };
 
   }, []);
+
 
   return (
     <userAuthContext.Provider value={{user, signUp, logIn, facebookSignIn, logOut}}>
