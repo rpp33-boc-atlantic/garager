@@ -6,6 +6,7 @@ import Step2 from './Step2.jsx';
 import Step3 from './Step3.jsx';
 import Step4 from './Step4.jsx';
 import Step5 from './Step5.jsx';
+import ConfirmationPage from './ConfirmationPage.jsx';
 
 class PostItem extends Component {
   constructor (props) {
@@ -31,7 +32,7 @@ class PostItem extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleUploadPhotos = this.handleUploadPhotos.bind(this);
     this.handleSelectLocation = this.handleSelectLocation.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePost = this.handlePost.bind(this);
   }
 
   changeToPrevious () {
@@ -85,10 +86,11 @@ class PostItem extends Component {
     this.setState ({ address: address, latLng: latLng });
   }
 
-  handleSubmit (input) {
+  handlePost (values) {
     //axios post request
-    console.log('post data', input);
+    console.log('post data', values);
     // reset postData
+
   }
 
   render () {
@@ -139,8 +141,13 @@ class PostItem extends Component {
         <Step5
           changeToPrevious={this.changeToPrevious}
           handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+          handlePost={this.handlePost}
           values={values}
+        />
+      );
+    case 6:
+      return (
+        <ConfirmationPage
         />
       );
     default:

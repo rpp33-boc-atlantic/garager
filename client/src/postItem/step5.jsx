@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import Calendar, { onClickDay } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 //step5 includes time availability
 
 const Step5 = (props) => {
+  const { values, changeToPrevious, handSelectDate, handlePost } = props;
   const [date, setDate] = useState(new Date());
   const onChange = (date) => {
     setDate(date);
-    props.values.availableFrom = date[0].toDateString();
-    props.values.availableTo = date[1].toDateString();
+    values.availableFrom = date[0].toDateString();
+    values.availableTo = date[1].toDateString();
   };
 
   return (
     <div className="mx-auto" style={{padding: '5em'}}>
-      <div>
+      <Form onSubmit={handlePost(values)}>
         <h1 className='text-center'>Avaibility Range</h1>
         <br/>
         <div className='calendar-container d-flex justify-content-center' >
@@ -26,6 +27,7 @@ const Step5 = (props) => {
           />
           <br/>
         </div>
+
         {date.length > 0 ? (
           <p className='text-center'>
             <span className='bold'>Start:</span>{' '}
@@ -39,12 +41,12 @@ const Step5 = (props) => {
             {date.toDateString()}
           </p>
         )}
-      </div>
-      <br/>
-      <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <Button type="button" onClick={props.changeToPrevious}>Back</Button>
-        <Button type="submit" onClick={props.handleSubmit(props.values)}>Finish</Button>
-      </div>
+        <br/>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <Button type="button" onClick={changeToPrevious}>Back</Button>
+          <Button type="submit">Finish</Button>
+        </div>
+      </Form>
     </div>
 
   );
