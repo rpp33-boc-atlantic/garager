@@ -1,32 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-
-// var transactions = require('../data/dataFunctions/transactions.json');
-
-const columns = [{
-//   dataField: 'Numner of times rented',
-//   text: 'Number of times rented',
-//   sort: true
-// }, {
-  dataField: 'item_id',
-  text: 'Product Name',
-  sort: true
-}, {
-  dataField: 'price',
-  text: 'Current Price per Day',
-  sort: true
-}, {
-  dataField: '',
-  text: 'Current Price per Day',
-  sort: true
-}];
-  //dataField: 'Current Status',
-  // text: 'Product Price'
-// }
-
-// export default () =>
-//   <BootstrapTable keyField='id' data={ products } columns={ columns } />
+/// I may eventually delete this because I made my Table component
 
 export default function ListingList (props) {
   var items = props.items;
@@ -49,7 +24,6 @@ export default function ListingList (props) {
           {props.listings}
         </tbody>
       </Table>
-      {/* <BootstrapTable keyField='id' data={ products } columns={ columns } /> */}
     </React.Fragment>
   );
 

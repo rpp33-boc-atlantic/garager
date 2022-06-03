@@ -63,7 +63,7 @@ export default function RentalTabs(props) {
       var newDate = new Date();
       if (moment(t.returnDate).isBefore(moment(newDate))) {
         pastRentals.push(t);
-        //if (moment(t.dueDate).isBefore(moment(newDate)))
+       
       } else {
         currentRentals.push(t);
       }

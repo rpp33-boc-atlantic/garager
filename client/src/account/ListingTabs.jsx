@@ -4,17 +4,14 @@ import React, {useState} from 'react';
 import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import ListingList from './ListingList.jsx';
+// import ListingList from './ListingList.jsx';
 import Tables from './Tables.jsx';
 
 
 export default function ListingTabs(props) {
   const [key, setKey] = useState('home');
+
   const columns = [{
-    //   dataField: 'Numner of times rented',
-    //   text: 'Number of times rented',
-    //   sort: true
-    // }, {
     dataField: 'title',
     text: 'Item Name',
     link: '../item',
@@ -35,7 +32,6 @@ export default function ListingTabs(props) {
 
 
   var PostMessage = function (props) {
-
     return (
       <React.Fragment>
         You have no items listed.  Click<Link to='../PostItem'> here</Link> to list an item!.
@@ -51,8 +47,6 @@ export default function ListingTabs(props) {
         <Tab eventKey="listings" title="Listings">
           {/* {props.listings.length === 0 ? <PostMessage/> : <ListingList/>} */}
           {props.transactions.length === 0 ? <PostMessage/> : <Tables columns = {columns} values = {props.items}/>}
-
-          {/*  <TabContent text='true'/> */}
         </Tab>
         <Tab eventKey="earnings" title="Earnings">
           <div style={{size: '20px'}}>You have earned a total of </div> <h1>  ${props.earnings} </h1> from {props.rentedItems} items.
@@ -64,4 +58,3 @@ export default function ListingTabs(props) {
   );
 }
 
-// render(<ControlledTabs />);
