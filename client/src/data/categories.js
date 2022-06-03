@@ -41,7 +41,7 @@ const categories = {
     },
   sports:
     {
-      name: 'Sports',
+      name: 'Sports Equipment',
       image: 'https://www.svgrepo.com/show/142452/soccer-ball.svg'
     },
   recreationalVehicles:
@@ -51,7 +51,7 @@ const categories = {
     },
   events:
     {
-      name: 'Hosting Events',
+      name: 'Events',
       image: 'https://www.svgrepo.com/show/297780/barbecue-bbq.svg'
     },
   Decorations:

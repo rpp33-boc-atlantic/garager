@@ -6,6 +6,7 @@ import { Row } from 'react-bootstrap';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 import './MessageStyles.css';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom'; // JO ADDED THIS LINE
 
 const Messages = ( props ) => {
 
@@ -13,6 +14,15 @@ const Messages = ( props ) => {
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
   const threadRef = useRef([]);
+
+  // ***** JO ADDED THE NEXT THREE LINES TO PASS ITEM ID TO MESSAGES *****
+  const location = useLocation();
+  let itemID;
+  if (location.state) {
+    itemID = location.state.itemID;
+  }
+  // const { itemID } = location.state; <-- DID NOT WORK IN CASES WHERE MESSAGES IS ACCESSED FROM A DIFFERENT COMPONENT OTHER THAN CheckoutSuccess.jsx
+  // console.log('itemID in message', itemID);
 
   useEffect(() => {
     if (threads.length === 0) {
