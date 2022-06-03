@@ -61,7 +61,7 @@ export default function RentalTabs(props) {
       t.title = items[Math.floor(Math.random( ) * 40)].title;
       t.photos = items[1]['photos'];
       var newDate = new Date();
-      if (moment(t.dueDate).isBefore(moment(newDate))) {
+      if (moment(t.returnDate).isBefore(moment(newDate))) {
         pastRentals.push(t);
         //if (moment(t.dueDate).isBefore(moment(newDate)))
       } else {
