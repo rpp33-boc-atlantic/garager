@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import models from '../../../server/models/browse.models.js';
 import './searchBrowse.css';
 
 import rentalListings from '../data/exampleRentals.js';
@@ -95,7 +94,18 @@ class SearchBrowse extends React.Component {
   };
 
   retrieveLocationCoordinates = async (zipCode) => {
-    return models.latLng.get(zipCode);
+    return axios.get('/browse/location', {
+      params: {
+        components: `postal_code:${zipCode}`,
+      }
+    })
+      .then((response) => {
+        let latLng = response.data;
+        return latLng;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   handleZipCodeSearch = async (event) => {
