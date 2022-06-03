@@ -10,12 +10,12 @@ const client = new Client({
   port: 5432
 });
 
-client.connect((err, res) => {
-  if (err) {
-    console.log(err);
-  } else {
-    // console.log('connected to GARAGER database');
-  }
-});
+// client.connect((err, res) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log('connected to GARAGER database');
+//   }
+// });
 
 module.exports = client;
