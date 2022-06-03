@@ -46,8 +46,8 @@ const Login = () => {
             const pendingCred = FacebookAuthProvider.credentialFromError(err);
             console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
             //TODO: promp the user to enter email and password, async
-            let email = prompt('Please enter your registered email');
-            let password = prompt('Please enter your password');
+            const email = prompt('Please enter your registered email');
+            const password = prompt('Please enter your password');
             linkAccount(email, password, pendingCred);
           }
         });
@@ -57,7 +57,7 @@ const Login = () => {
   };
 
   const linkAccount = (email, password, pendingCred) => {
-    signInWithEmailAndPassword(auth, email, password)
+    logIn(email, password)
       .then((res) => {
         linkWithCredential(res.user, pendingCred)
           .then((res) => {
@@ -72,6 +72,7 @@ const Login = () => {
         navigate('/Login');
       });
   };
+
 
   return (
     <>
