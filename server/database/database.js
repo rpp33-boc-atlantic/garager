@@ -14,7 +14,7 @@ client.connect((err, res) => {
   if (err) {
     console.log(err);
   } else {
-    // console.log('connected to GARAGER database');
+    console.log('connected to GARAGER database');
   }
 });
 
