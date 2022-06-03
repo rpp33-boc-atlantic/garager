@@ -10,11 +10,13 @@ import axios from 'axios';
 const Messages = ( props ) => {
 
   const { user } = useUserAuth();
-  const [ threads, updateThreads ] = useState( sampleThreads );
+  const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
 
   useEffect(() => {
-    // getThreads();
+    if (threads.length === 0) {
+      getThreads();
+    }
 
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
@@ -23,21 +25,16 @@ const Messages = ( props ) => {
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      threadId: 1,
-      itemName: 'Chaos Magic',
-      itemImageUrl: null,
-      username: 'dude@dude.com',
-      userImageUrl: null,
-      userRole: 'owner',
-      lastMessage: 'nice',
-      timeUpdated: 1653508198000,
-      viewed: false,
+      itemId: 3,
+      ownerId: 5,
+      renterId: 6,
+      timeUpdated: Date.now()
     });
   };
 
   const getThreads = async () => {
-    const newThreads = await axios.get('/threads');
-    updateThreads ( newThreads );
+    const result = await axios.get('/messages/threads');
+    updateThreads ( result.data );
   };
 
   const addMessage = ( message ) => {
@@ -84,7 +81,7 @@ const Messages = ( props ) => {
         <div id='chat-column'>
           <ChatList
             threads={ threads }
-            messages={ threads[ activeThread ].messages }
+            messages={ threads.length > 0 ? threads[ activeThread ].messages : [] }
             sendMessage={ sendMessage }
           />
         </div>

@@ -2,13 +2,30 @@ const models = require('../models/messages.models.js');
 
 module.exports = {
   threads: {
-    get: (req, res) => {
-      models.threads.get();
-      res.send('test');
+    get: async (req, res) => {
+      const result = await models.threads.get();
+      const newThreads = [];
+      let newThread;
+      for (let thread of result.rows) {
+        newThread = {
+          threadId: thread.thread_id,
+          itemName: 'item name',
+          itemImageUrl: null,
+          username: 'user name',
+          userImageUrl: null,
+          userRole: 'user role',
+          lastMessage: '',
+          timeUpdated: thread.time_updated,
+          viewed: false,
+          messages: []
+        };
+        newThreads.push(newThread);
+      }
+      res.send(newThreads);
     },
     post: (req, res) => {
       models.threads.post(req.body);
-      res.send('test');
+      res.end();
     },
     put: (req, res) => {
       models.threads.put();
@@ -16,8 +33,8 @@ module.exports = {
     }
   },
   messages: {
-    post: (message) => {
-      models.messages.post(message);
+    post: (req, res) => {
+      models.messages.post(req.body);
     }
   }
 };
