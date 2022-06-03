@@ -38,7 +38,7 @@ const Item = (props) => {
     }, [])
       .then(response => {
         console.log('GETTING THE ITEM INFO');
-        return setData(fakeProps)
+        return setData(fakeProps);
       })
       .then(response => {
         console.log('state right here', itemData);
@@ -46,7 +46,7 @@ const Item = (props) => {
       .catch(error => {
         console.log('ERROR IN GETTING THE ITEM INFO', error);
       });
-  })
+  });
 
   return (
     <div>
@@ -57,7 +57,7 @@ const Item = (props) => {
         <RentForm className='form' itemInfo={fakeProps} />
       </Container>
     </div>
-  )
+  );
 };
 
 export default Item;
