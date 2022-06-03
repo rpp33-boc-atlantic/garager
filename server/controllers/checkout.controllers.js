@@ -23,7 +23,7 @@ module.exports = {
             },
           ],
           mode: 'payment',
-          success_url: `${YOUR_DOMAIN}/CheckoutSuccess`,
+          success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${req.body.itemID}`,
           cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
         }, {
           stripeAccount: 'acct_1L65TH4covfuEldK', // ***** REFACTOR WITH OWNER'S STRIPE ACCOUNT ID
