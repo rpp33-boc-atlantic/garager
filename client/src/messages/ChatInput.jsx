@@ -7,7 +7,7 @@ const ChatInput = ( props ) => {
 
   const handleSubmit = ( event ) => {
     event.preventDefault();
-    props.addMessage( inputValue );
+    props.sendMessage( inputValue );
     updateValue('');
   };
 
