@@ -16,6 +16,8 @@ class SearchBrowse extends React.Component {
       allRentals: rentalListings,
       filteredRentals: rentalListings,
       selectedCategories: [],
+      startDate: '',
+      endDate: '',
       query: '',
       radius: '',
       location: ''
@@ -29,10 +31,15 @@ class SearchBrowse extends React.Component {
     this.calculateDistance = this.calculateDistance.bind(this);
     this.filterByDistance = this.filterByDistance.bind(this);
     this.handleCategorySearch = this.handleCategorySearch.bind(this);
+    this.handleStartDateSearch = this.handleStartDateSearch.bind(this);
+    this.handleEndDateSearch = this.handleEndDateSearch.bind(this);
+    this.filterByAvailability = this.filterByAvailability.bind(this);
+    this.checkDatesRented = this.checkDatesRented.bind(this);
     this.selectAllCategories = this.selectAllCategories.bind(this);
     this.unselectAllCategories = this.unselectAllCategories.bind(this);
     this.filterByCategory = this.filterByCategory.bind(this);
     this.searchRentals = this.searchRentals.bind(this);
+    this.clearAllFilters = this.clearAllFilters.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +51,7 @@ class SearchBrowse extends React.Component {
     rentals = this.filterByCategory(rentals);
     rentals = this.filterByKeyword(rentals);
     rentals = this.filterByDistance(rentals);
+    rentals = this.filterByAvailability(rentals);
     this.setState({
       filteredRentals: rentals
     });
@@ -175,6 +183,57 @@ class SearchBrowse extends React.Component {
     }
   };
 
+  handleStartDateSearch = (event) => {
+    this.setState({
+      startDate: event.getTime()
+    }, () => {
+      this.searchRentals();
+    });
+  };
+
+  handleEndDateSearch = (event) => {
+    this.setState({
+      endDate: event.getTime()
+    }, () => {
+      this.searchRentals();
+    });
+  };
+
+  filterByAvailability = (rentals) => {
+    let filteredRentals = [];
+    let startDate = this.state.startDate;
+    let endDate = this.state.endDate;
+
+    if (startDate > endDate) {
+      return filteredRentals;
+    }
+
+    if (startDate && endDate) {
+      for (const rental of rentals) {
+        if (startDate > rental.details.availability.startDate && endDate < rental.details.availability.endDate) {
+          if (rental.details.availability.rentedDates.length) {
+            if (!this.checkDatesRented(startDate, endDate, rental.details.availability.rentedDates)) {
+              continue;
+            }
+          }
+          filteredRentals.push(rental);
+        }
+      }
+      return filteredRentals;
+    } else {
+      return rentals;
+    }
+  };
+
+  checkDatesRented = (startDate, endDate, datesRented) => {
+    for (const range of datesRented) {
+      if ((startDate < range[0]) && (range[0] < endDate) || (startDate < range[1]) && (range[1] < endDate)) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   handleCategorySearch = (event) => {
     event.preventDefault();
     let category = event.target.alt;
@@ -227,6 +286,30 @@ class SearchBrowse extends React.Component {
     return filteredRentals;
   };
 
+  clearAllFilters = (event) => {
+    event.preventDefault();
+
+    let distanceDropDown = document.getElementById('distance-dropdown');
+    distanceDropDown.selectedIndex = 0;
+
+    let keywordInput = document.getElementById('keyword-search');
+    keywordInput.value = '';
+
+    let zipCodeInput = document.getElementById('zipcode-search');
+    zipCodeInput.value = '';
+
+    this.setState({
+      allRentals: rentalListings,
+      startDate: '',
+      endDate: '',
+      query: '',
+      radius: '',
+      location: ''
+    }, () => {
+      this.selectAllCategories();
+    });
+  };
+
   render() {
     return (
       <div id="search-browse-view">
@@ -236,9 +319,14 @@ class SearchBrowse extends React.Component {
           keywordSearch={this.handleKeywordSearch}
           radiusSearch={this.handleRadiusSearch}
           zipCodeSearch={this.handleZipCodeSearch}
+          startDate={this.state.startDate}
+          endDate={this.state.endDate}
+          startDateSearch={this.handleStartDateSearch}
+          endDateSearch={this.handleEndDateSearch}
           categorySearch={this.handleCategorySearch}
           selectAll={this.selectAllCategories}
           unselectAll={this.unselectAllCategories}
+          clearFilters={this.clearAllFilters}
         />
         <Browse
           rentals={this.state.filteredRentals}
