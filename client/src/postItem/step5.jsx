@@ -10,43 +10,39 @@ const Step5 = (props) => {
   const [date, setDate] = useState(new Date());
   const onChange = (date) => {
     setDate(date);
-    values.availableFrom = date[0].toDateString();
-    values.availableTo = date[1].toDateString();
   };
 
   return (
     <div className="mx-auto" style={{padding: '5em'}}>
-      <Form onSubmit={handlePost(values)}>
-        <h1 className='text-center'>Avaibility Range</h1>
+      <h1 className='text-center'>Avaibility Range</h1>
+      <br/>
+      <div className='calendar-container d-flex justify-content-center' >
+        <Calendar
+          onChange={onChange}
+          value={date}
+          selectRange={true}
+        />
         <br/>
-        <div className='calendar-container d-flex justify-content-center' >
-          <Calendar
-            onChange={onChange}
-            value={date}
-            selectRange={true}
-          />
-          <br/>
-        </div>
+      </div>
 
-        {date.length > 0 ? (
-          <p className='text-center'>
-            <span className='bold'>Start:</span>{' '}
-            {date[0].toDateString()}
-            &nbsp;|&nbsp;
-            <span className='bold'>End:</span> {date[1].toDateString()}
-          </p>
-        ) : (
-          <p className='text-center'>
-            <span className='bold'>Default selected date:</span>{' '}
-            {date.toDateString()}
-          </p>
-        )}
-        <br/>
-        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-          <Button type="button" onClick={changeToPrevious}>Back</Button>
-          <Button type="submit">Finish</Button>
-        </div>
-      </Form>
+      {date.length > 0 ? (
+        <p className='text-center'>
+          <span className='bold'>Start:</span>{' '}
+          {date[0].toDateString()}
+          &nbsp;|&nbsp;
+          <span className='bold'>End:</span> {date[1].toDateString()}
+        </p>
+      ) : (
+        <p className='text-center'>
+          <span className='bold'>Default selected date:</span>{' '}
+          {date.toDateString()}
+        </p>
+      )}
+      <br/>
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+        <Button type="button" onClick={changeToPrevious}>Back</Button>
+        <Button type="submit" onClick={handlePost} value={date}>Finish</Button>
+      </div>
     </div>
 
   );

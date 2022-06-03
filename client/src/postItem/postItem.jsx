@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import moment from 'moment';
 
 import Step1 from './Step1.jsx';
 import Step2 from './Step2.jsx';
@@ -8,31 +10,37 @@ import Step4 from './Step4.jsx';
 import Step5 from './Step5.jsx';
 import ConfirmationPage from './ConfirmationPage.jsx';
 
+const initialState = {
+  step: 0,
+  title: 'n/a',
+  category: 'n/a',
+  brand: 'n/a',
+  model: 'n/a',
+  itemDescription: 'n/a',
+  price: 0,
+  nameYourOwnPrice: false,
+  minimunAcceptedPrice: 0,
+  availableFrom: 'n/a',
+  availableTo: 'n/a',
+  photos: [],
+  latLng: {},
+  address: 'n/a'
+};
+
 class PostItem extends Component {
   constructor (props) {
     super (props);
-    this.state = {
-      step: 0,
-      title: '',
-      category: '',
-      brand: '',
-      model: '',
-      itemDescription: '',
-      price: 0,
-      nameYourOwnPrice: false,
-      minimunAcceptedPrice: 0,
-      availableFrom: '',
-      availableTo: '',
-      photos: [],
-      latLng: {},
-      address: ''
-    };
+    this.state = initialState;
+    this.reset = this.reset.bind(this);
     this.changeToPrevious = this.changeToPrevious.bind(this);
     this.changeToNext = this.changeToNext.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUploadPhotos = this.handleUploadPhotos.bind(this);
     this.handleSelectLocation = this.handleSelectLocation.bind(this);
     this.handlePost = this.handlePost.bind(this);
+  }
+  reset () {
+    this.setState(initialState);
   }
 
   changeToPrevious () {
@@ -86,10 +94,22 @@ class PostItem extends Component {
     this.setState ({ address: address, latLng: latLng });
   }
 
-  handlePost (values) {
+  handlePost (e) {
     //axios post request
-    console.log('post data', values);
-    // reset postData
+    const date = e.target.value.split(',');
+    const dateFrom = moment(date[0]).format('YYYY-MM-DD');
+    const dateTo = moment(date[1]).format('YYYY-MM-DD');
+
+    this.setState({
+      availableFrom: dateFrom,
+      availableTo: dateTo
+    }, () => {
+      const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = this.state;
+      const bodyParams = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos };
+      axios.post('/postItem', bodyParams)
+        .then((response) => { this.changeToNext(); })
+        .catch((error) => {});
+    });
 
   }
 
@@ -148,6 +168,7 @@ class PostItem extends Component {
     case 6:
       return (
         <ConfirmationPage
+          reset={this.reset}
         />
       );
     default:

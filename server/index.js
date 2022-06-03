@@ -10,6 +10,7 @@ const accountRouter = require('./routes/account.routes.js');
 const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
 const browseRoutes = require('./routes/browse.routes.js');
+const postItemRouter = require('./routes/postItem.routes.js');
 const app = express();
 
 app.use(cors());
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/account/', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
+app.use('/postItem', postItemRouter);
 
 // session needed for creating stripe accounts
 app.use(
