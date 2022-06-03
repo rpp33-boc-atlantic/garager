@@ -16,9 +16,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
+// ROUTES ARE APPEARING TWICE (SEE LINES 42-44)
 app.use('/account/', accountRouter);
 app.use('/messages', messagesRoutes);
-app.use('/checkout', checkoutRoutes);
+// app.use('/checkout', checkoutRoutes);
 
 // session needed for creating stripe accounts
 app.use(
