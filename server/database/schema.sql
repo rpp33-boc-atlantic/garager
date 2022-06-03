@@ -12,8 +12,9 @@ CREATE TABLE users (
   userPhoto CHARACTER VARYING(10485760) DEFAULT NULL,
   phone VARCHAR(20) DEFAULT NULL,
   address VARCHAR(1000) DEFAULT NULL,
-  dateJoined DATE DEFAULT NULL
-)
+  dateJoined DATE DEFAULT NULL,
+  stripe_id TEXT DEFAULT NULL
+);
 
 DROP TABLE IF EXISTS items CASCADE;
 CREATE TABLE items (
@@ -49,6 +50,7 @@ CREATE TABLE transactions(
   owner_id INT,
   renter_id INT,
   item_id INT,
+  paymentIntent_id TEXT DEFAULT NULL,
   CONSTRAINT fk_owner
     FOREIGN KEY(owner_id)
     REFERENCES users(user_id)
@@ -75,8 +77,8 @@ CREATE TABLE threads (
 	"renter_id" int NOT NULL,
 	"owner_viewed" BOOLEAN NOT NULL DEFAULT 'true',
 	"renter_viewed" BOOLEAN NOT NULL DEFAULT 'true',
-	"last_message_id" int DEFAULT 'null',
-	"time_updated" bigint DEFAULT 'null',
+	"last_message_id" int,
+	"time_updated" bigint,
 	CONSTRAINT "threads_pk" PRIMARY KEY ("thread_id")
 ) WITH (
   OIDS=FALSE
