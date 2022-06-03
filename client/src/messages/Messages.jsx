@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import sampleThreads from './liveChatSamples.js';
 import ThreadList from './ThreadList.jsx';
 import ChatList from './ChatList.jsx';
@@ -12,33 +12,35 @@ const Messages = ( props ) => {
   const { user } = useUserAuth();
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
+  const threadRef = useRef([]);
 
   useEffect(() => {
     if (threads.length === 0) {
       getThreads();
     }
-
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
     });
-  });
+  }, []);
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: 3,
-      ownerId: 5,
-      renterId: 6,
+      itemId: 4,
+      ownerId: 7,
+      renterId: 8,
       timeUpdated: Date.now()
     });
+    getThreads();
   };
 
   const getThreads = async () => {
     const result = await axios.get('/messages/threads');
+    threadRef.current = result.data;
     updateThreads ( result.data );
   };
 
   const addMessage = ( message ) => {
-    let newThreads = [ ...threads ];
+    let newThreads = [ ...threadRef.current ];
 
     for (let newThread of newThreads) {
       if (message.threadId === newThread.threadId &&
@@ -49,13 +51,14 @@ const Messages = ( props ) => {
         newThread.lastMessage = message.text;
       }
     }
+    threadRef.current = newThreads;
     updateThreads( newThreads );
   };
 
   const sendMessage = ( message ) => {
     let newMessage = {
       threadId: threads[ activeThread ].threadId,
-      username: user.email,
+      email: user.email,
       text: message,
       imageUrl: null,
       timeCreated: Date.now()
@@ -68,7 +71,7 @@ const Messages = ( props ) => {
 
       <Row id='messages-row'>
 
-        <input type='button' value='create thread' onClick={addThread}/>
+        {/* <input type='button' value='create thread' onClick={addThread}/> */}
 
         <div id='thread-column'>
           <ThreadList

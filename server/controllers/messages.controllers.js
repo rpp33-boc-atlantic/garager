@@ -5,8 +5,9 @@ module.exports = {
     get: async (req, res) => {
       const result = await models.threads.get();
       const newThreads = [];
-      let newThread;
+      let newThread, threadMessages;
       for (let thread of result.rows) {
+        threadMessages = await models.messages.get(thread.thread_id);
         newThread = {
           threadId: thread.thread_id,
           itemName: 'item name',
@@ -14,17 +15,17 @@ module.exports = {
           username: 'user name',
           userImageUrl: null,
           userRole: 'user role',
-          lastMessage: '',
-          timeUpdated: thread.time_updated,
+          lastMessage: thread.last_message === 'null' ? null : thread.last_message,
+          timeUpdated: parseInt(thread.time_updated),
           viewed: false,
-          messages: []
+          messages: threadMessages.rows
         };
         newThreads.push(newThread);
       }
       res.send(newThreads);
     },
-    post: (req, res) => {
-      models.threads.post(req.body);
+    post: async (req, res) => {
+      await models.threads.post(req.body);
       res.end();
     },
     put: (req, res) => {
@@ -33,8 +34,8 @@ module.exports = {
     }
   },
   messages: {
-    post: (req, res) => {
-      models.messages.post(req.body);
+    post: (message) => {
+      models.messages.post(message);
     }
   }
 };
