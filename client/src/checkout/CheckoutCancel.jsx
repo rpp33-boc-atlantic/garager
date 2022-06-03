@@ -7,7 +7,7 @@ const CheckoutCancel = () => {
     <>
       <h1>There was an issue processing your payment.</h1>
       <h2>Please try again.</h2>
-      <button>***REFACTOR***LINK TO ITEM VIEW***</button>
+      <button><Link to='/Item'>Return to Checkout</Link></button>
     </>
   );
 };
