@@ -119,6 +119,12 @@ class SearchBrowse extends React.Component {
       }, () => {
         this.searchRentals();
       });
+    } else {
+      this.setState({
+        location: ''
+      }, () => {
+        this.searchRentals();
+      });
     }
   };
 
@@ -156,14 +162,17 @@ class SearchBrowse extends React.Component {
     let filteredRentals = [];
     let radius = this.state.radius;
 
-
-    for (const rental of rentals) {
-      let distance = this.calculateDistance(rental.details.location);
-      if (distance < radius || !radius) {
-        filteredRentals.push(rental);
+    if (this.state.radius && this.state.location) {
+      for (const rental of rentals) {
+        let distance = this.calculateDistance(rental.details.location);
+        if (distance < radius || !radius) {
+          filteredRentals.push(rental);
+        }
       }
+      return filteredRentals;
+    } else {
+      return rentals;
     }
-    return filteredRentals;
   };
 
   handleCategorySearch = (event) => {

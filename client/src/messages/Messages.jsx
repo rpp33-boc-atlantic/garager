@@ -1,39 +1,71 @@
-import React, { useState } from 'react';
-import sampleThreads from './sampleThreads.js';
+import React, { useState, useEffect } from 'react';
+import sampleThreads from './liveChatSamples.js';
 import ThreadList from './ThreadList.jsx';
-import Header from './Header.jsx';
 import ChatList from './ChatList.jsx';
+import { Row } from 'react-bootstrap';
+import { useUserAuth } from '../context/UserAuthContext.jsx';
+import './MessageStyles.css';
 
-const Messages = () => {
+const Messages = ( props ) => {
 
+  const { user } = useUserAuth();
   const [ threads, updateThreads ] = useState( sampleThreads );
   const [ activeThread, changeThread ] = useState(0);
 
+  useEffect(() => {
+    props.socketIO.on('message', ( message ) => {
+      addMessage( message );
+    });
+  });
+
   const addMessage = ( message ) => {
     let newThreads = [ ...threads ];
-    let newThread = newThreads[ activeThread ];
+
+    for (let newThread of newThreads) {
+      if (message.threadId === newThread.threadId &&
+            message.timeCreated > newThread.timeUpdated) {
+
+        newThread.messages.push( message );
+        newThread.timeUpdated = message.timeCreated;
+        newThread.lastMessage = message.text;
+      }
+    }
+    updateThreads( newThreads );
+  };
+
+  const sendMessage = ( message ) => {
     let newMessage = {
-      username: 'stephen strange',
+      threadId: threads[ activeThread ].threadId,
+      username: user.email,
       text: message,
       imageUrl: null,
       timeCreated: Date.now()
     };
-    newThread.messages.push( newMessage );
-    newThread.timeUpdated = Date.now();
-    newThread.lastMessage = message;
-    updateThreads( newThreads );
+    props.socketIO.emit( 'message', newMessage );
   };
 
   return (
-    <React.Fragment>
-      <Header thread={ threads[ activeThread ] }/>
-      <ThreadList threads={ threads } changeThread={ changeThread }/>
-      <ChatList
-        threads={ threads }
-        messages={ threads[ activeThread ].messages }
-        addMessage={ addMessage }
-      />
-    </React.Fragment>
+    <section>
+
+      <Row id='messages-row'>
+        <div id='thread-column'>
+          <ThreadList
+            threads={ threads }
+            activeThread={ activeThread }
+            changeThread={ changeThread }
+          />
+        </div>
+
+        <div id='chat-column'>
+          <ChatList
+            threads={ threads }
+            messages={ threads[ activeThread ].messages }
+            sendMessage={ sendMessage }
+          />
+        </div>
+
+      </Row>
+    </section>
   );
 };
 

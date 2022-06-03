@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import CheckoutButton from './checkout/CheckoutButton.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
+import './App.css';
 
 // import NavBar from './account/NavBar.jsx';
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
     }
   });
 
+
   return (
     <div>
       {/* <h1>Garager</h1> */}
@@ -39,7 +41,6 @@ const App = () => {
       <Outlet/>
       {/* /<CheckoutButton /> */}
       {/* I commented this out because I think Jo implemented it on Rudy's page already. */}
-
     </div>
 
   );
