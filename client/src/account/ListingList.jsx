@@ -10,7 +10,8 @@ const columns = [{
 //   sort: true
 // }, {
   dataField: 'item_id',
-  text: 'Product Name'
+  text: 'Product Name',
+  sort: true
 }, {
   dataField: 'price',
   text: 'Current Price per Day',

@@ -7,17 +7,27 @@ import moment from 'moment';
 
 
 export default function Tables (props) {
+  props.column;
   const [state, setState] = useState(false);
-
-  // props.columns.map((colu) => {
-  //   const [colu, setState] = useState(false);
-  // });
-  const [checkoutSorted, setcheckoutSorted] = useState(false);
+  // const values = props.values;
+  const textStates = {};
+  const setTextStates = {};
+  // for (var name of names) {
+  //   let [textState, setTextState] = useState('');
+  //   textStates[name] = textState;
+  //   setTextStates[name] = setTextState;
+  // }
+  props.columns.map((col) => {
+    let [textState, setTextState] = useState(false);
+    textStates[col] = textState;
+    setTextStates[col] = setTextState;
+  });
+  // const [checkoutSorted, setcheckoutSorted] = useState(false);
   const [clickedColumn, setClickedColumn] = useState(['startDate', false]);
-  const [returnSorted, setReturnSorted] = useState(false);
+  // const [returnSorted, setReturnSorted] = useState(false);
   const [values, setValues] = useState(props.values);
-  const [ownerName, setOwnerName] = useState(false);
-  const [itemName, setItemName] = useState(false);
+  // const [ownerName, setOwnerName] = useState(false);
+  // const [itemName, setItemName] = useState(false);
 
   console.log('STATE', state);
   console.log('props', values);
@@ -75,7 +85,7 @@ export default function Tables (props) {
 
   useEffect(()=> {
     console.log('clickedC', clickedColumn);
-    setValues(props.values);
+    // setValues(props.values);
 
 
 
@@ -92,11 +102,12 @@ export default function Tables (props) {
           {props.columns.map((col, i)=> {
 
             return col.sort ? <th key = {i} onClick ={()=> {
-              setState(col.text, !state);
-              setClickedColumn(['name', ]);
-
+              // setState(col.text, !state);
+              setClickedColumn([col.dataField, textStates[col]]);
+              console.log('clickedCol = ', clickedColumn);
+              setTextStates[col](!textStates[col]);
               handleSort();
-            }}> {col.text}{ownerName ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
+            }}> {col.text}{textStates[col] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
               <th key = {i}>{col.text}</th>;
           })}
           {/* <th onClick ={()=> {

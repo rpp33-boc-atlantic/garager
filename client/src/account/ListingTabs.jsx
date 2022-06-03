@@ -17,7 +17,8 @@ export default function ListingTabs(props) {
     // }, {
     dataField: 'title',
     text: 'Item Name',
-    link: '../item'
+    link: '../item',
+    sort: true
   }, {
     dataField: 'price',
     text: 'Current Price per Day',
