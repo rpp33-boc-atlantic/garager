@@ -15,7 +15,11 @@ const Messages = ( props ) => {
 
   // ***** JO ADDED THE NEXT THREE LINES TO PASS ITEM ID TO MESSAGES *****
   const location = useLocation();
-  const { itemID } = location.state;
+  let itemID;
+  if (location.state) {
+    itemID = location.state.itemID;
+  }
+  // const { itemID } = location.state; <-- DID NOT WORK IN CASES WHERE MESSAGES IS ACCESSED FROM A DIFFERENT COMPONENT OTHER THAN CheckoutSuccess.jsx
   // console.log('itemID in message', itemID);
 
   useEffect(() => {
