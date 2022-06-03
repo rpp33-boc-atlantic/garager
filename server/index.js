@@ -7,6 +7,7 @@ const generateUploadURL = require('./s3.js');
 const accountRouter = require('./routes/account.routes.js');
 const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
+const browseRoutes = require('./routes/browse.routes.js');
 const app = express();
 
 app.use(cors());
@@ -21,6 +22,14 @@ app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
   res.send({url});
 });
+
+app.get('/test', (req, res) => {
+  res.send('hi');
+});
+
+app.use('/messages', messagesRoutes);
+app.use('/checkout', checkoutRoutes);
+app.use('/browse', browseRoutes);
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
