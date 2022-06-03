@@ -8,6 +8,7 @@ const PrivateRoute = ({children}) => {
   let { user } = useUserAuth();
   //console.log('Check user in PrivateRoute: ', user);
   if (!user) {
+    alert('Please sign in first!');
     return <Navigate to='/login'/>;
   }
   return children;
