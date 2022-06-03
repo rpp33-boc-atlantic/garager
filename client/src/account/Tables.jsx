@@ -42,9 +42,12 @@ export default function Tables (props) {
           {props.columns.map((col) => {
           // <td><Link to='../item'>{col.dataField}</Link></td>
             // return col.link ? console.log('col', col.link) : console.log('col.notHere');
-            // console.log('photos:', t.photos);
-            // console.l/og('col.dataField:', t[col.dataField]);
-            return col.link ? <td key={c++}> <Link to={col.link}>{t[col.dataField]}</Link> </td> : col.dataField === 'photos' && t[col.dataField].length > 0 ? <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td> : <td key={c++}>{t[col.dataField]}</td>;
+            console.log('col.dataField:', t[col.dataField]);
+            console.log('valid:', moment(t[col.dataField], 'YYYY MM DD HH:mm').isValid() );
+
+
+            {
+              return col.link ? <td key={c++}> <Link to={col.link}>{t[col.dataField]}</Link> </td> : col.dataField === 'photos' && t[col.dataField].length > 0 ? <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td> : t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid() ? <td> {moment(t[col.dataField]).format('MMMM Do YYYY, HH:mm:ss a')}</td> : <td key={c++}>{t[col.dataField]}</td>; }
 
             // return   {col.link ? <td> <Link to={col.link}>{t.name}</Link> </td> :
 
