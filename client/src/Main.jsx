@@ -17,6 +17,7 @@ import Login from './authentication/login.jsx';
 import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
 import Rentals from './account/Rentals.jsx';
 import Listings from './account/Listings.jsx';
+import Profile from './account/Profile.jsx';
 import Homepage from './Homepage.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
@@ -46,6 +47,7 @@ root.render(
           <Route path='Messages' element={<PrivateRoute><Messages socketIO={ socketIO }/></PrivateRoute>} />
           <Route path='my-listings' element={<PrivateRoute><Listings /></PrivateRoute>} />
           <Route path='my-rentals' element={<PrivateRoute><Rentals /></PrivateRoute>} />
+          <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
           <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />
         </Route>
