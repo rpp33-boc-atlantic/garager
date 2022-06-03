@@ -7,7 +7,7 @@ module.exports = {
       res.send('test');
     },
     post: (req, res) => {
-      models.threads.post();
+      models.threads.post(req.body);
       res.send('test');
     },
     put: (req, res) => {

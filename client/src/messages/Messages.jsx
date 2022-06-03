@@ -14,7 +14,7 @@ const Messages = ( props ) => {
   const [ activeThread, changeThread ] = useState(0);
 
   useEffect(() => {
-    getThreads();
+    // getThreads();
 
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
@@ -22,7 +22,7 @@ const Messages = ( props ) => {
   });
 
   const addThread = async () => {
-    await axios.post('/threads', {
+    await axios.post('/messages/threads', {
       threadId: 1,
       itemName: 'Chaos Magic',
       itemImageUrl: null,
@@ -70,6 +70,9 @@ const Messages = ( props ) => {
     <section>
 
       <Row id='messages-row'>
+
+        <input type='button' value='create thread' onClick={addThread}/>
+
         <div id='thread-column'>
           <ThreadList
             threads={ threads }
