@@ -51,7 +51,7 @@ class PostItem extends Component {
   handleChange (input) {
     return (e)=> {
       if (input === 'nameYourOwnPrice') {
-        this.setState ({ [input]: e.target.checked });
+        this.setState({ [input]: e.target.checked });
       } else {
         this.setState ({ [input]: e.target.value });
       }
@@ -120,6 +120,7 @@ class PostItem extends Component {
         <Step3
           changeToPrevious={this.changeToPrevious}
           changeToNext={this.changeToNext}
+          handleNYOP={this.handleNYOP}
           handleChange={this.handleChange}
           values={values}
         />
