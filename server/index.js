@@ -1,4 +1,6 @@
 const express = require('express');
+const session = require('express-session');
+
 require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -17,6 +19,15 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/account/', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
+
+// session needed for creating stripe accounts
+app.use(
+  session({
+    secret: 'atlantic BOC',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
