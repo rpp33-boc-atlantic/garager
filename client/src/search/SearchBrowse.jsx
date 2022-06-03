@@ -71,7 +71,7 @@ class SearchBrowse extends React.Component {
 
   filterByKeyword = (rentals) => {
     let filteredRentals = [];
-    let keyword = this.state.query;
+    let keyword = this.state.query.toLowerCase();
 
     for (const rental of rentals) {
       if ((rental.name.indexOf(keyword) !== -1) || (rental.details.description.indexOf(keyword) !== -1)) {
