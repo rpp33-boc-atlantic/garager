@@ -7,7 +7,6 @@ export default function ListingList (props) {
   var items = props.items;
   const products = props.transactions;
 
-  console.log('props', props);
   return (
     <React.Fragment>
       <Table striped bordered hover>

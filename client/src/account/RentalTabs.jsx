@@ -26,6 +26,7 @@ var BrowseMessage = function (props) {
 export default function RentalTabs(props) {
   const [key, setKey] = useState('home');
 
+  // these are the settings for the Table component
   const columns = [{
     dataField: 'title',
     text: 'Item Name',
@@ -50,9 +51,11 @@ export default function RentalTabs(props) {
     text: 'image'
   }];
 
+  var pastRentals = [];
+  var currentRentals = [];
+
   var mapper = (transactions, items) => {
-    var pastRentals = [];
-    var currentRentals = [];
+
     items = items;
     var c = 0;
     var p = 0;
@@ -63,7 +66,7 @@ export default function RentalTabs(props) {
       var newDate = new Date();
       if (moment(t.returnDate).isBefore(moment(newDate))) {
         pastRentals.push(t);
-       
+
       } else {
         currentRentals.push(t);
       }
@@ -91,7 +94,6 @@ export default function RentalTabs(props) {
           {
             // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <RentalList rentals={rentals[0]}/>
             rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables columns = {columns} values={rentals[0]}/>
-
           }
         </Tab>
         <Tab eventKey="past" title="Past" >

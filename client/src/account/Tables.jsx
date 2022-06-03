@@ -72,7 +72,7 @@ export default function Tables (props) {
 
   // not sure I need this
   useEffect(()=> {
-    console.log('clickedC', clickedColumn);
+    // console.log('clickedC', clickedColumn);
     // setValues(props.values);
 
   }, []);
@@ -85,7 +85,7 @@ export default function Tables (props) {
             props.columns.map((col, i)=> {
               return col.sort ? <th key = {i} onClick ={()=> {
                 setClickedColumn([col.dataField, textStates[col]]);
-                console.log('clickedCol = ', clickedColumn);
+                // console.log('clickedCol = ', clickedColumn);
                 setTextStates[col](!textStates[col]);
                 handleSort();
               }}> {col.text}{textStates[col] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
