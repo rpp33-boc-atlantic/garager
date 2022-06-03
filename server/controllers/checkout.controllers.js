@@ -94,7 +94,7 @@ module.exports = {
     get: async (req, res) => {
       // console.log('SESSION ACCOUNT ID', req.session.accountID);
       // ***** REFACTOR TO CHECK DATABASE - IF NO STRIPE_ID, 'SETUP INCOMPLETE'
-      if (!req.session.accountID) {
+      if (!req.session) {
         res.send('Stripe account setup incomplete');
       } else {
         const accountInfo = await stripe.accounts.retrieve(
