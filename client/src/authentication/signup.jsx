@@ -40,10 +40,12 @@ const Signup = () => {
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value)}/>
                 </Form.Group>
+                <br></br>
                 <Form.Group id='password'>
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder='Password' onChange = {(e) => setPassword(e.target.value)}/>
                 </Form.Group>
+                <br></br>
                 <Button className = 'w-100' type='submit'>Sign Up</Button>
               </Form>
               <div className='w-100 text-center mt-2'>

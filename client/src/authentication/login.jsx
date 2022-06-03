@@ -43,10 +43,11 @@ const Login = () => {
         //user tries to sign in with with an existing email account
           console.log(err.message);
           if (err.code === 'auth/account-exists-with-different-credential') {
+            alert('Current email is registered with an existing account');
             const pendingCred = FacebookAuthProvider.credentialFromError(err);
-            console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
+            //console.log('pendingCred', FacebookAuthProvider.credentialFromError(err));
             //TODO: promp the user to enter email and password, async
-            const email = prompt('Please enter your registered email');
+            const email = prompt('Please enter your registered email to link accounts');
             const password = prompt('Please enter your password');
             linkAccount(email, password, pendingCred);
           }
@@ -61,14 +62,17 @@ const Login = () => {
       .then((res) => {
         linkWithCredential(res.user, pendingCred)
           .then((res) => {
-            console.log('succesfully linked account');
+            alert('Succesfully linked accounts');
             navigate('/');
           })
           .catch((err) => {
             console.log('failed to link account', err.message);
+            setError(err.message);
+            navigate('/Login');
           });
       }).catch ((err) => {
         console.log('failed to sign in with email and password', err.message);
+        setError(err.message);
         navigate('/Login');
       });
   };
@@ -90,13 +94,14 @@ const Login = () => {
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder = 'Email Address' onChange = {(e) => setEmail(e.target.value)}/>
                 </Form.Group>
+                <br></br>
                 <Form.Group id='password'>
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder = 'Password' onChange = {(e) => setPassword(e.target.value)} />
                 </Form.Group>
+                <br></br>
                 <Button className = 'w-100' type='submit'>Log In</Button>
               </Form>
-
               <div className='w-100 text-center mt-2'>
             or Log in with Facebook
               </div>

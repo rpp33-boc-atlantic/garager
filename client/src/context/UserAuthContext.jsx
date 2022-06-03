@@ -26,8 +26,6 @@ export function UserAuthContextProvider({ children }) {
 
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
-    //TODO: if user email already exists through facebook login,
-    //pop up error message and guide the user to login page
   }
 
   function facebookSignIn() {
