@@ -13,7 +13,7 @@ CREATE TABLE users (
   phone VARCHAR(20) DEFAULT NULL,
   address VARCHAR(1000) DEFAULT NULL,
   dateJoined DATE DEFAULT NULL,
-  stripe_id INTEGER DEFAULT NULL
+  stripe_id TEXT DEFAULT NULL
 );
 
 DROP TABLE IF EXISTS items CASCADE;
@@ -50,6 +50,7 @@ CREATE TABLE transactions(
   owner_id INT,
   renter_id INT,
   item_id INT,
+  paymentIntent_id TEXT DEFAULT NULL,
   CONSTRAINT fk_owner
     FOREIGN KEY(owner_id)
     REFERENCES users(user_id)

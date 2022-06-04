@@ -1,4 +1,6 @@
 import React from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 import SearchCategories from './SearchCategories.jsx';
 
@@ -6,11 +8,11 @@ const Search = (props) => {
   return (
     <div id="search-column">
       <span>FIND YOUR NEXT RENTAL</span>
-      <input type="text" id="keyword-search" placeholder="Search Here!"></input>
+      <input type="text" id="keyword-search" placeholder="Search Here!" onChange={props.keywordSearch}></input>
       <div id="mile-radius-search">
         <span>Within </span>
-        <select name="distance" id="distance-dropdown">
-          <option value="">any</option>
+        <select name="distance" id="distance-dropdown" onChange={props.radiusSearch}>
+          <option value="24902">any</option>
           <option value="10">10</option>
           <option value="25">25</option>
           <option value="50">50</option>
@@ -18,9 +20,28 @@ const Search = (props) => {
           <option value="150">150</option>
         </select>
         <span> miles from </span>
-        <input type="text" id="zipcode-search" placeholder="ZIP Code"></input>
+        <input type="text" id="zipcode-search" placeholder="ZIP Code" onChange={props.zipCodeSearch}></input>
       </div>
-      <SearchCategories categories={props.categories}/>
+      <div id="availability-search">
+        <span>Available from </span>
+        <DatePicker
+          selected={props.startDate}
+          onChange={props.startDateSearch}
+        />
+        <span> to </span>
+        <DatePicker
+          selected={props.endDate}
+          onChange={props.endDateSearch}
+        />
+      </div>
+      <SearchCategories
+        categories={props.categories}
+        selectedCategories={props.selectedCategories}
+        categorySearch={props.categorySearch}
+        selectAll={props.selectAll}
+        unselectAll={props.unselectAll}
+      />
+      <a onClick={props.clearFilters}>Clear All Filters</a>
     </div>
   );
 };
