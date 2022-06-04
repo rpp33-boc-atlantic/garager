@@ -24,7 +24,7 @@ const Container = styled.div`
 
 const Item = (props) => {
   const fakeProps = sampleItemData.option1;
-  const [itemData, setData] = useState({  itemID: null,
+  const [itemData, setData] = useState({ itemID: null,
     name: '',
     brand: '',
     model: '',
@@ -58,30 +58,30 @@ const Item = (props) => {
       }
     })
       .then(response => {
-        if(mounted) {
-          console.log('passing thru heres')
+        if (mounted) {
+          console.log('passing thru heres');
           setData(fakeProps);
         }
       })
       .catch(error => {
         console.log('ERROR IN GETTING THE ITEM INFO', error);
       });
-      return () => mounted = false;
+    return () => mounted = false;
   });
 
   const deleteItem = () => {
-    console.log('gonna delete item')
+    console.log('gonna delete item');
     axios.delete('/item/itemData', {
       data: {
         ID: 12345
       }
     })
-    .then(response => {
-      console.log('item has been deleted');
-    })
-    .catch(error => {
-      console.log('error in deleting item', error);
-    })
+      .then(response => {
+        console.log('item has been deleted');
+      })
+      .catch(error => {
+        console.log('error in deleting item', error);
+      });
   };
 
   const deleteButton = user.email === itemData.owner.email ? <button onClick={deleteItem}>Delete Item</button> : null;

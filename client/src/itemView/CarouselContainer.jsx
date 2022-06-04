@@ -16,7 +16,7 @@ const Container = styled.div`
 const CarouselContainer = (props) => {
 
   const carouselItem = props.images.map((image, i) =>
-  <Carousel.Item key={i} style={{height: '30em'}}>
+    <Carousel.Item key={i} style={{height: '30em'}}>
       <img
         className='d-block w-100'
         // className='img-fluid'
