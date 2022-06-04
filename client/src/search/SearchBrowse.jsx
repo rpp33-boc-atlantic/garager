@@ -19,10 +19,12 @@ class SearchBrowse extends React.Component {
       startDate: '',
       endDate: '',
       query: '',
+      relatedWords: [],
       radius: '',
       location: ''
     };
     this.handleKeywordSearch = this.handleKeywordSearch.bind(this);
+    this.retrieveRelatedWords = this.retrieveRelatedWords.bind(this);
     this.filterByKeyword = this.filterByKeyword.bind(this);
     this.handleZipCodeSearch = this.handleZipCodeSearch.bind(this);
     this.validateZipCode = this.validateZipCode.bind(this);
@@ -57,33 +59,59 @@ class SearchBrowse extends React.Component {
     });
   };
 
-  handleKeywordSearch = (event) => {
+  handleKeywordSearch = async (event) => {
     event.preventDefault();
 
     let keyword = event.target.value;
 
     if (keyword.length >= 3) {
+      let relatedWords = await this.retrieveRelatedWords(keyword);
       this.setState({
-        query: keyword
+        query: keyword,
+        relatedWords: relatedWords
       }, () => {
         this.searchRentals();
       });
     } else {
       this.setState({
-        query: ''
+        query: '',
+        relatedWords: []
       }, () => {
         this.searchRentals();
       });
     }
   };
 
+  retrieveRelatedWords = async (keyword) => {
+    return axios.get('/browse/RelatedWords', {
+      params: {
+        keyword: keyword
+      }
+    })
+      .then((response) => {
+        let RelatedWords = response.data;
+        return RelatedWords;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   filterByKeyword = (rentals) => {
     let filteredRentals = [];
     let keyword = this.state.query.toLowerCase();
+    let relatedWords = this.state.relatedWords;
 
     for (const rental of rentals) {
       if ((rental.name.indexOf(keyword) !== -1) || (rental.details.description.indexOf(keyword) !== -1)) {
         filteredRentals.push(rental);
+        continue;
+      }
+      for (const relatedWord of relatedWords) {
+        if ((rental.name.indexOf(relatedWord.word) !== -1) || (rental.details.description.indexOf(relatedWord.word) !== -1)) {
+          filteredRentals.push(rental);
+          break;
+        }
       }
     }
     return filteredRentals;
