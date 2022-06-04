@@ -39,17 +39,18 @@ const Container = styled.div`
 const CarouselContainer = (props) => {
 
   const carouselItem = props.images.map((image, i) =>
-  <Carousel.Item key={i} >
+  <Carousel.Item key={i} style={{height: '30em'}}>
 
     {/* </Carousel.Item><Carousel.Item key={i} style={{height: '30em'}}> */}
       <img
-        className='d-block w-100 img-fluid'
+        className='d-block w-100'
 
         // className='img-fluid'
         // className='d-block w-50'
         src={image}
-        style={{height: '30em', width: '50em'}}
-        // style={{position: 'absolute'}}
+        // style={{height: '30em', width: '50em'}}
+        // style={{position: 'center'}}
+        style={{height: '30em', width: '100%', objectFit: 'contain'}}
       />
     </Carousel.Item>
   );
