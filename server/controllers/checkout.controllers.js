@@ -3,6 +3,7 @@ const { STRIPE_SECRET_KEY } = require('../../config.js');
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
 const YOUR_DOMAIN = 'http://localhost:3000';
 const models = require('../models/checkout.models.js');
+const endpointSecret = 'whsec_44527948da1e0e9493c6cfb0e69f987ee4265f18557287ca453e8dcb79c324ef';
 
 module.exports = {
   checkoutSession: {
@@ -18,7 +19,7 @@ module.exports = {
         // renter_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
         // item_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
         // paymentIntent_id TEXT DEFAULT NULL <-- INPUT AFTER WEBHOOK
-        
+
         // INSERT first with NOT NULL data (rate, pickUpDate, returnDate) and get transaction_id
         // Put transaction_id, owner_id, renter_id, item_id into metadata object
 
@@ -156,4 +157,32 @@ module.exports = {
       } */
     },
   },
+  webhook: {
+    post: (req, res) => {
+      const sig = request.headers['stripe-signature'];
+
+      let event;
+
+      try {
+        event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+      } catch (err) {
+        response.status(400).send(`Webhook Error: ${err.message}`);
+        return;
+      }
+
+      // Handle the event
+      switch (event.type) {
+      case 'payment_intent.succeeded':
+        const paymentIntent = event.data.object;
+        // Then define and call a function to handle the event payment_intent.succeeded
+        break;
+        // ... handle other event types
+      default:
+        console.log(`Unhandled event type ${event.type}`);
+      }
+
+      // Return a 200 response to acknowledge receipt of the event
+      response.send();
+    }
+  }
 };
