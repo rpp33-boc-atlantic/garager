@@ -21,6 +21,7 @@ import Profile from './account/Profile.jsx';
 import Homepage from './Homepage.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
+import StripeAccountSetup from './checkout/StripeAccountSetup.jsx';
 import NavLinks from './utils/NavLinks.jsx';
 import { io } from 'socket.io-client';
 import PrivateRoute from './authentication/privateRoute.jsx';
@@ -50,6 +51,7 @@ root.render(
           <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
           <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />
+          <Route path='/Stripe-Account-Setup' element={<PrivateRoute><StripeAccountSetup /></PrivateRoute>} />
         </Route>
       </Routes>
     </UserAuthContextProvider>

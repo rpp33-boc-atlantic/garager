@@ -29,13 +29,12 @@ const NavLinks = ( props ) => {
             <Nav.Link as={Link} to='Messages'>Messages</Nav.Link>
             <Nav.Link as={Link} to='Item'>Checkout</Nav.Link>
             <Nav.Link as={Link} to='SearchBrowse'>Browse</Nav.Link>
-
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to='my-listings'>My Listings</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='my-rentals'>My Rentals</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='PostItem'>Post Item</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='profile'>Profile</NavDropdown.Item>
-
+              <NavDropdown.Item as={Link} to='Stripe-Account-Setup'>Stripe Account Setup</NavDropdown.Item>
               {/* <NavDropdown.Item href="#action/3.3">Saved</NavDropdown.Item> */}
               {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
