@@ -11,6 +11,7 @@ import {
 
 import { auth } from '../firebase';
 
+
 const userAuthContext = createContext();
 
 // eslint-disable-next-line func-style
@@ -22,22 +23,21 @@ export function UserAuthContextProvider({ children }) {
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
+
   function signUp(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
   }
+
   function facebookSignIn() {
     const facebookAuthProvider = new FacebookAuthProvider();
-    return signInWithPopup(auth, facebookAuthProvider)
-      .then((res) => {
-        console.log(res.user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    return signInWithPopup(auth, facebookAuthProvider);
   }
+
   function logOut() {
     return signOut(auth);
   }
+
+
   //run only once, when the components did mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,8 +48,8 @@ export function UserAuthContextProvider({ children }) {
       //clean up while components un-mount
       unsubscribe();
     };
-
   }, []);
+
 
   return (
     <userAuthContext.Provider value={{user, signUp, logIn, facebookSignIn, logOut}}>
