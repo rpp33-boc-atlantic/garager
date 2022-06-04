@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
-const { STRIPE_SECRET_KEY } = require('../../config.js');
+const { STRIPE_SECRET_KEY, STRIPE_SECRET_ENDPOINT } = require('../../config.js');
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
 const YOUR_DOMAIN = 'http://localhost:3000';
 const models = require('../models/checkout.models.js');
-const endpointSecret = 'whsec_44527948da1e0e9493c6cfb0e69f987ee4265f18557287ca453e8dcb79c324ef';
+const endpointSecret = STRIPE_SECRET_ENDPOINT;
 
 module.exports = {
   checkoutSession: {
