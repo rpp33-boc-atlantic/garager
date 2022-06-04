@@ -14,11 +14,18 @@ export default function Tables (props) {
   const textStates = {};
   const setTextStates = {};
   props.columns.map((col) => {
-    let [textState, setTextState] = useState(false);
-    textStates[col] = textState;
-    setTextStates[col] = setTextState;
+    if (col.sort) {
+      let [textState, setTextState] = useState(false);
+      textStates[col.dataField] = textState;
+      setTextStates[col.dataField] = setTextState;
+    }
   });
+
   // create state that keeps track of data and the currently sorted col
+  // const clickedStates = {}
+  // const setClickedStates = {}
+  // props.columns
+
   const [clickedColumn, setClickedColumn] = useState(['', false]);
   const [values, setValues] = useState(props.values);
 
@@ -51,9 +58,11 @@ export default function Tables (props) {
   var tableRows = mapRows();
 
   // this function sorts the various columns
-  var handleSort = () => {
-
+  // var handleSort = async function() {
+  // eslint-disable-next-line func-style
+  function handleSort() {
     const sortedList = [...values].sort((a, b) => {
+      // console.log('clickedC in sort', clickedColumn);
       if (clickedColumn[1] === false) {
         return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0;
       } else {
@@ -61,7 +70,7 @@ export default function Tables (props) {
       }
     });
     setValues(sortedList);
-  };
+  }
 
   var changeState = (name, value) => {
     setState(prev =>({
@@ -70,12 +79,10 @@ export default function Tables (props) {
     }));
   };
 
-  // not sure I need this
+  // everytime the clickedColumn is changed it sorts the table again
   useEffect(()=> {
-    // console.log('clickedC', clickedColumn);
-    // setValues(props.values);
-
-  }, []);
+    handleSort();
+  }, [clickedColumn]);
 
   return (
     <Table striped bordered hover>
@@ -84,11 +91,9 @@ export default function Tables (props) {
           {// this code dynamically creates the table headers
             props.columns.map((col, i)=> {
               return col.sort ? <th key = {i} onClick ={()=> {
-                setClickedColumn([col.dataField, textStates[col]]);
-                // console.log('clickedCol = ', clickedColumn);
-                setTextStates[col](!textStates[col]);
-                handleSort();
-              }}> {col.text}{textStates[col] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
+                setClickedColumn([col.dataField, textStates[col.dataField]]);
+                setTextStates[col.dataField](!textStates[col.dataField]);
+              }}> {col.text}{textStates[col.dataField] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
                 <th key = {i}>{col.text}</th>;
             })}
         </tr>
