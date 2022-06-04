@@ -7,6 +7,7 @@
     "test": "jest --watch --coverage ./tests",
     "test:messages": "jest --coverage tests/messages.test.js",
     "test:authentication": "jest tests/authTest/ --detectOpenHandles --collectCoverage",
+    "test:postItem": "jest --coverage tests/post-item.test.js",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
     "build-docker": "webpack --mode development",

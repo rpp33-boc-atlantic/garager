@@ -106,6 +106,7 @@ class PostItem extends Component {
     }, () => {
       const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = this.state;
       const bodyParams = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos };
+      console.log('bodyParams', bodyParams);
       axios.post('/postItem', bodyParams)
         .then((response) => { this.changeToNext(); })
         .catch((error) => {});
