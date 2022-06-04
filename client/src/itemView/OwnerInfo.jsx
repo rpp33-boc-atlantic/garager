@@ -14,7 +14,8 @@ const Container = styled.div`
   // justify-self: end;
   grid-row: 1 / 3;
   grid-template-columns: 1fr;
-  justify-content: start
+  justify-content: start;
+  max-height: 50px
 
   h2 {
     margin-top: .2em;
