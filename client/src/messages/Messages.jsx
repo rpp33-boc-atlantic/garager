@@ -35,7 +35,7 @@ const Messages = ( props ) => {
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: 4,
+      itemId: itemID,
       ownerId: 7,
       renterId: 8,
       timeUpdated: Date.now()
