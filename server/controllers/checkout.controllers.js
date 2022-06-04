@@ -2,13 +2,14 @@
 const { STRIPE_SECRET_KEY } = require('../../config.js');
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
 const YOUR_DOMAIN = 'http://localhost:3000';
+const models = require('../models/checkout.models.js');
 
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
       try {
         console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
-        // THINGS I NEED: price, owner's stripe account id, successful - item id (pass to meesages), once successful - data range to make call to database to make it unavailable
+        // THINGS I NEED: owner's stripe account id, once successful - data range to make call to database to make it unavailable
         const checkoutSession = await stripe.checkout.sessions.create({
           line_items: [
             {
@@ -47,7 +48,15 @@ module.exports = {
         // Store the ID of the new Standard connected account.
         req.session.accountID = account.id;
         // console.log('session accountID', req.session.accountID);
-        // ***** ONCE DATABASE IS DEPLOYED, UPDATE USER TABLE WITH ACCOUNT ID ***** ID INSIDE DATABASE
+        // ***** ONCE DATABASE IS DEPLOYED, UPDATE USER TABLE WITH ACCOUNT ID *****
+        // HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
+        const userID = 0;
+        models.onboardUser.post(account.id, userID, (err) => {
+          console.log('finished in models.onboardUser.post!');
+          if (err) {
+            res.status(500).send(err);
+          }
+        });
 
         const origin = `${req.headers.origin}`;
 
@@ -71,7 +80,7 @@ module.exports = {
         res.redirect('/checkout/onboard-user');
         return;
       }
-    
+
       try {
         const { accountID } = req.session;
         const origin = `${req.secure ? 'https://' : 'http://'}${req.headers.host}`;
