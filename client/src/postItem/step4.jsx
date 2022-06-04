@@ -10,7 +10,14 @@ const Step4 = (props) => {
   const [ address, setAddress ] = useState('');
   const [ latLng, setlatLng ] = useState();
 
+  const onError = (status, clearSuggestions) => {
+    console.log('Google Maps API returned error with status: ', status);
+    setAddress('');
+    clearSuggestions();
+  };
+
   const handleSubmit = (e) => {
+
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
@@ -74,6 +81,7 @@ const Step4 = (props) => {
           <Form.Label>Pick Up Location</Form.Label>
           <PlacesAutocomplete
             value={address}
+            onError={onError}
             onChange={onChange}
             onSelect={handleSelect}
           >
@@ -81,11 +89,16 @@ const Step4 = (props) => {
               <div>
                 <Form.Control
                   required
+                  pattern="//g"
                   {...getInputProps({
                     placeholder: 'Search Places ...',
                     className: 'location-search-input',
                   })}
                 />
+                <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid address...
+                </Form.Control.Feedback>
                 <div className="autocomplete-dropdown-container">
                   {loading && <div>Loading...</div>}
                   {suggestions.map(suggestion => {

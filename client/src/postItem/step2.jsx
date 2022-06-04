@@ -28,18 +28,14 @@ const Step2 = (props) => {
   return (
     <div className="mx-auto" style={{padding: '5em'}}>
       <h3>A little more details...</h3>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form noValidate validated={validated} onSubmit={handleSubmit} className="form-control">
         <Form.Group>
           <Form.Label htmlFor="category">Category</Form.Label>
-          <Form.Select
-            required
-            onChange={handleChange('category')}
-            defaultValue={values.category || ''}
-          >
+          <select className="form-select" id="validationCustom04" onChange={handleChange('category')} required>
             <option selected disabled value="">Choose...</option>
-            <option defaultValue="1">Household</option>
-            <option defaultValue="2">Automative</option>
-          </Form.Select>
+            <option value="1">Household</option>
+            <option value="2">Automative</option>
+          </select>
           <br/>
           <Form.Label htmlFor="brand">Brand</Form.Label>
           <Form.Control
