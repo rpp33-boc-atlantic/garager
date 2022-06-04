@@ -8,7 +8,6 @@ import { isWithinInterval } from 'date-fns';
 import moment from 'moment';
 
 const CalendarView = (props) => {
-
   // const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
   const disabledRanges = props.rangesBooked;
 
