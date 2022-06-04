@@ -103,6 +103,26 @@ module.exports = {
     get: async (req, res) => {
       // console.log('SESSION ACCOUNT ID', req.session.accountID);
       // ***** REFACTOR TO CHECK DATABASE - IF NO STRIPE_ID, 'SETUP INCOMPLETE'
+      // HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
+      const userID = 0;
+      models.checkAccountCompletion.get(userID, async (err, accoundID) => {
+        console.log('finished in models.checkAccountCompletion.get!');
+        if (err) {
+          res.status(500).send(err);
+        } else if (accoundID === null) {
+          res.send('Stripe account setup incomplete');
+        } else {
+          const accountInfo = await stripe.accounts.retrieve(accountID);
+          // console.log('accountInfo charges enabled:', accountInfo.details_submitted);
+          if (!accountInfo.details_submitted) {
+            res.send('Please complete the account setup proccess');
+          } else {
+            res.send('Completed Account Setup - Thank you!');
+          }
+        }
+      });
+
+      /*
       if (!req.session.accountID) {
         res.send('Stripe account setup incomplete');
       } else {
@@ -115,7 +135,7 @@ module.exports = {
         } else {
           res.send('Completed Account Setup - Thank you!');
         }
-      }
+      } */
     },
   },
 };

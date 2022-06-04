@@ -20,8 +20,33 @@ module.exports = {
         if (err) {
           callback(err.stack);
         } else {
-          console.log('DB response:', res.rows);
+          console.log('DB response in onboardUser:', res.rows);
           callback(null);
+        }
+        client.end();
+      });
+    },
+  },
+  checkAccountCompletion: {
+    get: (userID, callback) => {
+      client.connect((err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('currently inside GARAGER database for checkAccountCompletion get');
+        }
+      });
+
+      const queryText = `SELECT stripe_id
+        FROM users
+        WHERE user_id = ${userID}`;
+
+      client.query(queryText, (err, res) => {
+        if (err) {
+          callback(err.stack);
+        } else {
+          console.log('DB response in checkAccountCompletion:', res.rows[0]);
+          callback(res.rows[0]);
         }
         client.end();
       });
