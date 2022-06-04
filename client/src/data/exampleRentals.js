@@ -10,6 +10,11 @@ const rentalListings = [
       location: {
         lat: 37.38860,
         lng: -122.01678
+      },
+      availability: {
+        startDate: 1654066800000,
+        endDate: 1656572400000,
+        rentedDates: [[1656140400000, 1656140400000]]
       }
     }
   },
@@ -24,6 +29,11 @@ const rentalListings = [
       location: {
         lat: 37.36965,
         lng: -122.02421
+      },
+      availability: {
+        startDate: 1454066800000,
+        endDate: 1654066800000,
+        rentedDates: [1656140400000]
       }
     }
   },
@@ -38,6 +48,11 @@ const rentalListings = [
       location: {
         lat: 38.58190,
         lng: -121.49350
+      },
+      availability: {
+        startDate: 1754066800000,
+        endDate: 1856572400000,
+        rentedDates: [1656140400000]
       }
     }
   },
@@ -52,6 +67,11 @@ const rentalListings = [
       location: {
         lat: 34.00984,
         lng: -118.25864
+      },
+      availability: {
+        startDate: 1654066800000,
+        endDate: 1656572400000,
+        rentedDates: [[1656140400000, 1656140400000]]
       }
     }
   }
