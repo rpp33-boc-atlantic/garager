@@ -15,6 +15,10 @@ SEARCH
   opacity: 0.6;
 }
 
+.category-icon-off:hover, .category-icon-on:hover {
+  cursor: pointer;
+}
+
 #category-multiselect {
   text-align: center;
 }
@@ -67,6 +71,11 @@ BROWSE
   flex-grow: 1;
 }
 
+a.go-to-item-listing {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .rental-listing img {
   max-width: 25%;
   padding: 3%;
@@ -76,6 +85,10 @@ BROWSE
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+}
+
+.rental-listing:hover {
+  cursor: pointer;
 }
 
 .listing-header {
