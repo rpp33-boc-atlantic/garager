@@ -18,10 +18,12 @@ var option1 = {
   images: [ladder1, ladder2, ladder3],
   rangesBooked: [['2022-06-03', '2022-06-07'], ['2022-06-15', '2022-06-20']],
   owner: {
+    id: 6848,
     name: 'Tom Haverford',
+    email: 'burtbee8@gmail.com',
     dateJoined: 'July 2022',
     address: 'Pawnee, Indiana'
-  },
+  }
 };
 
 
