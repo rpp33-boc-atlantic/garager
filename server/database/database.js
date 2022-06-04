@@ -1,8 +1,8 @@
 require('dotenv').config();
 const RDS_PASSWORD = require('../../config.js').RDS_PASSWORD;
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   user: 'garagerAdmin',
   host: 'garager.c11jhqw8tzhf.us-east-1.rds.amazonaws.com',
   database: 'garager',
@@ -10,18 +10,9 @@ const client = new Client({
   port: 5432
 });
 
-// const client = new Client({
-//   host: 'localhost',
-//   database: 'garager',
-//   port: 5432
-// });
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
 
-// client.connect((err, res) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('connected to GARAGER database');
-//   }
-// });
-
-module.exports = client;
+module.exports = pool;
