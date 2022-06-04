@@ -9,6 +9,7 @@ const accountRouter = require('./routes/account.routes.js');
 const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
 const browseRoutes = require('./routes/browse.routes.js');
+const postItemRouter = require('./routes/postItem.routes.js');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/account/', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/browse', browseRoutes);
+app.use('/postItem', postItemRouter);
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {

@@ -1,64 +1,80 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 //Step2 includes Category (drop list), brand, model, description
 const categories = ['Automative', 'Household'];
 
-class Step2 extends Component {
-  constructor (props) {
-    super (props);
-    this.continue = this.continue.bind(this);
-    this.back = this.back.bind(this);
-  }
+const Step2 = (props) => {
+  const { values, handleChange, changeToNext, changeToPrevious } = props;
 
-  continue (e) {
-    e.preventDefault();
-    this.props.changeToNext();
-  }
+  const [validated, setValidated] = useState(false);
 
-  back (e) {
-    e.preventDefault();
-    this.props.changeToPrevious();
-  }
+  const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
 
-  render () {
-    const { values, handleChange } = this.props;
+    if (form.checkValidity() === true) {
+      e.preventDefault();
+      e.stopPropagation();
+      changeToNext();
+    }
 
-    return (
-      <React.Fragment>
-        <h3>A little more details...</h3>
-        <form>
-          <div className="form-row">
-            <label htmlFor="category">Category</label>
-            <select className="category" onChange={handleChange('category')} defaultValue={values.category || ''}>
-              <option defaultValue="choose">Choose...</option>
-              <option defaultValue="1">Household</option>
-              <option defaultValue="2">Automative</option>
-            </select>
-          </div>
-          <div className="form-row">
-            <label htmlFor="brand">Brand</label>
-            <input type="text" className="form-control" id="brand" placeholder="Optional" onChange={handleChange('brand')} value={values.brand}/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="model">Model</label>
-            <input type="text" className="form-control" id="model" placeholder="Optional" onChange={handleChange('model')} value={values.model}/>
-          </div>
-          <div className="form-row">
-            <label htmlFor="item_description">Description</label>
-            <input type="text" className="form-control" id="description" placeholder="Items with a detailed description rent faster!" onChange={handleChange('itemDescription')} value={values.itemDescription}/>
-          </div>
-        </form>
-        <button
-          type="submit" className="btn"
-          onClick={this.back}
-        >Back</button>
-        <button
-          type="submit" className="btn"
-          onClick={this.continue}
-        >Next</button>
-      </React.Fragment>
-    );
-  }
-}
+  };
+
+  return (
+    <div className="mx-auto" style={{padding: '5em'}}>
+      <h3>A little more details...</h3>
+      <Form noValidate validated={validated} onSubmit={handleSubmit} className="form-control">
+        <Form.Group>
+          <Form.Label htmlFor="category">Category</Form.Label>
+          <select className="form-select" id="validationCustom04" onChange={handleChange('category')} required>
+            <option selected disabled value="">Choose...</option>
+            <option value="1">Household</option>
+            <option value="2">Automative</option>
+          </select>
+          <br/>
+          <Form.Label htmlFor="brand">Brand</Form.Label>
+          <Form.Control
+            type="text" maxLength={50}
+            id="brand"
+            placeholder="Optional"
+            onChange={handleChange('brand')} />
+
+          <Form.Label htmlFor="model">Model</Form.Label>
+          <Form.Control
+            type="text" maxLength={50}
+            id="brand"
+            placeholder="Optional"
+            onChange={handleChange('model')} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor="description">Description</Form.Label>
+          <Form.Control
+            required
+            type="text" maxLength={500}
+            id="brand"
+            placeholder="Required"
+            onChange={handleChange('itemDescription')} />
+          <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please provide a description for your item...
+          </Form.Control.Feedback>
+        </Form.Group>
+        <br/>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <Button type="button" onClick={changeToPrevious}>Back</Button>
+          <Button type="submit">Next</Button>
+        </div>
+      </Form>
+
+    </div>
+  );
+};
 
 export default Step2;
+
+//note: Back button is not sticky

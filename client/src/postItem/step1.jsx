@@ -1,77 +1,65 @@
-import React, { useState } from 'react';
-import ImageUploading from 'react-images-uploading';
+import React, { useState, useEffect } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import FileUpload from './FileUpload.jsx';
 
 //Step1 includes title, and upload photo
 
 const Step1 = (props) => {
-  const [images, setImages] = React.useState([]);
-  const maxNumber = 5;
 
-  const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
+  const [images, setImages] = React.useState({ imageFiles: [] });
+
+  const updateUploadedFiles = (files) => {
+    setImages({ ...images, imageFiles: files }, ()=> { console.log(images); });
+  };
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
+
+    if (form.checkValidity() === true) {
+      e.preventDefault();
+      e.stopPropagation();
+      props.handleUploadPhotos(images);
+    }
+
   };
 
   return (
-    <React.Fragment>
+    <div className="mx-auto" style={{padding: '5em'}}>
       <h3>What do you want to rent out ?</h3>
-      <form>
-        <div className="form-row">
-          <label htmlFor="title">Title</label>
-          <input type="text" className="form-control" id="inputTitle" placeholder="Choose title for your post..." onChange={props.handleChange('title')} />
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label htmlFor="title">Title</Form.Label>
+          <Form.Control
+            required
+            type="text" maxLength={50}
+            id="inputTitle"
+            placeholder="Required"
+            onChange={props.handleChange('title')} />
+          <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Please provide a title for your post...
+          </Form.Control.Feedback>
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <FileUpload
+            accept=".jpg,.png,.jpeg"
+            label="Upload Image(s)"
+            multiple
+            updateFilesCb={updateUploadedFiles}
+          />
+        </Form.Group>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+          <Button type="submit">Next</Button>
         </div>
-      </form>
-      <h4>Upload Photos</h4>
-      <form id="imageForm">
-        <input id="imageInput" type="file" accept="image/*" multiple/>
-        <button type="submit" onClick={props.handleUploadPhotos}>Upload</button>
-      </form>
-      {/* <ImageUploading
-        multiple
-        value={images}
-        onChange={onChange}
-        maxNumber={maxNumber}
-        dataURLKey="data_url"
-        id="imageForm"
-      >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          // write your building UI
-          <div className="upload__image-wrapper">
-            <button
-              style={isDragging ? { color: 'red' } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-            >
-              Click or Drop here
-            </button>
-            &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image['data_url']} alt="" width="100" id="imageInput" />
-                <div className="image-item__btn-wrapper">
-                  <br/>
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
-                  <br/>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </ImageUploading> */}
-
-      <button type="submit" className="btn" onClick={props.changeToNext}>Next</button>
-    </React.Fragment>
+      </Form>
+    </div>
   );
 };
 

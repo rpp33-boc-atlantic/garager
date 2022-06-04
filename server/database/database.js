@@ -10,6 +10,12 @@ const client = new Client({
   port: 5432
 });
 
+// const client = new Client({
+//   host: 'localhost',
+//   database: 'garager',
+//   port: 5432
+// });
+
 // client.connect((err, res) => {
 //   if (err) {
 //     console.log(err);

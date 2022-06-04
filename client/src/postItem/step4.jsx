@@ -1,98 +1,138 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 import PlacesAutocomplete, { geocodeByAddress, geocodeByPlaceId, getLatLng } from 'react-places-autocomplete';
 
 //Step4 includes pickup location
 
-class Step4 extends Component {
-  constructor (props) {
-    super (props);
-    this.state = {
-      address: '',
-      latLng: {}
-    };
-    this.continue = this.continue.bind(this);
-    this.back = this.back.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.handleChangeInStep4 = this.handleChangeInStep4.bind(this);
-  }
+const Step4 = (props) => {
+  const { values, handleChange, handleSelectLocation, changeToNext, changeToPrevious } = props;
+  const [ validated, setValidated ] = useState(false);
+  const [ address, setAddress ] = useState('');
+  const [ latLng, setlatLng ] = useState();
 
-  continue (e) {
-    e.preventDefault();
-    this.props.changeToNext();
-  }
+  const onError = (status, clearSuggestions) => {
+    console.log('Google Maps API returned error with status: ', status);
+    setAddress('');
+    clearSuggestions();
+  };
 
-  back (e) {
-    e.preventDefault();
-    this.props.changeToPrevious();
-  }
+  const handleSubmit = (e) => {
 
-  handleChangeInStep4 (address) {
-    this.setState({ address });
-  }
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
 
-  handleSelect (address) {
-    geocodeByAddress(address)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => this.setState({ address: address, latLng: latLng}, () => { this.props.handleSelectLocation(address, latLng); }))
+    if (form.checkValidity() === true) {
+      e.preventDefault();
+      e.stopPropagation();
+      changeToNext();
+    }
+  };
+
+  const validateZipcode = (zipcode) => {
+    if (zipcode === '20252') {
+      return true;
+    } else {
+      if (zipcode.substring(0, 2) === '09') {
+        return false;
+      } else {
+        let first3digits = zipcode.substring(0, 3);
+        let regex = /^(?:001|00[6-9]|20[2-5]|340|96[2-8]|)$/;
+        if (first3digits.match(regex)) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  };
+
+  const onChange = (input) => {
+    setAddress(input);
+  };
+
+  const handleSelect = (selectedAddress) => {
+    setAddress(selectedAddress);
+    geocodeByAddress(selectedAddress)
+      .then((results) => {
+        const zipcode = results[0].address_components[7].long_name;
+        if (validateZipcode(zipcode)) {
+          getLatLng(results[0])
+            .then((latLng) => {
+              setlatLng(latLng);
+              handleSelectLocation(selectedAddress, latLng);
+            })
+            .catch(error => console.error('Error', error));
+        } else {
+          setValidated(false);
+        }
+      })
       .catch(error => console.error('Error', error));
-  }
+  };
 
-  render () {
-    const { values, handleChange } = this.props;
-    return (
-      <React.Fragment>
-        <h3>Where can I pick up your item?</h3>
-        <h4>Pick Up Location</h4>
-        <PlacesAutocomplete
-          value={this.state.address}
-          onChange={this.handleChangeInStep4}
-          onSelect={this.handleSelect}
-        >
-          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-            <div>
-              <input
-                {...getInputProps({
-                  placeholder: 'Search Places ...',
-                  className: 'location-search-input',
-                })}
-              />
-              <div className="autocomplete-dropdown-container">
-                {loading && <div>Loading...</div>}
-                {suggestions.map(suggestion => {
-                  const className = suggestion.active
-                    ? 'suggestion-item--active'
-                    : 'suggestion-item';
-                  // inline style for demonstration purpose
-                  const style = suggestion.active
-                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
-                  return (
-                    <div
-                      {...getSuggestionItemProps(suggestion, {
-                        className,
-                        style,
-                      })}
-                    >
-                      <span>{suggestion.description}</span>
-                    </div>
-                  );
-                })}
+  return (
+    <div className="mx-auto" style={{padding: '5em'}}>
+      <h3>Where can I pick up your item?</h3>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Pick Up Location</Form.Label>
+          <PlacesAutocomplete
+            value={address}
+            onError={onError}
+            onChange={onChange}
+            onSelect={handleSelect}
+          >
+            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+              <div>
+                <Form.Control
+                  required
+                  {...getInputProps({
+                    placeholder: 'Search Places ...',
+                    className: 'location-search-input',
+                  })}
+                />
+                <Form.Control.Feedback type="valid">Looks good!</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid address...
+                </Form.Control.Feedback>
+                <div className="autocomplete-dropdown-container">
+                  {loading && <div>Loading...</div>}
+                  {suggestions.map(suggestion => {
+                    const className = suggestion.active
+                      ? 'suggestion-item--active'
+                      : 'suggestion-item';
+                    // inline style for demonstration purpose
+                    const style = suggestion.active
+                      ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                      : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                    return (
+                      <div
+                        {...getSuggestionItemProps(suggestion, {
+                          className,
+                          style,
+                        })}
+                      >
+                        <span>{suggestion.description}</span>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          )}
-        </PlacesAutocomplete>
-        <button
-          type="submit" className="btn"
-          onClick={this.back}
-        >Back</button>
-        <button
-          type="submit" className="btn"
-          onClick={this.continue}
-        >Next</button>
-      </React.Fragment>
-    );
-  }
-}
+            )}
+          </PlacesAutocomplete>
+          <br/>
+          <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <Button type="button" onClick={changeToPrevious}>Back</Button>
+            <Button type="submit">Next</Button>
+          </div>
+        </Form.Group>
+      </Form>
+    </div>
+  );
+};
 
 export default Step4;
 
