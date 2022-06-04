@@ -1,252 +1,263 @@
 [
   {
     "item_id": 0,
-    "user_id": 2,
-    "title": "Oriental Trading Company Wedding Arch",
-    "category": "Events",
-    "brand": "Oriental Trading Company",
+    "user_id": 10,
+    "title": "NordicTrack Rowing Machine",
+    "category": "Fitness",
+    "brand": "NordicTrack",
     "model": "",
-    "itemDescription": "Wedding Arch -In usable condition",
-    "price": 57,
-    "min_price": 35,
-    "availableFrom": "2022-05-08T01:27:01.621Z",
-    "availableTo": "2022-05-24T01:27:01.622Z",
-    "address": "2237 Walnut Ct, Marquette, MI 62638",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Rowing Machine -In usable condition",
+    "price": 40,
+    "nyop": 1,
+    "min_price": 6,
+    "availableFrom": "2022-05-11T18:31:02.790Z",
+    "availableTo": "2022-06-03T18:31:02.790Z",
+    "address": "1708 Moore Dr, Houghton, MI 93035",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 1,
-    "user_id": 9,
-    "title": "Obrien Life Jacket",
+    "user_id": 2,
+    "title": "Marmot 2 person Hammock",
     "category": "Camping",
-    "brand": "Bertram",
+    "brand": "Marmot",
     "model": "",
-    "itemDescription": "Flex fit life jacket that moves with you -In used condition",
-    "price": 15,
-    "min_price": 13,
-    "availableFrom": "2022-06-01T00:52:54.774Z",
-    "availableTo": "2022-06-30T00:52:54.775Z",
-    "address": "299-101 W Douglass Ave, Houghton, MI 49931",
-    "latLng": [
-      "47.118970",
-      "-88.573360"
-    ],
+    "itemDescription": "2 person Hammock -In used condition",
+    "price": 58,
+    "nyop": 0,
+    "min_price": 20,
+    "availableFrom": "2022-06-12T18:31:02.790Z",
+    "availableTo": "2022-07-15T18:31:02.790Z",
+    "address": "3615 Willow Street, Menominee, MI 64253",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
-      "https://images-us-prod.cms.commerce.dynamics.com/cms/api/nwtfklkdlc/imageFileData/search?fileName=/Products%2FOB2201733_000_001.png&m=6&q=80&cropfocalregion=true","https://images-us-prod.cms.commerce.dynamics.com/cms/api/nwtfklkdlc/imageFileData/search?fileName=/Products%2FOB2201733_000_002.png&m=6&q=80&cropfocalregion=true",
+      ""
     ]
   },
   {
     "item_id": 2,
     "user_id": 6,
-    "title": "Corona Wheebarrow",
-    "category": "Gardening",
-    "brand": "Corona",
-    "model": " WB 2606KFF",
-    "itemDescription": "Wheebarrow -In used condition",
-    "price": 15,
-    "min_price": 10,
-    "availableFrom": "2022-06-20T00:52:54.775Z",
-    "availableTo": "2022-07-31T00:52:54.775Z",
-    "address": "2324 Pine Pkwy, Lansing, MI 62333",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "title": "undefined 2 person Hammock",
+    "category": "Camping",
+    "model": "",
+    "itemDescription": "2 person Hammock -In excellent condition",
+    "price": 17,
+    "nyop": 0,
+    "min_price": 4,
+    "availableFrom": "2022-05-14T18:31:02.790Z",
+    "availableTo": "2022-05-25T18:31:02.790Z",
+    "address": "7655 MillPond Dr, Menominee, MI 55574",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
-      "https://www.qcsupply.com/media/catalog/product/cache/5284d6cde28d5b60f464df18bb1a18f4/3/6/360372_1_.jpg"
+      ""
     ]
   },
   {
     "item_id": 3,
-    "user_id": 2,
-    "title": "Mac Tools Auto Sander",
-    "category": "Automotive",
-    "brand": "Mac Tools",
+    "user_id": 13,
+    "title": "Bond Rototiller",
+    "category": "Gardening",
+    "brand": "Bond",
     "model": "",
-    "itemDescription": "Auto Sander -In excellent condition",
-    "price": 52,
-    "min_price": 35,
-    "availableFrom": "2022-06-03T01:27:01.622Z",
-    "availableTo": "2022-07-03T01:27:01.622Z",
-    "address": "1027 Pine Pkwy, Menominee, MI 49430",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Rototiller -In usable condition",
+    "price": 70,
+    "nyop": 1,
+    "min_price": 41,
+    "availableFrom": "2022-05-12T18:31:02.790Z",
+    "availableTo": "2022-06-07T18:31:02.790Z",
+    "address": "3363 Pine Pkwy, Marquette, MI 56197",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 4,
-    "user_id": 6,
-    "title": "Lowkystar Nano Guantlet Hulk Version Endgame",
-    "category": "Decorations",
-    "brand": "LowkyStar",
+    "user_id": 12,
+    "title": "Line Ski/Snowboard Helment -Adult Size",
+    "category": "Sports Equipment",
+    "brand": "Line",
     "model": "",
-    "itemDescription": "NANO GAUNTLET HULK VERSION TOY/REPLICA FULL METAL LIFE-SIZE HANDCRAFTED COLLECTIBLE WITH RECHARGEABLE LED INFINITY STONES AVENGERS: ENDGAME",
-    "price": 103,
-    "min_price": 7,
-    "availableFrom": "2022-05-04T00:52:54.775Z",
-    "availableTo": "2022-06-02T00:52:54.775Z",
-    "address": "2324 Pine Pkwy, Lansing, MI 62333",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Ski/Snowboard Helment -Adult Size -In excellent condition",
+    "price": 101,
+    "nyop": 1,
+    "min_price": 57,
+    "availableFrom": "2022-05-20T18:31:02.790Z",
+    "availableTo": "2022-06-10T18:31:02.790Z",
+    "address": "4001 Ellen Rd, Menominee, MI 92325",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
-      "https://cdn.shopify.com/s/files/1/0086/7188/7396/products/IMG_3696_1920x.jpg?v=1641209393"
+      ""
     ]
   },
   {
     "item_id": 5,
-    "user_id": 7,
-    "title": "DeWalt Hex Wrench Set -all pieces there",
-    "category": "Hand Tools",
-    "brand": "DeWalt",
+    "user_id": 6,
+    "title": "Line XL Skis -fast",
+    "category": "Sports Equipment",
+    "brand": "Line",
     "model": "",
-    "itemDescription": "Hex Wrench Set -all pieces there -In great condition",
-    "price": 84,
-    "min_price": 32,
-    "availableFrom": "2022-06-16T01:27:01.622Z",
-    "availableTo": "2022-07-23T01:27:01.622Z",
-    "address": "2644 Ellen Street, Houghton, MI 49959",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "XL Skis -fast -In great condition",
+    "price": 89,
+    "nyop": 1,
+    "min_price": 44,
+    "availableFrom": "2022-06-06T18:31:02.790Z",
+    "availableTo": "2022-07-07T18:31:02.790Z",
+    "address": "2648 Locust Cir, Houghton, MI 68681",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 6,
-    "user_id": 13,
-    "title": "Snap-On Battery Isolators",
-    "category": "Automotive",
-    "brand": "Snap-On",
+    "user_id": 10,
+    "title": "Line child size Skis",
+    "category": "Sports Equipment",
+    "brand": "Line",
     "model": "",
-    "itemDescription": "Battery Isolators -In excellent condition",
-    "price": 45,
-    "min_price": 15,
-    "availableFrom": "2022-05-14T01:27:01.622Z",
-    "availableTo": "2022-06-04T01:27:01.622Z",
-    "address": "2752 Locust Dr, Marquette, MI 93696",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "child size Skis -In great condition",
+    "price": 89,
+    "nyop": 0,
+    "min_price": 59,
+    "availableFrom": "2022-05-11T18:31:02.790Z",
+    "availableTo": "2022-06-05T18:31:02.790Z",
+    "address": "2122 MillPond Pkwy, Houghton, MI 56151",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 7,
-    "user_id": 4,
-    "title": "Fischer child size Skis",
+    "user_id": 13,
+    "title": "Fischer Ski/Snowboard Helment -Adult Size",
     "category": "Sports Equipment",
     "brand": "Fischer",
     "model": "",
-    "itemDescription": "child size Skis -In great condition",
-    "price": 93,
-    "min_price": 64,
-    "availableFrom": "2022-05-06T01:27:01.622Z",
-    "availableTo": "2022-05-09T01:27:01.622Z",
-    "address": "7744 Ellen Cir, Houghton, MI 76865",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Ski/Snowboard Helment -Adult Size -In excellent condition",
+    "price": 74,
+    "nyop": 0,
+    "min_price": 2,
+    "availableFrom": "2022-06-24T18:31:02.790Z",
+    "availableTo": "2022-08-09T18:31:02.790Z",
+    "address": "5130 Emerson Pkwy, Menominee, MI 76594",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 8,
-    "user_id": 4,
-    "title": "Snap-On Battery Isolators",
-    "category": "Automotive",
-    "brand": "Snap-On",
+    "user_id": 1,
+    "title": "Klein Fence Post Driver",
+    "category": "Hand Tools",
+    "brand": "Klein",
     "model": "",
-    "itemDescription": "Battery Isolators -In good condition",
-    "price": 44,
-    "min_price": 6,
-    "availableFrom": "2022-06-15T01:27:01.622Z",
-    "availableTo": "2022-07-24T01:27:01.622Z",
-    "address": "4743 Baker Ct, Menominee, MI 67821",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Fence Post Driver -In great condition",
+    "price": 65,
+    "nyop": 0,
+    "min_price": 34,
+    "availableFrom": "2022-05-05T18:31:02.790Z",
+    "availableTo": "2022-05-19T18:31:02.790Z",
+    "address": "5842 Pine Pkwy, Houghton, MI 92600",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 9,
-    "user_id": 8,
-    "title": "Oriental Trading Company Cornhole/ Horse Shoe Sets",
-    "category": "Events",
-    "brand": "Oriental Trading Company",
+    "user_id": 3,
+    "title": "Anthem Speaker",
+    "category": "Audio/Visual",
+    "brand": "Anthem",
     "model": "",
-    "itemDescription": "Cornhole/ Horse Shoe Sets -In used condition",
-    "price": 99,
-    "min_price": 42,
-    "availableFrom": "2022-05-23T01:27:01.622Z",
-    "availableTo": "2022-06-12T01:27:01.622Z",
-    "address": "5752 Moore Dr, Lansing, MI 55209",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Speaker -In good condition",
+    "price": 5,
+    "nyop": 1,
+    "min_price": 2,
+    "availableFrom": "2022-05-16T18:31:02.791Z",
+    "availableTo": "2022-06-03T18:31:02.791Z",
+    "address": "5365 Skyline Blvd, Houghton, MI 74410",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 10,
-    "user_id": 1,
-    "title": "Scotch Paint Mixer for use with cordless drill",
-    "category": "Power Tools",
-    "brand": "Scotch",
+    "user_id": 0,
+    "title": "Volkl XL Skis -fast",
+    "category": "Sports Equipment",
+    "brand": "Volkl",
     "model": "",
-    "itemDescription": "Paint Mixer for use with cordless drill -In great condition",
-    "price": 37,
-    "min_price": 5,
-    "availableFrom": "2022-05-12T01:27:01.622Z",
-    "availableTo": "2022-06-04T01:27:01.622Z",
-    "address": "4467 Moore Ct, Marquette, MI 82274",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "XL Skis -fast -In usable condition",
+    "price": 99,
+    "nyop": 0,
+    "min_price": 48,
+    "availableFrom": "2022-06-03T18:31:02.791Z",
+    "availableTo": "2022-07-02T18:31:02.791Z",
+    "address": "3511 Ellen Blvd, Houghton, MI 68914",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 11,
-    "user_id": 1,
-    "title": "Anthem Amplifier",
-    "category": "Audio/Visual",
-    "brand": "Anthem",
+    "user_id": 11,
+    "title": "Good Fun LLC Outdoor Wedding Chairs x50",
+    "category": "Events",
+    "brand": "Good Fun LLC",
     "model": "",
-    "itemDescription": "Amplifier -In used condition",
-    "price": 76,
-    "min_price": 5,
-    "availableFrom": "2022-05-21T01:27:01.622Z",
-    "availableTo": "2022-06-17T01:27:01.622Z",
-    "address": "1258 Catherine Cir, Lansing, MI 83498",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Outdoor Wedding Chairs x50 -In excellent condition",
+    "price": 29,
+    "nyop": 0,
+    "min_price": 12,
+    "availableFrom": "2022-06-23T18:31:02.791Z",
+    "availableTo": "2022-08-06T18:31:02.791Z",
+    "address": "8322 MillPond Dr, Menominee, MI 74790",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
@@ -254,125 +265,131 @@
   {
     "item_id": 12,
     "user_id": 0,
-    "title": "Proto Battery Isolators",
-    "category": "Automotive",
-    "brand": "Proto",
+    "title": "Bosch Chainsaw",
+    "category": "Power Tools",
+    "brand": "Bosch",
     "model": "",
-    "itemDescription": "Battery Isolators -In excellent condition",
-    "price": 92,
-    "min_price": 63,
-    "availableFrom": "2022-06-27T01:27:01.622Z",
-    "availableTo": "2022-08-12T01:27:01.622Z",
-    "address": "6606 Baker Rd, Houghton, MI 68457",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Chainsaw -In great condition",
+    "price": 85,
+    "nyop": 0,
+    "min_price": 19,
+    "availableFrom": "2022-05-27T18:31:02.791Z",
+    "availableTo": "2022-06-20T18:31:02.791Z",
+    "address": "2834 Skyline Rd, Menominee, MI 62548",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 13,
-    "user_id": 0,
-    "title": "Target 12 inch patterned rug",
-    "category": "Decorations",
-    "brand": "Target",
+    "user_id": 1,
+    "title": "Weber Cornhole/ Horse Shoe Sets",
+    "category": "Events",
+    "brand": "Weber",
     "model": "",
-    "itemDescription": "12 inch patterned rug -In good condition",
-    "price": 70,
-    "min_price": 40,
-    "availableFrom": "2022-06-12T01:27:01.622Z",
-    "availableTo": "2022-07-12T01:27:01.622Z",
-    "address": "2478 Walnut Dr, Houghton, MI 84300",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Cornhole/ Horse Shoe Sets -In great condition",
+    "price": 81,
+    "nyop": 0,
+    "min_price": 54,
+    "availableFrom": "2022-05-17T18:31:02.791Z",
+    "availableTo": "2022-05-29T18:31:02.791Z",
+    "address": "1303 Baker Cir, Marquette, MI 95495",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 14,
-    "user_id": 13,
-    "title": "Mr. Clean Carpet Cleaner",
-    "category": "Cleaning",
-    "brand": "Mr. Clean",
+    "user_id": 2,
+    "title": "Urban Outfitters Inflatable Santa",
+    "category": "Decorations",
+    "brand": "Urban Outfitters",
     "model": "",
-    "itemDescription": "Carpet Cleaner -In used condition",
-    "price": 31,
-    "min_price": 18,
-    "availableFrom": "2022-05-25T01:27:01.622Z",
-    "availableTo": "2022-06-18T01:27:01.622Z",
-    "address": "6587 Willow Ct, Menominee, MI 69234",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Inflatable Santa -In good condition",
+    "price": 78,
+    "nyop": 0,
+    "min_price": 23,
+    "availableFrom": "2022-06-09T18:31:02.791Z",
+    "availableTo": "2022-07-11T18:31:02.791Z",
+    "address": "3625 MillPond Blvd, Lansing, MI 95395",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 15,
-    "user_id": 8,
-    "title": "Urban Outfitters Fall Wreath and Corn Stalks",
-    "category": "Decorations",
-    "brand": "Urban Outfitters",
+    "user_id": 13,
+    "title": "DeWalt Hammer",
+    "category": "Hand Tools",
+    "brand": "DeWalt",
     "model": "",
-    "itemDescription": "Fall Wreath and Corn Stalks -In excellent condition",
-    "price": 78,
-    "min_price": 32,
-    "availableFrom": "2022-06-24T01:27:01.622Z",
-    "availableTo": "2022-08-10T01:27:01.622Z",
-    "address": "8438 Moore Street, Menominee, MI 68928",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Hammer -In great condition",
+    "price": 30,
+    "nyop": 1,
+    "min_price": 4,
+    "availableFrom": "2022-06-07T18:31:02.791Z",
+    "availableTo": "2022-07-07T18:31:02.791Z",
+    "address": "4148 Catherine Ct, Lansing, MI 64748",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 16,
-    "user_id": 3,
+    "user_id": 2,
     "title": "Anthem Speaker",
     "category": "Audio/Visual",
     "brand": "Anthem",
     "model": "",
-    "itemDescription": "Speaker -In excellent condition",
-    "price": 26,
-    "min_price": 19,
-    "availableFrom": "2022-06-26T01:27:01.622Z",
-    "availableTo": "2022-08-11T01:27:01.622Z",
-    "address": "8785 Baker Dr, Houghton, MI 88240",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Speaker -In great condition",
+    "price": 14,
+    "nyop": 1,
+    "min_price": 6,
+    "availableFrom": "2022-05-07T18:31:02.791Z",
+    "availableTo": "2022-05-16T18:31:02.791Z",
+    "address": "8221 Baker Blvd, Houghton, MI 55142",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 17,
-    "user_id": 7,
-    "title": "Bissel Vacume",
-    "category": "Cleaning",
-    "brand": "Bissel",
+    "user_id": 6,
+    "title": "Target Fall Wreath and Corn Stalks",
+    "category": "Decorations",
+    "brand": "Target",
     "model": "",
-    "itemDescription": "Vacume -In good condition",
-    "price": 21,
-    "min_price": 15,
-    "availableFrom": "2022-05-06T01:27:01.622Z",
-    "availableTo": "2022-05-10T01:27:01.622Z",
-    "address": "4867 Moore Cir, Marquette, MI 70203",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Fall Wreath and Corn Stalks -In great condition",
+    "price": 91,
+    "nyop": 0,
+    "min_price": 10,
+    "availableFrom": "2022-06-21T18:31:02.791Z",
+    "availableTo": "2022-07-26T18:31:02.791Z",
+    "address": "2856 Catherine Pkwy, Marquette, MI 56180",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
@@ -380,230 +397,241 @@
   {
     "item_id": 18,
     "user_id": 12,
-    "title": "Draper Projector",
-    "category": "Audio/Visual",
-    "brand": "Draper",
+    "title": "Specialized Moped",
+    "category": "Recreational Vehicles",
+    "brand": "Specialized",
     "model": "",
-    "itemDescription": "Projector -In usable condition",
-    "price": 38,
-    "min_price": 21,
-    "availableFrom": "2022-05-10T01:27:01.622Z",
-    "availableTo": "2022-06-01T01:27:01.622Z",
-    "address": "6232 Pine Pkwy, Lansing, MI 77314",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Moped -In excellent condition",
+    "price": 71,
+    "nyop": 1,
+    "min_price": 6,
+    "availableFrom": "2022-05-05T18:31:02.791Z",
+    "availableTo": "2022-06-02T18:31:02.791Z",
+    "address": "8150 Emerson Dr, Lansing, MI 90725",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 19,
-    "user_id": 5,
-    "title": "Wooster Paint Mixer for use with cordless drill",
-    "category": "Power Tools",
-    "brand": "Wooster",
+    "user_id": 3,
+    "title": "Good Fun LLC Outdoor Wedding Chairs x50",
+    "category": "Events",
+    "brand": "Good Fun LLC",
     "model": "",
-    "itemDescription": "Paint Mixer for use with cordless drill -In usable condition",
-    "price": 88,
-    "min_price": 26,
-    "availableFrom": "2022-06-03T01:27:01.622Z",
-    "availableTo": "2022-07-03T01:27:01.622Z",
-    "address": "5081 Catherine Rd, Lansing, MI 64649",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Outdoor Wedding Chairs x50 -In good condition",
+    "price": 66,
+    "nyop": 1,
+    "min_price": 34,
+    "availableFrom": "2022-05-21T18:31:02.791Z",
+    "availableTo": "2022-06-12T18:31:02.791Z",
+    "address": "3083 Skyline Dr, Marquette, MI 68127",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 20,
-    "user_id": 0,
-    "title": "Octane Rock Climbing Harness",
-    "category": "Fitness",
-    "brand": "Octane",
+    "user_id": 6,
+    "title": "Oreck Carpet Cleaner",
+    "category": "Cleaning",
+    "brand": "Oreck",
     "model": "",
-    "itemDescription": "Rock Climbing Harness -In great condition",
-    "price": 98,
-    "min_price": 63,
-    "availableFrom": "2022-05-16T01:27:01.622Z",
-    "availableTo": "2022-06-08T01:27:01.622Z",
-    "address": "1644 Walnut Blvd, Marquette, MI 50138",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Carpet Cleaner -In great condition",
+    "price": 23,
+    "nyop": 1,
+    "min_price": 12,
+    "availableFrom": "2022-05-06T18:31:02.791Z",
+    "availableTo": "2022-05-23T18:31:02.791Z",
+    "address": "0562 Ellen Dr, Houghton, MI 69070",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 21,
-    "user_id": 6,
-    "title": "Fischer child size Skis",
-    "category": "Sports Equipment",
-    "brand": "Fischer",
+    "user_id": 5,
+    "title": "Bissel Window Washing Equipment",
+    "category": "Cleaning",
+    "brand": "Bissel",
     "model": "",
-    "itemDescription": "child size Skis -In good condition",
-    "price": 12,
-    "min_price": 8,
-    "availableFrom": "2022-05-05T01:27:01.622Z",
-    "availableTo": "2022-05-07T01:27:01.622Z",
-    "address": "3237 Emerson Blvd, Menominee, MI 94918",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Window Washing Equipment -In usable condition",
+    "price": 96,
+    "nyop": 1,
+    "min_price": 36,
+    "availableFrom": "2022-06-02T18:31:02.791Z",
+    "availableTo": "2022-06-30T18:31:02.791Z",
+    "address": "6650 Pine Pkwy, Lansing, MI 54411",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 22,
-    "user_id": 3,
-    "title": "ProForm Weight Set",
-    "category": "Fitness",
-    "brand": "ProForm",
+    "user_id": 2,
+    "title": "Trek Electric bike",
+    "category": "Recreational Vehicles",
+    "brand": "Trek",
     "model": "",
-    "itemDescription": "Weight Set -In excellent condition",
-    "price": 94,
-    "min_price": 70,
-    "availableFrom": "2022-06-16T01:27:01.622Z",
-    "availableTo": "2022-07-17T01:27:01.622Z",
-    "address": "3311 Walnut Cir, Menominee, MI 71704",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Electric bike -In usable condition",
+    "price": 78,
+    "nyop": 1,
+    "min_price": 29,
+    "availableFrom": "2022-06-28T18:31:02.791Z",
+    "availableTo": "2022-08-17T18:31:02.791Z",
+    "address": "4282 Emerson Dr, Lansing, MI 74051",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 23,
-    "user_id": 11,
-    "title": "Bertram canoe",
-    "category": "Camping",
-    "brand": "Bertram",
+    "user_id": 8,
+    "title": "Craftsman Car Jack",
+    "category": "Automotive",
+    "brand": "Craftsman",
     "model": "",
-    "itemDescription": "canoe -In usable condition",
-    "price": 53,
-    "min_price": 13,
-    "availableFrom": "2022-06-25T01:27:01.622Z",
-    "availableTo": "2022-08-08T01:27:01.622Z",
-    "address": "3438 Locust Dr, Houghton, MI 84620",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Car Jack -In excellent condition",
+    "price": 45,
+    "nyop": 1,
+    "min_price": 11,
+    "availableFrom": "2022-06-03T18:31:02.791Z",
+    "availableTo": "2022-07-02T18:31:02.791Z",
+    "address": "6646 Emerson Dr, Houghton, MI 58292",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 24,
-    "user_id": 5,
-    "title": "Specialized Moped",
-    "category": "Recreational Vehicles",
-    "brand": "Specialized",
+    "user_id": 13,
+    "title": "Corona Rototiller",
+    "category": "Gardening",
+    "brand": "Corona",
     "model": "",
-    "itemDescription": "Moped -In great condition",
-    "price": 93,
-    "min_price": 66,
-    "availableFrom": "2022-06-17T01:27:01.622Z",
-    "availableTo": "2022-07-29T01:27:01.622Z",
-    "address": "5125 Walnut Pkwy, Marquette, MI 97555",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Rototiller -In excellent condition",
+    "price": 5,
+    "nyop": 1,
+    "min_price": 5,
+    "availableFrom": "2022-05-28T18:31:02.791Z",
+    "availableTo": "2022-06-25T18:31:02.791Z",
+    "address": "0801 Emerson Dr, Marquette, MI 66506",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 25,
-    "user_id": 12,
-    "title": "Oriental Trading Company Inflatable Bouncy House",
+    "user_id": 10,
+    "title": "EzJump Wedding Arch",
     "category": "Events",
-    "brand": "Oriental Trading Company",
+    "brand": "EzJump",
     "model": "",
-    "itemDescription": "Inflatable Bouncy House -In used condition",
-    "price": 84,
-    "min_price": 39,
-    "availableFrom": "2022-06-10T01:27:01.622Z",
-    "availableTo": "2022-07-14T01:27:01.622Z",
-    "address": "8247 MillPond Ct, Houghton, MI 88060",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Wedding Arch -In excellent condition",
+    "price": 73,
+    "nyop": 1,
+    "min_price": 32,
+    "availableFrom": "2022-06-07T18:31:02.791Z",
+    "availableTo": "2022-07-08T18:31:02.791Z",
+    "address": "6156 Emerson Ct, Marquette, MI 91264",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 26,
-    "user_id": 1,
-    "title": "Good Fun LLC Outdoor Wedding Chairs x50",
-    "category": "Events",
-    "brand": "Good Fun LLC",
+    "user_id": 0,
+    "title": "Black & Decker Hex Wrench Set -all pieces there",
+    "category": "Hand Tools",
+    "brand": "Black & Decker",
     "model": "",
-    "itemDescription": "Outdoor Wedding Chairs x50 -In usable condition",
-    "price": 32,
-    "min_price": 10,
-    "availableFrom": "2022-06-06T01:27:01.622Z",
-    "availableTo": "2022-07-08T01:27:01.622Z",
-    "address": "5430 Walnut Cir, Marquette, MI 61947",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Hex Wrench Set -all pieces there -In good condition",
+    "price": 6,
+    "nyop": 1,
+    "min_price": 5,
+    "availableFrom": "2022-05-16T18:31:02.791Z",
+    "availableTo": "2022-06-01T18:31:02.791Z",
+    "address": "0834 Ellen Dr, Menominee, MI 73904",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 27,
-    "user_id": 5,
-    "title": "Craftsman Car Jack",
-    "category": "Automotive",
-    "brand": "Craftsman",
+    "user_id": 10,
+    "title": "Stanley Circular Saw",
+    "category": "Power Tools",
+    "brand": "Stanley",
     "model": "",
-    "itemDescription": "Car Jack -In usable condition",
-    "price": 68,
-    "min_price": 52,
-    "availableFrom": "2022-06-17T01:27:01.622Z",
-    "availableTo": "2022-07-31T01:27:01.622Z",
-    "address": "8532 Emerson Street, Marquette, MI 96106",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Circular Saw -In used condition",
+    "price": 95,
+    "nyop": 1,
+    "min_price": 48,
+    "availableFrom": "2022-05-10T18:31:02.791Z",
+    "availableTo": "2022-06-03T18:31:02.791Z",
+    "address": "4744 Skyline Dr, Lansing, MI 86552",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 28,
-    "user_id": 9,
-    "title": "Makita hedge trimmer",
-    "category": "Power Tools",
-    "brand": "Makita",
+    "user_id": 13,
+    "title": "Volkl Ski/Snowboard Helment -Adult Size",
+    "category": "Sports Equipment",
+    "brand": "Volkl",
     "model": "",
-    "itemDescription": "hedge trimmer -In good condition",
-    "price": 95,
-    "min_price": 19,
-    "availableFrom": "2022-06-20T01:27:01.622Z",
-    "availableTo": "2022-07-22T01:27:01.622Z",
-    "address": "0515 Walnut Rd, Lansing, MI 69275",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Ski/Snowboard Helment -Adult Size -In good condition",
+    "price": 15,
+    "nyop": 0,
+    "min_price": 9,
+    "availableFrom": "2022-05-14T18:31:02.791Z",
+    "availableTo": "2022-06-04T18:31:02.791Z",
+    "address": "2606 Willow Pkwy, Lansing, MI 59933",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
@@ -611,20 +639,21 @@
   {
     "item_id": 29,
     "user_id": 7,
-    "title": "Proto Battery Charger and Booster Cables",
-    "category": "Automotive",
-    "brand": "Proto",
+    "title": "Specialized Mountain Bike",
+    "category": "Recreational Vehicles",
+    "brand": "Specialized",
     "model": "",
-    "itemDescription": "Battery Charger and Booster Cables -In excellent condition",
-    "price": 73,
-    "min_price": 29,
-    "availableFrom": "2022-06-27T01:27:01.622Z",
-    "availableTo": "2022-08-13T01:27:01.622Z",
-    "address": "4543 Locust Rd, Houghton, MI 87082",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Mountain Bike -In great condition",
+    "price": 83,
+    "nyop": 1,
+    "min_price": 14,
+    "availableFrom": "2022-05-11T18:31:02.791Z",
+    "availableTo": "2022-05-18T18:31:02.791Z",
+    "address": "2587 Locust Cir, Lansing, MI 48099",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
@@ -632,83 +661,87 @@
   {
     "item_id": 30,
     "user_id": 1,
-    "title": "Weber Outdoor Wedding Chairs x50",
-    "category": "Events",
-    "brand": "Weber",
+    "title": "ProForm Rowing Machine",
+    "category": "Fitness",
+    "brand": "ProForm",
     "model": "",
-    "itemDescription": "Outdoor Wedding Chairs x50 -In good condition",
-    "price": 51,
-    "min_price": 13,
-    "availableFrom": "2022-06-23T01:27:01.622Z",
-    "availableTo": "2022-08-08T01:27:01.622Z",
-    "address": "3215 Pine Ct, Marquette, MI 96392",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Rowing Machine -In usable condition",
+    "price": 35,
+    "nyop": 0,
+    "min_price": 21,
+    "availableFrom": "2022-05-21T18:31:02.791Z",
+    "availableTo": "2022-06-08T18:31:02.791Z",
+    "address": "8023 MillPond Blvd, Marquette, MI 51788",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 31,
-    "user_id": 2,
-    "title": "Kobalt Circular Saw",
-    "category": "Power Tools",
-    "brand": "Kobalt",
+    "user_id": 6,
+    "title": "Mac Tools Battery Charger and Booster Cables",
+    "category": "Automotive",
+    "brand": "Mac Tools",
     "model": "",
-    "itemDescription": "Circular Saw -In great condition",
-    "price": 15,
-    "min_price": 9,
-    "availableFrom": "2022-06-26T01:27:01.622Z",
-    "availableTo": "2022-08-01T01:27:01.622Z",
-    "address": "3303 Pine Street, Menominee, MI 64287",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Battery Charger and Booster Cables -In used condition",
+    "price": 92,
+    "nyop": 1,
+    "min_price": 55,
+    "availableFrom": "2022-05-08T18:31:02.791Z",
+    "availableTo": "2022-06-04T18:31:02.791Z",
+    "address": "1084 Locust Street, Menominee, MI 77012",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 32,
-    "user_id": 0,
-    "title": "Oreck Dry Vac",
-    "category": "Cleaning",
-    "brand": "Oreck",
+    "user_id": 11,
+    "title": "Power Practical 2 person Hammock",
+    "category": "Camping",
+    "brand": "Power Practical",
     "model": "",
-    "itemDescription": "Dry Vac -In great condition",
-    "price": 64,
-    "min_price": 45,
-    "availableFrom": "2022-06-12T01:27:01.622Z",
-    "availableTo": "2022-07-15T01:27:01.622Z",
-    "address": "1351 Emerson Ct, Marquette, MI 81759",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "2 person Hammock -In excellent condition",
+    "price": 21,
+    "nyop": 0,
+    "min_price": 13,
+    "availableFrom": "2022-05-26T18:31:02.791Z",
+    "availableTo": "2022-06-20T18:31:02.791Z",
+    "address": "4012 Skyline Cir, Marquette, MI 91273",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 33,
-    "user_id": 13,
-    "title": "HARRIS boat",
+    "user_id": 1,
+    "title": "VSSL Gear 4 Person Tent",
     "category": "Camping",
-    "brand": "HARRIS",
+    "brand": "VSSL Gear",
     "model": "",
-    "itemDescription": "boat -In usable condition",
-    "price": 33,
-    "min_price": 16,
-    "availableFrom": "2022-06-11T01:27:01.622Z",
-    "availableTo": "2022-07-19T01:27:01.622Z",
-    "address": "4403 Pine Rd, Houghton, MI 69790",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "4 Person Tent -In good condition",
+    "price": 74,
+    "nyop": 1,
+    "min_price": 25,
+    "availableFrom": "2022-06-22T18:31:02.791Z",
+    "availableTo": "2022-07-26T18:31:02.791Z",
+    "address": "1388 Walnut Pkwy, Lansing, MI 92418",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
@@ -716,125 +749,131 @@
   {
     "item_id": 34,
     "user_id": 10,
-    "title": "VSSL Gear 4 sleeping bags",
-    "category": "Camping",
-    "brand": "VSSL Gear",
+    "title": "Weber Wedding Arch",
+    "category": "Events",
+    "brand": "Weber",
     "model": "",
-    "itemDescription": "4 sleeping bags -In excellent condition",
-    "price": 12,
-    "min_price": 8,
-    "availableFrom": "2022-05-31T01:27:01.622Z",
-    "availableTo": "2022-06-28T01:27:01.622Z",
-    "address": "2264 Catherine Dr, Menominee, MI 88445",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Wedding Arch -In usable condition",
+    "price": 15,
+    "nyop": 1,
+    "min_price": 11,
+    "availableFrom": "2022-05-20T18:31:02.791Z",
+    "availableTo": "2022-06-15T18:31:02.791Z",
+    "address": "8472 Moore Cir, Houghton, MI 82444",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 35,
-    "user_id": 7,
-    "title": "Valspar Paint Mixer for use with cordless drill",
-    "category": "Power Tools",
-    "brand": "Valspar",
+    "user_id": 8,
+    "title": "Volkl XL Skis -fast",
+    "category": "Sports Equipment",
+    "brand": "Volkl",
     "model": "",
-    "itemDescription": "Paint Mixer for use with cordless drill -In good condition",
-    "price": 47,
-    "min_price": 20,
-    "availableFrom": "2022-06-22T01:27:01.622Z",
-    "availableTo": "2022-08-06T01:27:01.622Z",
-    "address": "2417 Pine Ct, Lansing, MI 88287",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "XL Skis -fast -In used condition",
+    "price": 58,
+    "nyop": 1,
+    "min_price": 8,
+    "availableFrom": "2022-06-25T18:31:02.791Z",
+    "availableTo": "2022-07-31T18:31:02.791Z",
+    "address": "2336 Skyline Pkwy, Menominee, MI 87855",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 36,
-    "user_id": 0,
-    "title": "Stanley hedge trimmer",
-    "category": "Power Tools",
-    "brand": "Stanley",
+    "user_id": 5,
+    "title": "Oriental Trading Company Wedding Arch",
+    "category": "Events",
+    "brand": "Oriental Trading Company",
     "model": "",
-    "itemDescription": "hedge trimmer -In excellent condition",
-    "price": 29,
-    "min_price": 6,
-    "availableFrom": "2022-05-09T01:27:01.622Z",
-    "availableTo": "2022-05-28T01:27:01.622Z",
-    "address": "1488 Pine Pkwy, Menominee, MI 74873",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Wedding Arch -In excellent condition",
+    "price": 41,
+    "nyop": 1,
+    "min_price": 31,
+    "availableFrom": "2022-05-31T18:31:02.791Z",
+    "availableTo": "2022-06-26T18:31:02.791Z",
+    "address": "8885 Emerson Rd, Marquette, MI 54668",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 37,
-    "user_id": 5,
-    "title": "Valspar Painting trays and rollers",
-    "category": "Power Tools",
-    "brand": "Valspar",
+    "user_id": 9,
+    "title": "Proto Battery Isolators",
+    "category": "Automotive",
+    "brand": "Proto",
     "model": "",
-    "itemDescription": "Painting trays and rollers -In usable condition",
-    "price": 7,
-    "min_price": 3,
-    "availableFrom": "2022-06-16T01:27:01.622Z",
-    "availableTo": "2022-07-21T01:27:01.622Z",
-    "address": "8417 Pine Street, Houghton, MI 89871",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Battery Isolators -In excellent condition",
+    "price": 44,
+    "nyop": 0,
+    "min_price": 19,
+    "availableFrom": "2022-06-24T18:31:02.791Z",
+    "availableTo": "2022-07-24T18:31:02.791Z",
+    "address": "4624 Pine Cir, Menominee, MI 60671",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 38,
-    "user_id": 9,
-    "title": "Urban Outfitters Throw pillows",
-    "category": "Decorations",
-    "brand": "Urban Outfitters",
+    "user_id": 10,
+    "title": "Proto Auto Sander",
+    "category": "Automotive",
+    "brand": "Proto",
     "model": "",
-    "itemDescription": "Throw pillows -In used condition",
-    "price": 10,
-    "min_price": 7,
-    "availableFrom": "2022-06-14T01:27:01.622Z",
-    "availableTo": "2022-07-24T01:27:01.622Z",
-    "address": "2201 Skyline Street, Menominee, MI 58210",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "itemDescription": "Auto Sander -In usable condition",
+    "price": 25,
+    "nyop": 0,
+    "min_price": 5,
+    "availableFrom": "2022-05-07T18:31:02.791Z",
+    "availableTo": "2022-05-25T18:31:02.791Z",
+    "address": "8113 Ellen Ct, Houghton, MI 66094",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 39,
-    "user_id": 12,
-    "title": "Kobalt Chainsaw",
-    "category": "Power Tools",
-    "brand": "Kobalt",
+    "user_id": 8,
+    "title": "Octane Weight Set",
+    "category": "Fitness",
+    "brand": "Octane",
     "model": "",
-    "itemDescription": "Chainsaw -In good condition",
-    "price": 44,
-    "min_price": 30,
-    "availableFrom": "2022-06-19T01:27:01.622Z",
-    "availableTo": "2022-07-25T01:27:01.622Z",
-    "address": "5502 Baker Ct, Houghton, MI 51899",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Weight Set -In excellent condition",
+    "price": 26,
+    "nyop": 1,
+    "min_price": 13,
+    "availableFrom": "2022-06-27T18:31:02.791Z",
+    "availableTo": "2022-07-27T18:31:02.791Z",
+    "address": "5423 MillPond Rd, Menominee, MI 88942",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
