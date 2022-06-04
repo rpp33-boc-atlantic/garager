@@ -14,7 +14,8 @@ const Container = styled.div`
   // justify-self: end;
   grid-row: 1 / 3;
   grid-template-columns: 1fr;
-  justify-content: start
+  justify-content: start;
+  max-height: 50px
 
   h2 {
     margin-top: .2em;
@@ -35,7 +36,7 @@ const OwnerInfo = (props) => {
       <h4>{props.owner.address}</h4>
       <h4>Owner: {props.owner.name}</h4>
       <h4>Member Since: {props.owner.dateJoined}</h4>
-      <Link to="/Messages">
+      <Link to="/Messages" state={{ itemID: 12345 }}>
         <button>Message</button>
       </Link>
     </Container>
