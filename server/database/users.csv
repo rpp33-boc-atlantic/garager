@@ -1,16 +1,16 @@
 _key,user_id,firstName,lastName,email,userPhoto,phone,address,dateJoined,stripe_id
-0,0,Ron,Swanson,Ron.Swanson@iCloud.com,https://www.incimages.com/uploaded_files/image/1920x1080/parks-and-recreation_32716.jpg,(231)031-0580,"5543 Baker Rd, Lansing, MI 86495",2022-06-02T01:27:01.620Z,0
-1,1,Leslie,Knope,Leslie.Knope@iCloud.com,,(906)333-0862,"5140 Willow Ct, Lansing, MI 62641",2022-06-02T01:27:01.620Z,1
-2,2,Russ,Hanneman,Russ.Hanneman@iCloud.com,https://static01.nyt.com/images/2015/04/26/arts/26SILICONWEB/26SILICONWEB-tmagArticle.jpg,(231)824-1807,"7007 Locust Cir, Lansing, MI 55579",2022-06-02T01:27:01.620Z,2
-3,3,Jack,Barker,Jack.Barker@hotmail.com,,(231)132-7348,"7878 Locust Rd, Lansing, MI 50554",2022-06-02T01:27:01.620Z,3
-4,4,Michael,Scott,Michael.Scott@hotmail.com,,(616)748-5386,"4753 Catherine Cir, Menominee, MI 69287",2022-06-02T01:27:01.620Z,4
-5,5,Lorie,Bream,Lorie.Bream@hotmail.com,https://decider.com/wp-content/uploads/2017/05/suzanne-cryer-silicon-valley-2.jpg?quality=75&strip=all,(810)227-6705,"8552 Willow Rd, Houghton, MI 96440",2022-06-02T01:27:01.620Z,5
-6,6,Gavin,Belson,Gavin.Belson@yahoo.com,,(734)522-3307,"6336 Walnut Pkwy, Houghton, MI 83810",2022-06-02T01:27:01.620Z,6
-7,7,Stanley,Hudson,Stanley.Hudson@hotmail.com,,(616)156-4626,"8771 MillPond Street, Lansing, MI 65572",2022-06-02T01:27:01.620Z,7
-8,8,Kelly,Kapoor,Kelly.Kapoor@gmail.com,,(231)406-6377,"1042 Walnut Rd, Marquette, MI 96865",2022-06-02T01:27:01.620Z,8
-9,9,Tom,Haverford,Tom.Haverford@iCloud.com,https://openpsychometrics.org/tests/characters/test-resources/pics/PR/4.jpg,(586)614-6157,"5702 Pine Dr, Lansing, MI 59739",2022-06-02T01:27:01.620Z,9
-10,10,Donna,Meagle,Donna.Meagle@hotmail.com,,(810)474-6845,"2383 Ellen Dr, Marquette, MI 64780",2022-06-02T01:27:01.620Z,10
-11,11,Creed,Bratton,Creed.Bratton@gmail.com,https://static.wikia.nocookie.net/theoffice/images/2/20/2009Creed.jpg/revision/latest?cb=20170701085348,(810)342-1511,"6324 Baker Rd, Lansing, MI 59686",2022-06-02T01:27:01.620Z,11
-12,12,Bob,Loblaw,Bob.Loblaw@iCloud.com,,(810)806-0160,"3538 Skyline Dr, Houghton, MI 58499",2022-06-02T01:27:01.620Z,12
-13,13,Pierce,Hawthorne,Pierce.Hawthorne@hotmail.com,,(586)451-3737,"3484 Emerson Blvd, Menominee, MI 51665",2022-06-02T01:27:01.620Z,13
-14,14,Wanda,Maximoff,WandaVision@ucsf.edu,https://lareviewofbooks.org/wp-content/uploads/2021/03/wandavision.feat_-scaled.jpeg, 858.216.5117,"2800 Sherwood Drive, Westview, New Jersey 08801",2022-06-02T01:34:58.740Z,0
+0,0,Ron,Swanson,Ron.Swanson@iCloud.com,https://www.incimages.com/uploaded_files/image/1920x1080/parks-and-recreation_32716.jpg,(231)031-0580,"5543 Baker Rd, Lansing, MI 86495",2022-06-02T01:27:01.620Z,null
+1,1,Leslie,Knope,Leslie.Knope@iCloud.com,,(906)333-0862,"5140 Willow Ct, Lansing, MI 62641",2022-06-02T01:27:01.620Z,null
+2,2,Russ,Hanneman,Russ.Hanneman@iCloud.com,https://static01.nyt.com/images/2015/04/26/arts/26SILICONWEB/26SILICONWEB-tmagArticle.jpg,(231)824-1807,"7007 Locust Cir, Lansing, MI 55579",2022-06-02T01:27:01.620Z,null
+3,3,Jack,Barker,Jack.Barker@hotmail.com,,(231)132-7348,"7878 Locust Rd, Lansing, MI 50554",2022-06-02T01:27:01.620Z,null
+4,4,Michael,Scott,Michael.Scott@hotmail.com,,(616)748-5386,"4753 Catherine Cir, Menominee, MI 69287",2022-06-02T01:27:01.620Z,null
+5,5,Lorie,Bream,Lorie.Bream@hotmail.com,https://decider.com/wp-content/uploads/2017/05/suzanne-cryer-silicon-valley-2.jpg?quality=75&strip=all,(810)227-6705,"8552 Willow Rd, Houghton, MI 96440",2022-06-02T01:27:01.620Z,null
+6,6,Gavin,Belson,Gavin.Belson@yahoo.com,,(734)522-3307,"6336 Walnut Pkwy, Houghton, MI 83810",2022-06-02T01:27:01.620Z,null
+7,7,Stanley,Hudson,Stanley.Hudson@hotmail.com,,(616)156-4626,"8771 MillPond Street, Lansing, MI 65572",2022-06-02T01:27:01.620Z,null
+8,8,Kelly,Kapoor,Kelly.Kapoor@gmail.com,,(231)406-6377,"1042 Walnut Rd, Marquette, MI 96865",2022-06-02T01:27:01.620Z,null
+9,9,Tom,Haverford,Tom.Haverford@iCloud.com,https://openpsychometrics.org/tests/characters/test-resources/pics/PR/4.jpg,(586)614-6157,"5702 Pine Dr, Lansing, MI 59739",2022-06-02T01:27:01.620Z,null
+10,10,Donna,Meagle,Donna.Meagle@hotmail.com,,(810)474-6845,"2383 Ellen Dr, Marquette, MI 64780",2022-06-02T01:27:01.620Z,null
+11,11,Creed,Bratton,Creed.Bratton@gmail.com,https://static.wikia.nocookie.net/theoffice/images/2/20/2009Creed.jpg/revision/latest?cb=20170701085348,(810)342-1511,"6324 Baker Rd, Lansing, MI 59686",2022-06-02T01:27:01.620Z,null
+12,12,Bob,Loblaw,Bob.Loblaw@iCloud.com,,(810)806-0160,"3538 Skyline Dr, Houghton, MI 58499",2022-06-02T01:27:01.620Z,null
+13,13,Pierce,Hawthorne,Pierce.Hawthorne@hotmail.com,,(586)451-3737,"3484 Emerson Blvd, Menominee, MI 51665",2022-06-02T01:27:01.620Z,null
+14,14,Wanda,Maximoff,WandaVision@ucsf.edu,https://lareviewofbooks.org/wp-content/uploads/2021/03/wandavision.feat_-scaled.jpeg, 858.216.5117,"2800 Sherwood Drive, Westview, New Jersey 08801",2022-06-02T01:34:58.740Z,null
