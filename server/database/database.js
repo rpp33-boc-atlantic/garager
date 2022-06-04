@@ -1,8 +1,8 @@
 require('dotenv').config();
 const RDS_PASSWORD = require('../../config.js').RDS_PASSWORD;
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   user: 'garagerAdmin',
   host: 'garager.c11jhqw8tzhf.us-east-1.rds.amazonaws.com',
   database: 'garager',
@@ -18,4 +18,4 @@ const client = new Client({
 //   }
 // });
 
-module.exports = client;
+module.exports = pool;
