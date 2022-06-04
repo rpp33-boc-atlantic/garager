@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-
 require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -11,16 +10,13 @@ const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
 const browseRoutes = require('./routes/browse.routes.js');
 const postItemRouter = require('./routes/postItem.routes.js');
+
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
-app.use('/account/', accountRouter);
-app.use('/messages', messagesRoutes);
-app.use('/checkout', checkoutRoutes);
-app.use('/postItem', postItemRouter);
 
 // session needed for creating stripe accounts
 app.use(
@@ -40,9 +36,12 @@ app.get('/test', (req, res) => {
   res.send('hi');
 });
 
+// ROUTES SETUP
+app.use('/account/', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/browse', browseRoutes);
+app.use('/postItem', postItemRouter);
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {

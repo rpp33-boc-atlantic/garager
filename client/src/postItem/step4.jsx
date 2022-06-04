@@ -89,7 +89,6 @@ const Step4 = (props) => {
               <div>
                 <Form.Control
                   required
-                  pattern="//g"
                   {...getInputProps({
                     placeholder: 'Search Places ...',
                     className: 'location-search-input',
