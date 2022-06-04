@@ -9,7 +9,19 @@ module.exports = {
     post: async (req, res) => {
       try {
         console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
-        // THINGS I NEED: owner's stripe account id, once successful - data range to make call to database to make it unavailable
+        // THINGS I NEED: 
+        // transaction_id SERIAL PRIMARY KEY, 
+        // rate INT NOT NULL DEFAULT NULL, <-- from RentForm
+        // pickUpDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
+        // returnDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
+        // owner_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
+        // renter_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
+        // item_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
+        // paymentIntent_id TEXT DEFAULT NULL <-- INPUT AFTER WEBHOOK
+        
+        // INSERT first with NOT NULL data (rate, pickUpDate, returnDate) and get transaction_id
+        // Put transaction_id, owner_id, renter_id, item_id into metadata object
+
         const checkoutSession = await stripe.checkout.sessions.create({
           line_items: [
             {
@@ -26,6 +38,12 @@ module.exports = {
           mode: 'payment',
           success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${req.body.itemID}`,
           cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
+          metadata: { // ***** REFACTOR: once all data is passed down from RentForm
+            transaction_id: 12345,
+            owner_id: 0,
+            renter_id: 1,
+            item_id: 0,
+          }
         }, {
           stripeAccount: 'acct_1L65TH4covfuEldK', // ***** REFACTOR WITH OWNER'S STRIPE ACCOUNT ID
         });
