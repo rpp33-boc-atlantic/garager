@@ -21,7 +21,6 @@ import Profile from './account/Profile.jsx';
 import Homepage from './Homepage.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
-import StripeAccountSetup from './checkout/StripeAccountSetup.jsx';
 import NavLinks from './utils/NavLinks.jsx';
 import { io } from 'socket.io-client';
 import PrivateRoute from './authentication/privateRoute.jsx';
@@ -42,7 +41,9 @@ root.render(
         <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
           <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
-          <Route path='Item' element={<PrivateRoute><Item /></PrivateRoute>} />
+          <Route path='Item' element={<PrivateRoute><Item /></PrivateRoute>}>
+            <Route path=':id' element={<PrivateRoute><Item /></PrivateRoute>} />
+          </Route>
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
           <Route path='Messages' element={<PrivateRoute><Messages socketIO={ socketIO }/></PrivateRoute>} />
@@ -51,7 +52,6 @@ root.render(
           <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
           <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />
-          <Route path='/Stripe-Account-Setup' element={<PrivateRoute><StripeAccountSetup /></PrivateRoute>} />
         </Route>
       </Routes>
     </UserAuthContextProvider>
