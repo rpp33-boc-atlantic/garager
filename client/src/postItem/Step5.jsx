@@ -3,7 +3,7 @@ import Calendar, { onClickDay } from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Form, Button } from 'react-bootstrap';
 
-//step5 includes time availability
+//step5 includes time availability.
 
 const Step5 = (props) => {
   const { values, changeToPrevious, handSelectDate, handlePost } = props;
