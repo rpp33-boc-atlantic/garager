@@ -18,12 +18,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
-app.use('/account/', accountRouter);
-app.use('/messages', messagesRoutes);
-app.use('/checkout', checkoutRoutes);
-app.use('/item', itemRoutes);
 
-// session needed for creating stripe accounts
+// *NOTE: PLEASE KEEP ABOVE ROUTES SETUP* Session needed for creating stripe accounts
 app.use(
   session({
     secret: 'atlantic BOC',
@@ -31,6 +27,15 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+// ROUTES SETUP
+app.use('/account/', accountRouter);
+app.use('/messages', messagesRoutes);
+app.use('/checkout', checkoutRoutes);
+app.use('/item', itemRoutes);
+app.use('/browse', browseRoutes);
+app.use('/postItem', postItemRouter);
+
 
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
@@ -41,6 +46,7 @@ app.get('/test', (req, res) => {
   res.send('hi');
 });
 
+<<<<<<< HEAD
 // ROUTES SETUP
 app.use('/account/', accountRouter);
 app.use('/messages', messagesRoutes);
@@ -49,6 +55,8 @@ app.use('/browse', browseRoutes);
 app.use('/postItem', postItemRouter);
 app.use('/auth', authRouter);
 
+=======
+>>>>>>> main
 // All other routes must go above this function
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
