@@ -3,20 +3,33 @@ const pool = require('../database/database.js');
 module.exports = {
   registerUser: {
     post: async (firstName, lastName, email, callback) => {
-      let registerUserInfo = `INSERT INTO users (firstName, lastName, email)
-      VALUES (${firstName}, ${lastName}, ${email})
-      ON CONFLICT
-      DO NOTHING`;
+      const registerUserInfo = {
+        text: 'INSERT INTO users (firstName, lastName, email) VALUES ($1, $2, $3) ON CONFLICT DO NOTHING RETURNING user_id',
+        values: [firstName, lastName, email]
+      };
 
       await pool.query(registerUserInfo, (err, res) => {
         if (err) {
           callback(err, null);
         } else {
-          callback(null, res);
+          console.log('database res', res.rows[0]);
+          callback(null, res.rows[0]);
         }
       });
     },
+
+    get: async (email) => {
+      const getUserId = `SELECT user_id FROM users WHERE email = ${email}`;
+      await pool.query(getUserId, (err, res) => {
+        if (err) {
+          callback(err, null);
+        } else {
+          callback(null, res.rows[0]);
+        }
+      });
+    }
   },
 };
+
 
 
