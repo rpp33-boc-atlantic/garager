@@ -1,4 +1,18 @@
-[
+-- create unlogged table items_import (doc json);
+
+-- \copy items_import from '/Users/jo/Desktop/RPP33_Repos/garager/server/database/items.json';
+
+-- insert into items (item_id, user_id, title, category, brand, model, itemDescription, price, nyop, min_price, availableFrom, availableTo, address, latLng, photos)
+-- select p.*
+-- from items_import l
+--   cross join lateral json_populate_recordset(null::items, doc) as p
+-- on conflict (item_id) do update 
+--   set name = excluded.name, 
+--       comment = excluded.comment;
+
+with items_json (doc) as (
+   values 
+    ('[
   {
     "item_id": 0,
     "user_id": 2,
@@ -839,4 +853,9 @@
       ""
     ]
   }
-]
+]'::json)
+)
+insert into items (item_id, user_id, title, category, brand, model, itemDescription, price, nyop, min_price, availableFrom, availableTo, address, latLng, photos)
+select p.*
+from items_json l
+  cross join lateral json_populate_recordset(null::items, doc) as p;
