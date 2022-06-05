@@ -34,9 +34,7 @@ var nouns = [
   ['Electric bike', 'Mountain Bike', 'Skateboard', 'Moped'],
   ['XL Skis -fast', 'child size Skis', 'Snowboard', 'Ski/Snowboard Helment -Adult Size']];
 var latlongs = [['47.121132', '-88.569420'], ['46.547581', '-87.395592'], ['46.233333', '-86.35']];
-var categories = ['audio/visual', 'automotive', 'boating', 'camping', 'cleaning', 'decorations', 'events', 'fitness', 'gardening',
-  'hand tools', 'power tools',
-  'home repair', 'recreational vehicles', 'sports'];
+var categories = ['Audio/Visual', 'Automotive', 'Camping', 'Cleaning', 'Decorations', 'Events', 'Fitness', 'Gardening', 'Hand Tools', 'Power Tools', 'Recreational Vehicles', 'Sports Equipment'];
 
 var brands = [
   ['Draper', 'Anthem', 'Severtson', 'Niles'],
@@ -55,7 +53,7 @@ var brands = [
   ['Fischer', 'Armada', 'Line', 'Volkl']];
 
 var condition = ['excellent', 'used', 'good', 'great', 'usable'];
-var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
+var owners = ['Wanda Maximoff', 'Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
 
 var random = function (min = 0, max) {
 
@@ -90,6 +88,8 @@ module.exports = createItems = function (owners) {
     item['itemDescription'] = nouns[categoryNum][oneToFour] + ' -In ' + condition[conditionIndex] + ' condition';
     // set price
     item['price'] = Math.floor((Math.random() * 100) + 4);
+    // set nyop
+    item['nyop'] = false;
     // set minimum price
     item['min_price'] = Math.floor((Math.random() * item['price'] * .75) + 2);
     // set avaliableFrom
@@ -112,6 +112,8 @@ module.exports = createItems = function (owners) {
   // console.log('>', gear);
 
   let data = JSON.stringify(gear, null, 2);
-  fs.writeFileSync('client/src/data/dataFunctions/items.json', data);
+  fs.writeFileSync('/Users/jo/Desktop/RPP33_Repos/garager/server/database/items.json', data);
 
 };
+
+createItems(owners);
