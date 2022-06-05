@@ -10,12 +10,9 @@ const pool = new Pool({
   port: 5432
 });
 
-// client.connect((err, res) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('connected to GARAGER database');
-//   }
-// });
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
 
 module.exports = pool;
