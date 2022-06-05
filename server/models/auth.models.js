@@ -1,4 +1,4 @@
-const client = require('../database/database.js');
+const pool = require('../database/database.js');
 
 module.exports = {
   registerUser: {
@@ -6,8 +6,7 @@ module.exports = {
       let registerUserInfo = `INSERT INTO users (firstName, lastName, email)
       VALUES (${firstName}, ${lastName}, ${email})
       ON CONFLICT
-      DO NOTHING
-      RETURNING user_id`;
+      DO NOTHING`;
 
       await pool.query(registerUserInfo, (err, res) => {
         if (err) {
@@ -19,3 +18,5 @@ module.exports = {
     },
   },
 };
+
+

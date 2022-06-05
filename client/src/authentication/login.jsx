@@ -9,6 +9,7 @@ import {
   linkWithCredential
 } from 'firebase/auth';
 import { auth } from '../firebase';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,11 +24,26 @@ const Login = () => {
     setError('');
     try {
       await logIn(email, password);
-      //redirect user to homepage
       navigate('/');
     } catch (err) {
       setError(err.message);
     }
+  };
+
+  const registerFB = (firebaseRes) => {
+    let name = firebaseRes.user.displayName.split(' ');
+    let firstName = name[0];
+    let lastName = name[1];
+    let email = firebaseRes.user.email;
+    let bodyParam = {firstName, lastName, email};
+    console.log('bodyParam', bodyParam);
+    axios.post('/auth', bodyParam)
+      .then((res) => {
+        console.log('user id should return', res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   const handleFacebookSignIn = async (event) => {
@@ -35,8 +51,8 @@ const Login = () => {
     try {
       await facebookSignIn()
         .then((res) => {
-          //console.log(res.user);
           //redirect user to homepage
+          registerFB(res);
           navigate('/');
         })
         .catch((err) => {
