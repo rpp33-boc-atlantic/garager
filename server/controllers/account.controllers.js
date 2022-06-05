@@ -2,19 +2,22 @@
 
 file naming example: accounts.controllers.js, postItem.contollers.js (you can name it as you wish)
 */
-const models = require('../models/example.models.js');
+const models = require('../models/account.models.js');
 
 module.exports = {
   upcomingRentals: {
     get: (req, res) => {
-      res.send('this route will send back current transaction information');
-      /* models.example.get(itemId, (err, data) => {
+      let itemId = req.query.item_id;
+      // res.send('this route will send back current transaction information');
+      models.get_rentals.get(itemId, (err, data) => {
         if (err) {
+          console.log('err', err);
           res.status(500).send(err);
         } else {
+          console.log('data', data);
           res.send(data);
         }
-      });*/
+      });
 
     },
   },
