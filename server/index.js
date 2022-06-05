@@ -35,6 +35,7 @@ app.use('/checkout', checkoutRoutes);
 app.use('/item', itemRoutes);
 app.use('/browse', browseRoutes);
 app.use('/postItem', postItemRouter);
+app.use('/auth', authRouter);
 
 
 app.get('/s3url', async (req, res) => {
@@ -46,17 +47,6 @@ app.get('/test', (req, res) => {
   res.send('hi');
 });
 
-<<<<<<< HEAD
-// ROUTES SETUP
-app.use('/account/', accountRouter);
-app.use('/messages', messagesRoutes);
-app.use('/checkout', checkoutRoutes);
-app.use('/browse', browseRoutes);
-app.use('/postItem', postItemRouter);
-app.use('/auth', authRouter);
-
-=======
->>>>>>> main
 // All other routes must go above this function
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
