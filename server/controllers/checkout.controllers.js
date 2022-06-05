@@ -3,7 +3,6 @@ const { STRIPE_SECRET_KEY, STRIPE_SECRET_ENDPOINT } = require('../../config.js')
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
 const YOUR_DOMAIN = 'http://localhost:3000';
 const models = require('../models/checkout.models.js');
-const endpointSecret = STRIPE_SECRET_ENDPOINT;
 
 module.exports = {
   checkoutSession: {
@@ -39,11 +38,13 @@ module.exports = {
           mode: 'payment',
           success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${req.body.itemID}`,
           cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
-          metadata: { // ***** REFACTOR: once all data is passed down from RentForm
-            transaction_id: 12345,
-            owner_id: 0,
-            renter_id: 1,
-            item_id: 0,
+          payment_intent_data: {
+            metadata: { // ***** REFACTOR: once all data is passed down from RentForm
+              transaction_id: 123456,
+              owner_id: 0,
+              renter_id: 1,
+              item_id: 0,
+            }
           }
         }, {
           stripeAccount: 'acct_1L65TH4covfuEldK', // ***** REFACTOR WITH OWNER'S STRIPE ACCOUNT ID
@@ -159,22 +160,27 @@ module.exports = {
   },
   webhook: {
     post: (req, res) => {
-      const sig = request.headers['stripe-signature'];
+      const sig = req.headers['stripe-signature'];
 
       let event;
 
       try {
-        event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(req.body, sig, STRIPE_SECRET_ENDPOINT);
       } catch (err) {
-        response.status(400).send(`Webhook Error: ${err.message}`);
+        console.log('ERROR IN WEBHOOK', err.message);
+        res.status(400).send(`Webhook Error: ${err.message}`);
         return;
       }
+
+      console.log('event type', event.type);
+      console.log('event data object', event.data.object);
 
       // Handle the event
       switch (event.type) {
       case 'payment_intent.succeeded':
         const paymentIntent = event.data.object;
-        // Then define and call a function to handle the event payment_intent.succeeded
+        console.log('INSIDE PAYMENT SUCCESS', paymentIntent);
+        // GO TO DATABASE AND UPDATE TRANSACTIONS TABLE WITH PAYMENTINTENT_ID AND PAYMENT_STATUS USING METADATA'S TRANSACTION_ID
         break;
         // ... handle other event types
       default:
@@ -182,7 +188,7 @@ module.exports = {
       }
 
       // Return a 200 response to acknowledge receipt of the event
-      response.send();
+      res.send();
     }
   }
 };

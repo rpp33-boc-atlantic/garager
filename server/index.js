@@ -14,6 +14,9 @@ const postItemRouter = require('./routes/postItem.routes.js');
 
 const app = express();
 
+// Outlier route for Stripe Webhooks (needs to be above bodyParser)
+app.use('/checkout/webhook', checkoutRoutes);
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

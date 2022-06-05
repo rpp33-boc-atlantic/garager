@@ -5,6 +5,7 @@ const config = {
   port: process.env.PORT || 3000,
   MAPS_API_KEY: process.env.MAPS_API_KEY,
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+  STRIPE_SECRET_ENDPOINT: process.env.STRIPE_SECRET_ENDPOINT,
   RDS_PASSWORD: process.env.RDS_PASSWORD
 };
 
