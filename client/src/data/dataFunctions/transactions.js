@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 //audio/visual, automotive, camping, decorations, events, fitness, gardening, hand tools,  power tools, ,, , , sports, recreational vehicles,
 
-// var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
+var fullnames = ['Wanda Maximoff', 'Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
 var transactions = [];
 var fs = require('fs');
 
@@ -41,6 +41,9 @@ module.exports = createTransactions = function (fullnames) {
     transaction['renter_id'] = renter_id;
     //set item_id
     transaction['item_id'] = random(0, 20);
+    transaction['paymentIntent_id'] = '';
+    transaction['refunded'] = false;
+    transaction['payment_status'] = '';
 
     // remove eventually
     // transaction['owner_name'] = fullnames[owner_id];
@@ -52,5 +55,7 @@ module.exports = createTransactions = function (fullnames) {
   // console.log(transactions);
 
   let data = JSON.stringify(transactions, null, 2);
-  fs.writeFileSync('client/src/data/dataFunctions/transactions.json', data);
+  fs.writeFileSync('/Users/jo/Desktop/RPP33_Repos/garager/server/database/transactions.json', data);
 };
+
+createTransactions(fullnames);
