@@ -8,7 +8,7 @@
     "phone": "(231)031-0580",
     "address": "5543 Baker Rd, Lansing, MI 86495",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 0
+    "stripe_id": null
   },
   "1": {
     "user_id": 1,
@@ -19,7 +19,7 @@
     "phone": "(906)333-0862",
     "address": "5140 Willow Ct, Lansing, MI 62641",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 1
+    "stripe_id": null
   },
   "2": {
     "user_id": 2,
@@ -30,7 +30,7 @@
     "phone": "(231)824-1807",
     "address": "7007 Locust Cir, Lansing, MI 55579",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 2
+    "stripe_id": null
   },
   "3": {
     "user_id": 3,
@@ -41,7 +41,7 @@
     "phone": "(231)132-7348",
     "address": "7878 Locust Rd, Lansing, MI 50554",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 3
+    "stripe_id": null
   },
   "4": {
     "user_id": 4,
@@ -52,7 +52,7 @@
     "phone": "(616)748-5386",
     "address": "4753 Catherine Cir, Menominee, MI 69287",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 4
+    "stripe_id": null
   },
   "5": {
     "user_id": 5,
@@ -63,7 +63,7 @@
     "phone": "(810)227-6705",
     "address": "8552 Willow Rd, Houghton, MI 96440",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 5
+    "stripe_id": null
   },
   "6": {
     "user_id": 6,
@@ -74,7 +74,7 @@
     "phone": "(734)522-3307",
     "address": "6336 Walnut Pkwy, Houghton, MI 83810",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 6
+    "stripe_id": null
   },
   "7": {
     "user_id": 7,
@@ -85,7 +85,7 @@
     "phone": "(616)156-4626",
     "address": "8771 MillPond Street, Lansing, MI 65572",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 7
+    "stripe_id": null
   },
   "8": {
     "user_id": 8,
@@ -96,7 +96,7 @@
     "phone": "(231)406-6377",
     "address": "1042 Walnut Rd, Marquette, MI 96865",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 8
+    "stripe_id": null
   },
   "9": {
     "user_id": 9,
@@ -107,7 +107,7 @@
     "phone": "(586)614-6157",
     "address": "5702 Pine Dr, Lansing, MI 59739",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 9
+    "stripe_id": null
   },
   "10": {
     "user_id": 10,
@@ -118,7 +118,7 @@
     "phone": "(810)474-6845",
     "address": "2383 Ellen Dr, Marquette, MI 64780",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 10
+    "stripe_id": null
   },
   "11": {
     "user_id": 11,
@@ -129,7 +129,7 @@
     "phone": "(810)342-1511",
     "address": "6324 Baker Rd, Lansing, MI 59686",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 11
+    "stripe_id": null
   },
   "12": {
     "user_id": 12,
@@ -140,7 +140,7 @@
     "phone": "(810)806-0160",
     "address": "3538 Skyline Dr, Houghton, MI 58499",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 12
+    "stripe_id": null
   },
   "13": {
     "user_id": 13,
@@ -151,7 +151,7 @@
     "phone": "(586)451-3737",
     "address": "3484 Emerson Blvd, Menominee, MI 51665",
     "dateJoined": "2022-06-02T01:27:01.620Z",
-    "stripe_id": 13
+    "stripe_id": null
   },
   "14": {
     "user_id": 14,
@@ -162,6 +162,6 @@
     "phone": " 858.216.5117",
     "address": "2800 Sherwood Drive, Westview, New Jersey 08801",
     "dateJoined": "2022-06-02T01:34:58.740Z",
-    "stripe_id": 0
+    "stripe_id": null
   }
 }

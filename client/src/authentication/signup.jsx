@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
+
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  //pass sign up function using useUserAuth hook
-  const { signUp } = useUserAuth();
+  //pass sign up function using useUserAuth custom hook
+  const { signUp, logOut} = useUserAuth();
   //redirect user back to login page after sign up
   const navigate = useNavigate();
 
@@ -16,8 +17,9 @@ const Signup = () => {
     setError('');
     try {
       await signUp(email, password);
-      //redirect user back to login page after sign up
+      logOut();
       navigate('/login');
+      //redirect user back to login page after sign up
     } catch (err) {
       setError(err.message);
     }
@@ -38,10 +40,12 @@ const Signup = () => {
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value)}/>
                 </Form.Group>
+                <br></br>
                 <Form.Group id='password'>
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder='Password' onChange = {(e) => setPassword(e.target.value)}/>
                 </Form.Group>
+                <br></br>
                 <Button className = 'w-100' type='submit'>Sign Up</Button>
               </Form>
               <div className='w-100 text-center mt-2'>
