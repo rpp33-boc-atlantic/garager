@@ -1,40 +1,46 @@
+import ladder1 from './samplePhotos/ladder1.jpeg';
+import ladder2 from './samplePhotos/ladder2.jpeg';
+import ladder3 from './samplePhotos/ladder3.jpeg';
+
+
 var option1 = {
-  name: 'Gorilla ladder',
   itemID: 1234,
-  details: {
-    brand: 'Bri-Mar',
-    model: '3500 lb. Dual Acle',
-    description: 'The tallest ladder you\'ll ever rent!!! You\'ll use it all the time! Believe me, I am not lying!'
-  },
+  name: 'Gorilla ladder',
+  brand: 'Bri-Mar',
+  brand: null,
+  model: '3500 lb. Dual Acle',
+  // model: '',
+  description: 'The tallest ladder you\'ll ever rent!!! You\'ll use it all the time! Believe me, I am not lying!',
+  availableFrom: '2022-06-01',
+  availableTo: '2022-06-30',
   availability: true,
-  formInfo: {
-    price: 25,
-    nameYourOwnPrice: true,
-    minimumPrice: 20,
-  },
-  images: [],
+  price: 25,
+  nameYourOwnPrice: true,
+  minimumPrice: 20,
+  images: [ladder1, ladder2, ladder3],
+  rangesBooked: [['2022-06-03', '2022-06-07'], ['2022-06-15', '2022-06-20']],
   owner: {
+    id: 6848,
     name: 'Tom Haverford',
+    email: 'burtbee8@gmail.com',
     dateJoined: 'July 2022',
     address: 'Pawnee, Indiana'
-  },
+  }
 };
 
+
 var option2 = {
-  name: 'Glamorous Tent',
   itemID: 1235,
-  details: {
-    brand: 'Patagonia',
-    model: '89',
-    description: 'Go glamping with this tent!'
-  },
+  name: 'Glamorous Tent',
+  brand: 'Patagonia',
+  model: '89',
+  description: 'Go glamping with this tent!',
   availability: true,
-  formInfo: {
-    price: 50,
-    nameYourOwnPrice: false,
-    minimumPrice: null,
-  },
-  images: [],
+  price: 50,
+  nameYourOwnPrice: false,
+  minimumPrice: null,
+  images: [ladder1],
+  rangesBooked: [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']],
   owner: {
     name: 'Donna Meagle',
     dateJoined: 'March 2022',
@@ -43,20 +49,17 @@ var option2 = {
 };
 
 var option3 = {
-  name: 'Glamorous Tent',
   itemID: 1235,
-  details: {
-    brand: 'Patagonia',
-    model: '89',
-    description: 'Go glamping with this tent!'
-  },
+  name: 'Glamorous Tent',
+  brand: 'Patagonia',
+  model: '89',
+  description: 'Go glamping with this tent!',
   availability: false,
-  formInfo: {
-    price: 50,
-    nameYourOwnPrice: false,
-    minimumPrice: null,
-  },
+  price: 50,
+  nameYourOwnPrice: false,
+  minimumPrice: null,
   images: [],
+  rangesBooked: [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']],
   owner: {
     name: 'Donna Meagle',
     dateJoined: 'February 2018',

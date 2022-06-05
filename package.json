@@ -7,6 +7,7 @@
     "test": "jest --watch --coverage ./tests",
     "test:messages": "jest --coverage tests/messages.test.js",
     "test:authentication": "jest tests/authTest/ --detectOpenHandles --collectCoverage",
+    "test:postItem": "jest --coverage tests/post-item.test.js",
     "ci:test": "jest --ci ./tests",
     "build-dev": "webpack --mode development --watch",
     "build-docker": "webpack --mode development",
@@ -46,6 +47,7 @@
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-calendar": "^3.7.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.3.1",
     "react-images-uploading": "^3.1.6",
@@ -58,6 +60,7 @@
     "stripe": "^9.4.0",
     "styled-components": "^5.3.5",
     "supertest": "^6.2.3",
+    "underscore": "^1.13.3",
     "util.promisify": "^1.1.1"
   },
   "devDependencies": {
