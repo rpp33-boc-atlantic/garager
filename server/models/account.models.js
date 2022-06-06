@@ -8,7 +8,7 @@ module.exports = {
       // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
       console.log('itemId', itemId);
       const query = {
-        text: `Select * FROM transactions WHERE owner_id = $1`,
+        text: `Select * FROM transactions WHERE renter_id = $1`,
         // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
         values: [itemId]
       };
