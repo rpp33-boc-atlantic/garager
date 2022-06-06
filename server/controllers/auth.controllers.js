@@ -4,7 +4,7 @@ const models = require('../models/auth.models.js');
 module.exports = {
   registerUser: {
     post: (req, res) => {
-      console.log('reqBody', req.body);
+      //console.log('reqBody', req.body);
       let email = req.body.email;
       let firstName = req.body.firstName;
       let lastName = req.body.lastName;
@@ -18,5 +18,18 @@ module.exports = {
         }
       });
     },
+
+    get: (req, res) => {
+      let email = req.query.email;
+      //console.log('req email', email);
+      models.registerUser.get(email, (err, data) => {
+        if (err) {
+          res.status(404);
+          console.log(err.message);
+        } else {
+          res.send(data);
+        }
+      });
+    }
   },
 };

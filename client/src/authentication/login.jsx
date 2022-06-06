@@ -39,7 +39,24 @@ const Login = () => {
     console.log('bodyParam', bodyParam);
     axios.post('/auth', bodyParam)
       .then((res) => {
-        console.log('user id should return', res);
+
+        if (res.data !== '') {
+          console.log('post res', res.data.user_id);
+        }
+
+        if (res.data === '') {
+          axios.get('/auth', {
+            params: {
+              email: email
+            }
+          })
+            .then((res) => {
+              console.log('get res', res.data.user_id);
+            })
+            .catch((err) => {
+              console.log('err getting user id', err.message);
+            });
+        }
       })
       .catch((err) => {
         console.log(err.message);

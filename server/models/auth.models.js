@@ -18,12 +18,20 @@ module.exports = {
       });
     },
 
-    get: async (email) => {
-      const getUserId = `SELECT user_id FROM users WHERE email = ${email}`;
+    get: async (email, callback) => {
+      /*const getUserId = `SELECT user_id FROM users WHERE email = 'arielddw@gmail.com'`;*/
+      console.log('user email', email);
+      const getUserId = {
+        text: 'SELECT user_id FROM users WHERE email = ($1) ',
+        values: [email]
+      };
+      //const getUserId = `SELECT user_id FROM users WHERE email = ${email}`;
       await pool.query(getUserId, (err, res) => {
         if (err) {
+          console.log(err.message);
           callback(err, null);
         } else {
+          console.log('database res', res.rows[0]);
           callback(null, res.rows[0]);
         }
       });
