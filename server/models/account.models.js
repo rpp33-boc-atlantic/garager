@@ -6,9 +6,11 @@ module.exports = {
     get: (renter_id, callback) => {
       // get stuff from database
       // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-      // console.log('itemId', itemId);
+      console.log('renter_id', renter_id);
       const query = {
-        text: `Select * FROM transactions WHERE renter_id = $1`,
+        // text: `Select * FROM transactions WHERE renter_id = $1`,
+        text: `SELECT title, concat_ws(' ',firstName, lastName), rate, pickupdate, returndate FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
+        //  SELECT title, concat_ws(' ',firstName, lastName) as owner, price, pickupdate, returndate FROM transactions, users,items  WHERE renter_id = 3 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id;
         // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
         values: [renter_id]
       };
@@ -20,10 +22,10 @@ module.exports = {
     },
   },
   get_listings: {
-    get: (itemId, callback) => {
+    get: (owner_id, callback) => {
       // get stuff from database
       // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-      console.log('owner_id', itemId);
+      console.log('owner_id', owner_id);
       const query = {
         text: `Select * FROM items, transactions WHERE owner_id = $1`,
         // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
