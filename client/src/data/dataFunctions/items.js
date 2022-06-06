@@ -105,11 +105,11 @@ module.exports = createItems = function (owners) {
     item['min_price'] = Math.floor((Math.random() * item['price'] * .75) + 2);
     // set avaliableFrom
     item['availableFrom'] = new Date();
-    var firstDate = random(-30, 0);
+    var firstDate = random(-40, 0);
     item['availableFrom'].setDate(item['availableFrom'].getDate() + firstDate);
 
 
-    var secondDate = random(firstDate + 30, firstDate + 90);
+    var secondDate = random(firstDate + 120, firstDate + 180);
     item['availableTo'] = new Date();
     item['availableTo'].setDate(item['availableTo'].getDate() + secondDate);
     item['address'] = randomAddress();
