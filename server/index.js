@@ -8,6 +8,7 @@ const generateUploadURL = require('./s3.js');
 const accountRouter = require('./routes/account.routes.js');
 const messagesRoutes = require('./routes/messages.routes.js');
 const checkoutRoutes = require('./routes/checkout.routes.js');
+const itemRoutes = require('./routes/item.routes.js');
 const browseRoutes = require('./routes/browse.routes.js');
 const postItemRouter = require('./routes/postItem.routes.js');
 
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
 
-// session needed for creating stripe accounts
+// *NOTE: PLEASE KEEP ABOVE ROUTES SETUP* Session needed for creating stripe accounts
 app.use(
   session({
     secret: 'atlantic BOC',
@@ -26,6 +27,15 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+// ROUTES SETUP
+app.use('/account/', accountRouter);
+app.use('/messages', messagesRoutes);
+app.use('/checkout', checkoutRoutes);
+app.use('/item', itemRoutes);
+app.use('/browse', browseRoutes);
+app.use('/postItem', postItemRouter);
+
 
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
@@ -35,13 +45,6 @@ app.get('/s3url', async (req, res) => {
 app.get('/test', (req, res) => {
   res.send('hi');
 });
-
-// ROUTES SETUP
-app.use('/account/', accountRouter);
-app.use('/messages', messagesRoutes);
-app.use('/checkout', checkoutRoutes);
-app.use('/browse', browseRoutes);
-app.use('/postItem', postItemRouter);
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {

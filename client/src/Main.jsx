@@ -5,6 +5,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useParams
 } from 'react-router-dom';
 import App from './App.jsx';
 import FAQ from './FAQ.jsx';
@@ -41,7 +42,7 @@ root.render(
         <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
           <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
-          <Route path='Item' element={<PrivateRoute><Item /></PrivateRoute>} />
+          <Route path='Item/:id' element={<PrivateRoute><Item /></PrivateRoute>} />
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
           <Route path='Messages' element={<PrivateRoute><Messages socketIO={ socketIO }/></PrivateRoute>} />
