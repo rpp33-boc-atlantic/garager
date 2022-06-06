@@ -20,29 +20,29 @@ const Messages = ( props ) => {
   const location = useLocation();
 
   let itemID = null;
-  if (location.state) {
+  if ( location.state ) {
     itemID = location.state.itemID;
   }
 
   useEffect(() => {
-    if (itemID && !threadAdded) {
+    if ( itemID && !threadAdded ) {
       updateThreadAdded(true);
       addThread();
     }
-    if (threads.length === 0 && user.email) {
-      getThreads();
-    }
-    if (user.email) {
+    if ( user.email ) {
       getUserInfo();
+    }
+    if ( threads.length === 0 && user.email ) {
+      getThreads();
     }
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
     });
-  }, [user]);
+  }, [ user ]);
 
   const getUserInfo = async () => {
     const result = await axios.get(`/messages/threads/user?email=${user.email}`);
-    changeUserData(result.data);
+    changeUserData( result.data );
   };
 
   const addThread = async () => {
@@ -64,8 +64,8 @@ const Messages = ( props ) => {
     let newThreads = [ ...threadRef.current ];
 
     for (let newThread of newThreads) {
-      if (message.threadId === newThread.threadId &&
-            message.timeCreated > newThread.timeUpdated) {
+      if ( message.threadId === newThread.threadId &&
+           message.timeCreated > newThread.timeUpdated ) {
 
         newThread.messages.push( message );
         newThread.timeUpdated = message.timeCreated;

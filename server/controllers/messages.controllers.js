@@ -27,6 +27,7 @@ module.exports = {
           viewed: false,
           messages: threadMessages.rows
         };
+
         newThreads.push(newThread);
       }
       res.send(newThreads);

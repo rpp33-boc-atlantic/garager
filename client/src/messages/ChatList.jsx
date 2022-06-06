@@ -1,7 +1,6 @@
 import React from 'react';
 import ChatBubble from './ChatBubble.jsx';
 import ChatInput from './ChatInput.jsx';
-import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 const ChatList = ( props ) => {
 
@@ -12,7 +11,7 @@ const ChatList = ( props ) => {
         {
           props.messages.map(( message, index ) => {
 
-            if (message.user_id === props.userData.userId) {
+            if ( message.user_id === props.userData.userId ) {
               return (
                 <ChatBubble key={ index } message={ message } user='me' />
               );

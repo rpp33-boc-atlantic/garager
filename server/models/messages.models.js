@@ -21,6 +21,7 @@ module.exports = {
       query = `insert into threads
                (item_id, owner_id, renter_id, owner_viewed, renter_viewed, time_updated)
                values($1, $2, $3, $4, $5, $6)`;
+
       const values = [ thread.itemId, ownerId, thread.renterId, false, false, thread.timeUpdated ];
       return await db.query(query, values);
     },
@@ -43,12 +44,14 @@ module.exports = {
       query = `insert into messages
                (thread_id, user_id, text, image_url, time_created)
                values($1, $2, $3, $4, $5)`;
+
       let values = [ message.threadId, userId, message.text, null, message.timeCreated ];
       await db.query(query, values);
 
       query = `update threads
                set last_message=$1, time_updated=$2
                where thread_id=$3`;
+
       values = [ message.text, message.timeCreated, message.threadId ];
       db.query(query, values);
     }
@@ -65,9 +68,11 @@ module.exports = {
   userInfo: {
 
     get: async (userId, email) => {
+
       if (userId !== null) {
         const query = 'select firstname, lastname, email from users where user_id = ' + userId;
         return db.query(query);
+
       } else {
         const query = `select firstname, lastname, user_id from users where email ilike '${email}'`;
         return db.query(query);

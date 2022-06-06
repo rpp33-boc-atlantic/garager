@@ -7,9 +7,7 @@ const ThreadTile = ( props ) => {
     <div className='thread-tile'>
 
       <span>
-        <span style={
-          { fontFamily: 'sans-serif',
-            fontWeight: 'bold' }}>
+        <span className='thread-name'>
           {
             props.thread.email === props.email ? props.thread.username : props.username
           }
