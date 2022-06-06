@@ -38,7 +38,7 @@ export default function Rentals () {
   };
 
   useEffect(()=> {
-    dataLoading ? getData(3) : null;
+    dataLoading ? getData(3333) : null;
     console.log('tr', transactions);
 
   }, [transactions] );

@@ -4,7 +4,6 @@ import React, {useState} from 'react';
 import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import RentalList from './RentalList.jsx';
 import Tables from './Tables.jsx';
 
 import moment from 'moment';

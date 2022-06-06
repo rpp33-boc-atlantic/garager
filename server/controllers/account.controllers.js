@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* This is an example file for where we can put the CONTROLLERS functions for our particular feature. The code below is just an example and will be different for each feature!
 
 file naming example: accounts.controllers.js, postItem.contollers.js (you can name it as you wish)
@@ -7,9 +8,9 @@ const models = require('../models/account.models.js');
 module.exports = {
   upcomingRentals: {
     get: (req, res) => {
-      let itemId = req.query.item_id;
+      let renter_id = req.query.id;
       // res.send('this route will send back current transaction information');
-      models.get_rentals.get(itemId, (err, data) => {
+      models.get_rentals.get(renter_id, (err, data) => {
         if (err) {
           console.log('err', err);
           res.status(500).send(err);
@@ -35,14 +36,16 @@ module.exports = {
   },
   listings: {
     get: (req, res) => {
-      res.send('this route will send user a list of their posted items');
-    //   models.example.get(itemId, (err, data) => {
-    //     if (err) {
-    //       res.status(500).send(err);
-    //     } else {
-    //       res.send(data);
-    //     }
-    //   });
+      let owner_id = req.query.id;
+
+      models.get_listings.get(owner_id, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          console.log('data', data);
+          res.status(200).send(data);
+        }
+      });
     },
   },
   earnings: {

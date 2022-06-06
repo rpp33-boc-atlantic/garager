@@ -3,14 +3,31 @@ const client = require('../database/database.js');
 
 module.exports = {
   get_rentals: {
-    get: (itemId, callback) => {
+    get: (renter_id, callback) => {
       // get stuff from database
       // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-      console.log('itemId', itemId);
+      // console.log('itemId', itemId);
       const query = {
         text: `Select * FROM transactions WHERE renter_id = $1`,
         // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
-        values: [itemId]
+        values: [renter_id]
+      };
+      return client.query(query)
+        .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
+          callback(null, databaseStuff.rows);
+        });
+
+    },
+  },
+  get_listings: {
+    get: (itemId, callback) => {
+      // get stuff from database
+      // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
+      console.log('owner_id', itemId);
+      const query = {
+        text: `Select * FROM items, transactions WHERE owner_id = $1`,
+        // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
+        values: [owner_id]
       };
       return client.query(query)
         .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
