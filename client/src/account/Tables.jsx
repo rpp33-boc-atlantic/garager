@@ -41,9 +41,8 @@ export default function Tables (props) {
         <tr key={p++}>
           { // create the columns based off of the column object
             props.columns.map((col) => {
-
               { // this wasn't supposed to be so complicated, but it will dynamically add a link, image or datefield
-                return col.link ? <td key={c++}> <Link to={`${col.link}/${t['item_id']}`}>{t[col.dataField]}</Link> </td> : col.dataField === 'photos' && t[col.dataField].length > 0 ? <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td> : t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid() ? <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td> : <td key={c++}>{t[col.dataField]}</td>;
+                return col.link ? <td key={c++}> <Link to={`${col.link}/${t[col.param]}`}>{t[col.dataField]}</Link> </td> : col.dataField === 'photos' && t[col.dataField].length > 0 ? <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td> : t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid() ? <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td> : <td key={c++}>{t[col.dataField]}</td>;
               }
             })
           }

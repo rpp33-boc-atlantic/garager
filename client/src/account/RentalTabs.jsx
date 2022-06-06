@@ -30,7 +30,14 @@ export default function RentalTabs(props) {
     dataField: 'title',
     text: 'Item Name',
     link: '../item',
-    sort: true
+    sort: true,
+    param: 'item_id'
+  }, {
+    dataField: 'owner',
+    text: 'Owner',
+    link: '../profile',
+    sort: true,
+    param: 'owner_id'
   }, {
     dataField: 'rate',
     text: 'Current Price per Day',

@@ -15,7 +15,7 @@ module.exports = {
           console.log('err', err);
           res.status(500).send(err);
         } else {
-          console.log('data', data);
+          // console.log('data', data);
           res.status(200).send(data);
         }
       });
@@ -42,7 +42,7 @@ module.exports = {
         if (err) {
           res.status(500).send(err);
         } else {
-          console.log('data', data);
+          // console.log('data', data);
           res.status(200).send(data);
         }
       });

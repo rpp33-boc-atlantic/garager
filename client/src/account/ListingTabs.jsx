@@ -45,7 +45,7 @@ export default function ListingTabs(props) {
 
         <Tab eventKey="listings" title="Listings">
           {/* {props.listings.length === 0 ? <PostMessage/> : <ListingList/>} */}
-          {props.transactions.length === 0 ? <PostMessage/> : <Tables columns = {columns} values = {props.items}/>}
+          {props.items.length === 0 ? <PostMessage/> : <Tables columns = {columns} values = {props.items}/>}
         </Tab>
         <Tab eventKey="earnings" title="Earnings">
           <div style={{size: '20px'}}>You have earned a total of </div> <h1>  ${props.earnings} </h1> from {props.rentedItems} items.

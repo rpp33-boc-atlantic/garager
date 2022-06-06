@@ -20,7 +20,7 @@ export default function Rentals () {
     return axios.get('/account/my-rentals', {
       params: {
         // eslint-disable-next-line camelcase
-        item_id: id
+        id: id
       }
     })
       .then(function (response) {
@@ -38,7 +38,7 @@ export default function Rentals () {
   };
 
   useEffect(()=> {
-    dataLoading ? getData(3333) : null;
+    dataLoading ? getData(13) : null;
     console.log('tr', transactions);
 
   }, [transactions] );

@@ -4,14 +4,9 @@ const client = require('../database/database.js');
 module.exports = {
   get_rentals: {
     get: (renter_id, callback) => {
-      // get stuff from database
-      // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-      console.log('renter_id', renter_id);
+
       const query = {
-        // text: `Select * FROM transactions WHERE renter_id = $1`,
-        text: `SELECT title, concat_ws(' ',firstName, lastName), rate, pickupdate, returndate FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
-        //  SELECT title, concat_ws(' ',firstName, lastName) as owner, price, pickupdate, returndate FROM transactions, users,items  WHERE renter_id = 3 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id;
-        // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
+        text: `SELECT title, concat_ws(' ',firstName, lastName) as owner, owner_id, items.item_id, rate, pickupdate, returndate, photos FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
         values: [renter_id]
       };
       return client.query(query)
@@ -23,12 +18,9 @@ module.exports = {
   },
   get_listings: {
     get: (owner_id, callback) => {
-      // get stuff from database
-      // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-      console.log('owner_id', owner_id);
+
       const query = {
-        text: `Select * FROM items, transactions WHERE owner_id = $1`,
-        // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
+        text: `SELECT title, price, nyop, min_price, items.item_id ,photos FROM transactions, items  WHERE owner_id = $1 AND items.item_id = transactions.item_id`,
         values: [owner_id]
       };
       return client.query(query)

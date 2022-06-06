@@ -9,7 +9,7 @@ const axios = require('axios');
 
 
 // var transactions = require('../data/dataFunctions/transactions.json');
-var items = require('../data/dataFunctions/items.json');
+// var items = require('../data/dataFunctions/items.json');
 
 export default function Listings () {
 
@@ -22,12 +22,12 @@ export default function Listings () {
     return axios.get('/account/my-listings', {
       params: {
         // eslint-disable-next-line camelcase
-        item_id: id
+        id: id
       }
     })
       .then(function (response) {
         console.log('data returned', response.data);
-        setTransactions(response.data);
+        setItems(response.data);
         setDataLoading(false);
       })
       .catch(function (error) {
@@ -40,15 +40,15 @@ export default function Listings () {
   };
 
   useEffect(()=> {
-    dataLoading ? getData(3) : null;
+    dataLoading ? getData(9) : null;
     console.log('tr', transactions);
 
   }, [transactions] );
 
 
 
+  // /items={items} transactions = {transactions}
 
-
-  return <ListingTabs transactions = {transactions} items={items} m='auto' earnings = {454} rentedItems = {3}/>;
+  return <ListingTabs items={items} m='auto' earnings = {454} rentedItems = {3}/>;
 
 }
