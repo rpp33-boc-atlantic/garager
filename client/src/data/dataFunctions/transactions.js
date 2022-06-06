@@ -20,7 +20,7 @@ module.exports = createTransactions = function (fullnames) {
   var transactions = [];
 
 
-  for (var j = 0; j < 40; j++ ) {
+  for (var j = 0; j < 41; j++ ) {
     var cap = random(0, 10);
     var secondDate = random(-40, 0);
     console.log('cap', cap);
@@ -33,7 +33,7 @@ module.exports = createTransactions = function (fullnames) {
       transaction['rate'] = Math.floor((Math.random() * 100) + 4);
       //set pickup date
       transaction['pickUpDate'] = new Date();
-      var firstDate = random(secondDate, secondDate + 5);
+      var firstDate = random(secondDate, secondDate + 4);
       transaction['pickUpDate'].setDate(transaction['pickUpDate'].getDate() + firstDate);
       // console.log('itemId', j,);
       //set returnDate
@@ -58,9 +58,9 @@ module.exports = createTransactions = function (fullnames) {
       transactions.push(transaction);
     }
   }
-  console.log(transactions.length);
+  // console.log(transactions.length);
 
   let data = JSON.stringify(transactions, null, 2);
-  fs.writeFileSync('client/src/data/dataFunctions/transactions.json', data);
+  fs.writeFileSync('server/database/transactions.json', data);
 };
 createTransactions(fullnames);
