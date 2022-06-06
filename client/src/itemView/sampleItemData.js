@@ -4,28 +4,29 @@ import ladder3 from './samplePhotos/ladder3.jpeg';
 
 
 var option1 = {
-  itemID: 1234,
-  name: 'Gorilla ladder',
-  brand: 'Bri-Mar',
-  brand: null,
-  model: '3500 lb. Dual Acle',
-  // model: '',
-  description: 'The tallest ladder you\'ll ever rent!!! You\'ll use it all the time! Believe me, I am not lying!',
-  availableFrom: '2022-06-01',
-  availableTo: '2022-06-30',
-  availability: true,
-  price: 25,
-  nameYourOwnPrice: true,
-  minimumPrice: 20,
-  images: [ladder1, ladder2, ladder3],
-  rangesBooked: [['2022-06-03', '2022-06-07'], ['2022-06-15', '2022-06-20']],
-  owner: {
-    id: 6848,
-    name: 'Tom Haverford',
-    email: 'burtbee8@gmail.com',
-    dateJoined: 'July 2022',
-    address: 'Pawnee, Indiana'
-  }
+  details: {
+    item_id: '',
+    title: '',
+    brand: '',
+    model: '',
+    itemdescription: '',
+    availablefrom: '2022-06-01',
+    availableto: '2022-06-30',
+    price: '',
+    nyop: null,
+    minimumPrice: '',
+    images: [ladder1, ladder2, ladder3],
+    firstname: '',
+    lastname: '',
+    email: '',
+    userphoto: null,
+    datejoined: '',
+    address: ''
+
+  },
+  // datesBooked: [{'json_build_array':['2022-06-05', '2022-06-07']}, {json_build_array: ['2022-06-15', '2022-06-20']}]
+  datesBooked: []
+
 };
 
 

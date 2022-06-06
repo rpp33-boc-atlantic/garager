@@ -51,15 +51,14 @@ class RentForm extends React.Component {
       // send name of rented item
       // owner's name
       // date range
+      const ownerName = this.props.itemInfo.details.firstname + ' ' + this.props.itemInfo.details.lastname;
       const itemInfo = {
-        name: this.props.itemInfo.name,
-        itemID: this.props.itemInfo.itemID,
-        owner: this.props.itemInfo.owner.name,
+        name: this.props.itemInfo.details.title,
+        itemID: this.props.itemInfo.details.itemID,
+        owner: ownerName,
         priceInCents: cost,
         dateRange: this.state.dateRange
-        // dateRange: ['2022-06-03', '2022-06-04']
       };
-      // console.log('item info,', itemInfo);
 
       axios.post('/checkout/create-session', itemInfo)
         .then((response) => {
@@ -77,7 +76,7 @@ class RentForm extends React.Component {
     var sugPrice = this.state.suggestedPrice;
     var sugPriceIsValid = false;
     if (sugPrice !== null && sugPrice.length !== 0) {
-      if (parseInt(sugPrice) < this.props.itemInfo.minimumPrice) {
+      if (parseInt(sugPrice) < this.props.itemInfo.details.min_price) {
         alert('Suggested price is too low! Don\'t be cheap!');
         return false;
       } else {
@@ -104,7 +103,7 @@ class RentForm extends React.Component {
       if (formattedPD === formattedRD) {
         cost = this.props.itemInfo.price;
       } else {
-        cost = diffDays * this.props.itemInfo.price;
+        cost = diffDays * this.props.itemInfo.details.price;
       }
     }
     return cost * 100;
@@ -122,11 +121,11 @@ class RentForm extends React.Component {
 
   render() {
     var suggestedPrice = <NYOP><label htmlFor='suggestedPrice'>Suggested price per day ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange}></input> <br></br></NYOP>;
-    var suggestedPriceLine = this.props.itemInfo.nameYourOwnPrice ? suggestedPrice : null;
+    var suggestedPriceLine = this.props.itemInfo.details.nyop ? suggestedPrice : null;
 
     return (
       <Container>
-        <CalendarView grabDateRange={this.grabDateRange} rangesBooked={this.props.itemInfo.rangesBooked}></CalendarView>
+        <CalendarView grabDateRange={this.grabDateRange} datesBooked={this.props.itemInfo.datesBooked} availabilityRange={this.props.itemInfo.details}></CalendarView>
         <form>
           <h6>Price per day ($): {this.props.itemInfo.price}</h6>
           {suggestedPriceLine}

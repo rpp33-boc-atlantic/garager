@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
+import moment from 'moment';
 
 const Container = styled.div`
   display: grid;
@@ -29,14 +31,27 @@ const Container = styled.div`
 `;
 
 const OwnerInfo = (props) => {
-  // console.log('props here', props)
+  const getCityState = (address) => {
+    console.log('address right here', address)
+    if (address !== undefined) {
+      const splitted = address.split(',');
+      const city = splitted[1].substring(1);
+      const state = splitted[2].substring(0, 3);
+      return city + ',' + state;
+    } else {
+      return '';
+    }
+  };
+
+  const shortenedLocation = getCityState(props.details.address);
+
   return (
     <Container>
-      <h2>{props.name}</h2>
-      <h4>{props.owner.address}</h4>
-      <h4>Owner: {props.owner.name}</h4>
-      <h4>Member Since: {props.owner.dateJoined}</h4>
-      <Link to="/Messages" state={{ itemID: 12345 }}>
+      <h2>{props.details.title}</h2>
+      <h4>{shortenedLocation}</h4>
+      <h4>Owner: {props.details.firstname} {props.details.lastname}</h4>
+      <h4>Member Since: {moment(props.details.datejoined).format('LL')}</h4>
+      <Link to="/Messages" state={{ itemID: props.details.item_id }}>
         <button>Message</button>
       </Link>
     </Container>
