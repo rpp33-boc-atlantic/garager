@@ -19,7 +19,7 @@ var random = function (min = 0, max) {
 module.exports = createTransactions = function (fullnames) {
   var transactions = [];
 
-
+  var index = 0;
   for (var j = 0; j < 41; j++ ) {
     var cap = random(0, 10);
     var secondDate = random(-40, 0);
@@ -28,7 +28,7 @@ module.exports = createTransactions = function (fullnames) {
     for (var i = 0; i < cap; i ++) {
       var transaction = {};
       // set transaction_id
-      transaction['transaction_id'] = i;
+      transaction['transaction_id'] = index++;
       // set rate
       transaction['rate'] = Math.floor((Math.random() * 100) + 4);
       //set pickup date
