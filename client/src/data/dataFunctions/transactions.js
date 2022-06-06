@@ -24,8 +24,8 @@ module.exports = createTransactions = function (fullnames) {
     var cap = random(0, 10);
     var secondDate = random(-40, 0);
     console.log('cap', cap);
-    for (var i = 0; i < cap; i ++) {
 
+    for (var i = 0; i < cap; i ++) {
       var transaction = {};
       // set transaction_id
       transaction['transaction_id'] = i;
@@ -34,38 +34,28 @@ module.exports = createTransactions = function (fullnames) {
       //set pickup date
       transaction['pickUpDate'] = new Date();
       var firstDate = random(secondDate, secondDate + 5);
-
-
-      // k = k + 6;
-      // console.log('first', firstDate);
       transaction['pickUpDate'].setDate(transaction['pickUpDate'].getDate() + firstDate);
       // console.log('itemId', j,);
-
-      //set dueDate
+      //set returnDate
       secondDate = random(firstDate + 1, firstDate + 7);
-
-
       // k = secondDate + 1;
       transaction['returnDate'] = new Date();
       transaction['returnDate'].setDate(transaction['returnDate'].getDate() + secondDate);
-      // console.log('itemId', j, ' firstDate', firstDate, ' secondDate', secondDate, ' transactionPick ', transaction['pickUpDate'], ' returnDate ', transaction['returnDate']);
       // set owner_id
       var owner_id = Math.floor(Math.random() * fullnames.length);
       transaction['owner_id'] = owner_id;
       // set renter_id
       var renter_id = Math.floor(Math.random() * fullnames.length);
-
       transaction['renter_id'] = renter_id;
-      // transaction['renter_id'] = j;
-
       //set item_id
-      // transaction['item_id'] = random(0, 20);
       transaction['item_id'] = j;
+      //set paymntintend_id
       transaction['paymentintent_id'] = '';
+      //set refunded
       transaction['refunded'] = false;
+      //set payment_status
       transaction['payment_status'] = '';
       transactions.push(transaction);
-
     }
   }
   console.log(transactions.length);
