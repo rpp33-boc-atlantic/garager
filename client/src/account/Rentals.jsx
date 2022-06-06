@@ -13,6 +13,8 @@ import {useState, useEffect} from 'react';
 export default function Rentals () {
 
   let [transactions, setTransactions] = useState(null);
+  let [dataLoading, setDataLoading] = useState(true);
+
   var getData = (id)=>{
 
     return axios.get('/account/my-rentals', {
@@ -24,6 +26,7 @@ export default function Rentals () {
       .then(function (response) {
         console.log('data returned', response.data);
         setTransactions(response.data);
+        setDataLoading(false);
       })
       .catch(function (error) {
         console.log('error', error);
@@ -35,9 +38,10 @@ export default function Rentals () {
   };
 
   useEffect(()=> {
-    getData(10);
+    dataLoading ? getData(3) : null;
     console.log('tr', transactions);
-  }, []);
+
+  }, [transactions] );
 
 
 
