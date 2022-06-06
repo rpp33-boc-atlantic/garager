@@ -55,7 +55,7 @@ var brands = [
   ['Fischer', 'Armada', 'Line', 'Volkl']];
 
 var condition = ['excellent', 'used', 'good', 'great', 'usable'];
-var owners = ['Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
+var fullNames = ['Wanda Maximoff', 'Ron Swanson', 'Leslie Knope', 'Russ Hanneman', 'Jack Barker', 'Michael Scott', 'Lorie Bream', 'Gavin Belson', 'Stanley Hudson', 'Kelly Kapoor', 'Tom Haverford', 'Donna Meagle', 'Creed Bratton', 'Bob Loblaw', 'Pierce Hawthorne'];
 
 var random = function (min = 0, max) {
 
@@ -90,6 +90,7 @@ module.exports = createItems = function (owners) {
     item['itemDescription'] = nouns[categoryNum][oneToFour] + ' -In ' + condition[conditionIndex] + ' condition';
     // set price
     item['price'] = Math.floor((Math.random() * 100) + 4);
+    item['nyop'] = false;
     // set minimum price
     item['min_price'] = Math.floor((Math.random() * item['price'] * .75) + 2);
     // set avaliableFrom
@@ -109,9 +110,11 @@ module.exports = createItems = function (owners) {
 
 
   }
-  // console.log('>', gear);
+  console.log('>', gear);
 
   let data = JSON.stringify(gear, null, 2);
-  fs.writeFileSync('client/src/data/dataFunctions/items.json', data);
+  fs.writeFileSync('items.json', data);
 
 };
+
+createItems(fullNames);
