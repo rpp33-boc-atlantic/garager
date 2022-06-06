@@ -1,356 +1,110 @@
 [
   {
-    "transaction_id": 0,
-    "rate": 51,
-    "pickUpDate": "2022-05-07T03:55:39.549Z",
-    "returnDate": "2022-05-10T03:55:39.550Z",
-    "owner_id": 13,
-    "renter_id": 0,
     "item_id": 0,
-    "user_id": 10,
-    "title": "Craftsman Battery Charger and Booster Cables",
-    "category": "Automotive",
-    "brand": "Craftsman",
-    "model": "",
-    "itemDescription": "Battery Charger and Booster Cables -In great condition",
-    "price": 72,
-    "nyop": false,
-    "min_price": 38,
-    "availableFrom": "2022-05-09T04:59:50.263Z",
-    "availableTo": "2022-05-20T04:59:50.264Z",
-    "address": "3613 Pine Street, Houghton, MI 57872",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 13,
-    "pickUpDate": "2022-05-14T03:55:39.550Z",
-    "returnDate": "2022-05-20T03:55:39.550Z",
-    "owner_id": 1,
-    "renter_id": 12,
-    "item_id": 0,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 52,
-    "pickUpDate": "2022-05-20T03:55:39.550Z",
-    "returnDate": "2022-05-22T03:55:39.550Z",
-    "owner_id": 1,
-    "renter_id": 8,
-    "item_id": 0,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 49,
-    "pickUpDate": "2022-05-26T03:55:39.550Z",
-    "returnDate": "2022-05-29T03:55:39.550Z",
-    "owner_id": 8,
-    "renter_id": 8,
-    "item_id": 0,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 94,
-    "pickUpDate": "2022-06-03T03:55:39.550Z",
-    "returnDate": "2022-06-04T03:55:39.550Z",
-    "owner_id": 1,
-    "renter_id": 14,
-    "item_id": 1,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 90,
-    "pickUpDate": "2022-06-08T03:55:39.550Z",
-    "returnDate": "2022-06-10T03:55:39.550Z",
-    "owner_id": 1,
-    "renter_id": 10,
-    "item_id": 1,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 84,
-    "pickUpDate": "2022-06-13T03:55:39.550Z",
-    "returnDate": "2022-06-15T03:55:39.550Z",
-    "owner_id": 11,
-    "renter_id": 10,
-    "item_id": 1,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 31,
-    "pickUpDate": "2022-06-15T03:55:39.550Z",
-    "returnDate": "2022-06-17T03:55:39.550Z",
-    "owner_id": 6,
-    "renter_id": 7,
-    "item_id": 1,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 57,
-    "pickUpDate": "2022-06-20T03:55:39.550Z",
-    "returnDate": "2022-06-22T03:55:39.550Z",
-    "owner_id": 0,
-    "renter_id": 0,
-    "item_id": 1,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 28,
-    "pickUpDate": "2022-06-23T03:55:39.550Z",
-    "returnDate": "2022-06-27T03:55:39.550Z",
-    "owner_id": 12,
-    "renter_id": 14,
-    "item_id": 1,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 6,
-    "rate": 9,
-    "pickUpDate": "2022-06-29T03:55:39.550Z",
-    "returnDate": "2022-07-05T03:55:39.550Z",
-    "owner_id": 0,
-    "renter_id": 4,
-    "item_id": 1,
-    "user_id": 1,
-    "title": "HARRIS life jackets",
-    "category": "Camping",
-    "brand": "HARRIS",
-    "model": "",
-    "itemDescription": "life jackets -In excellent condition",
-    "price": 84,
-    "nyop": false,
-    "min_price": 39,
-    "availableFrom": "2022-07-02T04:59:50.264Z",
-    "availableTo": "2022-08-21T04:59:50.264Z",
-    "address": "2445 Walnut Cir, Menominee, MI 56879",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 0,
-    "rate": 16,
-    "pickUpDate": "2022-05-08T03:55:39.550Z",
-    "returnDate": "2022-05-09T03:55:39.550Z",
-    "owner_id": 10,
-    "renter_id": 6,
-    "item_id": 2,
-    "user_id": 5,
-    "title": "Clarke Window Washing Equipment",
-    "category": "Decorations",
-    "brand": "Clarke",
-    "model": "",
-    "itemDescription": "Window Washing Equipment -In used condition",
-    "price": 10,
-    "nyop": false,
-    "min_price": 9,
-    "availableFrom": "2022-05-19T04:59:50.264Z",
-    "availableTo": "2022-06-11T04:59:50.264Z",
-    "address": "2271 Catherine Blvd, Marquette, MI 75518",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 95,
-    "pickUpDate": "2022-05-12T03:55:39.550Z",
-    "returnDate": "2022-05-15T03:55:39.550Z",
-    "owner_id": 6,
-    "renter_id": 4,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 80,
-    "pickUpDate": "2022-05-18T03:55:39.550Z",
-    "returnDate": "2022-05-23T03:55:39.550Z",
-    "owner_id": 6,
-    "renter_id": 9,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 87,
-    "pickUpDate": "2022-05-25T03:55:39.550Z",
-    "returnDate": "2022-05-29T03:55:39.550Z",
-    "owner_id": 6,
-    "renter_id": 12,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 43,
-    "pickUpDate": "2022-06-01T03:55:39.550Z",
-    "returnDate": "2022-06-06T03:55:39.550Z",
-    "owner_id": 6,
-    "renter_id": 7,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 78,
-    "pickUpDate": "2022-06-06T03:55:39.550Z",
-    "returnDate": "2022-06-12T03:55:39.550Z",
-    "owner_id": 11,
-    "renter_id": 6,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 6,
-    "rate": 74,
-    "pickUpDate": "2022-06-12T03:55:39.550Z",
-    "returnDate": "2022-06-15T03:55:39.550Z",
-    "owner_id": 1,
-    "renter_id": 10,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 7,
-    "rate": 80,
-    "pickUpDate": "2022-06-19T03:55:39.550Z",
-    "returnDate": "2022-06-23T03:55:39.550Z",
-    "owner_id": 7,
-    "renter_id": 5,
-    "item_id": 2,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 33,
-    "pickUpDate": "2022-05-01T03:55:39.550Z",
-    "returnDate": "2022-05-05T03:55:39.550Z",
-    "owner_id": 2,
-    "renter_id": 14,
-    "item_id": 3,
-    "user_id": 0,
-    "title": "Kobalt Weed Eater",
+    "user_id": 11,
+    "title": "Trek Mountain Bike",
     "category": "Recreational Vehicles",
-    "brand": "Kobalt",
+    "brand": "Trek",
     "model": "",
-    "itemDescription": "Weed Eater -In good condition",
-    "price": 94,
+    "itemDescription": "Mountain Bike -In usable condition",
+    "price": 96,
     "nyop": false,
-    "min_price": 41,
-    "availableFrom": "2022-06-21T04:59:50.264Z",
-    "availableTo": "2022-08-02T04:59:50.264Z",
-    "address": "4321 Emerson Blvd, Menominee, MI 94815",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "min_price": 57,
+    "availableFrom": "2022-05-20T05:34:50.716Z",
+    "availableTo": "2022-07-31T05:34:50.717Z",
+    "address": "3580 Ellen Pkwy, Marquette, MI 71000",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 1,
-    "rate": 10,
-    "pickUpDate": "2022-05-07T03:55:39.550Z",
-    "returnDate": "2022-05-10T03:55:39.550Z",
-    "owner_id": 10,
-    "renter_id": 5,
-    "item_id": 3,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 95,
-    "pickUpDate": "2022-05-19T03:55:39.550Z",
-    "returnDate": "2022-05-22T03:55:39.550Z",
-    "owner_id": 13,
-    "renter_id": 5,
-    "item_id": 4,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 102,
-    "pickUpDate": "2022-05-24T03:55:39.550Z",
-    "returnDate": "2022-05-27T03:55:39.550Z",
-    "owner_id": 12,
-    "renter_id": 0,
-    "item_id": 4,
-    "user_id": 9,
-    "title": "World Market Fall Wreath and Corn Stalks",
-    "category": "Events",
-    "brand": "World Market",
+    "item_id": 1,
+    "user_id": 14,
+    "title": "Black & Decker Axe Sharpening Set",
+    "category": "Hand Tools",
+    "brand": "Black & Decker",
     "model": "",
-    "itemDescription": "Fall Wreath and Corn Stalks -In usable condition",
-    "price": 49,
+    "itemDescription": "Axe Sharpening Set -In great condition",
+    "price": 64,
+    "nyop": true,
+    "min_price": 25,
+    "availableFrom": "2022-05-07T05:34:50.717Z",
+    "availableTo": "2022-07-29T05:34:50.717Z",
+    "address": "6880 Skyline Dr, Houghton, MI 97737",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 2,
+    "user_id": 11,
+    "title": "Octane Treadmill",
+    "category": "Fitness",
+    "brand": "Octane",
+    "model": "",
+    "itemDescription": "Treadmill -In usable condition",
+    "price": 61,
+    "nyop": true,
+    "min_price": 3,
+    "availableFrom": "2022-06-02T05:34:50.717Z",
+    "availableTo": "2022-07-31T05:34:50.717Z",
+    "address": "6604 Walnut Ct, Marquette, MI 71752",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 3,
+    "user_id": 10,
+    "title": "Marmot 2 person Hammock",
+    "category": "Camping",
+    "brand": "Marmot",
+    "model": "",
+    "itemDescription": "2 person Hammock -In great condition",
+    "price": 87,
     "nyop": false,
-    "min_price": 8,
-    "availableFrom": "2022-05-14T04:59:50.264Z",
-    "availableTo": "2022-06-08T04:59:50.264Z",
-    "address": "7401 Ellen Dr, Houghton, MI 51232",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "min_price": 48,
+    "availableFrom": "2022-05-15T05:34:50.717Z",
+    "availableTo": "2022-07-10T05:34:50.717Z",
+    "address": "1785 MillPond Ct, Lansing, MI 48482",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 4,
+    "user_id": 14,
+    "title": "Total Gym FIT Treadmill",
+    "category": "Fitness",
+    "brand": "Total Gym FIT",
+    "model": "",
+    "itemDescription": "Treadmill -In great condition",
+    "price": 64,
+    "nyop": false,
+    "min_price": 17,
+    "availableFrom": "2022-05-25T05:34:50.717Z",
+    "availableTo": "2022-08-18T05:34:50.717Z",
+    "address": "1332 Locust Pkwy, Marquette, MI 48634",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
@@ -358,1698 +112,731 @@
   {
     "item_id": 5,
     "user_id": 8,
-    "title": "Valspar Painting trays and rollers",
-    "category": "Sports Equipment",
-    "brand": "Valspar",
+    "title": "Corona Rototiller",
+    "category": "Gardening",
+    "brand": "Corona",
     "model": "",
-    "itemDescription": "Painting trays and rollers -In great condition",
-    "price": 6,
-    "nyop": false,
+    "itemDescription": "Rototiller -In usable condition",
+    "price": 50,
+    "nyop": true,
     "min_price": 4,
-    "availableFrom": "2022-06-07T04:59:50.264Z",
-    "availableTo": "2022-07-07T04:59:50.264Z",
-    "address": "8030 Pine Dr, Marquette, MI 76234",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "availableFrom": "2022-06-02T05:34:50.718Z",
+    "availableTo": "2022-08-04T05:34:50.718Z",
+    "address": "6678 Emerson Blvd, Menominee, MI 52408",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 3,
-    "rate": 84,
-    "pickUpDate": "2022-06-18T03:55:39.550Z",
-    "returnDate": "2022-06-19T03:55:39.550Z",
-    "owner_id": 13,
-    "renter_id": 14,
     "item_id": 6,
-    "user_id": 8,
-    "title": "Mac Tools Battery Charger and Booster Cables",
-    "category": "Automotive",
-    "brand": "Mac Tools",
-    "model": "",
-    "itemDescription": "Battery Charger and Booster Cables -In great condition",
-    "price": 49,
-    "nyop": false,
-    "min_price": 30,
-    "availableFrom": "2022-05-26T04:59:50.264Z",
-    "availableTo": "2022-06-19T04:59:50.264Z",
-    "address": "6015 Willow Street, Menominee, MI 61054",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 2,
-    "rate": 92,
-    "pickUpDate": "2022-05-18T03:55:39.550Z",
-    "returnDate": "2022-05-19T03:55:39.550Z",
-    "owner_id": 5,
-    "renter_id": 4,
-    "item_id": 7,
     "user_id": 14,
-    "title": "Ikea Throw pillows",
-    "category": "Events",
-    "brand": "Ikea",
-    "model": "",
-    "itemDescription": "Throw pillows -In usable condition",
-    "price": 37,
-    "nyop": false,
-    "min_price": 2,
-    "availableFrom": "2022-06-07T04:59:50.264Z",
-    "availableTo": "2022-07-08T04:59:50.264Z",
-    "address": "1700 Pine Ct, Houghton, MI 73189",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 3,
-    "rate": 70,
-    "pickUpDate": "2022-05-22T03:55:39.550Z",
-    "returnDate": "2022-05-27T03:55:39.550Z",
-    "owner_id": 5,
-    "renter_id": 3,
-    "item_id": 7,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 96,
-    "pickUpDate": "2022-05-21T03:55:39.550Z",
-    "returnDate": "2022-05-22T03:55:39.550Z",
-    "owner_id": 11,
-    "renter_id": 12,
-    "item_id": 8,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 9,
-    "pickUpDate": "2022-05-25T03:55:39.550Z",
-    "returnDate": "2022-05-26T03:55:39.550Z",
-    "owner_id": 6,
-    "renter_id": 7,
-    "item_id": 8,
-    "user_id": 7,
-    "title": "Craftsman Car Jack",
-    "category": "Automotive",
+    "title": "Craftsman Axe Sharpening Set",
+    "category": "Hand Tools",
     "brand": "Craftsman",
     "model": "",
-    "itemDescription": "Car Jack -In usable condition",
-    "price": 57,
-    "nyop": false,
-    "min_price": 42,
-    "availableFrom": "2022-06-16T04:59:50.264Z",
-    "availableTo": "2022-07-26T04:59:50.264Z",
-    "address": "3848 Emerson Cir, Lansing, MI 64615",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Axe Sharpening Set -In great condition",
+    "price": 30,
+    "nyop": true,
+    "min_price": 11,
+    "availableFrom": "2022-05-23T05:34:50.718Z",
+    "availableTo": "2022-08-15T05:34:50.718Z",
+    "address": "5687 Emerson Street, Lansing, MI 63866",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 0,
-    "rate": 43,
-    "pickUpDate": "2022-06-05T03:55:39.550Z",
-    "returnDate": "2022-06-10T03:55:39.550Z",
-    "owner_id": 0,
-    "renter_id": 2,
-    "item_id": 9,
-    "user_id": 11,
-    "title": "Bionic Garden Cart",
-    "category": "Hand Tools",
-    "brand": "Bionic",
+    "item_id": 7,
+    "user_id": 3,
+    "title": "Snap-On Auto Sander",
+    "category": "Automotive",
+    "brand": "Snap-On",
     "model": "",
-    "itemDescription": "Garden Cart -In usable condition",
-    "price": 72,
+    "itemDescription": "Auto Sander -In good condition",
+    "price": 44,
     "nyop": false,
-    "min_price": 17,
-    "availableFrom": "2022-05-12T04:59:50.264Z",
-    "availableTo": "2022-06-09T04:59:50.264Z",
-    "address": "5207 Willow Rd, Marquette, MI 59487",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "min_price": 13,
+    "availableFrom": "2022-05-07T05:34:50.718Z",
+    "availableTo": "2022-07-09T05:34:50.718Z",
+    "address": "3610 Emerson Street, Houghton, MI 78331",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 5,
-    "rate": 22,
-    "pickUpDate": "2022-06-12T03:55:39.551Z",
-    "returnDate": "2022-06-16T03:55:39.551Z",
-    "owner_id": 3,
-    "renter_id": 4,
+    "item_id": 8,
+    "user_id": 1,
+    "title": "Ikea Inflatable Santa",
+    "category": "Decorations",
+    "brand": "Ikea",
+    "model": "",
+    "itemDescription": "Inflatable Santa -In good condition",
+    "price": 92,
+    "nyop": false,
+    "min_price": 50,
+    "availableFrom": "2022-05-15T05:34:50.718Z",
+    "availableTo": "2022-07-08T05:34:50.718Z",
+    "address": "6652 Pine Pkwy, Lansing, MI 92331",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 9,
+    "user_id": 0,
+    "title": "DeWalt Hammer",
+    "category": "Hand Tools",
+    "brand": "DeWalt",
+    "model": "",
+    "itemDescription": "Hammer -In great condition",
+    "price": 80,
+    "nyop": true,
+    "min_price": 5,
+    "availableFrom": "2022-05-23T05:34:50.718Z",
+    "availableTo": "2022-07-04T05:34:50.718Z",
+    "address": "1755 Skyline Dr, Marquette, MI 87935",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
     "item_id": 10,
     "user_id": 6,
-    "title": "Klein Hex Wrench Set -all pieces there",
-    "category": "Power Tools",
-    "brand": "Klein",
+    "title": "NordicTrack Treadmill",
+    "category": "Fitness",
+    "brand": "NordicTrack",
     "model": "",
-    "itemDescription": "Hex Wrench Set -all pieces there -In usable condition",
-    "price": 73,
-    "nyop": false,
-    "min_price": 39,
-    "availableFrom": "2022-06-03T04:59:50.264Z",
-    "availableTo": "2022-07-01T04:59:50.264Z",
-    "address": "3007 Baker Street, Houghton, MI 74003",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "itemDescription": "Treadmill -In perfect condition",
+    "price": 65,
+    "nyop": true,
+    "min_price": 47,
+    "availableFrom": "2022-05-26T05:34:50.718Z",
+    "availableTo": "2022-08-06T05:34:50.718Z",
+    "address": "4528 Walnut Pkwy, Marquette, MI 66728",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 11,
-    "user_id": 11,
-    "title": "Oreck Vacume",
-    "category": "Decorations",
-    "brand": "Oreck",
-    "model": "",
-    "itemDescription": "Vacume -In excellent condition",
-    "price": 92,
-    "nyop": false,
-    "min_price": 58,
-    "availableFrom": "2022-05-13T04:59:50.264Z",
-    "availableTo": "2022-05-27T04:59:50.264Z",
-    "address": "7171 Ellen Blvd, Lansing, MI 58838",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 0,
-    "rate": 47,
-    "pickUpDate": "2022-05-07T03:55:39.551Z",
-    "returnDate": "2022-05-13T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 3,
-    "item_id": 12,
-    "user_id": 0,
-    "title": "Urban Outfitters 12 inch patterned rug",
-    "category": "Events",
-    "brand": "Urban Outfitters",
-    "model": "",
-    "itemDescription": "12 inch patterned rug -In used condition",
-    "price": 7,
-    "nyop": false,
-    "min_price": 5,
-    "availableFrom": "2022-05-25T04:59:50.264Z",
-    "availableTo": "2022-06-21T04:59:50.264Z",
-    "address": "3704 Pine Cir, Menominee, MI 70671",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 85,
-    "pickUpDate": "2022-05-13T03:55:39.551Z",
-    "returnDate": "2022-05-18T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 9,
-    "item_id": 12,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 20,
-    "pickUpDate": "2022-05-19T03:55:39.551Z",
-    "returnDate": "2022-05-24T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 10,
-    "item_id": 12,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 26,
-    "pickUpDate": "2022-04-30T03:55:39.551Z",
-    "returnDate": "2022-05-05T03:55:39.551Z",
-    "owner_id": 2,
-    "renter_id": 1,
-    "item_id": 13,
-    "user_id": 3,
-    "title": "Clarke Dry Vac",
-    "category": "Decorations",
-    "brand": "Clarke",
-    "model": "",
-    "itemDescription": "Dry Vac -In great condition",
-    "price": 62,
-    "nyop": false,
-    "min_price": 25,
-    "availableFrom": "2022-06-29T04:59:50.264Z",
-    "availableTo": "2022-08-02T04:59:50.264Z",
-    "address": "6113 Emerson Rd, Marquette, MI 62761",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 97,
-    "pickUpDate": "2022-05-08T03:55:39.551Z",
-    "returnDate": "2022-05-11T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 1,
-    "item_id": 13,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 24,
-    "pickUpDate": "2022-05-13T03:55:39.551Z",
-    "returnDate": "2022-05-16T03:55:39.551Z",
-    "owner_id": 1,
-    "renter_id": 13,
-    "item_id": 13,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 40,
-    "pickUpDate": "2022-05-17T03:55:39.551Z",
-    "returnDate": "2022-05-23T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 14,
-    "item_id": 13,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 71,
-    "pickUpDate": "2022-05-25T03:55:39.551Z",
-    "returnDate": "2022-05-27T03:55:39.551Z",
-    "owner_id": 12,
-    "renter_id": 3,
-    "item_id": 13,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 58,
-    "pickUpDate": "2022-05-30T03:55:39.551Z",
-    "returnDate": "2022-06-03T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 0,
-    "item_id": 13,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 29,
-    "pickUpDate": "2022-05-19T03:55:39.551Z",
-    "returnDate": "2022-05-21T03:55:39.551Z",
-    "owner_id": 10,
-    "renter_id": 13,
-    "item_id": 14,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 6,
-    "pickUpDate": "2022-05-25T03:55:39.551Z",
-    "returnDate": "2022-05-29T03:55:39.551Z",
-    "owner_id": 4,
-    "renter_id": 3,
-    "item_id": 14,
-    "user_id": 6,
-    "title": "Corona Wheebarrow",
-    "category": "Hand Tools",
-    "brand": "Corona",
-    "model": "",
-    "itemDescription": "Wheebarrow -In good condition",
-    "price": 22,
-    "nyop": false,
-    "min_price": 6,
-    "availableFrom": "2022-06-08T04:59:50.264Z",
-    "availableTo": "2022-07-09T04:59:50.264Z",
-    "address": "0842 Catherine Dr, Marquette, MI 57526",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 2,
-    "rate": 103,
-    "pickUpDate": "2022-05-29T03:55:39.551Z",
-    "returnDate": "2022-06-02T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 1,
-    "item_id": 14,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 96,
-    "pickUpDate": "2022-06-03T03:55:39.551Z",
-    "returnDate": "2022-06-04T03:55:39.551Z",
-    "owner_id": 2,
-    "renter_id": 2,
-    "item_id": 14,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 28,
-    "pickUpDate": "2022-06-05T03:55:39.551Z",
-    "returnDate": "2022-06-11T03:55:39.551Z",
-    "owner_id": 3,
-    "renter_id": 3,
-    "item_id": 14,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 54,
-    "pickUpDate": "2022-06-13T03:55:39.551Z",
-    "returnDate": "2022-06-15T03:55:39.551Z",
-    "owner_id": 0,
-    "renter_id": 11,
-    "item_id": 14,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 6,
-    "rate": 103,
-    "pickUpDate": "2022-06-18T03:55:39.551Z",
-    "returnDate": "2022-06-24T03:55:39.551Z",
-    "owner_id": 2,
-    "renter_id": 7,
-    "item_id": 14,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 48,
-    "pickUpDate": "2022-05-19T03:55:39.551Z",
-    "returnDate": "2022-05-25T03:55:39.551Z",
-    "owner_id": 13,
-    "renter_id": 7,
-    "item_id": 15,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 97,
-    "pickUpDate": "2022-05-29T03:55:39.551Z",
-    "returnDate": "2022-06-04T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 2,
-    "item_id": 15,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 66,
-    "pickUpDate": "2022-06-04T03:55:39.551Z",
-    "returnDate": "2022-06-07T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 7,
-    "item_id": 15,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 66,
-    "pickUpDate": "2022-06-11T03:55:39.551Z",
-    "returnDate": "2022-06-14T03:55:39.551Z",
-    "owner_id": 12,
-    "renter_id": 1,
-    "item_id": 15,
     "user_id": 14,
-    "title": "Bond Rototiller",
-    "category": "Hand Tools",
-    "brand": "Bond",
-    "model": "",
-    "itemDescription": "Rototiller -In excellent condition",
-    "price": 103,
-    "nyop": false,
-    "min_price": 8,
-    "availableFrom": "2022-06-11T04:59:50.264Z",
-    "availableTo": "2022-07-16T04:59:50.264Z",
-    "address": "8217 Willow Dr, Houghton, MI 86583",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 63,
-    "pickUpDate": "2022-05-09T03:55:39.551Z",
-    "returnDate": "2022-05-13T03:55:39.551Z",
-    "owner_id": 7,
-    "renter_id": 9,
-    "item_id": 16,
-    "user_id": 13,
-    "title": "ProForm Rock Climbing Harness",
+    "title": "Bionic Wheebarrow",
     "category": "Gardening",
-    "brand": "ProForm",
+    "brand": "Bionic",
     "model": "",
-    "itemDescription": "Rock Climbing Harness -In excellent condition",
-    "price": 64,
-    "nyop": false,
-    "min_price": 38,
-    "availableFrom": "2022-05-16T04:59:50.264Z",
-    "availableTo": "2022-06-06T04:59:50.264Z",
-    "address": "8661 MillPond Cir, Menominee, MI 89990",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Wheebarrow -In perfect condition",
+    "price": 56,
+    "nyop": true,
+    "min_price": 3,
+    "availableFrom": "2022-05-10T05:34:50.718Z",
+    "availableTo": "2022-08-01T05:34:50.718Z",
+    "address": "3731 Ellen Pkwy, Marquette, MI 57519",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 2,
-    "rate": 24,
-    "pickUpDate": "2022-05-17T03:55:39.551Z",
-    "returnDate": "2022-05-21T03:55:39.551Z",
-    "owner_id": 11,
-    "renter_id": 12,
-    "item_id": 16,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 82,
-    "pickUpDate": "2022-05-26T03:55:39.551Z",
-    "returnDate": "2022-06-01T03:55:39.551Z",
-    "owner_id": 13,
-    "renter_id": 12,
-    "item_id": 17,
-    "user_id": 0,
-    "title": "Mr. Clean Dry Vac",
-    "category": "Decorations",
-    "brand": "Mr. Clean",
-    "model": "",
-    "itemDescription": "Dry Vac -In good condition",
-    "price": 30,
-    "nyop": false,
-    "min_price": 22,
-    "availableFrom": "2022-06-15T04:59:50.264Z",
-    "availableTo": "2022-07-24T04:59:50.264Z",
-    "address": "6076 Locust Dr, Houghton, MI 92973",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 91,
-    "pickUpDate": "2022-06-01T03:55:39.551Z",
-    "returnDate": "2022-06-07T03:55:39.551Z",
-    "owner_id": 11,
-    "renter_id": 0,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 43,
-    "pickUpDate": "2022-06-08T03:55:39.551Z",
-    "returnDate": "2022-06-13T03:55:39.551Z",
-    "owner_id": 0,
-    "renter_id": 6,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 6,
-    "pickUpDate": "2022-06-15T03:55:39.551Z",
-    "returnDate": "2022-06-16T03:55:39.551Z",
-    "owner_id": 7,
-    "renter_id": 8,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 91,
-    "pickUpDate": "2022-06-16T03:55:39.551Z",
-    "returnDate": "2022-06-21T03:55:39.551Z",
-    "owner_id": 3,
-    "renter_id": 13,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 43,
-    "pickUpDate": "2022-06-22T03:55:39.551Z",
-    "returnDate": "2022-06-23T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 14,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 6,
-    "rate": 33,
-    "pickUpDate": "2022-06-23T03:55:39.551Z",
-    "returnDate": "2022-06-24T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 5,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 7,
-    "rate": 26,
-    "pickUpDate": "2022-06-24T03:55:39.551Z",
-    "returnDate": "2022-06-28T03:55:39.551Z",
-    "owner_id": 7,
-    "renter_id": 1,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 8,
-    "rate": 78,
-    "pickUpDate": "2022-06-28T03:55:39.551Z",
-    "returnDate": "2022-07-04T03:55:39.551Z",
-    "owner_id": 2,
-    "renter_id": 13,
-    "item_id": 17,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 37,
-    "pickUpDate": "2022-05-17T03:55:39.551Z",
-    "returnDate": "2022-05-21T03:55:39.551Z",
-    "owner_id": 7,
-    "renter_id": 13,
-    "item_id": 18,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 63,
-    "pickUpDate": "2022-05-21T03:55:39.551Z",
-    "returnDate": "2022-05-27T03:55:39.551Z",
-    "owner_id": 11,
-    "renter_id": 6,
-    "item_id": 18,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 100,
-    "pickUpDate": "2022-05-31T03:55:39.551Z",
-    "returnDate": "2022-06-03T03:55:39.551Z",
-    "owner_id": 5,
-    "renter_id": 14,
-    "item_id": 18,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 87,
-    "pickUpDate": "2022-06-07T03:55:39.551Z",
-    "returnDate": "2022-06-08T03:55:39.551Z",
-    "owner_id": 2,
-    "renter_id": 8,
-    "item_id": 18,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 81,
-    "pickUpDate": "2022-06-11T03:55:39.551Z",
-    "returnDate": "2022-06-13T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 10,
-    "item_id": 18,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 84,
-    "pickUpDate": "2022-06-15T03:55:39.551Z",
-    "returnDate": "2022-06-20T03:55:39.551Z",
-    "owner_id": 14,
-    "renter_id": 11,
-    "item_id": 18,
-    "user_id": 4,
-    "title": "VSSL Gear 4 sleeping bags",
-    "category": "Cleaning",
-    "brand": "VSSL Gear",
-    "model": "",
-    "itemDescription": "4 sleeping bags -In used condition",
-    "price": 10,
-    "nyop": false,
-    "min_price": 6,
-    "availableFrom": "2022-05-19T04:59:50.264Z",
-    "availableTo": "2022-06-05T04:59:50.264Z",
-    "address": "5702 Baker Blvd, Lansing, MI 93614",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 0,
-    "rate": 29,
-    "pickUpDate": "2022-05-02T03:55:39.551Z",
-    "returnDate": "2022-05-08T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 11,
-    "item_id": 19,
+    "item_id": 12,
     "user_id": 11,
-    "title": "Makita hedge trimmer",
-    "category": "Recreational Vehicles",
-    "brand": "Makita",
+    "title": "Craftsman Auto Sander",
+    "category": "Automotive",
+    "brand": "Craftsman",
     "model": "",
-    "itemDescription": "hedge trimmer -In great condition",
-    "price": 102,
-    "nyop": false,
-    "min_price": 12,
-    "availableFrom": "2022-06-19T04:59:50.264Z",
-    "availableTo": "2022-07-20T04:59:50.264Z",
-    "address": "0824 Locust Street, Marquette, MI 89696",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Auto Sander -In great condition",
+    "price": 57,
+    "nyop": true,
+    "min_price": 36,
+    "availableFrom": "2022-05-31T05:34:50.718Z",
+    "availableTo": "2022-08-09T05:34:50.718Z",
+    "address": "0817 Skyline Rd, Marquette, MI 71664",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 1,
-    "rate": 78,
-    "pickUpDate": "2022-05-31T03:55:39.551Z",
-    "returnDate": "2022-06-05T03:55:39.551Z",
-    "owner_id": 1,
-    "renter_id": 13,
-    "item_id": 20,
-    "user_id": 13,
-    "title": "EzJump Wedding Arch",
-    "category": "Fitness",
+    "item_id": 13,
+    "user_id": 6,
+    "title": "Good Fun LLC Cornhole/ Horse Shoe Sets",
+    "category": "Events",
+    "brand": "Good Fun LLC",
+    "model": "",
+    "itemDescription": "Cornhole/ Horse Shoe Sets -In used condition",
+    "price": 82,
+    "nyop": false,
+    "min_price": 60,
+    "availableFrom": "2022-05-27T05:34:50.718Z",
+    "availableTo": "2022-06-27T05:34:50.718Z",
+    "address": "7536 Skyline Street, Marquette, MI 85914",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 14,
+    "user_id": 5,
+    "title": "DiamondBack Electric bike",
+    "category": "Recreational Vehicles",
+    "brand": "DiamondBack",
+    "model": "",
+    "itemDescription": "Electric bike -In good condition",
+    "price": 77,
+    "nyop": true,
+    "min_price": 40,
+    "availableFrom": "2022-05-30T05:34:50.718Z",
+    "availableTo": "2022-07-23T05:34:50.718Z",
+    "address": "8813 Ellen Ct, Menominee, MI 48222",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 15,
+    "user_id": 1,
+    "title": "EzJump Outdoor Wedding Chairs x50",
+    "category": "Events",
     "brand": "EzJump",
     "model": "",
-    "itemDescription": "Wedding Arch -In great condition",
-    "price": 10,
+    "itemDescription": "Outdoor Wedding Chairs x50 -In excellent condition",
+    "price": 43,
     "nyop": false,
-    "min_price": 3,
-    "availableFrom": "2022-05-09T04:59:50.264Z",
-    "availableTo": "2022-06-05T04:59:50.264Z",
-    "address": "4512 Emerson Street, Marquette, MI 72508",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
+    "min_price": 8,
+    "availableFrom": "2022-05-20T05:34:50.718Z",
+    "availableTo": "2022-07-07T05:34:50.718Z",
+    "address": "6243 Pine Rd, Lansing, MI 95731",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 2,
-    "rate": 39,
-    "pickUpDate": "2022-06-08T03:55:39.551Z",
-    "returnDate": "2022-06-12T03:55:39.551Z",
-    "owner_id": 5,
-    "renter_id": 1,
-    "item_id": 20,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 41,
-    "pickUpDate": "2022-06-16T03:55:39.551Z",
-    "returnDate": "2022-06-17T03:55:39.551Z",
-    "owner_id": 2,
-    "renter_id": 0,
-    "item_id": 20,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 100,
-    "pickUpDate": "2022-05-14T03:55:39.551Z",
-    "returnDate": "2022-05-20T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 13,
-    "item_id": 21,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 60,
-    "pickUpDate": "2022-05-23T03:55:39.551Z",
-    "returnDate": "2022-05-29T03:55:39.551Z",
-    "owner_id": 12,
-    "renter_id": 3,
-    "item_id": 21,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 43,
-    "pickUpDate": "2022-06-02T03:55:39.551Z",
-    "returnDate": "2022-06-05T03:55:39.551Z",
-    "owner_id": 4,
-    "renter_id": 12,
-    "item_id": 21,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 100,
-    "pickUpDate": "2022-06-06T03:55:39.551Z",
-    "returnDate": "2022-06-07T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 7,
-    "item_id": 21,
-    "user_id": 10,
-    "title": "Klein Fence Post Driver",
-    "category": "Power Tools",
-    "brand": "Klein",
+    "item_id": 16,
+    "user_id": 14,
+    "title": "Line XL Skis -fast",
+    "category": "Sports Equipment",
+    "brand": "Line",
     "model": "",
-    "itemDescription": "Fence Post Driver -In good condition",
-    "price": 5,
+    "itemDescription": "XL Skis -fast -In great condition",
+    "price": 98,
+    "nyop": true,
+    "min_price": 9,
+    "availableFrom": "2022-05-21T05:34:50.719Z",
+    "availableTo": "2022-06-23T05:34:50.719Z",
+    "address": "7608 Ellen Ct, Marquette, MI 49858",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 17,
+    "user_id": 12,
+    "title": "Black & Decker Hammer",
+    "category": "Hand Tools",
+    "brand": "Black & Decker",
+    "model": "",
+    "itemDescription": "Hammer -In excellent condition",
+    "price": 82,
+    "nyop": false,
+    "min_price": 23,
+    "availableFrom": "2022-06-03T05:34:50.719Z",
+    "availableTo": "2022-08-19T05:34:50.719Z",
+    "address": "3300 Pine Rd, Marquette, MI 84717",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 18,
+    "user_id": 0,
+    "title": "Proto Battery Isolators",
+    "category": "Automotive",
+    "brand": "Proto",
+    "model": "",
+    "itemDescription": "Battery Isolators -In excellent condition",
+    "price": 50,
     "nyop": false,
     "min_price": 2,
-    "availableFrom": "2022-06-25T04:59:50.264Z",
-    "availableTo": "2022-08-13T04:59:50.264Z",
-    "address": "0323 Catherine Blvd, Lansing, MI 61188",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "availableFrom": "2022-05-19T05:34:50.719Z",
+    "availableTo": "2022-07-20T05:34:50.719Z",
+    "address": "7672 Baker Rd, Marquette, MI 93704",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 19,
+    "user_id": 11,
+    "title": "DiamondBack Moped",
+    "category": "Recreational Vehicles",
+    "brand": "DiamondBack",
+    "model": "",
+    "itemDescription": "Moped -In used condition",
+    "price": 96,
+    "nyop": false,
+    "min_price": 71,
+    "availableFrom": "2022-05-20T05:34:50.719Z",
+    "availableTo": "2022-07-17T05:34:50.719Z",
+    "address": "4313 Moore Street, Menominee, MI 50209",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 20,
+    "user_id": 9,
+    "title": "Bissel Window Washing Equipment",
+    "category": "Cleaning",
+    "brand": "Bissel",
+    "model": "",
+    "itemDescription": "Window Washing Equipment -In excellent condition",
+    "price": 62,
+    "nyop": false,
+    "min_price": 33,
+    "availableFrom": "2022-05-09T05:34:50.719Z",
+    "availableTo": "2022-06-11T05:34:50.719Z",
+    "address": "5837 Pine Blvd, Menominee, MI 50045",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 21,
+    "user_id": 13,
+    "title": "Octane Rock Climbing Harness",
+    "category": "Fitness",
+    "brand": "Octane",
+    "model": "",
+    "itemDescription": "Rock Climbing Harness -In great condition",
+    "price": 27,
+    "nyop": true,
+    "min_price": 4,
+    "availableFrom": "2022-05-11T05:34:50.719Z",
+    "availableTo": "2022-07-25T05:34:50.719Z",
+    "address": "2377 Willow Blvd, Lansing, MI 50620",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 22,
-    "user_id": 0,
-    "title": "ProForm Rowing Machine",
-    "category": "Gardening",
-    "brand": "ProForm",
+    "user_id": 12,
+    "title": "Klein Hex Wrench Set -all pieces there",
+    "category": "Hand Tools",
+    "brand": "Klein",
     "model": "",
-    "itemDescription": "Rowing Machine -In usable condition",
-    "price": 14,
+    "itemDescription": "Hex Wrench Set -all pieces there -In usable condition",
+    "price": 99,
     "nyop": false,
     "min_price": 3,
-    "availableFrom": "2022-05-26T04:59:50.264Z",
-    "availableTo": "2022-06-20T04:59:50.264Z",
-    "address": "6027 Baker Dr, Marquette, MI 63036",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "availableFrom": "2022-05-30T05:34:50.719Z",
+    "availableTo": "2022-07-20T05:34:50.719Z",
+    "address": "1603 Willow Dr, Lansing, MI 61629",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 23,
-    "user_id": 5,
-    "title": "Anthem Amplifier",
-    "category": "Audio/Visual",
-    "brand": "Anthem",
-    "model": "",
-    "itemDescription": "Amplifier -In excellent condition",
-    "price": 27,
-    "nyop": false,
-    "min_price": 5,
-    "availableFrom": "2022-05-19T04:59:50.264Z",
-    "availableTo": "2022-06-11T04:59:50.264Z",
-    "address": "4071 Walnut Street, Houghton, MI 58927",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 2,
-    "rate": 47,
-    "pickUpDate": "2022-05-24T03:55:39.551Z",
-    "returnDate": "2022-05-27T03:55:39.551Z",
-    "owner_id": 14,
-    "renter_id": 1,
-    "item_id": 24,
-    "user_id": 9,
-    "title": "Mr. Clean Window Washing Equipment",
-    "category": "Decorations",
+    "user_id": 11,
+    "title": "Mr. Clean Carpet Cleaner",
+    "category": "Cleaning",
     "brand": "Mr. Clean",
     "model": "",
-    "itemDescription": "Window Washing Equipment -In excellent condition",
-    "price": 54,
-    "nyop": false,
-    "min_price": 2,
-    "availableFrom": "2022-05-14T04:59:50.264Z",
-    "availableTo": "2022-06-02T04:59:50.264Z",
-    "address": "0043 MillPond Blvd, Menominee, MI 77326",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 5,
-    "rate": 71,
-    "pickUpDate": "2022-06-01T03:55:39.551Z",
-    "returnDate": "2022-06-05T03:55:39.551Z",
-    "owner_id": 0,
-    "renter_id": 2,
-    "item_id": 25,
-    "user_id": 8,
-    "title": "Purdy Electrical Current Detector",
-    "category": "Sports Equipment",
-    "brand": "Purdy",
-    "model": "",
-    "itemDescription": "Electrical Current Detector -In great condition",
-    "price": 36,
+    "itemDescription": "Carpet Cleaner -In great condition",
+    "price": 43,
     "nyop": false,
     "min_price": 15,
-    "availableFrom": "2022-05-27T04:59:50.264Z",
-    "availableTo": "2022-06-22T04:59:50.264Z",
-    "address": "6568 Ellen Rd, Marquette, MI 50457",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "availableFrom": "2022-06-04T05:34:50.719Z",
+    "availableTo": "2022-07-10T05:34:50.719Z",
+    "address": "8877 Baker Ct, Marquette, MI 79804",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 6,
-    "rate": 70,
-    "pickUpDate": "2022-06-09T03:55:39.551Z",
-    "returnDate": "2022-06-11T03:55:39.551Z",
-    "owner_id": 14,
-    "renter_id": 5,
-    "item_id": 25,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 7,
-    "rate": 76,
-    "pickUpDate": "2022-06-15T03:55:39.551Z",
-    "returnDate": "2022-06-20T03:55:39.551Z",
-    "owner_id": 1,
-    "renter_id": 13,
-    "item_id": 25,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 27,
-    "pickUpDate": "2022-05-04T03:55:39.551Z",
-    "returnDate": "2022-05-10T03:55:39.551Z",
-    "owner_id": 7,
-    "renter_id": 14,
-    "item_id": 26,
-    "user_id": 6,
-    "title": "Ikea Inflatable Santa",
-    "category": "Events",
-    "brand": "Ikea",
+    "item_id": 24,
+    "user_id": 7,
+    "title": "DeWalt Hex Wrench Set -all pieces there",
+    "category": "Hand Tools",
+    "brand": "DeWalt",
     "model": "",
-    "itemDescription": "Inflatable Santa -In good condition",
-    "price": 38,
+    "itemDescription": "Hex Wrench Set -all pieces there -In great condition",
+    "price": 91,
     "nyop": false,
-    "min_price": 4,
-    "availableFrom": "2022-06-10T04:59:50.264Z",
-    "availableTo": "2022-07-10T04:59:50.264Z",
-    "address": "1401 Skyline Rd, Menominee, MI 86064",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "min_price": 51,
+    "availableFrom": "2022-05-15T05:34:50.719Z",
+    "availableTo": "2022-08-04T05:34:50.719Z",
+    "address": "4315 Ellen Pkwy, Menominee, MI 94643",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 25,
+    "user_id": 10,
+    "title": "Corona Wheebarrow",
+    "category": "Gardening",
+    "brand": "Corona",
+    "model": "",
+    "itemDescription": "Wheebarrow -In perfect condition",
+    "price": 81,
+    "nyop": true,
+    "min_price": 14,
+    "availableFrom": "2022-05-23T05:34:50.719Z",
+    "availableTo": "2022-08-04T05:34:50.719Z",
+    "address": "2868 Pine Blvd, Houghton, MI 97114",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 26,
+    "user_id": 8,
+    "title": "Target 12 inch patterned rug",
+    "category": "Decorations",
+    "brand": "Target",
+    "model": "",
+    "itemDescription": "12 inch patterned rug -In usable condition",
+    "price": 82,
+    "nyop": true,
+    "min_price": 52,
+    "availableFrom": "2022-05-12T05:34:50.719Z",
+    "availableTo": "2022-06-25T05:34:50.719Z",
+    "address": "2855 Walnut Street, Houghton, MI 76722",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
     "item_id": 27,
-    "user_id": 7,
-    "title": "DeWalt Hex Wrench Set -all pieces there",
-    "category": "Power Tools",
-    "brand": "DeWalt",
-    "model": "",
-    "itemDescription": "Hex Wrench Set -all pieces there -In great condition",
-    "price": 78,
-    "nyop": false,
-    "min_price": 41,
-    "availableFrom": "2022-05-19T04:59:50.264Z",
-    "availableTo": "2022-06-05T04:59:50.264Z",
-    "address": "0437 Willow Rd, Marquette, MI 57485",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 38,
-    "pickUpDate": "2022-05-14T03:55:39.551Z",
-    "returnDate": "2022-05-16T03:55:39.551Z",
-    "owner_id": 12,
-    "renter_id": 0,
-    "item_id": 26,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 10,
-    "pickUpDate": "2022-05-16T03:55:39.551Z",
-    "returnDate": "2022-05-22T03:55:39.551Z",
-    "owner_id": 1,
-    "renter_id": 14,
-    "item_id": 26,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 46,
-    "pickUpDate": "2022-05-24T03:55:39.551Z",
-    "returnDate": "2022-05-29T03:55:39.551Z",
-    "owner_id": 6,
-    "renter_id": 9,
-    "item_id": 26,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 59,
-    "pickUpDate": "2022-06-02T03:55:39.551Z",
-    "returnDate": "2022-06-08T03:55:39.551Z",
-    "owner_id": 0,
-    "renter_id": 13,
-    "item_id": 26,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 50,
-    "pickUpDate": "2022-06-11T03:55:39.551Z",
-    "returnDate": "2022-06-15T03:55:39.551Z",
-    "owner_id": 9,
-    "renter_id": 10,
-    "item_id": 26,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 6,
-    "rate": 81,
-    "pickUpDate": "2022-06-16T03:55:39.551Z",
-    "returnDate": "2022-06-18T03:55:39.551Z",
-    "owner_id": 4,
-    "renter_id": 12,
-    "item_id": 26,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 85,
-    "pickUpDate": "2022-04-27T03:55:39.551Z",
-    "returnDate": "2022-04-29T03:55:39.551Z",
-    "owner_id": 14,
-    "renter_id": 3,
-    "item_id": 28,
-    "user_id": 7,
-    "title": "Mac Tools Battery Charger and Booster Cables",
-    "category": "Automotive",
-    "brand": "Mac Tools",
-    "model": "",
-    "itemDescription": "Battery Charger and Booster Cables -In good condition",
-    "price": 103,
-    "nyop": false,
-    "min_price": 70,
-    "availableFrom": "2022-07-04T04:59:50.264Z",
-    "availableTo": "2022-08-05T04:59:50.264Z",
-    "address": "2286 Skyline Ct, Marquette, MI 70863",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 54,
-    "pickUpDate": "2022-04-29T03:55:39.551Z",
-    "returnDate": "2022-05-01T03:55:39.551Z",
-    "owner_id": 4,
-    "renter_id": 6,
-    "item_id": 28,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 56,
-    "pickUpDate": "2022-05-03T03:55:39.551Z",
-    "returnDate": "2022-05-07T03:55:39.551Z",
-    "owner_id": 12,
-    "renter_id": 10,
-    "item_id": 28,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 31,
-    "pickUpDate": "2022-05-07T03:55:39.551Z",
-    "returnDate": "2022-05-08T03:55:39.551Z",
-    "owner_id": 13,
-    "renter_id": 9,
-    "item_id": 28,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 102,
-    "pickUpDate": "2022-05-11T03:55:39.551Z",
-    "returnDate": "2022-05-13T03:55:39.551Z",
-    "owner_id": 8,
-    "renter_id": 2,
-    "item_id": 28,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 37,
-    "pickUpDate": "2022-05-31T03:55:39.551Z",
-    "returnDate": "2022-06-05T03:55:39.551Z",
-    "owner_id": 5,
-    "renter_id": 8,
-    "item_id": 29,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 57,
-    "pickUpDate": "2022-06-05T03:55:39.551Z",
-    "returnDate": "2022-06-06T03:55:39.551Z",
-    "owner_id": 7,
-    "renter_id": 2,
-    "item_id": 29,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 47,
-    "pickUpDate": "2022-06-06T03:55:39.551Z",
-    "returnDate": "2022-06-09T03:55:39.551Z",
-    "owner_id": 5,
-    "renter_id": 10,
-    "item_id": 29,
-    "user_id": 13,
-    "title": "Draper Lighting Equipment",
-    "category": "Audio/Visual",
-    "brand": "Draper",
-    "model": "",
-    "itemDescription": "Lighting Equipment -In usable condition",
-    "price": 54,
-    "nyop": false,
-    "min_price": 40,
-    "availableFrom": "2022-05-29T04:59:50.264Z",
-    "availableTo": "2022-06-23T04:59:50.264Z",
-    "address": "2324 Baker Pkwy, Houghton, MI 90788",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 0,
-    "rate": 61,
-    "pickUpDate": "2022-05-19T03:55:39.551Z",
-    "returnDate": "2022-05-23T03:55:39.551Z",
-    "owner_id": 0,
-    "renter_id": 6,
-    "item_id": 30,
-    "user_id": 2,
-    "title": "Kobalt hedge trimmer",
-    "category": "Recreational Vehicles",
-    "brand": "Kobalt",
-    "model": "",
-    "itemDescription": "hedge trimmer -In usable condition",
-    "price": 50,
-    "nyop": false,
-    "min_price": 14,
-    "availableFrom": "2022-06-28T04:59:50.264Z",
-    "availableTo": "2022-07-31T04:59:50.264Z",
-    "address": "8768 Emerson Ct, Lansing, MI 64714",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 2,
-    "rate": 23,
-    "pickUpDate": "2022-05-20T03:55:39.552Z",
-    "returnDate": "2022-05-24T03:55:39.552Z",
-    "owner_id": 6,
-    "renter_id": 1,
-    "item_id": 31,
-    "user_id": 5,
-    "title": "Bertram boat",
-    "category": "Camping",
-    "brand": "Bertram",
-    "model": "",
-    "itemDescription": "boat -In used condition",
-    "price": 55,
-    "nyop": false,
-    "min_price": 18,
-    "availableFrom": "2022-06-30T04:59:50.264Z",
-    "availableTo": "2022-08-02T04:59:50.264Z",
-    "address": "6605 Willow Ct, Menominee, MI 58619",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 83,
-    "pickUpDate": "2022-05-26T03:55:39.552Z",
-    "returnDate": "2022-05-29T03:55:39.552Z",
-    "owner_id": 9,
-    "renter_id": 12,
-    "item_id": 32,
-    "user_id": 0,
-    "title": "Anthem Projector",
-    "category": "Audio/Visual",
-    "brand": "Anthem",
-    "model": "",
-    "itemDescription": "Projector -In great condition",
-    "price": 100,
-    "nyop": false,
-    "min_price": 40,
-    "availableFrom": "2022-07-02T04:59:50.264Z",
-    "availableTo": "2022-08-09T04:59:50.264Z",
-    "address": "7437 Walnut Street, Marquette, MI 74869",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 2,
-    "rate": 8,
-    "pickUpDate": "2022-06-01T03:55:39.552Z",
-    "returnDate": "2022-06-06T03:55:39.552Z",
-    "owner_id": 8,
-    "renter_id": 13,
-    "item_id": 32,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 17,
-    "pickUpDate": "2022-05-01T03:55:39.552Z",
-    "returnDate": "2022-05-02T03:55:39.552Z",
-    "owner_id": 4,
-    "renter_id": 5,
-    "item_id": 33,
-    "user_id": 7,
-    "title": "Craftsman Battery Charger and Booster Cables",
-    "category": "Automotive",
-    "brand": "Craftsman",
-    "model": "",
-    "itemDescription": "Battery Charger and Booster Cables -In used condition",
-    "price": 101,
-    "nyop": false,
-    "min_price": 53,
-    "availableFrom": "2022-05-06T04:59:50.264Z",
-    "availableTo": "2022-05-27T04:59:50.264Z",
-    "address": "4080 Pine Street, Houghton, MI 63641",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 1,
-    "rate": 28,
-    "pickUpDate": "2022-05-02T03:55:39.552Z",
-    "returnDate": "2022-05-08T03:55:39.552Z",
-    "owner_id": 10,
-    "renter_id": 4,
-    "item_id": 33,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 78,
-    "pickUpDate": "2022-05-09T03:55:39.552Z",
-    "returnDate": "2022-05-11T03:55:39.552Z",
-    "owner_id": 4,
-    "renter_id": 10,
-    "item_id": 33,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 3,
-    "rate": 53,
-    "pickUpDate": "2022-05-14T03:55:39.552Z",
-    "returnDate": "2022-05-20T03:55:39.552Z",
-    "owner_id": 3,
-    "renter_id": 1,
-    "item_id": 33,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 4,
-    "rate": 83,
-    "pickUpDate": "2022-05-20T03:55:39.552Z",
-    "returnDate": "2022-05-24T03:55:39.552Z",
-    "owner_id": 14,
-    "renter_id": 11,
-    "item_id": 33,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 5,
-    "rate": 38,
-    "pickUpDate": "2022-05-28T03:55:39.552Z",
-    "returnDate": "2022-06-03T03:55:39.552Z",
-    "owner_id": 6,
-    "renter_id": 10,
-    "item_id": 33,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 6,
-    "rate": 39,
-    "pickUpDate": "2022-06-04T03:55:39.552Z",
-    "returnDate": "2022-06-10T03:55:39.552Z",
-    "owner_id": 10,
-    "renter_id": 10,
-    "item_id": 33,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 99,
-    "pickUpDate": "2022-05-12T03:55:39.552Z",
-    "returnDate": "2022-05-13T03:55:39.552Z",
-    "owner_id": 2,
-    "renter_id": 0,
-    "item_id": 34,
-    "user_id": 14,
-    "title": "Marmot Camp Table + chairs",
-    "category": "Cleaning",
-    "brand": "Marmot",
-    "model": "",
-    "itemDescription": "Camp Table + chairs -In good condition",
-    "price": 65,
-    "nyop": false,
-    "min_price": 19,
-    "availableFrom": "2022-06-05T04:59:50.264Z",
-    "availableTo": "2022-07-05T04:59:50.264Z",
-    "address": "8036 Skyline Blvd, Menominee, MI 82707",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 6,
-    "rate": 34,
-    "pickUpDate": "2022-06-19T03:55:39.552Z",
-    "returnDate": "2022-06-21T03:55:39.552Z",
-    "owner_id": 7,
-    "renter_id": 5,
-    "item_id": 35,
-    "user_id": 13,
-    "title": "Klein Fence Post Driver",
-    "category": "Power Tools",
-    "brand": "Klein",
-    "model": "",
-    "itemDescription": "Fence Post Driver -In great condition",
-    "price": 74,
-    "nyop": false,
-    "min_price": 53,
-    "availableFrom": "2022-06-23T04:59:50.264Z",
-    "availableTo": "2022-08-06T04:59:50.264Z",
-    "address": "0447 Willow Pkwy, Marquette, MI 73234",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 4,
-    "rate": 102,
-    "pickUpDate": "2022-06-11T03:55:39.552Z",
-    "returnDate": "2022-06-17T03:55:39.552Z",
-    "owner_id": 7,
-    "renter_id": 2,
-    "item_id": 36,
-    "user_id": 2,
-    "title": "Black & Decker Axe Sharpening Set",
-    "category": "Power Tools",
-    "brand": "Black & Decker",
-    "model": "",
-    "itemDescription": "Axe Sharpening Set -In used condition",
-    "price": 62,
-    "nyop": false,
-    "min_price": 38,
-    "availableFrom": "2022-06-16T04:59:50.264Z",
-    "availableTo": "2022-07-23T04:59:50.264Z",
-    "address": "4043 Catherine Ct, Menominee, MI 93146",
-    "latLng": [
-      "46.233333",
-      "-86.35"
-    ],
-    "photos": [
-      ""
-    ]
-  },
-  {
-    "transaction_id": 4,
-    "rate": 18,
-    "pickUpDate": "2022-05-16T03:55:39.552Z",
-    "returnDate": "2022-05-17T03:55:39.552Z",
-    "owner_id": 7,
-    "renter_id": 14,
-    "item_id": 37,
     "user_id": 9,
-    "title": "Urban Outfitters Throw pillows",
-    "category": "Events",
-    "brand": "Urban Outfitters",
+    "title": "Bionic Garden Cart",
+    "category": "Gardening",
+    "brand": "Bionic",
     "model": "",
-    "itemDescription": "Throw pillows -In excellent condition",
-    "price": 73,
+    "itemDescription": "Garden Cart -In used condition",
+    "price": 69,
     "nyop": false,
-    "min_price": 40,
-    "availableFrom": "2022-05-26T04:59:50.264Z",
-    "availableTo": "2022-06-22T04:59:50.264Z",
-    "address": "6663 Locust Cir, Lansing, MI 78688",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "min_price": 29,
+    "availableFrom": "2022-05-18T05:34:50.719Z",
+    "availableTo": "2022-07-28T05:34:50.719Z",
+    "address": "6357 Skyline Cir, Houghton, MI 68373",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 5,
-    "rate": 94,
-    "pickUpDate": "2022-05-17T03:55:39.552Z",
-    "returnDate": "2022-05-21T03:55:39.552Z",
-    "owner_id": 2,
-    "renter_id": 3,
-    "item_id": 37,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
+    "item_id": 28,
+    "user_id": 1,
+    "title": "Stanley Chainsaw",
+    "category": "Power Tools",
+    "brand": "Stanley",
+    "model": "",
+    "itemDescription": "Chainsaw -In usable condition",
+    "price": 70,
+    "nyop": true,
+    "min_price": 33,
+    "availableFrom": "2022-05-25T05:34:50.719Z",
+    "availableTo": "2022-08-02T05:34:50.719Z",
+    "address": "6184 Locust Ct, Lansing, MI 93193",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
+    "photos": [
+      ""
+    ]
   },
   {
-    "transaction_id": 6,
-    "rate": 49,
-    "pickUpDate": "2022-05-25T03:55:39.552Z",
-    "returnDate": "2022-05-27T03:55:39.552Z",
-    "owner_id": 2,
-    "renter_id": 13,
-    "item_id": 37,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 0,
-    "rate": 49,
-    "pickUpDate": "2022-06-06T03:55:39.552Z",
-    "returnDate": "2022-06-10T03:55:39.552Z",
-    "owner_id": 1,
-    "renter_id": 14,
-    "item_id": 38,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 1,
-    "rate": 7,
-    "pickUpDate": "2022-06-11T03:55:39.552Z",
-    "returnDate": "2022-06-13T03:55:39.552Z",
-    "owner_id": 3,
-    "renter_id": 0,
-    "item_id": 38,
-    "paymentintent_id": "",
-    "refunded": false,
-    "payment_status": ""
-  },
-  {
-    "transaction_id": 2,
-    "rate": 6,
-    "pickUpDate": "2022-06-14T03:55:39.552Z",
-    "returnDate": "2022-06-16T03:55:39.552Z",
-    "owner_id": 8,
-    "renter_id": 13,
-    "item_id": 38,
+    "item_id": 29,
     "user_id": 4,
-    "title": "undefined 4 Person Tent",
-    "category": "Cleaning",
+    "title": "Bond Garden Cart",
+    "category": "Gardening",
+    "brand": "Bond",
     "model": "",
-    "itemDescription": "4 Person Tent -In used condition",
-    "price": 50,
-    "nyop": false,
-    "min_price": 9,
-    "availableFrom": "2022-06-22T04:59:50.264Z",
-    "availableTo": "2022-08-07T04:59:50.264Z",
-    "address": "6146 Walnut Street, Menominee, MI 70619",
-    "latLng": [
-      "47.121132",
-      "-88.569420"
-    ],
+    "itemDescription": "Garden Cart -In usable condition",
+    "price": 4,
+    "nyop": true,
+    "min_price": 4,
+    "availableFrom": "2022-06-01T05:34:50.719Z",
+    "availableTo": "2022-07-14T05:34:50.719Z",
+    "address": "8547 Moore Dr, Lansing, MI 80957",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
     "photos": [
       ""
     ]
   },
   {
-    "transaction_id": 1,
-    "rate": 48,
-    "pickUpDate": "2022-06-07T03:55:39.552Z",
-    "returnDate": "2022-06-12T03:55:39.552Z",
-    "owner_id": 0,
-    "renter_id": 11,
-    "item_id": 39,
-    "user_id": 12,
-    "title": "Oriental Trading Company Inflatable Bouncy House",
+    "item_id": 30,
+    "user_id": 10,
+    "title": "Total Gym FIT Treadmill",
     "category": "Fitness",
-    "brand": "Oriental Trading Company",
+    "brand": "Total Gym FIT",
     "model": "",
-    "itemDescription": "Inflatable Bouncy House -In used condition",
-    "price": 28,
+    "itemDescription": "Treadmill -In good condition",
+    "price": 36,
     "nyop": false,
-    "min_price": 12,
-    "availableFrom": "2022-05-21T04:59:50.264Z",
-    "availableTo": "2022-06-10T04:59:50.264Z",
-    "address": "5151 Catherine Blvd, Menominee, MI 71527",
-    "latLng": [
-      "46.547581",
-      "-87.395592"
-    ],
+    "min_price": 7,
+    "availableFrom": "2022-05-30T05:34:50.719Z",
+    "availableTo": "2022-07-03T05:34:50.719Z",
+    "address": "1248 Skyline Street, Lansing, MI 86245",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
     "photos": [
       ""
     ]
-<<<<<<< HEAD
   },
-{  "item_id": 4,
+  {
+    "item_id": 31,
+    "user_id": 8,
+    "title": "Specialized Moped",
+    "category": "Recreational Vehicles",
+    "brand": "Specialized",
+    "model": "",
+    "itemDescription": "Moped -In good condition",
+    "price": 72,
+    "nyop": false,
+    "min_price": 15,
+    "availableFrom": "2022-05-08T05:34:50.719Z",
+    "availableTo": "2022-08-05T05:34:50.719Z",
+    "address": "4765 Skyline Rd, Marquette, MI 88814",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 32,
+    "user_id": 8,
+    "title": "Bond Rototiller",
+    "category": "Gardening",
+    "brand": "Bond",
+    "model": "",
+    "itemDescription": "Rototiller -In good condition",
+    "price": 86,
+    "nyop": true,
+    "min_price": 27,
+    "availableFrom": "2022-05-15T05:34:50.719Z",
+    "availableTo": "2022-08-04T05:34:50.719Z",
+    "address": "3756 Catherine Street, Marquette, MI 75886",
+    "latLng": {
+      "lat": "46.547581",
+      "lng": "-87.395592"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 33,
+    "user_id": 7,
+    "title": "ProForm Treadmill",
+    "category": "Fitness",
+    "brand": "ProForm",
+    "model": "",
+    "itemDescription": "Treadmill -In used condition",
+    "price": 46,
+    "nyop": true,
+    "min_price": 33,
+    "availableFrom": "2022-05-24T05:34:50.720Z",
+    "availableTo": "2022-08-21T05:34:50.720Z",
+    "address": "6125 Locust Blvd, Lansing, MI 96883",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 34,
+    "user_id": 7,
+    "title": "Corona Set of Shovel, Pickaxe and Post Hole Digger",
+    "category": "Gardening",
+    "brand": "Corona",
+    "model": "",
+    "itemDescription": "Set of Shovel, Pickaxe and Post Hole Digger -In good condition",
+    "price": 95,
+    "nyop": false,
+    "min_price": 52,
+    "availableFrom": "2022-05-13T05:34:50.720Z",
+    "availableTo": "2022-07-20T05:34:50.720Z",
+    "address": "0771 MillPond Ct, Menominee, MI 77782",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 35,
+    "user_id": 9,
+    "title": "Bionic Rototiller",
+    "category": "Gardening",
+    "brand": "Bionic",
+    "model": "",
+    "itemDescription": "Rototiller -In good condition",
+    "price": 15,
+    "nyop": false,
+    "min_price": 6,
+    "availableFrom": "2022-05-28T05:34:50.720Z",
+    "availableTo": "2022-07-20T05:34:50.720Z",
+    "address": "8107 Baker Blvd, Lansing, MI 83151",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 36,
+    "user_id": 11,
+    "title": "Power Practical 4 Person Tent",
+    "category": "Camping",
+    "brand": "Power Practical",
+    "model": "",
+    "itemDescription": "4 Person Tent -In perfect condition",
+    "price": 10,
+    "nyop": false,
+    "min_price": 5,
+    "availableFrom": "2022-05-20T05:34:50.720Z",
+    "availableTo": "2022-07-06T05:34:50.720Z",
+    "address": "3335 Baker Blvd, Lansing, MI 49998",
+    "latLng": {
+      "lat": "46.233333",
+      "lng": "-86.35"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+    "item_id": 37,
+    "user_id": 11,
+    "title": "Bionic Set of Shovel, Pickaxe and Post Hole Digger",
+    "category": "Gardening",
+    "brand": "Bionic",
+    "model": "",
+    "itemDescription": "Set of Shovel, Pickaxe and Post Hole Digger -In good condition",
+    "price": 67,
+    "nyop": false,
+    "min_price": 22,
+    "availableFrom": "2022-06-05T05:34:50.720Z",
+    "availableTo": "2022-08-22T05:34:50.720Z",
+    "address": "7577 Walnut Pkwy, Lansing, MI 74907",
+    "latLng": {
+      "lat": "47.121132",
+      "lng": "-88.569420"
+    },
+    "photos": [
+      ""
+    ]
+  },
+  {
+  "item_id": 38,
   "user_id": 6,
   "title": "Lowkystar Nano Guantlet Hulk Version Endgame",
   "category": "decorations",
@@ -2057,21 +844,21 @@
   "model": "",
   "itemDescription": "NANO GAUNTLET HULK VERSION TOY/REPLICA FULL METAL LIFE-SIZE HANDCRAFTED COLLECTIBLE WITH RECHARGEABLE LED INFINITY STONES AVENGERS: ENDGAME",
   "price": 103,
-   "nyop": false,
-  "min_price": 7,
+  "nyop": false,
+  "min_price": 100,
   "availableFrom": "2022-05-04T00:52:54.775Z",
   "availableTo": "2022-06-02T00:52:54.775Z",
   "address": "2324 Pine Pkwy, Lansing, MI 62333",
-  "latLng": [
-    "46.547581",
-    "-87.395592"
-  ],
+  "latLng":  {
+    "lat":  "46.547581",
+    "lng":  "-87.395592"
+  },
   "photos": [
     "https://cdn.shopify.com/s/files/1/0086/7188/7396/products/IMG_3696_1920x.jpg?v=1641209393"
   ]
 },
 {
-  "item_id": 1,
+  "item_id": 39,
   "user_id": 9,
   "title": "Obrien Life Jacket",
   "category": "boating",
@@ -2079,21 +866,20 @@
   "model": "",
   "itemDescription": "Flex fit life jacket that moves with you -In used condition",
   "price": 15,
-  "nyop": false,
   "min_price": 13,
   "availableFrom": "2022-06-01T00:52:54.774Z",
   "availableTo": "2022-06-30T00:52:54.775Z",
   "address": "299-101 W Douglass Ave, Houghton, MI 49931",
-  "latLng": [
-    "47.118970",
-    "-88.573360"
-  ],
+  "latLng": {
+    "lat": "47.118970",
+    "lng": "-88.573360"
+  },
   "photos": [
     "https://images-us-prod.cms.commerce.dynamics.com/cms/api/nwtfklkdlc/imageFileData/search?fileName=/Products%2FOB2201733_000_001.png&m=6&q=80&cropfocalregion=true","https://images-us-prod.cms.commerce.dynamics.com/cms/api/nwtfklkdlc/imageFileData/search?fileName=/Products%2FOB2201733_000_002.png&m=6&q=80&cropfocalregion=true"
   ]
 },
 {
-  "item_id": 2,
+  "item_id": 40,
   "user_id": 6,
   "title": "Corona Wheebarrow",
   "category": "gardening",
@@ -2101,20 +887,16 @@
   "model": " WB 2606KFF",
   "itemDescription": "Wheebarrow -In used condition",
   "price": 15,
-  "nyop": false,
   "min_price": 10,
   "availableFrom": "2022-06-20T00:52:54.775Z",
   "availableTo": "2022-07-31T00:52:54.775Z",
   "address": "2324 Pine Pkwy, Lansing, MI 62333",
-  "latLng": [
-    "46.547581",
-    "-87.395592"
-  ],
+  "latLng": {
+    "lat": "46.547581",
+    "lng": "-87.395592"
+},
   "photos": [
     "https://www.qcsupply.com/media/catalog/product/cache/5284d6cde28d5b60f464df18bb1a18f4/3/6/360372_1_.jpg"
   ]
 }
-=======
-  }
->>>>>>> origin/atlantic-loadData
 ]

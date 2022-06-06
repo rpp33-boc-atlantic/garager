@@ -12,7 +12,7 @@ var fs = require('fs');
 
 var random = function (min = 0, max) {
 
-  var randomNum = Math.floor(Math.random() * (max - min) + min);
+  var randomNum = Math.floor(Math.random() * (max - min + 1) + min);
   // console.log('min', min, ' max ', max, ' return ', randomNum);
   return randomNum;
 };
