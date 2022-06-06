@@ -7,4 +7,6 @@ router.post('/threads', controller.threads.post);
 
 router.put('/threads', controller.threads.put);
 
+router.get('/threads/user', controller.user.get);
+
 module.exports = router;

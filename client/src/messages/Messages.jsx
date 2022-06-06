@@ -10,41 +10,52 @@ import { useLocation } from 'react-router-dom'; // JO ADDED THIS LINE
 
 const Messages = ( props ) => {
 
-  const { user } = useUserAuth();
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
-  const threadRef = useRef([]);
+  const [ threadAdded, updateThreadAdded ] = useState(false);
+  const [ userData, changeUserData ] = useState('');
 
-  // ***** JO ADDED THE NEXT THREE LINES TO PASS ITEM ID TO MESSAGES *****
+  const { user } = useUserAuth();
+  const threadRef = useRef([]);
   const location = useLocation();
-  let itemID;
+
+  let itemID = null;
   if (location.state) {
     itemID = location.state.itemID;
   }
-  // const { itemID } = location.state; <-- DID NOT WORK IN CASES WHERE MESSAGES IS ACCESSED FROM A DIFFERENT COMPONENT OTHER THAN CheckoutSuccess.jsx
-  // console.log('itemID in message', itemID);
 
   useEffect(() => {
-    if (threads.length === 0) {
+    if (itemID && !threadAdded) {
+      updateThreadAdded(true);
+      addThread();
+    }
+    if (threads.length === 0 && user.email) {
       getThreads();
+    }
+    if (user.email) {
+      getUserInfo();
     }
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
     });
-  }, []);
+  }, [user]);
+
+  const getUserInfo = async () => {
+    const result = await axios.get(`/messages/threads/user?email=${user.email}`);
+    changeUserData(result.data);
+  };
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: itemID,
-      ownerId: 7,
-      renterId: 8,
+      itemId: 32,
+      renterId: 1,
       timeUpdated: Date.now()
     });
     getThreads();
   };
 
   const getThreads = async () => {
-    const result = await axios.get('/messages/threads');
+    const result = await axios.get(`/messages/threads?email=${user.email}`);
     threadRef.current = result.data;
     updateThreads ( result.data );
   };
@@ -69,6 +80,7 @@ const Messages = ( props ) => {
     let newMessage = {
       threadId: threads[ activeThread ].threadId,
       email: user.email,
+      'user_id': userData.userId,
       text: message,
       imageUrl: null,
       timeCreated: Date.now()
@@ -88,6 +100,8 @@ const Messages = ( props ) => {
             threads={ threads }
             activeThread={ activeThread }
             changeThread={ changeThread }
+            email={ user.email }
+            userData={ userData }
           />
         </div>
 
@@ -96,6 +110,7 @@ const Messages = ( props ) => {
             threads={ threads }
             messages={ threads.length > 0 ? threads[ activeThread ].messages : [] }
             sendMessage={ sendMessage }
+            userData={ userData }
           />
         </div>
 
