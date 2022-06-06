@@ -14,8 +14,8 @@ module.exports = {
           console.log('err', err);
           res.status(500).send(err);
         } else {
-          console.log('data', data);
-          res.send(data);
+          // console.log('data', data);
+          res.status(200).send(data);
         }
       });
 

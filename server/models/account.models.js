@@ -6,7 +6,7 @@ module.exports = {
     get: (itemId, callback) => {
       // get stuff from database
       // const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-      console.log('here', itemId);
+      console.log('itemId', itemId);
       const query = {
         text: `Select * FROM transactions WHERE owner_id = $1`,
         // values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
@@ -14,7 +14,7 @@ module.exports = {
       };
       return client.query(query)
         .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
-          callback(databaseStuff.rows);
+          callback(null, databaseStuff.rows);
         });
 
     },

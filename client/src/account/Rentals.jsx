@@ -3,11 +3,62 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import RentalTabs from './RentalTabs.jsx';
+const axios = require('axios');
 
-var transactions = require('../data/dataFunctions/transactions.json');
+// var transactions = require('../data/dataFunctions/transactions.json');
 var items = require('../data/dataFunctions/items.json');
 
+import {useState, useEffect} from 'react';
+
 export default function Rentals () {
+
+  let [transactions, setTransactions] = useState(null);
+  var getData = (id)=>{
+
+    return axios.get('/account/my-rentals', {
+      params: {
+        // eslint-disable-next-line camelcase
+        item_id: id
+      }
+    })
+      .then(function (response) {
+        console.log('data returned', response.data);
+        setTransactions(response.data);
+      })
+      .catch(function (error) {
+        console.log('error', error);
+      })
+      .then(function () {
+      // always executed
+      });
+
+  };
+
+  useEffect(()=> {
+    getData(10);
+    console.log('tr', transactions);
+  }, []);
+
+
+
   return <RentalTabs m='auto' past = {false} transactions={transactions} items={items} />;
 }
 
+
+
+
+// Make a request for a user with a given ID
+// axios.get('/user?ID=12345')
+//   .then(function (response) {
+//     // handle success
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     // handle error
+//     console.log(error);
+//   })
+//   .then(function () {
+//     // always executed
+//   });
+
+// Optionally the request above could also be done as
