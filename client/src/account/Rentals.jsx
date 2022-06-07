@@ -4,8 +4,6 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import RentalTabs from './RentalTabs.jsx';
 
-// var transactions = require('../data/dataFunctions/transactions.json');
-// var items = require('../data/dataFunctions/items.json');
 var transactions = require('../../../server/database/transactions.json');
 var items = require('../../../server/database/items.json');
 
