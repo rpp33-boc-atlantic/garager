@@ -37,12 +37,12 @@ export default function RentalTabs(props) {
     text: 'Current Price per Day',
     sort: true
   }, {
-    dataField: 'pickUpDate',
+    dataField: 'pickupdate',
     text: 'Checkout Date',
     sort: true
   },
   {
-    dataField: 'returnDate',
+    dataField: 'returndate',
     text: 'Return Date',
     sort: true
   },
@@ -64,7 +64,7 @@ export default function RentalTabs(props) {
       t.title = items[Math.floor(Math.random( ) * 40)].title;
       t.photos = items[1]['photos'];
       var newDate = new Date();
-      if (moment(t.returnDate).isBefore(moment(newDate))) {
+      if (moment(t.returndate).isBefore(moment(newDate))) {
         pastRentals.push(t);
 
       } else {
@@ -72,12 +72,12 @@ export default function RentalTabs(props) {
       }
 
     });
-    // console.log('rentals first', pastRentals);
+    console.log('rentals first', pastRentals);
     var clickedColumn = 'startDate';
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
     var clickedColumn = 'dueDate';
     pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    // console.log('rentals second', pastRentals);
+    console.log('rentals second', pastRentals);
     console.log('Current', currentRentals);
     console.log('Past', pastRentals);
     return [currentRentals, pastRentals];
