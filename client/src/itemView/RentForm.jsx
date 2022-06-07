@@ -38,7 +38,6 @@ class RentForm extends React.Component {
     }, ()=> {
       console.log('state', this.state);
     });
-
   }
 
   handleSubmit(e) {
@@ -62,7 +61,6 @@ class RentForm extends React.Component {
         .catch((error) => {
           console.log('ERROR from checkoutButton', error);
         });
-
     }
   }
 
@@ -133,9 +131,6 @@ class RentForm extends React.Component {
           {suggestedPriceLine}
           <div className='alert alert-warning alert-dismissible fade show tooLow' role='alert' style={{display: 'none'}}>
             <strong>Suggested price is too low.</strong>
-            {/* <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={this.toggleAlert}>
-              <span aria-hidden="true">&times;</span>
-            </button> */}
           </div>
           <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit}></input></RentButton>
         </form>
