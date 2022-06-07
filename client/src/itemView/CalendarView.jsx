@@ -77,15 +77,15 @@ const CalendarView = (props) => {
     return false;
   };
 
-  // const minimumDate =
+  const minimumDate = moment(new Date(props.availabilityRange.availablefrom)).isSameOrBefore(new Date()) ? new Date() : new Date(props.availabilityRange.availablefrom);
 
   return (
     <div>
       <Calendar
         tileDisabled={tileDisabled}
-        // minDate={new Date(props.availabilityRange.availablefrom)}
-        minDate={new Date()}
-        // maxDate={new Date(props.availabilityRange.availableto)}
+        minDate={minimumDate}
+        // minDate={new Date()}
+        maxDate={new Date(props.availabilityRange.availableto)}
         selectRange
         onChange={onChange}
         calendarType={'US'}
