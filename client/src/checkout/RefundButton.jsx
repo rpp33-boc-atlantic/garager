@@ -5,9 +5,15 @@ const RefundButton = (props) => {
 
   const handleClick = async () => {
     console.log('clicked here refund button');
-    const transactionID = { transactionId: '0' }; // REFACTOR: props.transactionID
+    // ***** REFACTOR: props.transactionID - data type can be integer or string
+    // ***** REFACTOR: props.owner_id - data type can be integer or string
+
+    const refundData = {
+      transactionID: '211',
+      ownerID: '4',
+    };
     
-    axios.put('/checkout/refund', transactionID)
+    axios.put('/checkout/refund', refundData)
       .then((response) => {
         console.log('response from refundButton', response);
       })

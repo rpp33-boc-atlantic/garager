@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import RefundButton from './RefundButton.jsx';
 
 const StripeAccountSetup = () => {
   const [status, setStatus] = useState('');
@@ -32,6 +33,8 @@ const StripeAccountSetup = () => {
       <h2>Setup a Stripe account to recieve payments from items rented out from your garage!</h2>
       <h3>Status of Stripe Account: <strong>{status}</strong></h3>
       <button onClick={handleClick}>Create/Update Your Stripe Account</button>
+      {/* REMOVE REFUND BUTTON AFTER INTEGRATION WITH ACCOUNT */}
+      <RefundButton />
     </>
   );
 };

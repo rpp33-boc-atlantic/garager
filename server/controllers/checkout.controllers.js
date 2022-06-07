@@ -17,18 +17,18 @@ module.exports = {
       // renter_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
       // item_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
       // paymentIntent_id TEXT DEFAULT NULL <-- INPUT AFTER WEBHOOK
-      
+
       // console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
       // const { ownerID } = req.body;
       // ***** REFACTOR: once all data is passed down from RentForm
-      const ownerID = 7; // 4 = Jack Barker, 5 & 6 also OK, 7 = ERROR
+      const ownerID = 4; // 4 = Jack Barker, 5 & 6 also OK, 7 = ERROR
       const ownerName = 'Jack Barker';
       const itemID = 5; // Craftsman Hammer
       const itemName = 'Craftsman Hammer';
       const renterID = 2; // Leslie Knope
-      const rate = 16.00; 
-      const pickUpDate = '2022-07-12'; // dateRange[0]
-      const returnDate = '2022-07-13'; // dateRange[1]
+      const rate = 16.00;
+      const pickUpDate = '2022-07-14'; // dateRange[0]
+      const returnDate = '2022-07-15'; // dateRange[1]
       const priceInCents = 1600;
 
       // First check if item owner has a completed stripe account
@@ -42,7 +42,6 @@ module.exports = {
             if (!accountInfo.details_submitted || !accountInfo.charges_enabled) {
               res.status(500).send('Item owner has an incomplete Stripe Account Setup');
             } else { // Owner has a Stripe Account, so proceed to checkout
-              console.log('we are ready for checkout');
               // First, get transaction_id from DB by inserting transactions table with NOT NULL data (rate, pickUpDate, returnDate)
               models.checkoutSession.post(rate, pickUpDate, returnDate, async (err, transactionID) => {
                 if (err) {
@@ -66,7 +65,7 @@ module.exports = {
                     success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${itemID}`,
                     cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
                     payment_intent_data: {
-                      metadata: { 
+                      metadata: {
                         transaction_id: transactionID,
                         owner_id: ownerID,
                         renter_id: renterID,
@@ -82,7 +81,6 @@ module.exports = {
               });
             }
           } catch (err) {
-            console.log('inside checkout session catch block');
             res.status(500).send({
               error: err.message,
             });
@@ -116,7 +114,6 @@ module.exports = {
               const account = await stripe.accounts.create({
                 type: 'standard',
               });
-              console.log('new stripe ID account', account.id);
               // Store the ID of the new Standard connected account.
               models.onboardUser.post(account.id, userID, (err) => {
                 if (err) {
@@ -145,7 +142,6 @@ module.exports = {
     get: async (req, res) => {
       // get query paramesters (instead of using session)
       const stripeID = req.query.id;
-      console.log('inside refresh', stripeID);
 
       try {
         const origin = `${req.secure ? 'https://' : 'http://'}${req.headers.host}`;
@@ -176,7 +172,7 @@ module.exports = {
         } else {
           try {
             const accountInfo = await stripe.accounts.retrieve(stripeID);
-            console.log('accountInfo', accountInfo);
+            // console.log('accountInfo', accountInfo);
             if (!accountInfo.details_submitted) {
               res.send('In-progress - please continue to fill out the details to setup your account.');
             } else if (!accountInfo.charges_enabled) {
@@ -185,11 +181,48 @@ module.exports = {
               res.send('complete - thank you');
             }
           } catch (err) {
-            console.log('checkAccountCompletion inside catch block');
             res.status(500).send({
               error: err.message,
             });
           }
+        }
+      });
+    },
+  },
+  refund: {
+    put: (req, res) => {
+      const transactionID = req.body.transactionID;
+      const ownerID = req.body.ownerID;
+
+      models.refund.getStripeID(ownerID, (err, stripeID) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          models.refund.getPaymentID(transactionID, async (err, paymentintentID) => {
+            if (err) {
+              res.status(500).send(err);
+            } else {
+              try {
+                // issue refund
+                const refund = await stripe.refunds.create({
+                  payment_intent: paymentintentID,
+                }, {
+                  stripeAccount: stripeID,
+                });
+                // update transactions with refunded = true
+                models.refund.updateStatus(transactionID, (err) => {
+                  if (err) {
+                    res.status(500).send(err);
+                  } else {
+                    res.send();
+                  }
+                });
+              } catch (err) {
+                console.log('error inside catch controllers refund', err);
+                res.status(500).send(err);
+              }
+            }
+          });
         }
       });
     },
@@ -203,7 +236,7 @@ module.exports = {
       try {
         event = stripe.webhooks.constructEvent(req.body, sig, STRIPE_SECRET_ENDPOINT);
       } catch (err) {
-        console.log('ERROR IN WEBHOOK', err.message);
+        console.log('ERROR IN controllers.checkout.webhook.post', err.message);
         res.status(400).send(`Webhook Error: ${err.message}`);
         return;
       }
