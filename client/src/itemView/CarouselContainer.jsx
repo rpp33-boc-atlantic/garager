@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Carousel } from 'react-bootstrap';
+import unavailableImage from './samplePhotos/unavailable-image.jpeg';
 
 const Container = styled.div`
   display: grid;
@@ -15,7 +16,9 @@ const Container = styled.div`
 
 const CarouselContainer = (props) => {
 
-  const carouselItem = props.images.map((image, i) =>
+  var carouselItem;
+  if (props.images !== null) {
+    carouselItem = props.images.map((image, i) =>
     <Carousel.Item key={i} style={{height: '30em'}}>
       <img
         className='d-block w-100'
@@ -24,11 +27,16 @@ const CarouselContainer = (props) => {
         style={{height: '30em', width: '100%', objectFit: 'contain'}}
       />
     </Carousel.Item>
-  );
+    );
+  } else {
+    carouselItem = <img src={unavailableImage} style={{height: '30em', width: '100%', objectFit: 'contain'}}></img>;
+  }
+
+  const item = props.images ? carouselItem : 'Image Unavailable';
 
   return (
     <Container>
-      <Carousel interval={null} fade={true} variant="dark" >
+      <Carousel interval={null} fade={true} variant="dark" style={{height: '30em'}}>
         {carouselItem}
       </Carousel>
     </Container>
@@ -39,3 +47,31 @@ const CarouselContainer = (props) => {
 export default CarouselContainer;
 
 
+// const CarouselContainer = (props) => {
+
+//   if(props.images === null) {
+
+//   }
+
+//   const carouselItem = props.images.map((image, i) =>
+//     <Carousel.Item key={i} style={{height: '30em'}}>
+//       <img
+//         className='d-block w-100'
+//         // className='img-fluid'
+//         src={image}
+//         style={{height: '30em', width: '100%', objectFit: 'contain'}}
+//       />
+//     </Carousel.Item>
+//   );
+
+//   return (
+//     <Container>
+//       <Carousel interval={null} fade={true} variant="dark" >
+//         {carouselItem}
+//       </Carousel>
+//     </Container>
+//   );
+
+// };
+
+// export default CarouselContainer;

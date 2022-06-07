@@ -49,7 +49,7 @@ const Item = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
   const { user } = useUserAuth();
-  console.log('this should be the user email', user.email);
+  // console.log('this should be the user email', user.email);
   // console.log('this is the item id passed through params', id);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Item = (props) => {
   }, [dataLoading]);
 
   const deleteItem = () => {
-    console.log('gonna delete item');
+    // console.log('gonna delete item');
     const itemID = 1234567;
     axios.delete('/item/itemData', {
       data: {
@@ -93,12 +93,13 @@ const Item = (props) => {
   const ownerInfoData = itemData.details.item_id ? itemData.details : fakeProps;
   const itemDetailsData = itemData.details.item_id ? itemData.details : fakeProps;
   const rentFormData = itemData.details.item_id ? itemData : fakeProps;
+  const imagesData = itemData.details.item_id ? itemData.details.photos : fakeProps.details.photos;
   // console.log('dates booked in wrapper', itemData.datesBooked[0]['json_build_array']);
 
   return (
     <div>
       <Container>
-        <CarouselContainer className='gallery' images={fakeProps.details.images}/>
+        <CarouselContainer className='gallery' images={imagesData}/>
         <OwnerInfo className='owner' details={ownerInfoData} />
         <ItemDetails className='details' details={itemDetailsData}/>
         <RentForm className='form' itemInfo={rentFormData}/>
