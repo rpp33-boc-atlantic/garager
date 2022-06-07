@@ -5,8 +5,11 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import ListingTabs from './ListingTabs.jsx';
 
-var transactions = require('../data/dataFunctions/transactions.json');
-var items = require('../data/dataFunctions/items.json');
+// var transactions = require('../data/dataFunctions/transactions.json');
+// var items = require('../data/dataFunctions/items.json');
+var transactions = require('../../../server/database/transactions.json');
+var items = require('../../../server/database/items.json');
+
 
 export default function Listings () {
 

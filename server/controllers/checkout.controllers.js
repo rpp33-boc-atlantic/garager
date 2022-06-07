@@ -7,88 +7,129 @@ const models = require('../models/checkout.models.js');
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
-      try {
-        console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
-        // THINGS I NEED: 
-        // transaction_id SERIAL PRIMARY KEY, 
-        // rate INT NOT NULL DEFAULT NULL, <-- from RentForm
-        // pickUpDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
-        // returnDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
-        // owner_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
-        // renter_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
-        // item_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
-        // paymentIntent_id TEXT DEFAULT NULL <-- INPUT AFTER WEBHOOK
+      // THINGS I NEED: 
+      // transaction_id SERIAL PRIMARY KEY, 
+      // rate INT NOT NULL DEFAULT NULL, <-- from RentForm
+      // pickUpDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
+      // returnDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
+      // owner_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
+      // renter_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
+      // item_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
+      // paymentIntent_id TEXT DEFAULT NULL <-- INPUT AFTER WEBHOOK
+      
+      // console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
+      // const { ownerID } = req.body;
+      const hardcodedOwnerID = 4;
+      const hardcodeditemID = 5;
 
-        // INSERT first with NOT NULL data (rate, pickUpDate, returnDate) and get transaction_id
-        // Put transaction_id, owner_id, renter_id, item_id into metadata object
+      // First check if item owner has a completed stripe account
+      // If they don't, send alert that rent cannot occur
+      models.checkAccountCompletion.get(ownerID, async (err, stripeID) => {
+        if (err) {
+          res.status(500).send('Item owner has an incomplete Stripe Account Setup');
+        } else if (!stripeID) {
+          res.status(500).send('Item owner has an incomplete Stripe Account Setup');
+        } else {
+          try {
+            const accountInfo = await stripe.accounts.retrieve(stripeID);
+            if (!accountInfo.details_submitted) {
+              res.status(500).send('Item owner has an incomplete Stripe Account Setup');
+            } else { // Owner has a Stripe Account, so proceed to checkout
+              // INSERT first with NOT NULL data (rate, pickUpDate, returnDate) and get transaction_id
+              models.checkoutSession.post(rate, pickUpDate, returnDate, (err, transactionID) => {
+                
+              });
 
-        const checkoutSession = await stripe.checkout.sessions.create({
-          line_items: [
-            {
-              price_data: {
-                currency: 'usd',
-                product_data: {
-                  name: `${req.body.name} from ${req.body.owner}`,
-                },
-                unit_amount: req.body.priceInCents,
-              },
-              quantity: 1,
-            },
-          ],
-          mode: 'payment',
-          success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${req.body.itemID}`,
-          cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
-          payment_intent_data: {
-            metadata: { // ***** REFACTOR: once all data is passed down from RentForm
-              transaction_id: 123456,
-              owner_id: 0,
-              renter_id: 1,
-              item_id: 0,
+              // Put transaction_id, owner_id, renter_id, item_id into metadata object
+
+              const checkoutSession = await stripe.checkout.sessions.create({
+                line_items: [
+                  {
+                    price_data: {
+                      currency: 'usd',
+                      product_data: {
+                        name: `${req.body.name} from ${req.body.owner}`,
+                      },
+                      unit_amount: req.body.priceInCents,
+                    },
+                    quantity: 1,
+                  },
+                ],
+                mode: 'payment',
+                success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${req.body.itemID}`,
+                cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
+                payment_intent_data: {
+                  metadata: { // ***** REFACTOR: once all data is passed down from RentForm
+                    transaction_id: 123456,
+                    owner_id: 0,
+                    renter_id: 1,
+                    item_id: 0,
+                  }
+                }
+              }, {
+                stripeAccount: stripeID,
+              });
+              // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
+              res.json({ url: checkoutSession.url });
             }
+          } catch (err) {
+            console.log('inside checkout session catch block');
+            res.status(500).send({
+              error: err.message,
+            });
           }
-        }, {
-          stripeAccount: 'acct_1L65TH4covfuEldK', // ***** REFACTOR WITH OWNER'S STRIPE ACCOUNT ID
-        });
-
-        // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
-        res.json({ url: checkoutSession.url });
-      } catch (e) {
-        // If there is an error send it to the client
-        res.status(500).json({ error: e.message });
-      }
+        }
+      });
     },
   },
   onboardUser: {
     post: async (req, res) => {
       try {
-        const account = await stripe.accounts.create({
-          type: 'standard',
-        });
-
-        // Store the ID of the new Standard connected account.
-        req.session.accountID = account.id;
-        // console.log('session accountID', req.session.accountID);
-        // ***** ONCE DATABASE IS DEPLOYED, UPDATE USER TABLE WITH ACCOUNT ID *****
-        // HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-        const userID = 0;
-        models.onboardUser.post(account.id, userID, (err) => {
-          console.log('finished in models.onboardUser.post!');
+        // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
+        const userID = 4; // Jack.Barker@hotmail.com 
+        const origin = `${req.headers.origin}`;
+        // check database if account exists
+        models.checkAccountCompletion.get(userID, async (err, stripeID) => {
           if (err) {
             res.status(500).send(err);
+          } else {
+            if (stripeID) { // stripe account exists
+              console.log('stripe ID exists', stripeID);
+
+              const accountLink = await stripe.accountLinks.create({
+                type: 'account_onboarding',
+                account: stripeID,
+                refresh_url: `${origin}/checkout/onboard-user/refresh?id=${stripeID}`,
+                return_url: `${origin}/Stripe-Account-Setup`,
+              });
+
+              res.json({ url: accountLink.url });
+              // res.redirect(303, accountLink.url); <-- DID NOT WORK
+            } else { // stripe account doesn't exist - needs to be created
+              const account = await stripe.accounts.create({
+                type: 'standard',
+              });
+              console.log('new stripe ID account', account.id);
+              // Store the ID of the new Standard connected account.
+              models.onboardUser.post(account.id, userID, (err) => {
+                console.log('finished in models.onboardUser.post!');
+                if (err) {
+                  res.status(500).send(err);
+                }
+              });
+
+              const accountLink = await stripe.accountLinks.create({
+                type: 'account_onboarding',
+                account: account.id,
+                refresh_url: `${origin}/checkout/onboard-user/refresh?id=${account.id}`,
+                return_url: `${origin}/Stripe-Account-Setup`,
+              });
+
+              res.json({ url: accountLink.url });
+              // res.redirect(303, accountLink.url); <-- DID NOT WORK
+            }
           }
         });
-
-        const origin = `${req.headers.origin}`;
-
-        const accountLink = await stripe.accountLinks.create({
-          account: account.id,
-          refresh_url: `${origin}/checkout/onboard-user/refresh`,
-          return_url: `${origin}/Stripe-Account-Setup`,
-          type: 'account_onboarding',
-        });
-
-        res.json({ url: accountLink.url });
-        // res.redirect(303, accountLink.url);
       } catch (err) {
         res.status(500).send({
           error: err.message,
@@ -96,18 +137,16 @@ module.exports = {
       }
     },
     get: async (req, res) => {
-      if (!req.session.accountID) {
-        res.redirect('/checkout/onboard-user');
-        return;
-      }
+      // get query paramesters (instead of using session)
+      const stripeID = req.query.id;
+      console.log('inside refresh', stripeID);
 
       try {
-        const { accountID } = req.session;
         const origin = `${req.secure ? 'https://' : 'http://'}${req.headers.host}`;
         const accountLink = await stripe.accountLinks.create({
           type: 'account_onboarding',
-          account: accountID,
-          refresh_url: `${origin}/checkout/onboard-user/refresh`,
+          account: stripeID,
+          refresh_url: `${origin}/checkout/onboard-user/refresh?id=${stripeID}`,
           return_url: `${origin}/Stripe-Account-Setup`,
         });
         // res.json({ url: accountLink.url }); <-- DID NOT WORK
@@ -121,41 +160,29 @@ module.exports = {
   },
   checkAccountCompletion: {
     get: async (req, res) => {
-      // console.log('SESSION ACCOUNT ID', req.session.accountID);
-      // ***** REFACTOR TO CHECK DATABASE - IF NO STRIPE_ID, 'SETUP INCOMPLETE'
-      // HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-      const userID = 0;
-      models.checkAccountCompletion.get(userID, async (err, accoundID) => {
-        console.log('finished in models.checkAccountCompletion.get!');
+      // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
+      const userID = 4; // Jack.Barker@hotmail.com 
+      models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
-        } else if (accoundID === null) {
-          res.send('Stripe account setup incomplete');
+        } else if (!stripeID) {
+          res.send('incomplete');
         } else {
-          const accountInfo = await stripe.accounts.retrieve(accountID);
-          // console.log('accountInfo charges enabled:', accountInfo.details_submitted);
-          if (!accountInfo.details_submitted) {
-            res.send('Please complete the account setup proccess');
-          } else {
-            res.send('Completed Account Setup - Thank you!');
+          try {
+            const accountInfo = await stripe.accounts.retrieve(stripeID);
+            if (!accountInfo.details_submitted) {
+              res.send('in-progress');
+            } else {
+              res.send('complete');
+            }
+          } catch (err) {
+            console.log('checkAccountCompletion inside catch block');
+            res.status(500).send({
+              error: err.message,
+            });
           }
         }
       });
-
-      /*
-      if (!req.session.accountID) {
-        res.send('Stripe account setup incomplete');
-      } else {
-        const accountInfo = await stripe.accounts.retrieve(
-          req.session.accountID // ***** REFACTOR WITH STRIPE_ID
-        );
-        // console.log('accountInfo charges enabled:', accountInfo.details_submitted);
-        if (!accountInfo.details_submitted) {
-          res.send('Please complete the account setup proccess');
-        } else {
-          res.send('Completed Account Setup - Thank you!');
-        }
-      } */
     },
   },
   webhook: {
@@ -172,15 +199,18 @@ module.exports = {
         return;
       }
 
-      console.log('event type', event.type);
-      console.log('event data object', event.data.object);
-
       // Handle the event
       switch (event.type) {
       case 'payment_intent.succeeded':
         const paymentIntent = event.data.object;
         console.log('INSIDE PAYMENT SUCCESS', paymentIntent);
         // GO TO DATABASE AND UPDATE TRANSACTIONS TABLE WITH PAYMENTINTENT_ID AND PAYMENT_STATUS USING METADATA'S TRANSACTION_ID
+        models.webhook.post.paymentIntent(paymentIntent.id, paymentIntent.metadata.transaction_id, 'completed', (err, res) => {
+          if (err) {
+            // res.status(500).send(err);
+            res.send(err);
+          }
+        });
         break;
         // ... handle other event types
       default:
