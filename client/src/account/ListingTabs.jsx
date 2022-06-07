@@ -29,9 +29,9 @@ export default function ListingTabs(props) {
     text: 'image'
   }];
 
-  props.items.map(item => {
-    item.photos = item.photos === null ? [] : item.photos.split(',');
-  });
+  // props.items.map(item => {
+  //   item.photos = item.photos === null ? [] : item.photos.split(',');
+  // });
 
   var PostMessage = function (props) {
     return (

@@ -20,7 +20,7 @@ module.exports = {
     get: (owner_id, callback) => {
 
       const query = {
-        text: `SELECT DISTINCT title, price, nyop, min_price, items.item_id , photos FROM items JOIN transactions ON user_id = owner_id WHERE user_id = $1`,
+        text: `SELECT DISTINCT title, price, nyop, min_price, items.item_id, latlng, photos FROM items JOIN transactions ON user_id = owner_id WHERE user_id = $1`,
         values: [owner_id]
       };
       return client.query(query)
