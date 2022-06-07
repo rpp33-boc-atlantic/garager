@@ -42,7 +42,7 @@ app.get('/s3url', async (req, res) => {
   res.send({url});
 });
 
-app.get('/get-data', accountRouter);
+// app.get('/get-data', accountRouter);
 
 
 // All other routes must go above this function
