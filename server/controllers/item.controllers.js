@@ -11,7 +11,7 @@ module.exports = {
         })
         .catch(error => {
           res.status(500).send(error);
-        })
+        });
         // console.log('logging here', ttr);
         // res.status(200).send('data');
 
@@ -25,7 +25,7 @@ module.exports = {
         })
         .catch(error => {
           res.status(500).send(error);
-        })
+        });
 
       res.status(200).send('should be deleting item info');
     }

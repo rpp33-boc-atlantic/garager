@@ -32,7 +32,7 @@ const Container = styled.div`
 
 const OwnerInfo = (props) => {
   const getCityState = (address) => {
-    console.log('address right here', address)
+    // console.log('address right here', address);
     if (address !== undefined) {
       const splitted = address.split(',');
       const city = splitted[1].substring(1);

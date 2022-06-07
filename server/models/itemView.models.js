@@ -11,12 +11,12 @@ module.exports = {
         .then(data => {
           result.details = data.rows[0];
           const query = `SELECT JSON_BUILD_ARRAY(t.pickupdate, t.returndate) from transactions t where item_id = ${parseInt(itemID)};`;
-          return client.query(query)
+          return client.query(query);
         })
         .then(data => {
-          console.log('data with aggregate function', data.rows)
+          // console.log('data with aggregate function', data.rows);
           result.datesBooked = data.rows;
-          console.log('result right here', result)
+          // console.log('result right here', result);
           return result;
         })
         .catch (error => console.log('error in getting item data', error));
