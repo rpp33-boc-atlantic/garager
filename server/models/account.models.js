@@ -32,7 +32,7 @@ module.exports = {
     },
   },
   get_data: {
-    get: (owner_id, callback) => {
+    get: (table, callback) => {
 
       const query = {
         text: `SELECT * from items`,

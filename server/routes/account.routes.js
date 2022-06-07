@@ -8,13 +8,13 @@ const controller = require('../controllers/account.controllers.js');
 // Connect controller methods to their corresponding routes
 router.get('/my-rentals/', controller.upcomingRentals.get);
 
-router.get('/my-rentals/past', controller.pastRentals.get);
+// router.get('/my-rentals/past', controller.pastRentals.get);
 
 router.get('/my-listings/earnings', controller.earnings.get);
 
 router.get('/my-listings', controller.listings.get);
 
-router.get('/', controller.get_data.get);
+router.get('/get-data', controller.getData.get);
 
 module.exports = router;
 

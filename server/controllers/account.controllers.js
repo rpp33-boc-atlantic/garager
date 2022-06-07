@@ -18,16 +18,16 @@ module.exports = {
 
     },
   },
-  pastRentals: {
+  getData: {
     get: (req, res) => {
-      res.send('this route will send a history of past transactions');
-    //   models.example.get(itemId, (err, data) => {
-    //     if (err) {
-    //       res.status(500).send(err);
-    //     } else {
-    //       res.send(data);
-    //     }
-    //   });
+      var table = 'items';
+      models.get_data.get( table, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.send(data);
+        }
+      });
     },
   },
   listings: {
@@ -54,5 +54,5 @@ module.exports = {
     //   });
     },
   }
-  
+
 };
