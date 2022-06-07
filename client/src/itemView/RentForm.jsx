@@ -67,7 +67,7 @@ class RentForm extends React.Component {
           window.location = response.data.url;
         })
         .catch((error) => {
-          console.log('ERROR from checkoutButton', error);
+          alert(error.response.data); // <-- ADDED BY JO FOR SIMPLE ERROR HANDLING
         });
 
     }

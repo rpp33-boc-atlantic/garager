@@ -30,8 +30,8 @@ const StripeAccountSetup = () => {
     <>
       <h1>Start Earning!</h1>
       <h2>Setup a Stripe account to recieve payments from items rented out from your garage!</h2>
-      <button onClick={handleClick}>Create/Update Your Stripe Account</button>
       <h3>Status of Stripe Account: <strong>{status}</strong></h3>
+      <button onClick={handleClick}>Create/Update Your Stripe Account</button>
     </>
   );
 };

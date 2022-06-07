@@ -8,7 +8,8 @@ module.exports = {
   checkoutSession: {
     post: async (req, res) => {
       // THINGS I NEED: 
-      // transaction_id SERIAL PRIMARY KEY, 
+      // total price <-- from RentForm
+      // transaction_id SERIAL PRIMARY KEY,
       // rate INT NOT NULL DEFAULT NULL, <-- from RentForm
       // pickUpDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
       // returnDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
@@ -19,58 +20,66 @@ module.exports = {
       
       // console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
       // const { ownerID } = req.body;
-      const hardcodedOwnerID = 4;
-      const hardcodeditemID = 5;
+      // ***** REFACTOR: once all data is passed down from RentForm
+      const ownerID = 7; // 4 = Jack Barker, 5 & 6 also OK, 7 = ERROR
+      const ownerName = 'Jack Barker';
+      const itemID = 5; // Craftsman Hammer
+      const itemName = 'Craftsman Hammer';
+      const renterID = 2; // Leslie Knope
+      const rate = 16.00; 
+      const pickUpDate = '2022-07-12'; // dateRange[0]
+      const returnDate = '2022-07-13'; // dateRange[1]
+      const priceInCents = 1600;
 
       // First check if item owner has a completed stripe account
       // If they don't, send alert that rent cannot occur
       models.checkAccountCompletion.get(ownerID, async (err, stripeID) => {
-        if (err) {
-          res.status(500).send('Item owner has an incomplete Stripe Account Setup');
-        } else if (!stripeID) {
+        if (err || !stripeID) {
           res.status(500).send('Item owner has an incomplete Stripe Account Setup');
         } else {
           try {
             const accountInfo = await stripe.accounts.retrieve(stripeID);
-            if (!accountInfo.details_submitted) {
+            if (!accountInfo.details_submitted || !accountInfo.charges_enabled) {
               res.status(500).send('Item owner has an incomplete Stripe Account Setup');
             } else { // Owner has a Stripe Account, so proceed to checkout
-              // INSERT first with NOT NULL data (rate, pickUpDate, returnDate) and get transaction_id
-              models.checkoutSession.post(rate, pickUpDate, returnDate, (err, transactionID) => {
-                
-              });
-
-              // Put transaction_id, owner_id, renter_id, item_id into metadata object
-
-              const checkoutSession = await stripe.checkout.sessions.create({
-                line_items: [
-                  {
-                    price_data: {
-                      currency: 'usd',
-                      product_data: {
-                        name: `${req.body.name} from ${req.body.owner}`,
+              console.log('we are ready for checkout');
+              // First, get transaction_id from DB by inserting transactions table with NOT NULL data (rate, pickUpDate, returnDate)
+              models.checkoutSession.post(rate, pickUpDate, returnDate, async (err, transactionID) => {
+                if (err) {
+                  res.status(500).send(err);
+                } else {
+                  // Then, proceed to checkout
+                  const checkoutSession = await stripe.checkout.sessions.create({
+                    line_items: [
+                      {
+                        price_data: {
+                          currency: 'usd',
+                          product_data: {
+                            name: `${itemName} from ${ownerName}`,
+                          },
+                          unit_amount: priceInCents,
+                        },
+                        quantity: 1,
                       },
-                      unit_amount: req.body.priceInCents,
-                    },
-                    quantity: 1,
-                  },
-                ],
-                mode: 'payment',
-                success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${req.body.itemID}`,
-                cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
-                payment_intent_data: {
-                  metadata: { // ***** REFACTOR: once all data is passed down from RentForm
-                    transaction_id: 123456,
-                    owner_id: 0,
-                    renter_id: 1,
-                    item_id: 0,
-                  }
+                    ],
+                    mode: 'payment',
+                    success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${itemID}`,
+                    cancel_url: `${YOUR_DOMAIN}/CheckoutCancel`,
+                    payment_intent_data: {
+                      metadata: { 
+                        transaction_id: transactionID,
+                        owner_id: ownerID,
+                        renter_id: renterID,
+                        item_id: itemID,
+                      }
+                    }
+                  }, {
+                    stripeAccount: stripeID,
+                  });
+                  // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
+                  res.json({ url: checkoutSession.url });
                 }
-              }, {
-                stripeAccount: stripeID,
               });
-              // res.redirect(303, session.url); <-- DID NOT WORK USING AXIOS IN FRONTEND; BELOW CODE WORKS
-              res.json({ url: checkoutSession.url });
             }
           } catch (err) {
             console.log('inside checkout session catch block');
@@ -86,7 +95,7 @@ module.exports = {
     post: async (req, res) => {
       try {
         // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-        const userID = 4; // Jack.Barker@hotmail.com 
+        const userID = 6; // Lorie.Bream@gmail.com
         const origin = `${req.headers.origin}`;
         // check database if account exists
         models.checkAccountCompletion.get(userID, async (err, stripeID) => {
@@ -94,8 +103,6 @@ module.exports = {
             res.status(500).send(err);
           } else {
             if (stripeID) { // stripe account exists
-              console.log('stripe ID exists', stripeID);
-
               const accountLink = await stripe.accountLinks.create({
                 type: 'account_onboarding',
                 account: stripeID,
@@ -112,7 +119,6 @@ module.exports = {
               console.log('new stripe ID account', account.id);
               // Store the ID of the new Standard connected account.
               models.onboardUser.post(account.id, userID, (err) => {
-                console.log('finished in models.onboardUser.post!');
                 if (err) {
                   res.status(500).send(err);
                 }
@@ -161,19 +167,22 @@ module.exports = {
   checkAccountCompletion: {
     get: async (req, res) => {
       // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-      const userID = 4; // Jack.Barker@hotmail.com 
+      const userID = 6; // Lorie.Bream@gmail.com 
       models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
         } else if (!stripeID) {
-          res.send('incomplete');
+          res.send('Incomplete - please create an account.');
         } else {
           try {
             const accountInfo = await stripe.accounts.retrieve(stripeID);
+            console.log('accountInfo', accountInfo);
             if (!accountInfo.details_submitted) {
-              res.send('in-progress');
+              res.send('In-progress - please continue to fill out the details to setup your account.');
+            } else if (!accountInfo.charges_enabled) {
+              res.send('Nearly there! Stripe is currently verifying your details. In a few minutes, please click the button to complete the final steps. This may take a few updates to finalize the account.');
             } else {
-              res.send('complete');
+              res.send('complete - thank you');
             }
           } catch (err) {
             console.log('checkAccountCompletion inside catch block');
@@ -199,26 +208,20 @@ module.exports = {
         return;
       }
 
-      // Handle the event
-      switch (event.type) {
-      case 'payment_intent.succeeded':
+      if (event.type === 'payment_intent.succeeded') {
         const paymentIntent = event.data.object;
-        console.log('INSIDE PAYMENT SUCCESS', paymentIntent);
-        // GO TO DATABASE AND UPDATE TRANSACTIONS TABLE WITH PAYMENTINTENT_ID AND PAYMENT_STATUS USING METADATA'S TRANSACTION_ID
-        models.webhook.post.paymentIntent(paymentIntent.id, paymentIntent.metadata.transaction_id, 'completed', (err, res) => {
-          if (err) {
-            // res.status(500).send(err);
-            res.send(err);
+        // UPDATE TRANSACTIONS TABLE WITH PAYMENTINTENT_ID, PAYMENT_STATUS, AND METADATA USING METADATA'S TRANSACTION_ID
+        models.webhook.post.paymentIntent(paymentIntent.id, paymentIntent.metadata, 'completed', (error, response) => {
+          if (error) {
+            res.status(500).send(error);
+          } else {
+            res.send();
           }
         });
-        break;
-        // ... handle other event types
-      default:
+      } else {
         console.log(`Unhandled event type ${event.type}`);
+        res.send();
       }
-
-      // Return a 200 response to acknowledge receipt of the event
-      res.send();
     }
   }
 };
