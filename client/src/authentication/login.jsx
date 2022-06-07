@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Card, Alert, Container} from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
+import {useMain} from '../context/MainContext.jsx';
 import {
   signInWithEmailAndPassword,
   FacebookAuthProvider,
@@ -9,7 +10,7 @@ import {
   linkWithCredential
 } from 'firebase/auth';
 import { auth } from '../firebase';
-import axios from 'axios';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,7 +19,7 @@ const Login = () => {
   //pass sign up function using useUserAuth hook
   const { logIn, facebookSignIn } = useUserAuth();
   const navigate = useNavigate();
-
+  const {userId, registerUser} = useMain();
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
@@ -30,7 +31,7 @@ const Login = () => {
     }
   };
 
-  const registerFB = (firebaseRes) => {
+  /*const registerFB = (firebaseRes) => {
     let name = firebaseRes.user.displayName.split(' ');
     let firstName = name[0];
     let lastName = name[1];
@@ -61,7 +62,7 @@ const Login = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  };
+  };*/
 
   const handleFacebookSignIn = async (event) => {
     event.preventDefault();
@@ -69,7 +70,8 @@ const Login = () => {
       await facebookSignIn()
         .then((res) => {
           //redirect user to homepage
-          registerFB(res);
+          registerUser(res);
+          console.log('userId', userId);
           navigate('/');
         })
         .catch((err) => {
