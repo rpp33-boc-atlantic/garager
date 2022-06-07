@@ -21,7 +21,7 @@ module.exports = {
       // console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
       // const { ownerID } = req.body;
       // ***** REFACTOR: once all data is passed down from RentForm
-      const ownerID = 4; // 4 = Jack Barker, 5 & 6 also OK, 7 = ERROR
+      const ownerID = 4; // 4 = Jack Barker, 5 & 6 also OK, 8 = ERROR
       const ownerName = 'Jack Barker';
       const itemID = 5; // Craftsman Hammer
       const itemName = 'Craftsman Hammer';
@@ -93,7 +93,7 @@ module.exports = {
     post: async (req, res) => {
       try {
         // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-        const userID = 6; // Lorie.Bream@gmail.com
+        const userID = 7; // Gavin.Belson@yahoo.com (NO STRIPE ACCOUNT YET)
         const origin = `${req.headers.origin}`;
         // check database if account exists
         models.checkAccountCompletion.get(userID, async (err, stripeID) => {
