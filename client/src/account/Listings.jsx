@@ -40,15 +40,21 @@ export default function Listings () {
   };
 
   useEffect(()=> {
-    dataLoading ? getData(9) : null;
+    dataLoading ? getData(11) : null;
     console.log('tr', transactions);
 
   }, [transactions] );
 
-
+  // UPDATE items
+  // SET category = 'Sports Equipment'
+  // WHERE item_id = 39;
 
   // /items={items} transactions = {transactions}
 
   return <ListingTabs items={items} m='auto' earnings = {454} rentedItems = {3}/>;
 
 }
+
+UPDATE transactions
+  SET renter_id = 3
+  WHERE item_id = 39;

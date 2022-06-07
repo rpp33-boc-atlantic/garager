@@ -67,8 +67,12 @@ export default function RentalTabs(props) {
     var p = 0;
     if (transactions) {
       transactions.map((t) => {
-        t.title = items[Math.floor(Math.random( ) * 40)].title;
-        t.photos = items[1]['photos'];
+        // t.title = items[Math.floor(Math.random( ) * 40)].title;
+        // t.photos = items[1]['photos'];
+        // console.log('t.photos', t.photos);
+        t.photos = t.photos === null ? [] : t.photos.split(',');
+        // t.photos = t.photos.split(',');
+        console.log(t.photos);
         var newDate = new Date();
         if (moment(t.returndate).isBefore(moment(newDate))) {
           pastRentals.push(t);

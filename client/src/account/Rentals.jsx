@@ -6,7 +6,7 @@ import RentalTabs from './RentalTabs.jsx';
 const axios = require('axios');
 
 // var transactions = require('../data/dataFunctions/transactions.json');
-var items = require('../data/dataFunctions/items.json');
+// var items = require('../data/dataFunctions/items.json');
 
 import {useState, useEffect} from 'react';
 
@@ -38,14 +38,14 @@ export default function Rentals () {
   };
 
   useEffect(()=> {
-    dataLoading ? getData(13) : null;
+    dataLoading ? getData(11) : null;
     console.log('tr', transactions);
 
   }, [transactions] );
 
 
-
-  return <RentalTabs m='auto' past = {false} transactions={transactions} items={items} />;
+  //items={items}
+  return <RentalTabs m='auto' past = {false} transactions={transactions} />;
 }
 
 
