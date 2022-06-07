@@ -22,33 +22,37 @@ module.exports = {
 
       const query = {
         text: `SELECT DISTINCT title, price, nyop, min_price, items.item_id, latlng, photos FROM items JOIN transactions ON user_id = owner_id WHERE user_id = $1`,
-        values: [owner_id]
+
+        // values: [owner_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
+        .catch (err => console.log('err@models-post-item', err))
+        .then((databaseStuff)=>{
           callback(null, databaseStuff.rows);
+          // fs.writeFileSync('itemsFromDatabase.json', JSON.stringify(databaseStuff.rows, null, 2));
         });
 
     },
   },
-  get_data: {
+  data: {
     get: (table, callback) => {
 
       const query = {
-        text: `SELECT * from items`,
+        text: `SELECT * from ${table}`,
         // values: [owner_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
-          callback(null, databaseStuff.rows);
-        }) .then((databaseStuff)=>{
-          fs.writeFileSync('client/src/data/dataFunctions/items.json', JSON.stringify(databaseStuff.rows, null, 2));
+        .catch (err => console.log('err@models-post-item', err))
+        .then((databaseStuff)=>{
+          // console.log('');
+          fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(databaseStuff.rows, null, 2));
           callback(null, databaseStuff.rows);
         });
 
     },
   },
 };
+
 
 
 // post: (userID, reqbody) => {

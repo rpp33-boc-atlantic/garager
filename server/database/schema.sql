@@ -110,3 +110,11 @@ ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") R
 \copy users from 'users.csv' delimiter ',' csv header;
 \copy items from 'items.csv' delimiter ',' csv header;
 \copy transactions from 'transactions.csv' delimiter ',' csv header;
+
+
+-- IF YOU WANT TO GET A COPY OF THE CURRENT DATA BASE YOU CAN VISIT THIS PATH
+-- http://localhost:3000/get-data?table=users
+-- change the table param to users/items/messages/transactions ect  and the proper table will be downloaded at this location.
+--client/src/data/dataFunctions/${table}.json   (the files do not download directly to our db folder to  prevent against anyone accidentally replacing them)
+--after you get a json file, convert it to csv here
+-- https://jsonformatter.org/#

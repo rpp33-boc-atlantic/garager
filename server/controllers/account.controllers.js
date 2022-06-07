@@ -2,7 +2,7 @@
 
 file naming example: accounts.controllers.js, postItem.contollers.js (you can name it as you wish)
 */
-const models = require('../models/example.models.js');
+const models = require('../models/account.models.js');
 
 module.exports = {
   upcomingRentals: {
@@ -16,18 +16,6 @@ module.exports = {
         }
       });*/
 
-    },
-  },
-  getData: {
-    get: (req, res) => {
-      var table = 'items';
-      models.get_data.get( table, (err, data) => {
-        if (err) {
-          res.status(500).send(err);
-        } else {
-          res.send(data);
-        }
-      });
     },
   },
   listings: {
@@ -53,6 +41,19 @@ module.exports = {
     //     }
     //   });
     },
-  }
-
+  },
+  data: {
+    get: (req, res) => {
+      let table = req.query.table;
+      console.log('table', table);
+      // var table = params.get('table-name') ? params.get('table-name') : 'items';
+      models.data.get( table, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.send(data);
+        }
+      });
+    },
+  },
 };
