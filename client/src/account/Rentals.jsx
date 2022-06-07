@@ -3,12 +3,12 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import RentalTabs from './RentalTabs.jsx';
+import {useState, useEffect} from 'react';
+
 const axios = require('axios');
 
-// var transactions = require('../data/dataFunctions/transactions.json');
-// var items = require('../data/dataFunctions/items.json');
-
-import {useState, useEffect} from 'react';
+var transactions = require('../../../server/database/transactions.json');
+var items = require('../../../server/database/items.json');
 
 export default function Rentals () {
 

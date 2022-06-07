@@ -1,6 +1,3 @@
-// Below is an example of how we can use Material UI for our app.
-// Example taken from https://mui.com/material-ui/getting-started/usage/
-
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import ListingTabs from './ListingTabs.jsx';
@@ -45,9 +42,9 @@ export default function Listings () {
 
   }, [transactions] );
 
-  // UPDATE items
-  // SET category = 'Sports Equipment'
-  // WHERE item_id = 39;
+  // UPDATE transactions
+  //  SET owner_id = 11
+  //  WHERE item_id = 37;
 
   // /items={items} transactions = {transactions}
 
@@ -55,6 +52,3 @@ export default function Listings () {
 
 }
 
-UPDATE transactions
-  SET renter_id = 3
-  WHERE item_id = 39;

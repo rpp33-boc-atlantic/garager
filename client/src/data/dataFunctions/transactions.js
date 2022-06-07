@@ -9,6 +9,8 @@ var fs = require('fs');
 // const threedaysFromNow = new Date(today);
 // threedaysFromNow.setDate( threedaysFromNow.getDate() + 3);
 // console.log(today, threedaysFromNow);
+var items = require('../../../../server/database/items.json');
+var users = require('../../../../server/database/users.json');
 
 var random = function (min = 0, max) {
 
@@ -19,7 +21,7 @@ var random = function (min = 0, max) {
 module.exports = createTransactions = function (fullnames) {
   var transactions = [];
 
-
+  var index = 0;
   for (var j = 0; j < 41; j++ ) {
     var cap = random(0, 10);
     var secondDate = random(-40, 0);
@@ -28,7 +30,7 @@ module.exports = createTransactions = function (fullnames) {
     for (var i = 0; i < cap; i ++) {
       var transaction = {};
       // set transaction_id
-      transaction['transaction_id'] = i;
+      transaction['transaction_id'] = index++;
       // set rate
       transaction['rate'] = Math.floor((Math.random() * 100) + 4);
       //set pickup date
@@ -42,10 +44,14 @@ module.exports = createTransactions = function (fullnames) {
       transaction['returnDate'] = new Date();
       transaction['returnDate'].setDate(transaction['returnDate'].getDate() + secondDate);
       // set owner_id
-      var owner_id = Math.floor(Math.random() * fullnames.length);
+      console.log(items[j].user_id);
+      var owner_id = items[j]['user_id'];
       transaction['owner_id'] = owner_id;
       // set renter_id
       var renter_id = Math.floor(Math.random() * fullnames.length);
+      while (renter_id === owner_id) {
+        var renter_id = Math.floor(Math.random() * fullnames.length);
+      }
       transaction['renter_id'] = renter_id;
       //set item_id
       transaction['item_id'] = j;
@@ -58,7 +64,7 @@ module.exports = createTransactions = function (fullnames) {
       transactions.push(transaction);
     }
   }
-  // console.log(transactions.length);
+  console.log(transactions);
 
   let data = JSON.stringify(transactions, null, 2);
   fs.writeFileSync('server/database/transactions.json', data);
