@@ -9,7 +9,7 @@ const RefundButton = (props) => {
     // ***** REFACTOR: props.owner_id - data type can be integer or string
 
     const refundData = {
-      transactionID: '211',
+      transactionID: '210',
       ownerID: '4',
     };
     
@@ -19,6 +19,7 @@ const RefundButton = (props) => {
       })
       .catch((error) => {
         console.log('ERROR from refundButton', error);
+        alert('This transaction has already been refunded');
       });
   };
 

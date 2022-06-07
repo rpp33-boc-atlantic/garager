@@ -218,7 +218,6 @@ module.exports = {
                   }
                 });
               } catch (err) {
-                console.log('error inside catch controllers refund', err);
                 res.status(500).send(err);
               }
             }
