@@ -5,11 +5,10 @@ import axios from 'axios';
 const mainContext = createContext();
 
 export function MainContextProvider({ children }) {
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState('initial value');
 
   const registerUser = (firstName, lastName, email) => {
     let bodyParam = {firstName, lastName, email};
-    console.log('bodyParam', bodyParam);
     axios.post('/auth', bodyParam)
       .then((res) => {
         if (res.data !== '') {
@@ -39,10 +38,10 @@ export function MainContextProvider({ children }) {
       });
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (userId !== '') { setUserId(userId); }
     console.log('newUserId', userId);
-  });
+  });*/
 
   return (
     <mainContext.Provider value={{userId, registerUser}}>

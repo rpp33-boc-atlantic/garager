@@ -27,7 +27,7 @@ const Login = () => {
       await logIn(email, password)
         .then((res) => {
           registerUser('', '', email);
-          navigate('/');
+          navigate('/SearchBrowse');
         });
     } catch (err) {
       setError(err.message);
@@ -45,7 +45,7 @@ const Login = () => {
           let lastName = name[1];
           let email = res.user.email;
           registerUser(firstName, lastName, email);
-          navigate('/');
+          navigate('/SearchBrowse');
         })
         .catch((err) => {
         //user tries to sign in with with an existing email account
