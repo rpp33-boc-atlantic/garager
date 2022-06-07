@@ -33,7 +33,7 @@ CREATE TABLE items (
   availableTo DATE NOT NULL DEFAULT NULL,
   address TEXT NOT NULL DEFAULT NULL,
   latLng TEXT NOT NULL DEFAULT NULL,
-  photos TEXT DEFAULT NULL,
+  photos TEXT[],
   FOREIGN KEY (user_id)
     REFERENCES users(user_id)
     ON DELETE CASCADE
