@@ -7,7 +7,11 @@ const ThreadTile = ( props ) => {
     <div className='thread-tile'>
 
       <span>
-        <strong>{ props.thread.username }</strong> - { props.thread.itemName }
+        <span className='thread-name'>
+          {
+            props.thread.email === props.email ? props.thread.username : props.username
+          }
+        </span> - { props.thread.itemName }
       </span><br />
 
       { props.thread.lastMessage }<br />
