@@ -9,3 +9,5 @@ export default function Listings () {
 
   return <ListingTabs transactions = {transactions} items={items} m='auto' earnings = {454} rentedItems = {3}/>;
 }
+
+// 
