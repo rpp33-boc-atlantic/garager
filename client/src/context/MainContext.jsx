@@ -1,5 +1,5 @@
 /* eslint-disable func-style */
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 
 const mainContext = createContext();
@@ -7,19 +7,15 @@ const mainContext = createContext();
 export function MainContextProvider({ children }) {
   const [userId, setUserId] = useState('');
 
-  const registerUser = (firebaseRes) => {
-    let name = firebaseRes.user.displayName.split(' ');
-    let firstName = name[0];
-    let lastName = name[1];
-    let email = firebaseRes.user.email;
+  const registerUser = (firstName, lastName, email) => {
     let bodyParam = {firstName, lastName, email};
     console.log('bodyParam', bodyParam);
     axios.post('/auth', bodyParam)
       .then((res) => {
-
         if (res.data !== '') {
           console.log('post res', res.data.user_id);
-          setUserId(res.data.user_id);
+          const newUserId = res.data.user_id;
+          setUserId(newUserId);
         }
 
         if (res.data === '') {
@@ -29,8 +25,9 @@ export function MainContextProvider({ children }) {
             }
           })
             .then((res) => {
-              console.log('get res', res.data.user_id);
-              setUserId(res.data.user_id);
+              //console.log('get res', res.data.user_id);
+              const newUserId = res.data.user_id;
+              setUserId(newUserId);
             })
             .catch((err) => {
               console.log('err getting user id', err.message);
@@ -42,7 +39,10 @@ export function MainContextProvider({ children }) {
       });
   };
 
-
+  useEffect(() => {
+    if (userId !== '') { setUserId(userId); }
+    console.log('newUserId', userId);
+  });
 
   return (
     <mainContext.Provider value={{userId, registerUser}}>

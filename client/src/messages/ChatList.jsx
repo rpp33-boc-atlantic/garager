@@ -8,12 +8,12 @@ const ChatList = ( props ) => {
   const { user } = useUserAuth();
 
   return (
+
     <React.Fragment>
 
       <div className='imessage'>
         {
           props.messages.map(( message, index ) => {
-
             if (message.username === user.email) {
               return (
                 <ChatBubble key={ index } message={ message } user='me' />

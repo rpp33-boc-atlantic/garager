@@ -24,45 +24,15 @@ const Login = () => {
     event.preventDefault();
     setError('');
     try {
-      await logIn(email, password);
-      navigate('/');
+      await logIn(email, password)
+        .then((res) => {
+          registerUser('', '', email);
+          navigate('/');
+        });
     } catch (err) {
       setError(err.message);
     }
   };
-
-  /*const registerFB = (firebaseRes) => {
-    let name = firebaseRes.user.displayName.split(' ');
-    let firstName = name[0];
-    let lastName = name[1];
-    let email = firebaseRes.user.email;
-    let bodyParam = {firstName, lastName, email};
-    console.log('bodyParam', bodyParam);
-    axios.post('/auth', bodyParam)
-      .then((res) => {
-
-        if (res.data !== '') {
-          console.log('post res', res.data.user_id);
-        }
-
-        if (res.data === '') {
-          axios.get('/auth', {
-            params: {
-              email: email
-            }
-          })
-            .then((res) => {
-              console.log('get res', res.data.user_id);
-            })
-            .catch((err) => {
-              console.log('err getting user id', err.message);
-            });
-        }
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };*/
 
   const handleFacebookSignIn = async (event) => {
     event.preventDefault();
@@ -70,8 +40,11 @@ const Login = () => {
       await facebookSignIn()
         .then((res) => {
           //redirect user to homepage
-          registerUser(res);
-          console.log('userId', userId);
+          let name = res.user.displayName.split(' ');
+          let firstName = name[0];
+          let lastName = name[1];
+          let email = res.user.email;
+          registerUser(firstName, lastName, email);
           navigate('/');
         })
         .catch((err) => {
@@ -97,6 +70,7 @@ const Login = () => {
       .then((res) => {
         linkWithCredential(res.user, pendingCred)
           .then((res) => {
+            registerUser('', '', email);
             alert('Succesfully linked accounts');
             navigate('/');
           })
