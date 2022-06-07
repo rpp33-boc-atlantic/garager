@@ -6,7 +6,7 @@ const router = require('express').Router();
 const controller = require('../controllers/account.controllers.js');
 
 // Connect controller methods to their corresponding routes
-router.get('/my-rentals/', controller.upcomingRentals.get);
+router.get('/my-rentals/', controller.rentals.get);
 
 // router.get('/my-rentals/past', controller.pastRentals.get);
 

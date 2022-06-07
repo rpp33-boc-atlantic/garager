@@ -49,30 +49,3 @@ export default function Listings () {
   // alter table items alter collum photos
 
 }
-UPDATE items
-SET photos = '{"https://edge.images.sidelineswap.com/production/030/233/348/7332ed9182c5a39e_original.jpeg?height=56&width=56","https://edge.images.sidelineswap.com/production/030/233/370/cb51d2972862aad3_original.jpeg?height=56&width=56","https://edge.images.sidelineswap.com/production/030/233/408/0ca86de48ec24d01_original.jpeg?height=56&width=56"}'::text[],
-itemdescription = 'Volkl Downhill Skiing Boys Downhill Ski Combo',
-price=30,
-title='Volkl Jr Rtm 110 Cm Boys Downhill Ski Combo',
-brand='Volkl',
-model='RTM'
-where item_id = 36;
-// UPDATE items
-
-// where item_id = 19;
-// SET title = 'LEDIDO 5.6 FT Christmas Inflatable Decoration Santa Claus Xmas Giant Lighted '
-
-// /   UPDATE items
-//     SET photos = '[https://images-us-prod.cms.commerce.dynamics.com/cms/api/nwtfklkdlc/imageFileData/search?fileName=/Products%2FOB2201733_000_001.png&m=6&q=80&cropfocalregion=true","https://images-us-prod.cms.commerce.dynamics.com/cms/api/nwtfklkdlc/imageFileData/search?fileName=/Products%2FOB2201733_000_002.png&m=6&q=80&cropfocalregion=true]'
-//     WHERE photos is null;
-
-
-
-// UPDATE items
-// SET photos = '{}'
-// where photos = null
-
-//     WHERE photos = '';
-
-//     ALTER TABLE items
-//     ALTER COLUMN photos TYPE TEXT [] USING photos::text[];

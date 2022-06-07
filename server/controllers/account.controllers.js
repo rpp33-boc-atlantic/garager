@@ -6,7 +6,7 @@ file naming example: accounts.controllers.js, postItem.contollers.js (you can na
 const models = require('../models/account.models.js');
 
 module.exports = {
-  upcomingRentals: {
+  rentals: {
     get: (req, res) => {
       let renter_id = req.query.id;
       // res.send('this route will send back current transaction information');
@@ -20,18 +20,6 @@ module.exports = {
         }
       });
 
-    },
-  },
-  pastRentals: {
-    get: (req, res) => {
-      res.send('this route will send a history of past transactions');
-    //   models.example.get(itemId, (err, data) => {
-    //     if (err) {
-    //       res.status(500).send(err);
-    //     } else {
-    //       res.send(data);
-    //     }
-    //   });
     },
   },
   listings: {

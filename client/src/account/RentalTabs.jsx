@@ -120,33 +120,3 @@ export default function RentalTabs(props) {
 
   );
 }
-
-// create or replace function agg_loop()
-// returns void AS $$
-// declare
-//         photos_array integer;
-//         i INTEGER;
-// begin
-//         select photos from items into photos_array;
-//        foreach i IN ARRAY photos_array
-//         loop
-//                 update items set photos ='[]' where photos is null;
-//         end loop;
-// end;
-// $$
-// LANGUAGE plpgsql;
-
-// create or replace function agg_loop()
-// returns void AS $$
-// declare
-//         ids_array integer;
-//         i INTEGER;
-// begin
-//         select actor_id from actor into ids_array;
-//        foreach i IN ARRAY ids_array
-//         loop
-//                 update actor set actor_id =20 where first_name='Mike';
-//         end loop;
-// end;
-// $$
-// LANGUAGE plpgsql;
