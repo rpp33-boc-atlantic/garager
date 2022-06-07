@@ -77,6 +77,9 @@ const Messages = ( props ) => {
   };
 
   const sendMessage = ( message ) => {
+    if ( threads.length === 0 ) {
+      return;
+    }
     let newMessage = {
       threadId: threads[ activeThread ].threadId,
       email: user.email,

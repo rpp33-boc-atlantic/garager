@@ -26,7 +26,11 @@ const ChatList = ( props ) => {
       </div>
 
       <div className='position-absolute bottom-0'>
-        <ChatInput sendMessage={ props.sendMessage }/>
+        {
+          props.threads.length > 0
+            ? <ChatInput sendMessage={ props.sendMessage }/>
+            : <></>
+        }
       </div>
 
     </React.Fragment>
