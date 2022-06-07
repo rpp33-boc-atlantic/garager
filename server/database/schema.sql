@@ -1,3 +1,4 @@
+-- ***** SEE NOTES AT THE BOTTOM OF THIS FILE BEFORE RUNNING SCRIPT *****
 DROP DATABASE IF EXISTS garager;
 CREATE DATABASE garager;
 
@@ -22,8 +23,8 @@ CREATE TABLE items (
   user_id INTEGER NOT NULL DEFAULT NULL,
   title TEXT NOT NULL DEFAULT NULL,
   category TEXT NOT NULL DEFAULT NULL,
-  brand TEXT NOT NULL DEFAULT NULL,
-  model TEXT NOT NULL DEFAULT NULL,
+  brand TEXT DEFAULT NULL,
+  model TEXT DEFAULT NULL,
   itemDescription TEXT NOT NULL DEFAULT NULL,
   price NUMERIC(12,2) NOT NULL DEFAULT NULL,
   nyop BOOLEAN NULL DEFAULT false,
@@ -32,7 +33,7 @@ CREATE TABLE items (
   availableTo DATE NOT NULL DEFAULT NULL,
   address TEXT NOT NULL DEFAULT NULL,
   latLng TEXT NOT NULL DEFAULT NULL,
-  photos TEXT NOT NULL DEFAULT NULL,
+  photos TEXT DEFAULT NULL,
   FOREIGN KEY (user_id)
     REFERENCES users(user_id)
     ON DELETE CASCADE
@@ -51,6 +52,8 @@ CREATE TABLE transactions(
   renter_id INT,
   item_id INT,
   paymentIntent_id TEXT DEFAULT NULL,
+  refunded BOOLEAN DEFAULT false,
+  payment_status TEXT DEFAULT NULL,
   CONSTRAINT fk_owner
     FOREIGN KEY(owner_id)
     REFERENCES users(user_id)
@@ -103,4 +106,7 @@ CREATE INDEX thread_id_index ON messages(thread_id);
 
 ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") REFERENCES "threads"("thread_id");
 
--- Sample values
+-- COPY COMMANDS ***** MUST BE INSIDE DATABASE DIRECTORY *****
+\copy users from 'users.csv' delimiter ',' csv header;
+\copy items from 'items.csv' delimiter ',' csv header;
+\copy transactions from 'transactions.csv' delimiter ',' csv header;
