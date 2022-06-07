@@ -4,18 +4,18 @@ module.exports = {
 
   threads: {
 
-    get: async (email) => {
-      let query = `select user_id from users where email ilike '${email}'`;
-      let result = await db.query(query);
+    get: async ( email ) => {
+      let query = `select user_id from users where email ilike '${ email }'`;
+      let result = await db.query( query );
       let userId = result.rows[0].user_id;
 
-      query = `select * from threads where (owner_id = ${userId} or renter_id = ${userId})`;
-      return db.query(query);
+      query = `select * from threads where (owner_id = ${ userId } or renter_id = ${ userId })`;
+      return db.query( query );
     },
 
-    post: async (thread) => {
+    post: async ( thread ) => {
       let query = 'select user_id from items where item_id=' + thread.itemId;
-      let result = await db.query(query);
+      let result = await db.query( query );
       let ownerId = result.rows[0].user_id;
 
       query = `insert into threads
@@ -23,7 +23,7 @@ module.exports = {
                values($1, $2, $3, $4, $5, $6)`;
 
       const values = [ thread.itemId, ownerId, thread.renterId, false, false, thread.timeUpdated ];
-      return await db.query(query, values);
+      return await db.query( query, values );
     },
 
     put: () => {}
@@ -31,14 +31,14 @@ module.exports = {
 
   messages: {
 
-    get: async (threadId) => {
+    get: async ( threadId ) => {
       const query = 'select * from messages where thread_id=' + threadId;
-      return await db.query(query);
+      return await db.query( query );
     },
 
-    post: async (message) => {
-      let query = `select user_id from users where email ilike '${message.email}'`;
-      let result = await db.query(query);
+    post: async ( message ) => {
+      let query = `select user_id from users where email ilike '${ message.email }'`;
+      let result = await db.query( query );
       let userId = result.rows[0].user_id;
 
       query = `insert into messages
@@ -46,36 +46,36 @@ module.exports = {
                values($1, $2, $3, $4, $5)`;
 
       let values = [ message.threadId, userId, message.text, null, message.timeCreated ];
-      await db.query(query, values);
+      await db.query( query, values );
 
       query = `update threads
                set last_message=$1, time_updated=$2
                where thread_id=$3`;
 
       values = [ message.text, message.timeCreated, message.threadId ];
-      db.query(query, values);
+      db.query( query, values );
     }
   },
 
   productInfo: {
 
-    get: async (itemId) => {
+    get: async ( itemId ) => {
       const query = 'select title from items where item_id = ' + itemId;
-      return db.query(query);
+      return db.query( query );
     }
   },
 
   userInfo: {
 
-    get: async (userId, email) => {
+    get: async ( userId, email ) => {
 
       if (userId !== null) {
         const query = 'select firstname, lastname, email from users where user_id = ' + userId;
-        return db.query(query);
+        return db.query( query );
 
       } else {
         const query = `select firstname, lastname, user_id from users where email ilike '${email}'`;
-        return db.query(query);
+        return db.query( query );
       }
     }
   }
