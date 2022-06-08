@@ -89,9 +89,9 @@ export default function RentalTabs(props) {
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
     var clickedColumn = 'returndate';
     pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    // console.log('rentals second', pastRentals);
+    console.log('rentals second', pastRentals);
     console.log('Current', currentRentals);
-    console.log('Past', pastRentals);
+    console.log('items', items);
     return [currentRentals, pastRentals];
   };
 
@@ -120,3 +120,13 @@ export default function RentalTabs(props) {
 
   );
 }
+
+// UPDATE items
+//         SET latlng = (select replace(latlng, '|', ',lng:') from items where s.item_id = item_id) as s;
+//      select latlng from (select item_id, latlng from items where item_id = 2) as s;
+
+// update items
+//   set latlng = case
+//             when item_id >= 0 then replace(latlng, 'lng','"lng"')
+//             else latlng
+//           end;

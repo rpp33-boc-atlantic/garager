@@ -14,6 +14,8 @@ router.get('/my-listings/earnings', controller.earnings.get);
 
 router.get('/my-listings', controller.listings.get);
 
+router.get('/get-data', controller.data.get);
+
 module.exports = router;
 
 

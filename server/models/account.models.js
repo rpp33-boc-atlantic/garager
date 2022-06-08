@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 const client = require('../database/database.js');
-
+fs = require('fs');
 module.exports = {
-  rentals: {
+  get_rentals: {
     get: (renter_id, callback) => {
 
       const query = {
@@ -10,7 +10,8 @@ module.exports = {
         values: [renter_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
+        .catch (err => console.log('err@models-post-item', err))
+        .then((databaseStuff)=>{
           callback(null, databaseStuff.rows);
         });
 
@@ -24,8 +25,10 @@ module.exports = {
         values: [owner_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
+        .catch (err => console.log('err@models-post-item', err))
+        .then((databaseStuff)=>{
           callback(null, databaseStuff.rows);
+          // fs.writeFileSync('itemsFromDatabase.json', JSON.stringify(databaseStuff.rows, null, 2));
         });
 
     },
@@ -70,9 +73,24 @@ module.exports = {
           console.log('earnings', data);
           callback(null, data);
         });
-
     },
-  },
+    data: {
+      get: (table, callback) => {
+
+        const query = {
+          text: `SELECT * from ${table}`,
+        // values: [owner_id]
+        };
+        return client.query(query)
+          .catch (err => console.log('err@models-post-item', err))
+          .then((databaseStuff)=>{
+          // console.log('');
+            fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(databaseStuff.rows, null, 2));
+            callback(null, databaseStuff.rows);
+          });
+      },
+    }
+  }
 };
 
 

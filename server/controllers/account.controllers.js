@@ -50,5 +50,19 @@ module.exports = {
         }
       });
     },
-  }
+  },
+  data: {
+    get: (req, res) => {
+      let table = req.query.table ? req.query.table : 'items';
+      console.log('table', table);
+      // var table = params.get('table-name') ? params.get('table-name') : 'items';
+      models.data.get( table, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.send(data);
+        }
+      });
+    },
+  },
 };
