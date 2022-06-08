@@ -1,3 +1,4 @@
+-- ***** SEE NOTES AT THE BOTTOM OF THIS FILE BEFORE RUNNING SCRIPT *****
 DROP DATABASE IF EXISTS garager;
 CREATE DATABASE garager;
 
@@ -22,8 +23,8 @@ CREATE TABLE items (
   user_id INTEGER NOT NULL DEFAULT NULL,
   title TEXT NOT NULL DEFAULT NULL,
   category TEXT NOT NULL DEFAULT NULL,
-  brand TEXT NOT NULL DEFAULT NULL,
-  model TEXT NOT NULL DEFAULT NULL,
+  brand TEXT DEFAULT NULL,
+  model TEXT DEFAULT NULL,
   itemDescription TEXT NOT NULL DEFAULT NULL,
   price NUMERIC(12,2) NOT NULL DEFAULT NULL,
   nyop BOOLEAN NULL DEFAULT false,
@@ -32,7 +33,7 @@ CREATE TABLE items (
   availableTo DATE NOT NULL DEFAULT NULL,
   address TEXT NOT NULL DEFAULT NULL,
   latLng TEXT NOT NULL DEFAULT NULL,
-  photos TEXT NOT NULL DEFAULT NULL,
+  photos TEXT[],
   FOREIGN KEY (user_id)
     REFERENCES users(user_id)
     ON DELETE CASCADE
@@ -51,6 +52,8 @@ CREATE TABLE transactions(
   renter_id INT,
   item_id INT,
   paymentIntent_id TEXT DEFAULT NULL,
+  refunded BOOLEAN DEFAULT false,
+  payment_status TEXT DEFAULT NULL,
   CONSTRAINT fk_owner
     FOREIGN KEY(owner_id)
     REFERENCES users(user_id)
@@ -103,4 +106,40 @@ CREATE INDEX thread_id_index ON messages(thread_id);
 
 ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") REFERENCES "threads"("thread_id");
 
--- Sample values
+-- COPY COMMANDS ***** MUST BE INSIDE DATABASE DIRECTORY *****
+\copy users from 'users.csv' delimiter ',' csv header;
+\copy items from 'items.csv' delimiter ',' csv header;
+\copy transactions from 'transactions.csv' delimiter ',' csv header;
+
+
+-- ALTER TABLE items
+-- ALTER COLUMN latlng TYPE json;
+
+
+-- IF YOU WANT TO GET A COPY OF THE CURRENT DATA BASE YOU CAN VISIT THIS PATH
+-- http://localhost:3000/get-data?table=users
+-- change the table param to users/items/messages/transactions ect  and the proper table will be downloaded at this location.
+--client/src/data/dataFunctions/${table}.json   (the files do not download directly to our db folder to  prevent against anyone accidentally replacing them)
+--after you get a json file, convert it to csv here
+-- https://jsonformatter.org/#
+
+--I'm not sure if these commands can be run in the main script but I used these to convert the latlng
+
+  -- update items
+  --       set latlng = case
+  --           when item_id > 1 then replace(latlng, '|',',"lng":')
+  --           else latlng
+  --         end;
+  --    update items
+  --         set latlng = case
+  --             when item_id >= 0 then replace(latlng, latlng,`{"lat":${latlng}}`)
+  --                 else latlng
+  --             end;
+
+-- I know the above works but this way to convert photos might not work.  -its a little
+
+--    UPDATE items
+--  SET photos =  case
+-- WHEN photos = null THEN "{}"
+-- ELSE replace(photos,photos,'{' || photos || '}')
+-- END;

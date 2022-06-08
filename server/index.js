@@ -14,6 +14,9 @@ const postItemRouter = require('./routes/postItem.routes.js');
 
 const app = express();
 
+// Outlier route for Stripe Webhooks (needs to be above bodyParser)
+app.use('/checkout/webhook', checkoutRoutes);
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,9 +45,8 @@ app.get('/s3url', async (req, res) => {
   res.send({url});
 });
 
-app.get('/test', (req, res) => {
-  res.send('hi');
-});
+// app.get('/get-data', accountRouter);
+
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
