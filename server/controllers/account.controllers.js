@@ -51,6 +51,20 @@ module.exports = {
       });
     },
   },
+  profile: {
+    get: (req, res) => {
+      let user_id = 5;
+      console.log('looking for data for user', user_id);
+      models.profile.get(user_id, (err, data) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          console.log('datalistings', data);
+          res.status(200).send(data);
+        }
+      });
+    },
+  },
   data: {
     get: (req, res) => {
       let table = req.query.table ? req.query.table : 'items';

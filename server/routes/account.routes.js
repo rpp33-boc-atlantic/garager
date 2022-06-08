@@ -9,6 +9,8 @@ const controller = require('../controllers/account.controllers.js');
 router.get('/my-rentals/', controller.rentals.get);
 
 router.get('/my-earnings', controller.earnings.get);
+router.get('/my-profile', controller.profile.get);
+
 
 router.get('/my-listings/earnings', controller.earnings.get);
 

@@ -14,8 +14,7 @@ module.exports = {
         .then((databaseStuff)=>{
           callback(null, databaseStuff.rows);
         });
-
-    },
+    }
   },
   listings: {
     get: (owner_id, callback) => {
@@ -74,23 +73,38 @@ module.exports = {
           callback(null, data.rows);
         });
     },
-    data: {
-      get: (table, callback) => {
+  },
+  profile: {
+    get: (user_id, callback) => {
+      const query = {
+        text: `SELECT * from users where user_id = $1`,
+        values: [user_id]
+      };
+      return client.query(query)
+        .catch (err => console.log('err@models-post-item', err))
+        .then((databaseStuff)=>{
+          callback(null, databaseStuff.rows);
+        });
+    },
+  },
+  data: {
+    get: (table, callback) => {
 
-        const query = {
-          text: `SELECT * from ${table}`,
+      const query = {
+        text: `SELECT * from ${table}`,
         // values: [owner_id]
-        };
-        return client.query(query)
-          .catch (err => console.log('err@models-post-item', err))
-          .then((databaseStuff)=>{
+      };
+      return client.query(query)
+        .catch (err => console.log('err@models-post-item', err))
+        .then((databaseStuff)=>{
           // console.log('');
-            fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(databaseStuff.rows, null, 2));
-            callback(null, databaseStuff.rows);
-          });
-      },
-    }
+          fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(databaseStuff.rows, null, 2));
+          callback(null, databaseStuff.rows);
+        });
+    },
   }
+
+
 };
 
 
