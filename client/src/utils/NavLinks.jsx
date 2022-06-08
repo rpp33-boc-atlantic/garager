@@ -9,6 +9,7 @@ import Badge from 'react-bootstrap/Badge';
 import { GoMail } from 'react-icons/go';
 import Logout from '../authentication/logout.jsx';
 
+
 const NavLinks = ( props ) => {
   // this navbar uses a menu toggle for that reactively collapses for smaller screens.
 
