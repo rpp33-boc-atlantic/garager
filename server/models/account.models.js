@@ -52,7 +52,7 @@ module.exports = {
           WHERE returndate BETWEEN
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-30
           AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
-          AND owner_id = $2
+          AND owner_id = $1
           GROUP BY owner_id
          ),total as
          (
@@ -60,7 +60,7 @@ module.exports = {
             sum(rate) AS totalEarnings,
             owner_id
             FROM transactions
-            WHERE owner_id = $3
+            WHERE owner_id = $1
             GROUP BY owner_id
            )
          SELECT monthly, weekly, totalEarnings, owner_id
@@ -70,8 +70,8 @@ module.exports = {
       return client.query(query)
         .catch (err => console.log('err@models-post-item', err))
         .then((data)=>{
-          console.log('earnings', data);
-          callback(null, data);
+          console.log('earnings', data.rows);
+          callback(null, data.rows);
         });
     },
     data: {

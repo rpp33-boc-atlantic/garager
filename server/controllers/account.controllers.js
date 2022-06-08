@@ -40,7 +40,7 @@ module.exports = {
     get: (req, res) => {
       // let owner_id = req.query.id || 5;
       let owner_id = 5;
-
+      console.log('looking for data for user', owner_id);
       models.earnings.get(owner_id, (err, data) => {
         if (err) {
           res.status(500).send(err);
