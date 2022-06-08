@@ -5,18 +5,13 @@ import ChatInput from './ChatInput.jsx';
 const ChatList = ( props ) => {
 
   return (
-
     <React.Fragment>
 
       <div className='imessage'>
         {
           props.messages.map(( message, index ) => {
-<<<<<<< HEAD
-            if (message.username === user.email) {
-=======
 
             if ( message.user_id === props.userData.userId ) {
->>>>>>> main
               return (
                 <ChatBubble key={ index } message={ message } user='me' />
               );
