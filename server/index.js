@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
