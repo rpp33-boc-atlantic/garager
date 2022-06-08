@@ -1,15 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
+
 
 const RefundButton = (props) => {
 
   const handleClick = async () => {
-    console.log('clicked here refund button');
     // ***** REFACTOR: props.transactionID - data type can be integer or string
     // ***** REFACTOR: props.owner_id - data type can be integer or string
 
     const refundData = {
-      transactionID: '210',
+      transactionID: '209',
       ownerID: '4',
     };
     
@@ -24,7 +25,7 @@ const RefundButton = (props) => {
   };
 
   return (
-    <button onClick={handleClick}>Refund Renter</button>
+    <Button onClick={handleClick}>Refund Renter</Button>
   );
 };
 
