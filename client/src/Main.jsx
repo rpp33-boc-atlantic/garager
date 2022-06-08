@@ -8,7 +8,6 @@ import {
   useParams
 } from 'react-router-dom';
 import App from './App.jsx';
-import FAQ from './FAQ.jsx';
 import Item from './itemView/wrapper.jsx';
 import SearchBrowse from './search/SearchBrowse.jsx';
 import PostItem from './postItem/PostItem.jsx';
@@ -41,7 +40,6 @@ root.render(
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
-          <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
           <Route path='Item/:id' element={<PrivateRoute><Item /></PrivateRoute>} />
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
@@ -56,5 +54,3 @@ root.render(
     </UserAuthContextProvider>
   </BrowserRouter>
 );
-
-
