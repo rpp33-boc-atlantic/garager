@@ -2,7 +2,7 @@
 const client = require('../database/database.js');
 
 module.exports = {
-  get_rentals: {
+  rentals: {
     get: (renter_id, callback) => {
 
       const query = {
@@ -16,11 +16,25 @@ module.exports = {
 
     },
   },
-  get_listings: {
+  listings: {
     get: (owner_id, callback) => {
 
       const query = {
         text: `SELECT DISTINCT title, price, nyop, min_price, items.item_id, latlng, photos FROM items JOIN transactions ON user_id = owner_id WHERE user_id = $1`,
+        values: [owner_id]
+      };
+      return client.query(query)
+        .catch (err => console.log('err@models-post-item', err)).then((databaseStuff)=>{
+          callback(null, databaseStuff.rows);
+        });
+
+    },
+  },
+  earnings: {
+    get: (owner_id, callback) => {
+
+      const query = {
+        text: `SELECT `,
         values: [owner_id]
       };
       return client.query(query)
@@ -42,3 +56,50 @@ module.exports = {
 //   return client.query(query)
 //     .catch (err => console.log('err@models-post-item', err));
 // };
+// /+ COALESCE(col2,0)
+
+// SELECT
+//  sum(rate) AS total,
+//  owner_id
+//  FROM transactions
+//  WHERE owner_id = 7
+//  GROUP BY owner_id;
+
+
+// WITH  week as(
+//  SELECT
+//  sum(rate) AS weekly,
+//  owner_id
+//  FROM transactions
+//  WHERE returndate BETWEEN
+//  NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-7
+//  AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
+//  AND owner_id = 9
+//  GROUP BY owner_id
+// ),month as(
+// SELECT
+//  sum(rate) AS monthly,
+//  owner_id
+//  FROM transactions
+//  WHERE returndate BETWEEN
+//  NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-30
+//  AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
+//  AND owner_id = 9
+//  GROUP BY owner_id
+// ),total as
+// (
+//   SELECT
+//    sum(rate) AS total,
+//    owner_id
+//    FROM transactions
+//    WHERE returndate IS BEFORE
+//    NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER
+//    AND owner_id = 9
+//    GROUP BY owner_id
+//   )
+
+// SELECT monthly, weekly, total, owner_id
+// FROM month, week, total;
+
+
+// //  AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
