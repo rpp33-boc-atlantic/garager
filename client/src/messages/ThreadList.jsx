@@ -22,8 +22,7 @@ const ThreadList = ( props ) => {
                 onClick={ () => handleClick( index ) }>
 
                 <ThreadTile
-                  email={ props.email }
-                  username={ props.userData.username }
+                  userData={ props.userData }
                   thread={ thread }/>
 
               </ListGroup.Item>
@@ -37,8 +36,7 @@ const ThreadList = ( props ) => {
                 action onClick={ () => handleClick( index ) }>
 
                 <ThreadTile
-                  email={ props.email }
-                  username={ props.userData.username }
+                  userData={ props.userData }
                   thread={ thread }/>
 
               </ListGroup.Item>

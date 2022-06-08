@@ -9,7 +9,7 @@ const ThreadTile = ( props ) => {
       <span>
         <span className='thread-name'>
           {
-            props.thread.email === props.email ? props.thread.username : props.username
+            props.thread.ownerId === props.userData.userId ? props.thread.renterName : props.thread.ownerName
           }
         </span> - { props.thread.itemName }
       </span><br />

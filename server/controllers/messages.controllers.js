@@ -7,20 +7,25 @@ module.exports = {
     get: async ( req, res ) => {
       const result = await models.threads.get( req.query.email );
       const newThreads = [];
-      let newThread, threadMessages, productInfo, userInfo;
+      let newThread, threadMessages, productInfo, ownerInfo, renterInfo;
 
       for ( let thread of result.rows ) {
         threadMessages = await models.messages.get( thread.thread_id );
         productInfo = await models.productInfo.get( thread.item_id );
-        userInfo = await models.userInfo.get( thread.owner_id );
+        ownerInfo = await models.userInfo.get( thread.owner_id );
+        renterInfo = await models.userInfo.get( thread.renter_id );
 
         newThread = {
           threadId: thread.thread_id,
           itemName: productInfo.rows[0].title,
-          itemImageUrl: null,
-          username: `${ userInfo.rows[0].firstname } ${ userInfo.rows[0].lastname }`,
-          email: userInfo.rows[0].email.toLowerCase(),
-          userImageUrl: null,
+          itemImageUrl: productInfo.rows[0].photos[0],
+          ownerId: thread.owner_id,
+          ownerName: `${ ownerInfo.rows[0].firstname } ${ ownerInfo.rows[0].lastname }`,
+          ownerImageUrl: ownerInfo.rows[0].userphoto,
+          renterId: thread.renter_id,
+          renterName: `${ renterInfo.rows[0].firstname } ${ renterInfo.rows[0].lastname }`,
+          renterImageUrl: renterInfo.rows[0].userphoto,
+          email: ownerInfo.rows[0].email.toLowerCase(),
           userRole: 'user role',
           lastMessage: thread.last_message === 'null' ? null : thread.last_message,
           timeUpdated: parseInt( thread.time_updated ),
@@ -34,7 +39,7 @@ module.exports = {
     },
 
     post: async ( req, res ) => {
-      await models.threads.post (req.body );
+      await models.threads.post ( req.body );
       res.end();
     },
 

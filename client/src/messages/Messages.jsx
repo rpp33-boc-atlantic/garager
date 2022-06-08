@@ -14,7 +14,7 @@ const Messages = ( props ) => {
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
   const [ threadAdded, updateThreadAdded ] = useState(false);
-  const [ userData, changeUserData ] = useState('');
+  const [ userData, changeUserData ] = useState({});
 
   const { user } = useUserAuth();
   const threadRef = useRef([]);
@@ -48,7 +48,7 @@ const Messages = ( props ) => {
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: 32,
+      itemId: 38,
       renterId: 1,
       timeUpdated: Date.now()
     });
@@ -104,7 +104,6 @@ const Messages = ( props ) => {
             threads={ threads }
             activeThread={ activeThread }
             changeThread={ changeThread }
-            email={ user.email }
             userData={ userData }
           />
         </div>
@@ -119,7 +118,11 @@ const Messages = ( props ) => {
         </div>
 
         <div id='detail-column'>
-          <DetailPane />
+          <DetailPane
+            threads={ threads }
+            activeThread={ activeThread }
+            userData={ userData }
+          />
         </div>
 
       </div>
