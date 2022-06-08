@@ -2,7 +2,7 @@
 const client = require('../database/database.js');
 fs = require('fs');
 module.exports = {
-  get_rentals: {
+  rentals: {
     get: (renter_id, callback) => {
 
       const query = {
@@ -20,14 +20,13 @@ module.exports = {
     get: (owner_id, callback) => {
 
       const query = {
-        text: `SELECT DISTINCT title, price, nyop, min_price, items.item_id, latlng, photos FROM items JOIN transactions ON user_id = owner_id WHERE user_id = $1`,
+        text: `SELECT DISTINCT title, price, nyop, min_price, items.item_id, to_jsonb(latlng), photos FROM items JOIN transactions ON user_id = owner_id WHERE user_id = $1`,
         values: [owner_id]
       };
       return client.query(query)
         .catch (err => console.log('err@models-post-item', err))
-        .then((databaseStuff)=>{
-          callback(null, databaseStuff.rows);
-          // fs.writeFileSync('itemsFromDatabase.json', JSON.stringify(databaseStuff.rows, null, 2));
+        .then((data)=>{
+          callback(null, data.rows);
         });
 
     },
