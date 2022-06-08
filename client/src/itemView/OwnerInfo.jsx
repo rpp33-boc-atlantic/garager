@@ -52,7 +52,7 @@ const OwnerInfo = (props) => {
       <h4>Owner: {props.details.firstname} {props.details.lastname}</h4>
       <h4>Member Since: {moment(props.details.datejoined).format('MMMM YYYY')}</h4>
       <Link to="/Messages" state={{ itemID: props.details.item_id }}>
-        <button>Message</button>
+        <button className="btn btn-primary btn-sm">Message</button>
       </Link>
     </Container>
   );

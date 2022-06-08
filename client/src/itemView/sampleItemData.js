@@ -5,7 +5,8 @@ import ladder3 from './samplePhotos/ladder3.jpeg';
 
 var option1 = {
   details: {
-    item_id: '',
+    'item_id': '',
+    'user_id': '',
     title: '',
     brand: '',
     model: '',

@@ -47,11 +47,15 @@ class RentForm extends React.Component {
       const ownerName = this.props.itemInfo.details.firstname + ' ' + this.props.itemInfo.details.lastname;
       const itemInfo = {
         name: this.props.itemInfo.details.title,
-        itemID: this.props.itemInfo.details.itemID,
+        itemID: this.props.itemInfo.details.item_id,
         owner: ownerName,
+        ownerID: this.props.itemInfo.details.user_id,
         priceInCents: cost,
-        dateRange: this.state.dateRange
+        dateRange: this.state.dateRange,
+        rate: this.props.itemInfo.details.price
+        // PASS IN USER ID RIGHT HERE
       };
+      console.log('itemInfo before passing to checkout', itemInfo);
 
       axios.post('/checkout/create-session', itemInfo)
         .then((response) => {
@@ -132,7 +136,7 @@ class RentForm extends React.Component {
           <div className='alert alert-warning alert-dismissible fade show tooLow' role='alert' style={{display: 'none'}}>
             <strong>Suggested price is too low.</strong>
           </div>
-          <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit}></input></RentButton>
+          <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit} className="btn btn-primary btn-sm"></input></RentButton>
         </form>
       </Container>
     );

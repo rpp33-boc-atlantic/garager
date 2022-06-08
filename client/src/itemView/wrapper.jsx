@@ -8,6 +8,8 @@ import RentForm from './RentForm.jsx';
 import sampleItemData from './sampleItemData.js';
 import axios from 'axios';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
+// import { useMain } from '../context/MainContext.jsx';
+
 
 const Container = styled.div`
   display: grid;
@@ -20,20 +22,22 @@ const Container = styled.div`
   justify-items: stretch;
   // align-items: center;
   // grid-template-rows: 1fr .5fr 2fr .5fr;
+  margin: 3em;
 `;
 
 const Item = (props) => {
   const fakeProps = sampleItemData.option1;
   const [itemData, setData] = useState({
     details: {
-      item_id: '',
+      'item_id': '',
+      'user_id': '',
       title: '',
       brand: '',
       model: '',
       itemdescription: '',
       price: '',
       nyop: null,
-      min_price: null,
+      'min_price': null,
       availablefrom: '',
       availableto: '',
       address: '',
@@ -49,7 +53,9 @@ const Item = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
   const { user } = useUserAuth();
+  // const { userId } = useMain();
   // console.log('this should be the user email', user.email);
+  // console.log('this should be the user id', userId);
   // console.log('this is the item id passed through params', id);
 
   useEffect(() => {
@@ -73,8 +79,8 @@ const Item = (props) => {
   }, [dataLoading]);
 
   const deleteItem = () => {
-    // console.log('gonna delete item');
-    const itemID = 1234567;
+    // console.log('item id in delete item', itemData.details.item_id);
+    const itemID = itemData.details.item_id;
     axios.delete('/item/itemData', {
       data: {
         ID: itemID
@@ -88,7 +94,7 @@ const Item = (props) => {
       });
   };
 
-  const deleteButton = user.email === itemData.details.email ? null : <button onClick={deleteItem}>Delete Item</button>;
+  const deleteButton = user.email === itemData.details.email ? null : <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button>;
 
   const ownerInfoData = itemData.details.item_id ? itemData.details : fakeProps;
   const itemDetailsData = itemData.details.item_id ? itemData.details : fakeProps;

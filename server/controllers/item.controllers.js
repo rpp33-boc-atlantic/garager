@@ -3,7 +3,7 @@ const models = require('../models/itemView.models.js');
 module.exports = {
   itemData: {
     get: (req, res) => {
-      console.log('request here', req.query.ID.substring(3));
+      // console.log('request here', req.query.ID.substring(3));
       let itemID = req.query.ID.substring(3);
       models.itemData.get(itemID)
         .then(data => {
