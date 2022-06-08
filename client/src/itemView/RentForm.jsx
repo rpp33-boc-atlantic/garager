@@ -61,14 +61,14 @@ class RentForm extends React.Component {
       };
       console.log('itemInfo before passing to checkout', itemInfo);
 
-      // axios.post('/checkout/create-session', itemInfo)
-      //   .then((response) => {
-      //     console.log('response from checkoutButton', response);
-      //     window.location = response.data.url;
-      //   })
-      //   .catch((error) => {
-      //     alert(error.response.data); // <-- ADDED BY JO FOR SIMPLE ERROR HANDLING
-      //   });
+      axios.post('/checkout/create-session', itemInfo)
+        .then((response) => {
+          console.log('response from checkoutButton', response);
+          window.location = response.data.url;
+        })
+        .catch((error) => {
+          alert(error.response.data); // <-- ADDED BY JO FOR SIMPLE ERROR HANDLING
+        });
     }
   }
 

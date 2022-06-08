@@ -54,9 +54,7 @@ const Item = (props) => {
   let { id } = useParams();
   const { user } = useUserAuth();
   // const { userId } = useMain();
-  // console.log('this should be the user email', user.email);
   // console.log('this should be the user id', userId);
-  // console.log('this is the item id passed through params', id);
 
   useEffect(() => {
     let mounted = true;
