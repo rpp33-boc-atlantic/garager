@@ -18,6 +18,7 @@ import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
 import Rentals from './account/Rentals.jsx';
 import Listings from './account/Listings.jsx';
 import Profile from './account/Profile.jsx';
+import Earnings from './account/Earnings.jsx';
 import Homepage from './Homepage.jsx';
 import CheckoutSuccess from './checkout/CheckoutSuccess.jsx';
 import CheckoutCancel from './checkout/CheckoutCancel.jsx';
@@ -47,9 +48,10 @@ root.render(
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
           <Route path='Messages' element={<PrivateRoute><Messages socketIO={ socketIO }/></PrivateRoute>} />
-          <Route path='my-listings' element={<PrivateRoute><Listings /></PrivateRoute>} />
-          <Route path='my-rentals' element={<PrivateRoute><Rentals /></PrivateRoute>} />
-          <Route path='profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path='/account/my-listings' element={<PrivateRoute><Listings /></PrivateRoute>} />
+          <Route path='/account/my-rentals' element={<PrivateRoute><Rentals /></PrivateRoute>} />
+          <Route path='/account/my-profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path='/account/my-earnings' element={<PrivateRoute><Earnings /></PrivateRoute>} />
           <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
           <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />
         </Route>
