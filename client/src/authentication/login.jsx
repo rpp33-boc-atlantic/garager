@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Card, Alert, Container} from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
+import {useMain} from '../context/MainContext.jsx';
 import {
   signInWithEmailAndPassword,
   FacebookAuthProvider,
@@ -10,6 +11,7 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,14 +19,16 @@ const Login = () => {
   //pass sign up function using useUserAuth hook
   const { logIn, facebookSignIn } = useUserAuth();
   const navigate = useNavigate();
-
+  const {userId, registerUser} = useMain();
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
     try {
-      await logIn(email, password);
-      //redirect user to homepage
-      navigate('/');
+      await logIn(email, password)
+        .then((res) => {
+          registerUser('', '', email);
+          navigate('/SearchBrowse');
+        });
     } catch (err) {
       setError(err.message);
     }
@@ -35,9 +39,13 @@ const Login = () => {
     try {
       await facebookSignIn()
         .then((res) => {
-          //console.log(res.user);
           //redirect user to homepage
-          navigate('/');
+          let name = res.user.displayName.split(' ');
+          let firstName = name[0];
+          let lastName = name[1];
+          let email = res.user.email;
+          registerUser(firstName, lastName, email);
+          navigate('/SearchBrowse');
         })
         .catch((err) => {
         //user tries to sign in with with an existing email account
@@ -62,6 +70,7 @@ const Login = () => {
       .then((res) => {
         linkWithCredential(res.user, pendingCred)
           .then((res) => {
+            registerUser('', '', email);
             alert('Succesfully linked accounts');
             navigate('/');
           })

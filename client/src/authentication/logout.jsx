@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 import { Button } from 'react-bootstrap';
-
+import {useMain} from '../context/MainContext.jsx';
 const Logout = () => {
   const { user, logOut } = useUserAuth();
 

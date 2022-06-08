@@ -16,6 +16,7 @@ import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
 import Login from './authentication/login.jsx';
 import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
+import {MainContextProvider} from './context/MainContext.jsx';
 import Rentals from './account/Rentals.jsx';
 import Listings from './account/Listings.jsx';
 import Profile from './account/Profile.jsx';
