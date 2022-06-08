@@ -62,7 +62,7 @@ module.exports = {
                       },
                     ],
                     mode: 'payment',
-                    success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${itemID}`,
+                    success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${itemID}&owner_name=${ownerName}&item_name=${itemName}`,
                     cancel_url: `${YOUR_DOMAIN}/CheckoutCancel?item_id=${itemID}`,
                     payment_intent_data: {
                       metadata: {
