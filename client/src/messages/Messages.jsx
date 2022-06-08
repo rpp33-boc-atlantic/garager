@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import sampleThreads from './liveChatSamples.js';
 import ThreadList from './ThreadList.jsx';
 import ChatList from './ChatList.jsx';
+import DetailPane from './DetailPane.jsx';
 import { Row } from 'react-bootstrap';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 import './MessageStyles.css';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom'; // JO ADDED THIS LINE
+import { useLocation } from 'react-router-dom';
+import '../App.css';
 
 const Messages = ( props ) => {
 
@@ -94,7 +95,7 @@ const Messages = ( props ) => {
   return (
     <section>
 
-      <Row id='messages-row'>
+      <div id='messages-row'>
 
         {/* <input type='button' value='create thread' onClick={addThread}/> */}
 
@@ -117,7 +118,11 @@ const Messages = ( props ) => {
           />
         </div>
 
-      </Row>
+        <div id='detail-column'>
+          <DetailPane />
+        </div>
+
+      </div>
     </section>
   );
 };
