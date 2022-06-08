@@ -65,10 +65,9 @@ export default function RentalTabs(props) {
     items = items;
     var c = 0;
     var p = 0;
+    // iterate through items and sort by past or current
     if (transactions) {
       transactions.map((t) => {
-      
-
         var newDate = new Date();
         if (moment(t.returndate).isBefore(moment(newDate))) {
           pastRentals.push(t);
@@ -80,7 +79,7 @@ export default function RentalTabs(props) {
       });
     }
 
-    // console.log('rentals first', pastRentals);
+
     var clickedColumn = 'pickupdate';
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
     var clickedColumn = 'returndate';

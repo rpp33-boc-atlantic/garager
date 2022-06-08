@@ -6,7 +6,7 @@ import RentalTabs from './RentalTabs.jsx';
 import {useState, useEffect} from 'react';
 import getData from './getData.jsx';
 
-const axios = require('axios');
+// const axios = require('axios');
 
 var transactions = require('../../../server/database/transactions.json');
 var items = require('../../../server/database/items.json');

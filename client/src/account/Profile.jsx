@@ -8,11 +8,30 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProfileCard from './ProfileCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
+import getData from './getData.jsx';
+import {useState, useEffect} from 'react';
 
 // var transactions = require('../data/dataFunctions/transactions.json');
-var users = require('../data/dataFunctions/users.json');
-var user = users[0];
+// var users = require('../data/dataFunctions/users.json');
+// var user = users[0];
 export default function Profile () {
+  let [user, setUser] = useState([]);
+  let [dataLoading, setDataLoading] = useState(true);
+
+
+  useEffect(()=> {
+
+    if (dataLoading ) {
+      console.log('user data: here');
+
+      getData(8, '/account/my-profile').then(data => {
+        console.log('user data:', data);
+        setUser(data[0]);
+        setDataLoading(false);
+      });
+    }
+
+  }, [] );
 
   return ( <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
 
@@ -36,4 +55,6 @@ export default function Profile () {
   </ThemeProvider>
   );
 }
+
+
 
