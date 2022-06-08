@@ -9,6 +9,7 @@ module.exports = {
   rentals: {
     get: (req, res) => {
       let renter_id = req.query.id;
+      console.log('RENTALS');
       // res.send('this route will send back current transaction information');
       models.rentals.get(renter_id, (err, data) => {
         if (err) {
@@ -25,12 +26,12 @@ module.exports = {
   listings: {
     get: (req, res) => {
       let owner_id = req.query.id;
-
+      console.log('LISTINGS');
       models.listings.get(owner_id, (err, data) => {
         if (err) {
           res.status(500).send(err);
         } else {
-          console.log('datalistings', data);
+          console.log('LISTINGS', data);
           res.status(200).send(data);
         }
       });
