@@ -40,7 +40,7 @@ module.exports = {
   earnings: {
     get: (req, res) => {
       // let owner_id = req.query.id || 5;
-      let owner_id = 5;
+      let user_id = req.query.id;
       console.log('looking for data for user', owner_id);
       models.earnings.get(owner_id, (err, data) => {
         if (err) {
@@ -54,7 +54,7 @@ module.exports = {
   },
   profile: {
     get: (req, res) => {
-      let user_id = 5;
+      let user_id = req.query.id;
       console.log('looking for data for user', user_id);
       models.profile.get(user_id, (err, data) => {
         if (err) {

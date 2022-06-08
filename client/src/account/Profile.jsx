@@ -24,7 +24,7 @@ export default function Profile () {
     if (dataLoading ) {
       console.log('user data: here');
 
-      getData(8, '/account/my-profile').then(data => {
+      getData(5, `/account/my-profile`).then(data => {
         console.log('user data:', data);
         setUser(data[0]);
         setDataLoading(false);
@@ -58,3 +58,6 @@ export default function Profile () {
 
 
 
+// UPDATE users
+// SET userphoto = 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
+// where user_id = 5;

@@ -49,7 +49,7 @@ root.render(
           <Route path='Messages' element={<PrivateRoute><Messages socketIO={ socketIO }/></PrivateRoute>} />
           <Route path='my-listings' element={<PrivateRoute><Listings /></PrivateRoute>} />
           <Route path='my-rentals' element={<PrivateRoute><Rentals /></PrivateRoute>} />
-          <Route path='my-profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path='my-profile/:id' element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='my-earnings' element={<PrivateRoute><Earnings /></PrivateRoute>} />
           <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
           <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />

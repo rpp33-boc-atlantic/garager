@@ -3,7 +3,7 @@ const axios = require('axios');
 
 var getData = async (id, url) => {
 
-  return await axios.get(url, {
+  return await axios.get(`${url}`, {
     params: {
       id: id
     }

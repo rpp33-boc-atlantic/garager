@@ -14,8 +14,8 @@ import {FiEdit3} from 'react-icons/Fi';
 // import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 
 // var transactions = require('../data/dataFunctions/transactions.json');
-var users = require('../data/dataFunctions/users.json');
-var user = users[0];
+// var users = require('../data/dataFunctions/users.json');
+// var user = users[0];
 
 
 export default function ProfileCard (props) {
@@ -28,10 +28,10 @@ export default function ProfileCard (props) {
   // <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {user.userPhoto} /> </Col>
   // props.user.firstName + ' ' + props.user.lastName
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={user.userPhoto} />
+      <Card.Img variant="top" src={props.user.userphoto} />
       <Card.Body>
         {/* onMouseEnter={() => this.someHandler */}
-        <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstName + ' ' + props.user.lastName} <FiEdit3/> </Card.Title>
+        <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstname + ' ' + props.user.lastname} <FiEdit3/> </Card.Title>
         <Card.Text>
       Some quick example text to build on the card title and make up the bulk of
       the card's content.
