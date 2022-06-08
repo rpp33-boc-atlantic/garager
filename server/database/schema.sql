@@ -125,21 +125,21 @@ ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") R
 
 --I'm not sure if these commands can be run in the main script but I used these to convert the latlng
 
-  update items
-        set latlng = case
-            when item_id > 1 then replace(latlng, '|',',"lng":')
-            else latlng
-          end;
-     update items
-          set latlng = case
-              when item_id >= 0 then replace(latlng, latlng,`{"lat":${latlng}}`)
-                  else latlng
-              end;
+  -- update items
+  --       set latlng = case
+  --           when item_id > 1 then replace(latlng, '|',',"lng":')
+  --           else latlng
+  --         end;
+  --    update items
+  --         set latlng = case
+  --             when item_id >= 0 then replace(latlng, latlng,`{"lat":${latlng}}`)
+  --                 else latlng
+  --             end;
 
 -- I know the above works but this way to convert photos might not work.  -its a little
 
-   UPDATE items
- SET photos =  case
-WHEN photos = null THEN "{}"
-ELSE replace(photos,photos,'{' || photos || '}')
-END;
+--    UPDATE items
+--  SET photos =  case
+-- WHEN photos = null THEN "{}"
+-- ELSE replace(photos,photos,'{' || photos || '}')
+-- END;
