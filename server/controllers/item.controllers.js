@@ -12,8 +12,8 @@ module.exports = {
         .catch(error => {
           res.status(500).send(error);
         });
-        // console.log('logging here', ttr);
-        // res.status(200).send('data');
+      // console.log('logging here', ttr);
+      // res.status(200).send('data');
 
     },
     delete: (req, res) => {

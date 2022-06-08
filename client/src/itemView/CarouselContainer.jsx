@@ -19,13 +19,13 @@ const CarouselContainer = (props) => {
   var carouselItem;
   if (props.images.length > 0) {
     carouselItem = props.images.map((image, i) =>
-    <Carousel.Item key={i} style={{height: '30em'}}>
-      <img
-        className='d-block w-100'
-        src={image}
-        style={{height: '30em', width: '100%', objectFit: 'contain'}}
-      />
-    </Carousel.Item>
+      <Carousel.Item key={i} style={{height: '30em'}}>
+        <img
+          className='d-block w-100'
+          src={image}
+          style={{height: '30em', width: '100%', objectFit: 'contain'}}
+        />
+      </Carousel.Item>
     );
   } else {
     carouselItem = <img src={unavailableImage} style={{height: '30em', width: '100%', objectFit: 'contain'}}></img>;
