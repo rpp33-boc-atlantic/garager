@@ -1,11 +1,8 @@
 import React from 'react';
 import ChatBubble from './ChatBubble.jsx';
 import ChatInput from './ChatInput.jsx';
-import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 const ChatList = ( props ) => {
-
-  const { user } = useUserAuth();
 
   return (
 
@@ -14,7 +11,12 @@ const ChatList = ( props ) => {
       <div className='imessage'>
         {
           props.messages.map(( message, index ) => {
+<<<<<<< HEAD
             if (message.username === user.email) {
+=======
+
+            if ( message.user_id === props.userData.userId ) {
+>>>>>>> main
               return (
                 <ChatBubble key={ index } message={ message } user='me' />
               );
@@ -29,7 +31,11 @@ const ChatList = ( props ) => {
       </div>
 
       <div className='position-absolute bottom-0'>
-        <ChatInput sendMessage={ props.sendMessage }/>
+        {
+          props.threads.length > 0
+            ? <ChatInput sendMessage={ props.sendMessage }/>
+            : <></>
+        }
       </div>
 
     </React.Fragment>
