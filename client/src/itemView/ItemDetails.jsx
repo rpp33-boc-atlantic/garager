@@ -23,24 +23,27 @@ const Container = styled.div`
   .inside {
     // background: white;
   }
-
 `;
 
 const ItemDetails = (props) => {
+
+  const modelInfo = props.details.model ? <>{props.details.model}</> : <>Unavailable</>;
+  const brandInfo = props.details.brand ? <>{props.details.brand}</> : <>Unavailable</>;
+  const descriptionInfo = props.details.description ? <>{props.details.description}</> : <>Unavailable</>;
 
   return (
     <Container>
       <div className='inside'>
         <h4>Model</h4>
-        {props.details.model}
+        {modelInfo}
       </div>
       <div className='inside'>
         <h4>Brand</h4>
-        {props.details.brand}
+        {brandInfo}
       </div>
       <div className='description inside'>
         <h4>Description</h4>
-        {props.details.description}
+        {descriptionInfo}
       </div>
     </Container>
   );

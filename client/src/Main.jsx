@@ -5,12 +5,13 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  useParams
 } from 'react-router-dom';
 import App from './App.jsx';
 import FAQ from './FAQ.jsx';
 import Item from './itemView/wrapper.jsx';
 import SearchBrowse from './search/SearchBrowse.jsx';
-import PostItem from './postItem/postItem.jsx';
+import PostItem from './postItem/PostItem.jsx';
 import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
 import Login from './authentication/login.jsx';
@@ -42,9 +43,7 @@ root.render(
         <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
           <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
-          <Route path='Item' element={<PrivateRoute><Item /></PrivateRoute>}>
-            <Route path=':id' element={<PrivateRoute><Item /></PrivateRoute>} />
-          </Route>
+          <Route path='Item/:id' element={<PrivateRoute><Item /></PrivateRoute>} />
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
           <Route path='Messages' element={<PrivateRoute><Messages socketIO={ socketIO }/></PrivateRoute>} />

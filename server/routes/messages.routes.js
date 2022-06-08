@@ -1,11 +1,12 @@
 const router = require('express').Router();
-const controller = require('../controllers/example.controllers.js');
+const controller = require('../controllers/messages.controllers.js');
 
-// Connect controller methods to their corresponding routes
-// router.get('/', controller.example.get);
+router.get('/threads', controller.threads.get);
 
-router.get('/testing', (req, res) => {
-  res.send('hi');
-});
+router.post('/threads', controller.threads.post);
+
+router.put('/threads', controller.threads.put);
+
+router.get('/threads/user', controller.user.get);
 
 module.exports = router;
