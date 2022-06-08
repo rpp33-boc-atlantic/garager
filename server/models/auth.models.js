@@ -10,9 +10,10 @@ module.exports = {
 
       await pool.query(registerUserInfo, (err, res) => {
         if (err) {
+          //console.log('err in models', err.message);
           callback(err, null);
         } else {
-          console.log('database res', res.rows[0]);
+          //console.log('database res', res);
           callback(null, res.rows[0]);
         }
       });
@@ -31,7 +32,7 @@ module.exports = {
           console.log(err.message);
           callback(err, null);
         } else {
-          console.log('database res', res.rows[0]);
+          //console.log('database res', res.rows[0]);
           callback(null, res.rows[0]);
         }
       });

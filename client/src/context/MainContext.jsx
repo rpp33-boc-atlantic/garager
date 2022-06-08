@@ -24,7 +24,7 @@ export function MainContextProvider({ children }) {
             }
           })
             .then((res) => {
-              //console.log('get res', res.data.user_id);
+              console.log('get res', res.data.user_id);
               const newUserId = res.data.user_id;
               setUserId(newUserId);
             })
@@ -38,10 +38,6 @@ export function MainContextProvider({ children }) {
       });
   };
 
-  /*useEffect(() => {
-    if (userId !== '') { setUserId(userId); }
-    console.log('newUserId', userId);
-  });*/
 
   return (
     <mainContext.Provider value={{userId, registerUser}}>
