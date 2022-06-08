@@ -36,14 +36,12 @@ app.use('/item', itemRoutes);
 app.use('/browse', browseRoutes);
 app.use('/postItem', postItemRouter);
 
-
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
   res.send({url});
 });
 
 // app.get('/get-data', accountRouter);
-
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
