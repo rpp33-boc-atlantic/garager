@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import categories from '../../data/categories.js';
+
 
 class RentalListings extends React.Component {
   constructor (props) {
@@ -30,7 +32,10 @@ class RentalListings extends React.Component {
         {this.props.rentals.map((rental) =>
           <Link to={`Item/id=${rental.id}`} key={rental.id} className="go-to-item-listing">
             <div className="rental-listing">
-              <img src={rental.details.image[0]}></img>
+              {rental.details.image.length ?
+                <img src={rental.details.image[0]}></img> :
+                <img src={categories[rental.details.category].image}></img>
+              }
               <div className="listing-text">
                 <div className="listing-header">
                   <span className="rental-title">{rental.details.category} | {this.props.query ?

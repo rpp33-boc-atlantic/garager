@@ -106,7 +106,8 @@ const Browse = (props) => {
       <span>RENTALS NEAR YOU</span>
       <div id="browse-sort">
         <span>Sort items by </span>
-        <select name="browse-sort-options" id="sort-dropdown" onChange={handleBrowseSort} defaultValue="select">
+        <select name="browse-sort-options" id="sort-dropdown" onChange={handleBrowseSort}>
+          <option default hidden>Select Method</option>
           <option value="price-low-high">Price: Low to High</option>
           <option value="price-high-low">Price: High to Low</option>
           <option value="alphabet-a-z">Alphabet: A to Z</option>
