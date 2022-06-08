@@ -8,7 +8,7 @@ const controller = require('../controllers/account.controllers.js');
 // Connect controller methods to their corresponding routes
 router.get('/my-rentals/', controller.rentals.get);
 
-// router.get('/my-rentals/past', controller.pastRentals.get);
+router.get('/my-earnings', controller.earnings.get);
 
 router.get('/my-listings/earnings', controller.earnings.get);
 

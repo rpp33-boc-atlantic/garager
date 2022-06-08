@@ -38,7 +38,8 @@ module.exports = {
   },
   earnings: {
     get: (req, res) => {
-      let owner_id = req.query.id;
+      // let owner_id = req.query.id || 5;
+      let owner_id = 5;
 
       models.earnings.get(owner_id, (err, data) => {
         if (err) {
