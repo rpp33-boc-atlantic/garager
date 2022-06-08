@@ -8,7 +8,8 @@ const Container = styled.div`
   display: grid;
   // background: white;
   // padding: 2em;
-  padding-top: .5px;
+  // padding-top: .5px;
+  // padding-top: .05em;
   padding-right: 2em;
   padding-bottom: 4em;
   padding-left: 2em;
@@ -17,16 +18,20 @@ const Container = styled.div`
   grid-row: 1 / 3;
   grid-template-columns: 1fr;
   justify-content: start;
-  max-height: 50px
+  // max-height: 50px;
+  max-height: 28em;
+
 
   h2 {
     margin-top: .2em;
+    max-height: 1.2em;
   }
-  h3 {
-    margin-top: .2em;
-  }
+  // h3 {
+  //   margin-top: .1em;
+  // }
   h4 {
-    margin-top: .2em;
+    padding-top: .5em;
+
   }
 `;
 
