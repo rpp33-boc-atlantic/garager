@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Container, Button } from 'react-bootstrap';
+import { FaStripe } from 'react-icons/fa';
+import RefundButton from './RefundButton.jsx';
 
 const StripeAccountSetup = () => {
-  const [status, setStatus] = useState('Stripe account setup incomplete');
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     console.log('checking for account completion', window.location);
@@ -17,8 +20,6 @@ const StripeAccountSetup = () => {
   });
 
   const handleClick = async () => {
-    console.log('clicked here stripe setup button');
-    
     axios.post('/checkout/onboard-user')
       .then((response) => {
         window.location = response.data.url;
@@ -30,11 +31,16 @@ const StripeAccountSetup = () => {
 
   return (
     <>
-      <h1>Start Earning!</h1>
-      <h2>Setup a Stripe account to recieve payments from items rented out from your garage!</h2>
-      <button onClick={handleClick}>Create A Stripe Account</button>
-      <h3>Status of Stripe Account: <strong>{status}</strong></h3>
+      <Container className='pt-5 text-center' style={{ minHeight: '50vh' }}>
+        <h1>Stripe Account Setup</h1>
+        <h2>Setup an account to recieve payments from your listings!</h2>
+        <h3>Status of Stripe Account: <strong>{status}</strong></h3>
+        <Button onClick={handleClick} className='mt-3'><FaStripe size={50} /></Button>
+      </Container>
+      {/* REMOVE REFUND BUTTON AFTER INTEGRATION WITH ACCOUNT */}
+      <RefundButton />
     </>
+
   );
 };
 
