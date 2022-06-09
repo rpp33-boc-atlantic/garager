@@ -44,29 +44,28 @@ export function UserAuthContextProvider({ children }) {
     axios.post('/auth', bodyParam)
       .then((res) => {
         if (res.data !== '') {
-          console.log('post res', res.data.user_id);
-          const newUserId = res.data.user_id;
-          setUserId(newUserId);
+          console.log('post res should return userId for new user', res.data.user_id);
         }
-
-        if (res.data === '') {
-          axios.get('/auth', {
-            params: {
-              email: email
-            }
-          })
-            .then((res) => {
-              console.log('get res', res.data.user_id);
-              const newUserId = res.data.user_id;
-              setUserId(newUserId);
-            })
-            .catch((err) => {
-              console.log('err getting user id', err.message);
-            });
-        }
+        console.log('succesfully register new user in the db');
       })
       .catch((err) => {
         console.log(err.message);
+      });
+  }
+
+  function getUserId(email) {
+    axios.get('/auth', {
+      params: {
+        email: email
+      }
+    })
+      .then((res) => {
+        console.log('get res', res.data.user_id);
+        const newUserId = res.data.user_id;
+        setUserId(newUserId);
+      })
+      .catch((err) => {
+        console.log('err getting user id', err.message);
       });
   }
 
@@ -76,7 +75,7 @@ export function UserAuthContextProvider({ children }) {
       console.log('userAuth', currentUser);
       setUser(currentUser);
       if (currentUser) {
-        registerUser('', '', currentUser.email);
+        getUserId(currentUser.email);
       }
     });
     return () => {

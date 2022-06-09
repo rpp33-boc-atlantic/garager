@@ -24,6 +24,8 @@ const Login = () => {
     try {
       await logIn(email, password)
         .then((res) => {
+          //temporarily putting register here, not all the users in firebase were registered in the database yet, need to delete line 28 later
+          registerUser('', '', email);
           navigate('/SearchBrowse');
         });
     } catch (err) {
