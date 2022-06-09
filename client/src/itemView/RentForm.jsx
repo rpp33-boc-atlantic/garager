@@ -146,7 +146,7 @@ class RentForm extends React.Component {
           <div className='alert alert-warning alert-dismissible fade show tooLow' role='alert' style={{display: 'none'}}>
             <strong>Suggested price is too low.</strong>
           </div>
-          <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit} className="btn btn-primary btn-sm" style={{ padding: '.2em', marginLeft: '.4em'}}></input></RentButton>
+          <RentButton><input type='submit' value='Rent' onClick={this.handleSubmit} className="btn btn-primary btn-sm" style={{ paddingLeft: '.8em', paddingRight: '.8em', paddingTop: '.2em', paddingBottom:'.2em', marginLeft: '.4em'}}></input></RentButton>
         </form>
       </Container>
     );

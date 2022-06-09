@@ -103,7 +103,7 @@ const Item = (props) => {
   if (itemData.notFound) {
     return (
       <div>
-        <h2 className="text-center" style={{'padding-top': '3.5em'}}> Oops, let's try this again.</h2>
+        <h2 className="text-center" style={{'paddingTop': '3.5em'}}> Oops, let's try this again.</h2>
         <h4 className="text-center">Just <Link to={'../SearchBrowse'}>click here </Link> to continue browsing.</h4>
         <p className="text-center">404 Not Found</p>
       </div>
