@@ -31,7 +31,7 @@ app.use(
 );
 
 // ROUTES SETUP
-app.use('/account/', accountRouter);
+app.use('/account', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/item', itemRoutes);
@@ -54,5 +54,6 @@ app.get('/test', (req, res) => {
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+// app.use('/account/', accountRouter);
 
 module.exports = app;

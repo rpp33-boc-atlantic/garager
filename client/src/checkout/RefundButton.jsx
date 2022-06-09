@@ -13,7 +13,7 @@ const RefundButton = (props) => {
       transactionID: '209',
       ownerID: '4',
     };
-    
+    console.log('props', props);
     axios.put('/checkout/refund', refundData)
       .then((response) => {
         console.log('response from refundButton', response);
@@ -25,7 +25,7 @@ const RefundButton = (props) => {
   };
 
   return (
-    <Button onClick={handleClick}>Refund Renter</Button>
+    <Button onClick={handleClick}>Cancel</Button>
   );
 };
 
