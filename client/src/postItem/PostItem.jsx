@@ -122,7 +122,7 @@ class PostItem extends Component {
         const bodyParams = { userId, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photosArr };
         axios.post('/postItem', bodyParams)
           .then((response) => { this.changeToNext(); })
-          .catch((error) => {});
+          .catch((error) => { alert('We are unable to complete your request, please try again later!'); });
       });
     }
   }
