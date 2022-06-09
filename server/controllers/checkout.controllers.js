@@ -75,8 +75,7 @@ module.exports = {
   onboardUser: {
     post: async (req, res) => {
       try {
-        // ***** REFACTOR: HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-        const userID = 10; // Stanley.Hudson@gmail.com (NO STRIPE ACCOUNT YET)
+        const userID = req.body.userID;
         const origin = `${req.headers.origin}`;
         // check database if account exists
         models.checkAccountCompletion.get(userID, async (err, stripeID) => {

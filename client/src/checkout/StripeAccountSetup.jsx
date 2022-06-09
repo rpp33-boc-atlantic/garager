@@ -25,14 +25,20 @@ const StripeAccountSetup = () => {
     }
   });
 
-  const handleClick = async () => {
-    axios.post('/checkout/onboard-user')
-      .then((response) => {
-        window.location = response.data.url;
+  const handleClick = () => {
+    if (userId !== 'initial value') {
+      axios.post('/checkout/onboard-user', {
+        userID: userId
       })
-      .catch((error) => {
-        console.log('ERROR from stripe setup', error);
-      });
+        .then((response) => {
+          window.location = response.data.url;
+        })
+        .catch((error) => {
+          console.log('ERROR from stripe setup', error);
+        });
+    } else {
+      alert('No user ID associated with logged in user');
+    }
   };
 
   return (
