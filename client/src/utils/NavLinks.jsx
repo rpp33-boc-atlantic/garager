@@ -17,7 +17,7 @@ const NavLinks = (props) => {
   useEffect(() => {
     props.socketIO.on('message', (message) => { });
   });
-
+  var prof = `profile/:' + ${10}`;
   return (
     <Navbar expand="lg" className='theme-blue' variant='light' style={{ maxHeight: '70px' }}>
       <Container>
@@ -30,6 +30,7 @@ const NavLinks = (props) => {
               <NavDropdown.Item as={Link} to='my-listings'>My Listings</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='my-rentals'>My Rentals</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='PostItem'>Post Item</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={`my-profile/${10}`}>Profile</NavDropdown.Item>
               <NavDropdown.Item as={Link} to='Stripe-Account-Setup'>Stripe Account Setup</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={Link} to='Messages'>
