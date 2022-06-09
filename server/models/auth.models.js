@@ -20,20 +20,18 @@ module.exports = {
     },
 
     get: async (email, callback) => {
-      /*const getUserId = `SELECT user_id FROM users WHERE email = 'arielddw@gmail.com'`;*/
-      console.log('user email', email);
+      // const getUserId = `SELECT user_id FROM users WHERE email = 'arielddw@gmail.com'`;
+      // const getUserId = `SELECT user_id FROM users WHERE email = '${email}'`;
+      // console.log('user email', email);
       const getUserId = {
         text: 'SELECT user_id FROM users WHERE LOWER(email) = LOWER($1)',
         values: [email]
       };
-      // const getUserId = `SELECT user_id FROM users WHERE email = '${email}'`;
-      console.log('getUserId', getUserId);
       await pool.query(getUserId, (err, res) => {
         if (err) {
           console.log(err.message);
           callback(err, null);
         } else {
-          console.log('database res', res.rows[0]);
           callback(null, res.rows[0]);
         }
       });
