@@ -13,11 +13,9 @@ const RefundButton = (props) => {
 
     axios.put('/checkout/refund', refundData)
       .then((response) => {
-        console.log('response from refundButton', response);
         alert('This rental has been successfully refunded.');
       })
       .catch((error) => {
-        console.log('ERROR from refundButton', error);
         alert(error.response.data);
       });
   };

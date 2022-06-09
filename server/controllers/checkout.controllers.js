@@ -174,10 +174,7 @@ module.exports = {
   },
   refund: {
     put: (req, res) => {
-      const transactionID = req.body.transactionID;
-      const ownerID = req.body.ownerID;
-      console.log('transactionID', transactionID, typeof transactionID);
-      console.log('ownerID', ownerID, typeof ownerID);
+      const { transactionID, ownerID } = req.body;
 
       models.refund.getStripeID(ownerID, (err, stripeID) => {
         if (err) {
