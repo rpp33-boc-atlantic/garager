@@ -14,18 +14,16 @@ module.exports = {
           return client.query(query);
         })
         .then(data => {
-          // console.log('data with aggregate function', data.rows);
           result.datesBooked = data.rows;
-          // console.log('result right here', result);
           return result;
         })
-        .catch (error => console.log('error in getting item data', error));
     },
     delete: (itemID) => {
       console.log('item id in delete model', itemID);
-      // const queryi = `DELETE from items where item_id=${itemID}`;
-      // return client.query(query)
-      //   .catch (error => console.log('error in deleting item data', error));
+      // const queryi = `DELETE FROM items where item_id=${itemID}`;
+      const tempQuery = `SELECT * FROM items where item_id=${itemID}`;
+      return client.query(tempQuery)
+        .catch (error => console.log('error in deleting item data', error));
     }
   }
 };
