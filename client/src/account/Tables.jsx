@@ -46,7 +46,7 @@ export default function Tables (props) {
               // }
               { // this wasn't supposed to be so complicated, but it will dynamically add a link, image or datefield
                 if (col.link) { // if item is a link create link using the col param and link
-                  return <td key={c++}> <Link to={`${col.link}/${t[col.param]}`}>{t[col.dataField]}</Link> </td>;
+                  return <td key={c++}> <Link to={`${col.link}/id=${t[col.param]}`}>{t[col.dataField]}</Link> </td>;
                   // if item is an array of photos create img tag using first img in array
                 } else if (col.dataField === 'photos' && t[col.dataField].length > 0) {
                   return <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td>;
