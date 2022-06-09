@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import categories from '../data/categories.js';
 
 //Step2 includes Category (drop list), brand, model, description
-const categories = ['Automative', 'Household'];
-
 const Step2 = (props) => {
   const { values, handleChange, changeToNext, changeToPrevious } = props;
 
@@ -33,8 +32,11 @@ const Step2 = (props) => {
           <Form.Label htmlFor="category">Category</Form.Label>
           <select className="form-select" id="validationCustom04" onChange={handleChange('category')} required>
             <option selected disabled value="">Choose...</option>
-            <option value="1">Household</option>
-            <option value="2">Automative</option>
+            { Object.keys(categories).map((key) => {
+              return (
+                <option value={key}>{categories[key].name}</option>
+              );
+            }) }
           </select>
           <br/>
           <Form.Label htmlFor="brand">Brand</Form.Label>
