@@ -5,7 +5,7 @@ import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 import {Link } from 'react-router-dom';
 import moment from 'moment';
 
-
+import Image from 'react-bootstrap/Image';
 export default function Tables (props) {
   props.column;
   const [state, setState] = useState(false);
@@ -22,10 +22,6 @@ export default function Tables (props) {
   });
 
   // create state that keeps track of data and the currently sorted col
-  // const clickedStates = {}
-  // const setClickedStates = {}
-  // props.columns
-
   const [clickedColumn, setClickedColumn] = useState(['', false]);
   const [values, setValues] = useState(props.values);
 
@@ -41,15 +37,12 @@ export default function Tables (props) {
         <tr key={p++}>
           { // create the columns based off of the column object
             props.columns.map((col) => {
-              // { // this wasn't supposed to be so complicated, but it will dynamically add a link, image or datefield
-              //   return col.link ? <td key={c++}> <Link to={`${col.link}/${t[col.param]}`}>{t[col.dataField]}</Link> </td> : col.dataField === 'photos' && t[col.dataField].length > 0 ? <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td> : t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid() ? <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td> : <td key={c++}>{t[col.dataField]}</td>;
-              // }
-              { // this wasn't supposed to be so complicated, but it will dynamically add a link, image or datefield
+              {
                 if (col.link) { // if item is a link create link using the col param and link
                   return <td key={c++}> <Link to={`${col.link}/id=${t[col.param]}`}>{t[col.dataField]}</Link> </td>;
                   // if item is an array of photos create img tag using first img in array
                 } else if (col.dataField === 'photos' && t[col.dataField].length > 0) {
-                  return <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td>;
+                  return <td key={c++}>   <Image src={t.photos[0]} thumbnail width={'200px'} /></td>;
                   // if item is a date format correctly
                 } else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
                   return <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td>;
@@ -58,10 +51,9 @@ export default function Tables (props) {
                   return <td key={c++}>{t[col.dataField]}</td>;
                 }
               }
-            })
+            })//<img src={t[col.dataField][0]} width="75" height="100%" />
           }
-          {/* // not sure about this button yet */}
-          <td><button> { moment(t.availableTo).isBefore(moment(new Date())) ? <p>available</p> : <p>unavailable</p>}</button></td>
+          <td><button className="btn btn-primary btn-sm"> { moment(t.availableto).isBefore(moment(new Date())) ? <p>available</p> : <p>unavailable</p>}</button></td>
         </tr>);
     });
 

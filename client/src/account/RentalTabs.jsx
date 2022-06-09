@@ -31,16 +31,18 @@ export default function RentalTabs(props) {
     text: 'Item Name',
     link: '../item',
     sort: true,
-    param: 'item_id'
+    param: 'item_id',
+    photo: 'photos'
   }, {
     dataField: 'owner',
     text: 'Owner',
-    link: '../profile',
+    link: '../my-profile',
     sort: true,
-    param: 'owner_id'
+    param: 'owner_id',
+    photo: 'userPhoto'
   }, {
     dataField: 'rate',
-    text: 'Current Price per Day',
+    text: 'Price',
     sort: true
   }, {
     dataField: 'pickupdate',
@@ -84,9 +86,7 @@ export default function RentalTabs(props) {
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
     var clickedColumn = 'returndate';
     pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    // console.log('rentals second', pastRentals);
-    // console.log('Current', currentRentals);
-    // console.log('items', items);
+    
     return [currentRentals, pastRentals];
   };
 
