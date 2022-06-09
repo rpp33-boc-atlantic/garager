@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
 const client = require('../database/database.js');
-fs = require('fs');
+const fs = require('fs');
 module.exports = {
   rentals: {
     get: (renter_id, callback) => {
 
       const query = {
-        text: `SELECT title, concat_ws(' ',firstName, lastName) as owner, owner_id, items.item_id, rate, pickupdate, returndate, photos FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
+        text: `SELECT title, concat_ws(' ',firstName, lastName) as owner, owner_id,transaction_id, items.item_id, rate, pickupdate, returndate, photos FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
         values: [renter_id]
       };
       return client.query(query)
@@ -36,7 +36,7 @@ module.exports = {
       const query = {
         text: `WITH  week as(
           SELECT
-          sum(rate) AS weekly
+          sum(rate) AS weekly, count(rate) AS weekly_transactions, count(DISTINCT item_id) as weekly_items
           FROM transactions
           WHERE returndate BETWEEN
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-7
@@ -45,24 +45,24 @@ module.exports = {
           GROUP BY owner_id
          ),month as(
          SELECT
-          sum(rate) AS monthly
+          sum(rate) AS monthly, count(rate) AS monthly_transactions, count(DISTINCT item_id) as monthly_items
           FROM transactions
           WHERE returndate BETWEEN
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-30
           AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
           AND owner_id = $1
           GROUP BY owner_id
-         ),total as
+         ),totalearnings as
          (
            SELECT
-            sum(rate) AS totalEarnings,
+            sum(rate) AS total, count(rate) AS total_transactions, count(DISTINCT item_id) as total_items,
             owner_id
             FROM transactions
             WHERE owner_id = $1
             GROUP BY owner_id
            )
-         SELECT monthly, weekly, totalEarnings, owner_id
-         FROM month, week, total;`,
+         SELECT monthly, weekly, total, owner_id, total_transactions,monthly_transactions,weekly_transactions,weekly_items,monthly_items,total_items
+         FROM month, week, totalearnings;`,
         values: [owner_id]
       };
       return client.query(query)

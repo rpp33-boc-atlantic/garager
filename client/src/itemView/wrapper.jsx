@@ -8,8 +8,6 @@ import RentForm from './RentForm.jsx';
 import sampleItemData from './sampleItemData.js';
 import axios from 'axios';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
-import { useMain } from '../context/MainContext.jsx';
-
 
 const Container = styled.div`
   display: grid;
@@ -49,8 +47,7 @@ const Item = (props) => {
   });
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
-  const { user } = useUserAuth();
-  const { userId } = useMain();
+  const { user, userId } = useUserAuth();
   console.log('this should be the user id', userId);
 
   useEffect(() => {

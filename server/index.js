@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
@@ -32,7 +31,7 @@ app.use(
 );
 
 // ROUTES SETUP
-app.use('/account/', accountRouter);
+app.use('/account', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/item', itemRoutes);
@@ -40,18 +39,21 @@ app.use('/browse', browseRoutes);
 app.use('/postItem', postItemRouter);
 app.use('/auth', authRouter);
 
-
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
-  res.send({url});
+  res.send({ url });
 });
 
 // app.get('/get-data', accountRouter);
 
+app.get('/test', (req, res) => {
+  res.send('TEST OK');
+});
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+// app.use('/account/', accountRouter);
 
 module.exports = app;
