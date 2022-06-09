@@ -3,32 +3,35 @@ import moment from 'moment';
 
 const ThreadTile = ( props ) => {
 
-  const formatName = ( name ) => {
-
-    if ( name.length < 22 ) { return name; }
-
-    return name.slice( 0, 20 ) + '...';
+  const formatItem = ( username, itemName ) => {
+    const combo = username + ' - ' + itemName;
+    if ( combo.length < 30) { return itemName; }
+    return ' - ' + itemName.slice( 0, 14 ) + '...';
   };
 
   const formatMessage = ( message ) => {
-
+    if ( !message ) { return null; }
     if ( message.length < 40 ) { return message; }
-
-    return message.slice( 0, 38 ) + '...';
+    return message.slice( 0, 37 ) + '...';
   };
+
+  const username =
+    props.thread.ownerId === props.userData.userId
+      ? props.thread.renterName
+      : props.thread.ownerName;
 
   return (
     <div className='thread-tile'>
 
-      <span className='thread-name'>
-        {
-          props.thread.ownerId === props.userData.userId
-            ? props.thread.renterName
-            : props.thread.ownerName
-        }
-      </span> - <span className='thread-time'>{ formatName( props.thread.itemName ) }</span><br />
+      <span className='thread-name'>{ username }</span>
 
-      { formatMessage( props.thread.lastMessage ) }<br />
+      <span className='thread-item'>
+        { formatItem( username, props.thread.itemName ) }
+      </span><br />
+
+      <span className='thread-message'>
+        { formatMessage( props.thread.lastMessage ) }
+      </span><br />
 
       <span className='thread-time'>
         { moment( props.thread.timeUpdated ).fromNow() }

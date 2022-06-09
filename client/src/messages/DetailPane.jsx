@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 const DetailPane = ( props ) => {
 
@@ -22,7 +22,7 @@ const DetailPane = ( props ) => {
 
       <br />
 
-      <Card style={{ width: '16rem' }}>
+      <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={ userImage } />
         <Card.Body style={{ textAlign: 'center' }}>
           <Card.Title>{ username }</Card.Title>
@@ -31,14 +31,15 @@ const DetailPane = ( props ) => {
 
       <br />
 
-      <Card style={{ width: '16rem' }}>
+      <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={ thread.itemImageUrl } />
         <Card.Body>
           <Card.Text>
-            <a style={{ textDecoration: 'none' }} href='/Messages'>
+            {/* <a style={{ textDecoration: 'none' }} href='/Messages'> */}
               { thread.itemName }
-            </a>
+            {/* </a> */}
           </Card.Text>
+          <Button variant="primary" id='detail-item-button'>View item</Button>
         </Card.Body>
       </Card>
     </div>

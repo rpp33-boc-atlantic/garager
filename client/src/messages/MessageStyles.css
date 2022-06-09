@@ -27,12 +27,13 @@
 }
 
 .list-group-item {
-  background-color: #ffffff;
+  border-bottom: solid;
+  border-color: #f2f2f2;
 }
 
 .list-group-item.active {
   background-color: #DAE5D0;
-  border-color: #f2f2f2;
+  border-color: #DAE5D0;
   color: black;
 }
 
@@ -43,6 +44,15 @@
 .thread-name {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
+}
+
+.thread-item {
+  font-size: 18px;
+  color: gray;
+}
+
+.thread-message {
+  line-height: 2;
 }
 
 .thread-time {
@@ -70,13 +80,13 @@
 }
 
 .chat-time-from-me {
-  margin-right: 18px;
+  margin-right: 3px;
   text-align: right;
   font-size: 18px;
 }
 
 .chat-time-from-them {
-  margin-left: 18px;
+  margin-left: 4px;
   text-align: left;
   font-size: 18px;
 }
@@ -100,6 +110,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#detail-item-button {
+  background-color: #dae5d0;
+  border-color: #dae5d0;
+  color:rgb(42, 42, 42);
+}
+
+#detail-item-button:hover {
+  background-color: #c2d0b4;
+  border-color: #dae5d0;
+  color:rgb(72, 72, 72);
 }
 
 .imessage {
