@@ -38,13 +38,19 @@ class RentalListings extends React.Component {
               }
               <div className="listing-text">
                 <div className="listing-header">
-                  <span className="rental-title">{rental.details.category} | {this.props.query ?
-                    this.highlightKeywordSearch(this.props.query, rental.name) :
-                    rental.name
-                  }</span>
-                  <span className="rental-price">{rental.details.price}/day</span>
+                  <div className="listing-title">
+                    <span className="rental-category">{rental.details.category}</span>
+                    <span>&nbsp;|&nbsp;</span>
+                    <span>
+                      {this.props.query ?
+                        this.highlightKeywordSearch(this.props.query, rental.name) :
+                        rental.name
+                      }
+                    </span>
+                  </div>
+                  <span className="rental-price">${rental.details.price}.00/day</span>
                 </div>
-                <p>{this.props.query ?
+                <p className="rental-description">{this.props.query ?
                   this.highlightKeywordSearch(this.props.query, rental.details.description) :
                   rental.details.description
                 }</p>

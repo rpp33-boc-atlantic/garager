@@ -17,7 +17,6 @@ class SearchCategories extends React.Component {
   render() {
     return (
       <div id="search-categories">
-        <span>Categories</span>
         <div id='category-multiselect'>
           <a onClick={this.props.selectAll}>Select All</a>
           <span> | </span>
