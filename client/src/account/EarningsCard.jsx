@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
-import {FcMoneyTransfer} from 'react-icons/Fc';
+import {FcMoneyTransfer} from 'react-icons/fc';
 
 
 export default function EarningsCard (props) {
