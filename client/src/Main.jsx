@@ -8,15 +8,14 @@ import {
   useParams
 } from 'react-router-dom';
 import App from './App.jsx';
-import FAQ from './FAQ.jsx';
 import Item from './itemView/wrapper.jsx';
 import SearchBrowse from './search/SearchBrowse.jsx';
 import PostItem from './postItem/PostItem.jsx';
 import Messages from './messages/Messages.jsx';
 import Signup from './authentication/signup.jsx';
 import Login from './authentication/login.jsx';
-import {UserAuthContextProvider} from './context/UserAuthContext.jsx';
-import {MainContextProvider} from './context/MainContext.jsx';
+import { UserAuthContextProvider } from './context/UserAuthContext.jsx';
+import { MainContextProvider } from './context/MainContext.jsx';
 import Rentals from './account/Rentals.jsx';
 import Listings from './account/Listings.jsx';
 import Profile from './account/Profile.jsx';
@@ -43,7 +42,6 @@ root.render(
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/' exact element={<PrivateRoute><App /></PrivateRoute>}>
-          <Route path='FAQ' element={<PrivateRoute><FAQ /></PrivateRoute>} />
           <Route path='Item/:id' element={<PrivateRoute><Item /></PrivateRoute>} />
           <Route path='SearchBrowse' element={<PrivateRoute><SearchBrowse /></PrivateRoute>} />
           <Route path='PostItem' element={<PrivateRoute><PostItem /></PrivateRoute>} />
@@ -54,10 +52,9 @@ root.render(
           <Route path='my-earnings' element={<PrivateRoute><Earnings /></PrivateRoute>} />
           <Route path='/CheckoutSuccess' element={<PrivateRoute><CheckoutSuccess /></PrivateRoute>} />
           <Route path='/CheckoutCancel' element={<PrivateRoute><CheckoutCancel /></PrivateRoute>} />
+          <Route path='/Stripe-Account-Setup' element={<PrivateRoute><StripeAccountSetup /></PrivateRoute>} />
         </Route>
       </Routes>
     </UserAuthContextProvider>
   </BrowserRouter>
 );
-
-
