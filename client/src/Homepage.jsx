@@ -19,7 +19,6 @@ const Homepage = () => {
         </Navbar>
       </header> */}
       <img id='homepageImg' alt='tools image' src={image}></img>
-      <Link to={`/Item/id=${123456}`}>Go to Item</Link>
     </div>
   );
 };
