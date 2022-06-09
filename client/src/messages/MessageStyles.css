@@ -92,15 +92,14 @@
   margin-left: 25px;
 }
 
-/* .bottom-0 {
-  align-self: center;
-  bottom: 0!important;
-  margin-bottom: 20px;
-  margin-left: 0px;
-} */
-
 #detail-column {
   width: 350px;
+}
+
+#detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .imessage {

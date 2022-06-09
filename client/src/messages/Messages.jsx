@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import ThreadList from './ThreadList.jsx';
 import ChatList from './ChatList.jsx';
 import DetailPane from './DetailPane.jsx';
-import { Row } from 'react-bootstrap';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 import './MessageStyles.css';
 import axios from 'axios';
