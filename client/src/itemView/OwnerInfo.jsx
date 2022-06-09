@@ -49,6 +49,7 @@ const OwnerInfo = (props) => {
   };
 
   const shortenedLocation = getCityState(props.details.address);
+  console.log('item id in ownerinfo', props.details.item_id)
 
   return (
     <Container>

@@ -1,4 +1,4 @@
-// test('should display something', () => {
+test('should display something', () => {
 
   // const request = require('supertest');
   // const server = require('../server/index.js');
@@ -11,12 +11,12 @@
 
   //   test('Sending GET request to /item/itemData with appropriate params', async() => {
   //     await request(server)
-  //     .get('/item/itemData')
-  //     .query({
-  //       params: {
-  //         ID: 11
-  //       }
-  //     })
+  //     .get('/item/itemData?ID=11')
+  //     // .query({
+  //     //   params: {
+  //     //     ID: 11
+  //     //   }
+  //     // })
   //     .expect(200)
   //   });
   // });
@@ -27,5 +27,5 @@
 
 
 
-  // expect('Item-view!').toMatch(/^Item(.*)/);
-// });
+  expect('Item-view!').toMatch(/^Item(.*)/);
+});

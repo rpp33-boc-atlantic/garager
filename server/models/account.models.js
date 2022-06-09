@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const client = require('../database/database.js');
-const fs = require('fs');
+fs = require('fs');
 module.exports = {
   rentals: {
     get: (renter_id, callback) => {
