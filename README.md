@@ -3,20 +3,36 @@
 <em>Garager</em> is an application to ...
 
 ## Installation (Local Development)
+1. Download Github repo:
+```
+git clone https://github.com/rpp33-boc-atlantic/garager.git
+```
+2. Install packages:
+```
+npm install
+```
+### Dependencies
+In addition to running a server, a PostgreSQL database will have to be deployed and accessible to the server.
 
-
+The address and coordinates are sourced via API service with Google Maps. To get API key: ...
+To get Firebase API:...
+To get Stripe key: ...
 
 ### Running Local
 * The following are the scripts that are relevent for local development and deployment
-1. "build-dev" webpack build script
+1. Set up .env file with all keys
+```
+touch .env
+```
+2. "build-dev" webpack build script
 ```
 npm run build-dev
 ```
-2. "start" nodemon server start
+3. "start" nodemon server start
 ```
 npm start
 ```
-3. "test" jest testing
+4. "test" jest testing
 ```
 npm test
 ```
@@ -28,14 +44,15 @@ npm test
 ### CI/CD recommendations:
 
 #### Continuous Integration:
+We used Github's Actions to set up Continuous Integration. The ci.yml instructions are triggered on Pull Requests before approval is allowed.
 
 #### Continuous Deployment:
-
+We used Github's Actions to trigger new Docker image built on any merge to Main branch.
 
 #### To Run on AWS EC2 Instance:
 
 
-### Run Database on AWS instance:
+### AWS RDS Database:
 
 
 ## Contributions
