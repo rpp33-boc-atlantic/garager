@@ -1,4 +1,4 @@
-test('should display something', () => {
+// test('should display something', () => {
 
   // const request = require('supertest');
   // const server = require('../server/index.js');
@@ -27,5 +27,5 @@ test('should display something', () => {
 
 
 
-  expect('Item-view!').toMatch(/^Item(.*)/);
+  // expect('Item-view!').toMatch(/^Item(.*)/);
 // });
