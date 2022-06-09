@@ -6,9 +6,11 @@ import {useUserAuth} from '../context/UserAuthContext.jsx';
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstname, setFirstName] = useState('');
+  const [lastname, setLastName] = useState('');
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth custom hook
-  const { signUp, logOut} = useUserAuth();
+  const { signUp, logOut, registerUser} = useUserAuth();
   //redirect user back to login page after sign up
   const navigate = useNavigate();
 
@@ -16,10 +18,13 @@ const Signup = () => {
     event.preventDefault();
     setError('');
     try {
-      await signUp(email, password);
+      await signUp(email, password)
+        .then((res) => {
+          registerUser(firstname, lastname, email);
+        });
       logOut();
-      navigate('/login');
       //redirect user back to login page after sign up
+      navigate('/login');
     } catch (err) {
       setError(err.message);
     }
@@ -36,6 +41,16 @@ const Signup = () => {
               <h2 className='text-center mb-4'>Sign Up</h2>
               {error && <Alert variant='danger'>{error}</Alert>}
               <Form onSubmit = {handleSubmit}>
+                <Form.Group id='firstname'>
+                  <Form.Label> First Name</Form.Label>
+                  <Form.Control type='name' placeholder='First Name' onChange = {(e) => setFirstName(e.target.value)}/>
+                </Form.Group>
+                <br></br>
+                <Form.Group id='lastname'>
+                  <Form.Label> Last Name</Form.Label>
+                  <Form.Control type='name' placeholder='Last Name' onChange = {(e) => setLastName(e.target.value)}/>
+                </Form.Group>
+                <br></br>
                 <Form.Group id='email'>
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value)}/>

@@ -10,21 +10,24 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth hook
-  const { logIn, facebookSignIn } = useUserAuth();
+  const { logIn, facebookSignIn, registerUser} = useUserAuth();
   const navigate = useNavigate();
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
     try {
-      await logIn(email, password);
-      //redirect user to homepage
-      navigate('/');
+      await logIn(email, password)
+        .then((res) => {
+          //temporarily putting register here, not all the users in firebase were registered in the database yet, need to delete line 28 later
+          registerUser('', '', email);
+          navigate('/SearchBrowse');
+        });
     } catch (err) {
       setError(err.message);
     }
@@ -35,9 +38,19 @@ const Login = () => {
     try {
       await facebookSignIn()
         .then((res) => {
-          //console.log(res.user);
           //redirect user to homepage
-          navigate('/');
+          console.log('facebook sign in res', res);
+          let email = res.user.email;
+          if (res.user.displayName) {
+            let name = res.user.displayName.split(' ');
+            let firstName = name[0];
+            let lastName = name[1];
+            registerUser(firstName, lastName, email);
+          } else {
+            //for linking account user
+            registerUser('', '', email);
+          }
+          navigate('/SearchBrowse');
         })
         .catch((err) => {
         //user tries to sign in with with an existing email account
@@ -62,6 +75,7 @@ const Login = () => {
       .then((res) => {
         linkWithCredential(res.user, pendingCred)
           .then((res) => {
+            registerUser('', '', email);
             alert('Succesfully linked accounts');
             navigate('/');
           })

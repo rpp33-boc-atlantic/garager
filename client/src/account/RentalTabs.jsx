@@ -4,7 +4,6 @@ import React, {useState} from 'react';
 import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import RentalList from './RentalList.jsx';
 import Tables from './Tables.jsx';
 
 import moment from 'moment';
@@ -31,10 +30,19 @@ export default function RentalTabs(props) {
     dataField: 'title',
     text: 'Item Name',
     link: '../item',
-    sort: true
+    sort: true,
+    param: 'item_id',
+    photo: 'photos'
+  }, {
+    dataField: 'owner',
+    text: 'Owner',
+    link: '../my-profile',
+    sort: true,
+    param: 'owner_id',
+    photo: 'userPhoto'
   }, {
     dataField: 'rate',
-    text: 'Current Price per Day',
+    text: 'Price',
     sort: true
   }, {
     dataField: 'pickupdate',
@@ -59,27 +67,26 @@ export default function RentalTabs(props) {
     items = items;
     var c = 0;
     var p = 0;
-    transactions.map((t) => {
+    // iterate through items and sort by past or current
+    if (transactions) {
+      transactions.map((t) => {
+        var newDate = new Date();
+        if (moment(t.returndate).isBefore(moment(newDate))) {
+          pastRentals.push(t);
 
-      t.title = items[Math.floor(Math.random( ) * 40)].title;
-      t.photos = items[1]['photos'];
-      var newDate = new Date();
-      if (moment(t.returndate).isBefore(moment(newDate))) {
-        pastRentals.push(t);
+        } else {
+          currentRentals.push(t);
+        }
 
-      } else {
-        currentRentals.push(t);
-      }
+      });
+    }
 
-    });
-    console.log('rentals first', pastRentals);
-    var clickedColumn = 'startDate';
+
+    var clickedColumn = 'pickupdate';
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    var clickedColumn = 'dueDate';
+    var clickedColumn = 'returndate';
     pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    console.log('rentals second', pastRentals);
-    console.log('Current', currentRentals);
-    console.log('items', items);
+    
     return [currentRentals, pastRentals];
   };
 

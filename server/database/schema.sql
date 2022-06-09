@@ -143,3 +143,4 @@ ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("thread_id") R
 -- WHEN photos = null THEN "{}"
 -- ELSE replace(photos,photos,'{' || photos || '}')
 -- END;
+

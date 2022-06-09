@@ -29,7 +29,7 @@ const ItemDetails = (props) => {
 
   const modelInfo = props.details.model ? <>{props.details.model}</> : <>Unavailable</>;
   const brandInfo = props.details.brand ? <>{props.details.brand}</> : <>Unavailable</>;
-  const descriptionInfo = props.details.description ? <>{props.details.description}</> : <>Unavailable</>;
+  const descriptionInfo = props.details.itemdescription ? <>{props.details.itemdescription}</> : <>Unavailable</>;
 
   return (
     <Container>

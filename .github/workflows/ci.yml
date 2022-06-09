@@ -17,6 +17,12 @@ jobs:
           name: Test code
           uses: actions/checkout@v2
         -
+          name: Create env file
+          run: touch .env
+        - 
+          name: Add RDS password
+          run: echo RDS_PASSWORD=${{ secrets.RDS_PASSWORD }} >> .env
+        -
           name: Install packages
           run: npm install
         -

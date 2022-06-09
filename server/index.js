@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-require('./database/database.js');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
@@ -11,8 +10,11 @@ const checkoutRoutes = require('./routes/checkout.routes.js');
 const itemRoutes = require('./routes/item.routes.js');
 const browseRoutes = require('./routes/browse.routes.js');
 const postItemRouter = require('./routes/postItem.routes.js');
-
+const authRouter = require('./routes/auth.routes.js');
 const app = express();
+
+// Outlier route for Stripe Webhooks (needs to be above bodyParser)
+app.use('/checkout/webhook', checkoutRoutes);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -29,13 +31,13 @@ app.use(
 );
 
 // ROUTES SETUP
-app.use('/account/', accountRouter);
+app.use('/account', accountRouter);
 app.use('/messages', messagesRoutes);
 app.use('/checkout', checkoutRoutes);
 app.use('/item', itemRoutes);
 app.use('/browse', browseRoutes);
 app.use('/postItem', postItemRouter);
-
+app.use('/auth', authRouter);
 
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
@@ -44,10 +46,10 @@ app.get('/s3url', async (req, res) => {
 
 // app.get('/get-data', accountRouter);
 
-
 // All other routes must go above this function
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+// app.use('/account/', accountRouter);
 
 module.exports = app;
