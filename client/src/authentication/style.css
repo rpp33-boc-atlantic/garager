@@ -1,0 +1,8 @@
+.fb-login-button {
+  width: 100%;
+  background-color: #3b5998 !important;
+}
+
+.fb-login-button:hover {
+  background-color: #4e679d !important;
+}
