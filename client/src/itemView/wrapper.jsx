@@ -112,7 +112,7 @@ const Item = (props) => {
           </div>
         <Container>
           <CarouselContainer className='gallery' images={imagesData}/>
-          <OwnerInfo className='owner' details={ownerInfoData} />
+          <OwnerInfo className='owner' details={ownerInfoData} user={user}/>
           <ItemDetails className='details' details={itemDetailsData}/>
           <RentForm className='form' itemInfo={rentFormData} userID={userId}/>
           {deleteButton}
