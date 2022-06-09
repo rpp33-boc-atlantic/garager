@@ -34,11 +34,7 @@ const DetailPane = ( props ) => {
       <Card style={{ width: '18rem' }}>
         <Card.Img variant="top" src={ thread.itemImageUrl } />
         <Card.Body>
-          <Card.Text>
-            {/* <a style={{ textDecoration: 'none' }} href='/Messages'> */}
-              { thread.itemName }
-            {/* </a> */}
-          </Card.Text>
+          <Card.Text>{ thread.itemName }</Card.Text>
           <Button variant="primary" id='detail-item-button'>View item</Button>
         </Card.Body>
       </Card>
