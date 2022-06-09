@@ -3,37 +3,20 @@ const { STRIPE_SECRET_KEY, STRIPE_SECRET_ENDPOINT } = require('../../config.js')
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
 const YOUR_DOMAIN = 'http://localhost:3000';
 const models = require('../models/checkout.models.js');
+const moment = require('moment');
 
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
-      // THINGS I NEED: 
-      // total price <-- from RentForm
-      // transaction_id SERIAL PRIMARY KEY,
-      // rate INT NOT NULL DEFAULT NULL, <-- from RentForm
-      // pickUpDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
-      // returnDate DATE NOT NULL DEFAULT NULL, <-- from RentForm
-      // owner_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
-      // renter_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
-      // item_id INT, <-- from RentForm <-- INPUT AFTER WEBHOOK
-      // paymentIntent_id TEXT DEFAULT NULL <-- INPUT AFTER WEBHOOK
+      const renterID = 9; // Kelly Kapoor ***** NEED TO REFACTOR HARDCODED DATA
 
-      // console.log('REQ BODY IN CHECKOUT SESSION:', req.body);
-      // const { ownerID } = req.body;
-      // ***** REFACTOR: once all data is passed down from RentForm
-      const ownerID = 4; // 4 = Jack Barker, 5 & 6 also OK, 8 = ERROR
-      const ownerName = 'Jack Barker';
-      const itemID = 5; // Craftsman Hammer
-      const itemName = 'Craftsman Hammer';
-      const renterID = 2; // Leslie Knope
-      const rate = 16.00;
-      const pickUpDate = '2022-07-14'; // dateRange[0]
-      const returnDate = '2022-07-15'; // dateRange[1]
-      const priceInCents = 1600;
+      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate } = req.body;
+      const pickUpDate = req.body.dateRange[0];
+      const returnDate = req.body.dateRange[1];
 
       // First check if item owner has a completed stripe account
-      // If they don't, send alert that rent cannot occur
       models.checkAccountCompletion.get(ownerID, async (err, stripeID) => {
+        // If they don't, send alert that rent cannot occur
         if (err || !stripeID) {
           res.status(500).send('Item owner has an incomplete Stripe Account Setup');
         } else {
@@ -92,8 +75,8 @@ module.exports = {
   onboardUser: {
     post: async (req, res) => {
       try {
-        // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-        const userID = 7; // Gavin.Belson@yahoo.com (NO STRIPE ACCOUNT YET)
+        // ***** REFACTOR: HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
+        const userID = 10; // Stanley.Hudson@gmail.com (NO STRIPE ACCOUNT YET)
         const origin = `${req.headers.origin}`;
         // check database if account exists
         models.checkAccountCompletion.get(userID, async (err, stripeID) => {
@@ -162,8 +145,8 @@ module.exports = {
   },
   checkAccountCompletion: {
     get: async (req, res) => {
-      // ***** HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-      const userID = 6; // Lorie.Bream@gmail.com 
+      // ***** REFACTOR: HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
+      const userID = 10; // Stanley.Hudson@gmail.com 
       models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
@@ -191,8 +174,7 @@ module.exports = {
   },
   refund: {
     put: (req, res) => {
-      const transactionID = req.body.transactionID;
-      const ownerID = req.body.ownerID;
+      const { transactionID, ownerID } = req.body;
 
       models.refund.getStripeID(ownerID, (err, stripeID) => {
         if (err) {
@@ -218,7 +200,7 @@ module.exports = {
                   }
                 });
               } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send('This transaction has already been refunded.');
               }
             }
           });
@@ -243,6 +225,7 @@ module.exports = {
       if (event.type === 'payment_intent.succeeded') {
         const paymentIntent = event.data.object;
         // UPDATE TRANSACTIONS TABLE WITH PAYMENTINTENT_ID, PAYMENT_STATUS, AND METADATA USING METADATA'S TRANSACTION_ID
+        console.log('payment_intent.succeeded TRIGGERED');
         models.webhook.post.paymentIntent(paymentIntent.id, paymentIntent.metadata, 'completed', (error, response) => {
           if (error) {
             res.status(500).send(error);
