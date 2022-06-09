@@ -26,12 +26,12 @@ const ChatInput = ( props ) => {
         onChange={ handleChange }
       />
 
-      <Button
+      {/* <Button>
         variant='primary'
         type='submit'
         aria-label='chat-submit'>
         Submit
-      </Button>
+      </Button> */}
     </Form>
   );
 };

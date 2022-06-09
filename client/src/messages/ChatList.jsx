@@ -5,7 +5,7 @@ import ChatInput from './ChatInput.jsx';
 const ChatList = ( props ) => {
 
   return (
-    <React.Fragment>
+    <div id='chat-list'>
 
       <div className='imessage'>
         {
@@ -25,7 +25,7 @@ const ChatList = ( props ) => {
         }
       </div>
 
-      <div className='position-absolute bottom-0'>
+      <div id='chat-input' /*className='position-absolute bottom-0'*/>
         {
           props.threads.length > 0
             ? <ChatInput sendMessage={ props.sendMessage }/>
@@ -33,7 +33,7 @@ const ChatList = ( props ) => {
         }
       </div>
 
-    </React.Fragment>
+    </div>
   );
 };
 
