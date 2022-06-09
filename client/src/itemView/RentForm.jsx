@@ -56,8 +56,8 @@ class RentForm extends React.Component {
         ownerID: this.props.itemInfo.details.user_id,
         priceInCents: cost,
         dateRange: this.state.dateRange,
-        rate: result[1]
-        // PASS IN USER ID RIGHT HERE
+        rate: result[1],
+        userID: this.props.userID
       };
       console.log('itemInfo before passing to checkout', itemInfo);
 
@@ -76,7 +76,6 @@ class RentForm extends React.Component {
     var sugPrice = this.state.suggestedPrice;
     var sugPriceIsValid = false;
     if (sugPrice !== null && sugPrice.length !== 0) {
-      // console.log('props right here', this.props.itemInfo.details);
       if (parseInt(sugPrice) < parseInt(this.props.itemInfo.details.min_price)) {
         this.toggleAlert('on');
         return false;
@@ -110,7 +109,6 @@ class RentForm extends React.Component {
         cost = diffDays * this.props.itemInfo.details.price;
       }
     }
-    // return cost * 100;
     return [cost * 100, rateUsed];
   }
 
