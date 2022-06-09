@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import RentalTabs from './RentalTabs.jsx';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -9,43 +9,38 @@ import Col from 'react-bootstrap/Col';
 import EarningsCard from './EarningsCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import '../App.css';
+import getData from './getData.jsx';
 
 
-// var transactions = require('../data/dataFunctions/transactions.json');
-var users = require('../data/dataFunctions/users.json');
-var user = users[0];
 export default function Earnings () {
+
+  let [earnings, setEarnings] = useState([]);
+  let [dataLoading, setDataLoading] = useState(true);
+
+  useEffect(()=> {
+    if (dataLoading ) {
+      getData(9, '/account/my-earnings')
+        .then(data => {
+          setEarnings(data);
+          console.log('data', data);
+          setDataLoading(false);
+        });
+    }
+  }, [dataLoading, earnings]);
 
   return ( <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
 
-    <Container className='theme-yellow'>
-      {/* Stack the columns on mobile by making one full-width and the other half-width */}
-      <Row>
-        <Col xs={12} md={8} lg={12} className='theme-blue'>
-      xs=12 md=8
+    <Container className='theme-green' style={{display: 'flex'}} >
+      <Row style={{margin: 'auto', paddingTop: '20px', paddingBottom: '20px'}}>
+        <Col xs={12}md={4} className='theme-blue justify-content-md-center'>
+          <EarningsCard values={earnings} duration='Weekly'/>
         </Col>
-        <Col xs={6} md={4} >
-      xs=6 md=4
+        <Col xs={12} md={4} className='justify-content-md-center' >
+          <EarningsCard className="justify-content-md-center" values={earnings} duration='Monthly'/>
         </Col>
-      </Row>
-
-      {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
-      <Row>
-        <Col xs={6} md={4}>
-      xs=6 md=4
+        <Col xs={12}md={4} className='theme-blue justify-content-md-center'>
+          <EarningsCard values={earnings} duration='Total' />
         </Col>
-        <Col xs={6} md={4}className='theme-green' >
-      xs=6 md=4
-        </Col>
-        <Col xs={6} md={4}>
-      xs=6 md=4
-        </Col>
-      </Row>
-
-      {/* Columns are always 50% wide, on mobile and desktop */}
-      <Row >
-        <Col xs={6} className='theme-blue'>xs=6</Col>
-        <Col xs={6}>xs=6</Col>
       </Row>
     </Container>
   </ThemeProvider>

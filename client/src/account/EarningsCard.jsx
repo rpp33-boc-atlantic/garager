@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import RentalTabs from './RentalTabs.jsx';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -9,42 +9,36 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
-import {FiEdit3} from 'react-icons/Fi';
-
-// import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
-
-// var transactions = require('../data/dataFunctions/transactions.json');
-var users = require('../data/dataFunctions/users.json');
-var user = users[0];
+import {FcMoneyTransfer} from 'react-icons/Fc';
 
 
 export default function EarningsCard (props) {
-  const [profileEdit, setProfileEdit] = useState(false);
-  const [values, setValues] = useState(props.values);
-  // return <Button variant="contained">Hello World</Button>;
-  // return <BasicTabs listings = {false} m='auto' earnings = {454} rentedItems = {3}/>;
+  const [dataLoading, setDataLoading] = useState(true);
+  const [values, setValues] = useState([]);
+
+
+  var duration = props.duration ? props.duration.toLowerCase() : '';
+  var values1 = props.values[0] ? props.values[0] : {};
+  console.log('VALS YALLs', values1);
+  console.log(values1[`${duration}_transactions`]);
+
+
+
   return (
 
-  // <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {user.userPhoto} /> </Col>
-  // props.user.firstName + ' ' + props.user.lastName
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={user.userPhoto} />
       <Card.Body>
-        {/* onMouseEnter={() => this.someHandler */}
-        <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstName + ' ' + props.user.lastName} <FiEdit3/> </Card.Title>
-        <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-        </Card.Text>
+        <Card.Title > {props.duration} Report</Card.Title>
+        {duration === 'total' ? <Card.Text>Your total earnings <FcMoneyTransfer/> </Card.Text> :
+          <Card.Text> Your earnings this {duration.slice(0, -2)} <FcMoneyTransfer/> </Card.Text> }
+
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroupItem>{props.user.phone}</ListGroupItem>
-        <ListGroupItem>{props.user.email}</ListGroupItem>
-        <ListGroupItem>{props.user.dateJoined}</ListGroupItem>
+        <ListGroupItem> ${props.values[0] ? props.values[0][duration] : ''}</ListGroupItem>
+        <ListGroupItem>from {values1[`${duration}_transactions`]} transactions </ListGroupItem>
+        <ListGroupItem>from {values1[`${duration}_items`]} items </ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
       </Card.Body>
     </Card>
 

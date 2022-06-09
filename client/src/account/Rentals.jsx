@@ -57,8 +57,6 @@ export default function Rentals () {
 
   }, [transactions] );
 
-
-  //items={items}
   return <RentalTabs m='auto' past = {false} transactions={transactions} />;
 }
 
