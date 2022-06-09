@@ -10,7 +10,7 @@ import EarningsCard from './EarningsCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import '../App.css';
 import getData from './getData.jsx';
-
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 export default function Earnings () {
 

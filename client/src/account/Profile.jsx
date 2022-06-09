@@ -10,6 +10,7 @@ import ProfileCard from './ProfileCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import getData from './getData.jsx';
 import {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 
 // var transactions = require('../data/dataFunctions/transactions.json');
 // var users = require('../data/dataFunctions/users.json');
@@ -18,13 +19,15 @@ export default function Profile () {
   let [user, setUser] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
-
+  let { id } = useParams();
+  id = id.substring(3);
   useEffect(()=> {
 
     if (dataLoading ) {
       console.log('user data: here');
 
-      getData(5, `/account/my-profile`).then(data => {
+      console.log('id', id);
+      getData(id, `/account/my-profile`).then(data => {
         console.log('user data:', data);
         setUser(data[0]);
         setDataLoading(false);
@@ -35,9 +38,9 @@ export default function Profile () {
 
   return ( <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
 
-    <Container fluid>
-      <Row> profile  </Row>
-      <Row>
+    <Container fluid={true} style={{'paddingTop': '10px'}}>
+
+      <Row >
         <Col></Col>
         <Col>
           <ProfileCard user= {user}></ProfileCard>

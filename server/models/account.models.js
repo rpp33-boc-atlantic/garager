@@ -74,6 +74,7 @@ module.exports = {
     },
   },
   profile: {
+
     get: (user_id, callback) => {
       const query = {
         text: `SELECT * from users where user_id = $1`,
@@ -81,8 +82,9 @@ module.exports = {
       };
       return client.query(query)
         .catch (err => console.log('err@models-post-item', err))
-        .then((databaseStuff)=>{
-          callback(null, databaseStuff.rows);
+        .then((data)=>{
+          console.log('data', data);
+          callback(null, data.rows);
         });
     },
   },
