@@ -2,20 +2,27 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Button } from 'react-bootstrap';
 import { FaStripe } from 'react-icons/fa';
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 const StripeAccountSetup = () => {
   const [status, setStatus] = useState('');
 
+  const { userId } = useUserAuth();
+
   useEffect(() => {
-    console.log('checking for account completion', window.location);
-    axios.get('/checkout/check-account-completion')
-      .then((response) => {
-        console.log('response from /check-account-completion', response.data);
-        setStatus(response.data);
+    if (userId !== 'initial value') {
+      axios.get('/checkout/check-account-completion', {
+        params: {
+          userID: userId
+        }
       })
-      .catch((error) => {
-        console.log('ERROR from /check-account-completion', error);
-      });
+        .then((response) => {
+          setStatus(response.data);
+        })
+        .catch((error) => {
+          console.log('ERROR from /check-account-completion', error);
+        });
+    }
   });
 
   const handleClick = async () => {

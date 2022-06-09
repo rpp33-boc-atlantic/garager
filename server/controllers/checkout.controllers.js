@@ -145,8 +145,8 @@ module.exports = {
   },
   checkAccountCompletion: {
     get: async (req, res) => {
-      // ***** REFACTOR: HARDCODE USER_ID UNTIL IT GETS PASSED FROM FRONTEND IN StripeAccountSetup.jsx
-      const userID = 10; // Stanley.Hudson@gmail.com 
+      // console.log('userID', req.query.userID);
+      const userID = req.query.userID;  
       models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
@@ -161,7 +161,7 @@ module.exports = {
             } else if (!accountInfo.charges_enabled) {
               res.send('Nearly there! Stripe is currently verifying your details. In a few minutes, please click the button to complete the final steps. This may take a few updates to finalize the account.');
             } else {
-              res.send('complete - thank you');
+              res.send('complete');
             }
           } catch (err) {
             res.status(500).send({
