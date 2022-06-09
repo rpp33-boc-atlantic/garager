@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Form, Button, Card, Alert, Container} from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
-import {useMain} from '../context/MainContext.jsx';
 import {
   signInWithEmailAndPassword,
   FacebookAuthProvider,
@@ -17,16 +16,14 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth hook
-  const { logIn, facebookSignIn } = useUserAuth();
+  const { logIn, facebookSignIn, registerUser} = useUserAuth();
   const navigate = useNavigate();
-  const {userId, registerUser} = useMain();
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError('');
     try {
       await logIn(email, password)
         .then((res) => {
-          registerUser('', '', email);
           navigate('/SearchBrowse');
         });
     } catch (err) {
@@ -40,11 +37,17 @@ const Login = () => {
       await facebookSignIn()
         .then((res) => {
           //redirect user to homepage
-          let name = res.user.displayName.split(' ');
-          let firstName = name[0];
-          let lastName = name[1];
+          console.log('facebook sign in res', res);
           let email = res.user.email;
-          registerUser(firstName, lastName, email);
+          if (res.user.displayName) {
+            let name = res.user.displayName.split(' ');
+            let firstName = name[0];
+            let lastName = name[1];
+            registerUser(firstName, lastName, email);
+          } else {
+            //for linking account user
+            registerUser('', '', email);
+          }
           navigate('/SearchBrowse');
         })
         .catch((err) => {

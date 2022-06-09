@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
-import {useMain} from '../context/MainContext.jsx';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -11,10 +10,9 @@ const Signup = () => {
   const [lastname, setLastName] = useState('');
   const [error, setError] = useState('');
   //pass sign up function using useUserAuth custom hook
-  const { signUp, logOut} = useUserAuth();
+  const { signUp, logOut, registerUser} = useUserAuth();
   //redirect user back to login page after sign up
   const navigate = useNavigate();
-  const {userId, registerUser} = useMain();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
