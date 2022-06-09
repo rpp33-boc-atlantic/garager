@@ -3,7 +3,7 @@ const pool = require('../database/database.js');
 module.exports = {
   checkoutSession: {
     post: (rate, pickUpDate, returnDate, callback) => {
-      // INSERT INTO transactions(rate, pickUpDate, returnDate) VALUES (16, '2022-07-01', '2022-07-03') RETURNING transaction_id;
+      // INSERT INTO transactions(rate, pickUpDate, returnDate) VALUES (16, '2022-07-23T04:00:00.000Z', '2022-07-25T03:59:59.999Z') RETURNING transaction_id;
       // DELETE FROM transactions WHERE transaction_id = 207;
       const queryText = `INSERT INTO transactions(rate, pickUpDate, returnDate)
         VALUES (${rate}, '${pickUpDate}', '${returnDate}')
@@ -99,7 +99,7 @@ module.exports = {
   webhook: {
     post: {
       paymentIntent: (paymentIntentID, metadata, paymentStatus, callback) => {
-        // UPDATE transactions SET paymentIntent_id = 'pi_3L7xaMQGUt2gvFzT1f316ISt', payment_status = 'completed', owner_id = 4, renter_id = 2, item_id = 5 WHERE transaction_id = 212;
+        // UPDATE transactions SET paymentIntent_id = 'pi_3L8bJL9APWIdFUQG1B8QlfPH', payment_status = 'completed', owner_id = 5, renter_id = 8, item_id = 1 WHERE transaction_id = 222;
         const queryText = `UPDATE transactions 
         SET paymentIntent_id = '${paymentIntentID}',
             owner_id = ${metadata.owner_id},
