@@ -10,6 +10,8 @@ import {
 } from 'firebase/auth';
 import { auth } from '../firebase';
 import FacebookLogin from 'react-facebook-login';
+import background from '../img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
+import './style.css';
 
 
 const Login = () => {
@@ -94,7 +96,7 @@ const Login = () => {
 
 
   return (
-    <>
+    <div className = 'loginbg' style={{ backgroundImage: `url(${background})`}} >
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: '100vh' }}
@@ -128,7 +130,7 @@ const Login = () => {
           </Card>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 

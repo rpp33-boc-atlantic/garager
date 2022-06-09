@@ -6,3 +6,12 @@
 .fb-login-button:hover {
   background-color: #4e679d !important;
 }
+
+.loginbg {
+  /* Full height */
+  width: '100%';
+  height: 'auto';
+  /* Center and scale the image nicely */
+  background-repeat: no-repeat;
+  background-size: cover;
+}

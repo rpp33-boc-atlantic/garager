@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
+import background from '../img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
+import './style.css';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -30,7 +32,7 @@ const Signup = () => {
     }
   };
   return (
-    <>
+    <div className = 'loginbg' style={{ backgroundImage: `url(${background})`}}>
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: '100vh' }}
@@ -70,7 +72,7 @@ const Signup = () => {
           </Card>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 
