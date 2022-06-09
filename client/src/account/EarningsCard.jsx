@@ -19,10 +19,6 @@ export default function EarningsCard (props) {
 
   var duration = props.duration ? props.duration.toLowerCase() : '';
   var values1 = props.values[0] ? props.values[0] : {};
-  console.log('VALS YALLs', values1);
-  console.log(values1[`${duration}_transactions`]);
-
-
 
   return (
 
