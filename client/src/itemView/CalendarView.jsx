@@ -9,7 +9,8 @@ import moment from 'moment';
 
 const CalendarView = (props) => {
   // const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
-  const disabledRanges = props.rangesBooked;
+  const disabledRanges = props.datesBooked;
+  // console.log('disabled ranges right here', disabledRanges);
 
   const [value, setValue] = useState(new Date());
 
@@ -30,11 +31,19 @@ const CalendarView = (props) => {
   };
 
   const isWithinRange = (date, range) => {
-    return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
+    // console.log('range in iswithinrange', range);
+    return isWithinInterval(date, { start: parseISO(range['json_build_array'][0]), end: parseISO(range['json_build_array'][1]) });
+    // return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
   };
 
   const isWithinRanges = (date, ranges) => {
     return ranges.some(range => isWithinRange(date, range));
+  };
+
+  const isWithinRange2 = (date, range) => {
+    // console.log('range in iswithinrange', range);
+    return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
+    // return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
   };
 
   const checkIfConflict = (proposedRange) => {
@@ -55,9 +64,9 @@ const CalendarView = (props) => {
     const formattedRange = [moment(proposedRange[0]).format().substring(0, 10), moment(proposedRange[1]).format().substring(0, 10)];
 
     for (var i = 0; i < disabledRanges.length; i++) {
-      var firstDay = moment(disabledRanges[i][0]).format('l');
+      var firstDay = moment(disabledRanges[i]['json_build_array'][0]).format('l');
       console.log('first day', firstDay);
-      if (isWithinRange(new Date(firstDay), formattedRange)) {
+      if (isWithinRange2(new Date(firstDay), formattedRange)) {
         console.log('THERE IS CONFLICT! firstDay', firstDay);
         console.log('is in the proposed range:', formattedRange);
         return true;
@@ -68,17 +77,21 @@ const CalendarView = (props) => {
     return false;
   };
 
+  const minimumDate = moment(new Date(props.availabilityRange.availablefrom)).isSameOrBefore(new Date()) ? new Date() : new Date(props.availabilityRange.availablefrom);
+
   return (
     <div>
       <Calendar
         tileDisabled={tileDisabled}
-        minDate={new Date()}
+        minDate={minimumDate}
+        // minDate={new Date()}
+        maxDate={new Date(props.availabilityRange.availableto)}
         selectRange
         onChange={onChange}
         calendarType={'US'}
       />
-      <h6>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
-      <h6>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>
+      <h6 style={{ padding: '.4em', paddingTop:'.8em'}}>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
+      <h6 style={{ padding: '.4em'}}>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>
       {/* {console.log(value)} */}
     </div>
   );
