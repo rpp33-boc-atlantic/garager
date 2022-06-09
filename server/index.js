@@ -41,10 +41,14 @@ app.use('/auth', authRouter);
 
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
-  res.send({url});
+  res.send({ url });
 });
 
 // app.get('/get-data', accountRouter);
+
+app.get('/test', (req, res) => {
+  res.send('TEST OK');
+});
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
