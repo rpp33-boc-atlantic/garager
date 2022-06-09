@@ -55,7 +55,7 @@ We used Github's Actions to trigger new Docker image built on any merge to Main 
 ### AWS RDS Database:
 
 
-## Contributions
+## Contributors
 Members of the Atlantic Team:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
