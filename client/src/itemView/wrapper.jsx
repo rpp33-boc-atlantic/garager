@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams, NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 import CarouselContainer from './CarouselContainer.jsx';
 import ItemDetails from './ItemDetails.jsx';
@@ -8,20 +8,17 @@ import RentForm from './RentForm.jsx';
 import sampleItemData from './sampleItemData.js';
 import axios from 'axios';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
-// import { useMain } from '../context/MainContext.jsx';
+import { useMain } from '../context/MainContext.jsx';
 
 
 const Container = styled.div`
   display: grid;
-  // background: #eee;
   background: white:
   padding: 1em;
   grid-template-columns: 3fr 2fr;
   grid-gap: 1em;
   grid-auto-rows: minmax(1fr, auto);
   justify-items: stretch;
-  // align-items: center;
-  // grid-template-rows: 1fr .5fr 2fr .5fr;
   margin: 3em;
 `;
 
@@ -53,8 +50,8 @@ const Item = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
   const { user } = useUserAuth();
-  // const { userId } = useMain();
-  // console.log('this should be the user id', userId);
+  const { userId } = useMain();
+  console.log('this should be the user id', userId);
 
   useEffect(() => {
     let mounted = true;
@@ -71,13 +68,17 @@ const Item = (props) => {
         }
       })
       .catch(error => {
-        console.log('ERROR IN GETTING THE ITEM INFO', error);
+        setData({ details: {}, datesBooked: [], notFound: true});
       });
     return () => mounted = false;
   }, [dataLoading]);
 
+  const toggleAlert = () => {
+    const successDelete = document.querySelector('.successDelete');
+    successDelete.style.display = 'block';
+  };
+
   const deleteItem = () => {
-    // console.log('item id in delete item', itemData.details.item_id);
     const itemID = itemData.details.item_id;
     axios.delete('/item/itemData', {
       data: {
@@ -85,32 +86,44 @@ const Item = (props) => {
       }
     })
       .then(response => {
-        console.log('item has been deleted');
+        toggleAlert();
       })
       .catch(error => {
         console.log('error in deleting item', error);
       });
   };
 
-  const deleteButton = user.email === itemData.details.email ? null : <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button>;
+  const deleteButton = user.email === itemData.details.email ? <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button> : null;
 
   const ownerInfoData = itemData.details.item_id ? itemData.details : fakeProps;
   const itemDetailsData = itemData.details.item_id ? itemData.details : fakeProps;
   const rentFormData = itemData.details.item_id ? itemData : fakeProps;
   const imagesData = itemData.details.item_id ? itemData.details.photos : fakeProps.details.photos;
-  // console.log('dates booked in wrapper', itemData.datesBooked[0]['json_build_array']);
 
-  return (
-    <div>
-      <Container>
-        <CarouselContainer className='gallery' images={imagesData}/>
-        <OwnerInfo className='owner' details={ownerInfoData} />
-        <ItemDetails className='details' details={itemDetailsData}/>
-        <RentForm className='form' itemInfo={rentFormData}/>
-        {deleteButton}
-      </Container>
-    </div>
-  );
+  if (itemData.notFound) {
+    return (
+      <div>
+        <h2 className="text-center" style={{'padding-top': '3.5em'}}> Oops, let's try this again.</h2>
+        <h4 className="text-center">Just <Link to={'../SearchBrowse'}>click here </Link> to continue browsing.</h4>
+        <p className="text-center">404 Not Found</p>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+          <div className='alert alert-success alert-dismissible fade show successDelete' role="alert" style={{display: 'none'}}>
+            <strong>Post has been succesfully deleted.</strong>
+          </div>
+        <Container>
+          <CarouselContainer className='gallery' images={imagesData}/>
+          <OwnerInfo className='owner' details={ownerInfoData} />
+          <ItemDetails className='details' details={itemDetailsData}/>
+          <RentForm className='form' itemInfo={rentFormData}/>
+          {deleteButton}
+        </Container>
+      </div>
+    );
+  }
 };
 
 export default Item;
@@ -118,96 +131,74 @@ export default Item;
 
 
 
-// axios.delete('/item/itemData', {
-//   data: {
-//     ID: 12345
-//   }
-// })
 
 
 
 
 
 
-// { itemID: null,
-//   name: '',
-//   brand: '',
-//   model: '',
-//   description: '',
-//   availableFrom: '',
-//   availableTo: '',
-//   availability: null,
-//   price: null,
-//   nameYourOwnPrice: null,
-//   minimumPrice: null,
-//   images: [],
-//   rangesBooked: [],
-//   owner: {
-//     id: null,
-//     name: '',
-//     email: '',
-//     dateJoined: '',
-//     address: ''
-//   }}
-
-
-
-
-// {
-//   details: {
-//     item_id: '',
-//     title: '',
-//     brand: '',
-//     model: '',
-//     itemdescription: '',
-//     price: '',
-//     nyop: null,
-//     min_price: null,
-//     availablefrom: '',
-//     availableto: '',
-//     address: '',
-//     photos: [],
-//     firstname: '',
-//     lastname: '',
-//     owner: { email: ''},
-//     userphoto: null,
-//     datejoined: ''
-//   },
-//   transactions: []
-// }
 
 
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import { useLocation, useParams } from 'react-router-dom';
+// import styled from 'styled-components';
+// import CarouselContainer from './CarouselContainer.jsx';
+// import ItemDetails from './ItemDetails.jsx';
+// import OwnerInfo from './OwnerInfo.jsx';
+// import RentForm from './RentForm.jsx';
+// import sampleItemData from './sampleItemData.js';
+// import axios from 'axios';
+// import { useUserAuth } from '../context/UserAuthContext.jsx';
+// import { useMain } from '../context/MainContext.jsx';
 
+
+// const Container = styled.div`
+//   display: grid;
+//   // background: #eee;
+//   background: white:
+//   padding: 1em;
+//   grid-template-columns: 3fr 2fr;
+//   grid-gap: 1em;
+//   grid-auto-rows: minmax(1fr, auto);
+//   justify-items: stretch;
+//   // align-items: center;
+//   // grid-template-rows: 1fr .5fr 2fr .5fr;
+//   margin: 3em;
+// `;
 
 // const Item = (props) => {
 //   const fakeProps = sampleItemData.option1;
-//   const [itemData, setData] = useState({ itemID: null,
-//     name: '',
-//     brand: '',
-//     model: '',
-//     description: '',
-//     availableFrom: '',
-//     availableTo: '',
-//     availability: null,
-//     price: null,
-//     nameYourOwnPrice: null,
-//     minimumPrice: null,
-//     images: [],
-//     rangesBooked: [],
-//     owner: {
-//       id: null,
-//       name: '',
+//   const [itemData, setData] = useState({
+//     details: {
+//       'item_id': '',
+//       'user_id': '',
+//       title: '',
+//       brand: '',
+//       model: '',
+//       itemdescription: '',
+//       price: '',
+//       nyop: null,
+//       'min_price': null,
+//       availablefrom: '',
+//       availableto: '',
+//       address: '',
+//       photos: [],
+//       firstname: '',
+//       lastname: '',
 //       email: '',
-//       dateJoined: '',
-//       address: ''
-//     }});
+//       userphoto: null,
+//       datejoined: ''
+//     },
+//     datesBooked: [{'json_build_array': []}]
+//   });
+//   const [dataLoading, setDataLoading] = useState(true);
 //   let { id } = useParams();
 //   const { user } = useUserAuth();
-//   console.log('this should be the user email', user.email);
-//   // console.log('this is the item id passed through params', id);
+//   const { userId } = useMain();
+//   console.log('this should be the user id', userId);
 
 //   useEffect(() => {
 //     let mounted = true;
@@ -219,40 +210,54 @@ export default Item;
 //       .then(response => {
 //         if (mounted) {
 //           console.log('response after fetching item data', response.data);
-//           setData(fakeProps);
+//           setData(response.data);
+//           setDataLoading(false);
 //         }
 //       })
 //       .catch(error => {
 //         console.log('ERROR IN GETTING THE ITEM INFO', error);
 //       });
 //     return () => mounted = false;
-//   });
+//   }, [dataLoading]);
+
+//   const toggleAlert = () => {
+//     const successDelete = document.querySelector('.successDelete');
+//     successDelete.style.display = 'block';
+//   };
 
 //   const deleteItem = () => {
-//     console.log('gonna delete item');
-//     const itemID = 1234567;
+//     const itemID = itemData.details.item_id;
 //     axios.delete('/item/itemData', {
 //       data: {
 //         ID: itemID
 //       }
 //     })
 //       .then(response => {
-//         console.log('item has been deleted');
+//         toggleAlert();
 //       })
 //       .catch(error => {
 //         console.log('error in deleting item', error);
 //       });
 //   };
 
-//   const deleteButton = user.email === itemData.owner.email ? null : <button onClick={deleteItem}>Delete Item</button>;
+//   const deleteButton = user.email === itemData.details.email ? <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button> : null;
+
+//   const ownerInfoData = itemData.details.item_id ? itemData.details : fakeProps;
+//   const itemDetailsData = itemData.details.item_id ? itemData.details : fakeProps;
+//   const rentFormData = itemData.details.item_id ? itemData : fakeProps;
+//   const imagesData = itemData.details.item_id ? itemData.details.photos : fakeProps.details.photos;
+//   // console.log('dates booked in wrapper', itemData.datesBooked[0]['json_build_array']);
 
 //   return (
 //     <div>
+//         <div className='alert alert-success alert-dismissible fade show successDelete' role="alert" style={{display: 'none'}}>
+//           <strong>Post has been succesfully deleted.</strong>
+//         </div>
 //       <Container>
-//         <CarouselContainer className='gallery' images={fakeProps.images}/>
-//         {/* <OwnerInfo className='owner' details={itemData.details} /> */}
-//         <ItemDetails className='details' details={fakeProps}/>
-//         <RentForm className='form' itemInfo={fakeProps} />
+//         <CarouselContainer className='gallery' images={imagesData}/>
+//         <OwnerInfo className='owner' details={ownerInfoData} />
+//         <ItemDetails className='details' details={itemDetailsData}/>
+//         <RentForm className='form' itemInfo={rentFormData}/>
 //         {deleteButton}
 //       </Container>
 //     </div>
