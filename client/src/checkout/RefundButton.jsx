@@ -6,9 +6,6 @@ import { Button } from 'react-bootstrap';
 const RefundButton = (props) => {
 
   const handleClick = async () => {
-    // ***** REFACTOR: props.transactionID - data type can be integer or string
-    // ***** REFACTOR: props.owner_id - data type can be integer or string
-
     const refundData = {
       transactionID: props.transaction_id,
       ownerID: props.owner_id,
@@ -17,6 +14,7 @@ const RefundButton = (props) => {
     axios.put('/checkout/refund', refundData)
       .then((response) => {
         console.log('response from refundButton', response);
+        alert('This rental has been successfully refunded.');
       })
       .catch((error) => {
         console.log('ERROR from refundButton', error);

@@ -8,7 +8,7 @@ const moment = require('moment');
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
-      const renterID = 8; // Stanley Hudson ***** NEED TO REFACTOR HARDCODED DATA
+      const renterID = 9; // Kelly Kapoor ***** NEED TO REFACTOR HARDCODED DATA
 
       const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate } = req.body;
       const pickUpDate = req.body.dateRange[0];
