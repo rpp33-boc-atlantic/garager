@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
-import {FiEdit3} from 'react-icons/Fi';
+import {FiEdit3} from 'react-icons/fi';
 
 // import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 
