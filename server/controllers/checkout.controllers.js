@@ -176,6 +176,8 @@ module.exports = {
     put: (req, res) => {
       const transactionID = req.body.transactionID;
       const ownerID = req.body.ownerID;
+      console.log('transactionID', transactionID, typeof transactionID);
+      console.log('ownerID', ownerID, typeof ownerID);
 
       models.refund.getStripeID(ownerID, (err, stripeID) => {
         if (err) {
@@ -201,7 +203,7 @@ module.exports = {
                   }
                 });
               } catch (err) {
-                res.status(500).send(err);
+                res.status(500).send('This transaction has already been refunded.');
               }
             }
           });

@@ -10,17 +10,17 @@ const RefundButton = (props) => {
     // ***** REFACTOR: props.owner_id - data type can be integer or string
 
     const refundData = {
-      transactionID: '209',
-      ownerID: '4',
+      transactionID: props.transaction_id,
+      ownerID: props.owner_id,
     };
-    console.log('props', props);
+
     axios.put('/checkout/refund', refundData)
       .then((response) => {
         console.log('response from refundButton', response);
       })
       .catch((error) => {
         console.log('ERROR from refundButton', error);
-        alert('This transaction has already been refunded');
+        alert(error.response.data);
       });
   };
 
