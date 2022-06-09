@@ -8,13 +8,9 @@ import RentForm from './RentForm.jsx';
 import sampleItemData from './sampleItemData.js';
 import axios from 'axios';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
-<<<<<<< HEAD
-import {useMain} from '../context/MainContext.jsx';
-=======
 // import { useMain } from '../context/MainContext.jsx';
 
 
->>>>>>> main
 const Container = styled.div`
   display: grid;
   // background: #eee;
@@ -57,15 +53,8 @@ const Item = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
   const { user } = useUserAuth();
-<<<<<<< HEAD
-  const {userId} = useMain();
-  console.log('this should be the user email', user.email);
-  console.log('this is the item id passed through params', id);
-  console.log('userId in itemView', userId);
-=======
   // const { userId } = useMain();
   // console.log('this should be the user id', userId);
->>>>>>> main
 
   useEffect(() => {
     let mounted = true;
