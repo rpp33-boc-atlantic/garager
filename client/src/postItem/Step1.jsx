@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import FileUpload from './FileUpload.jsx';
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 //Step1 includes title, and upload photo
 
 const Step1 = (props) => {
+  if (!props.values.userId) {
+    const { userId } = useUserAuth();
+    if (userId !== 'initial value') {
+      const id = userId;
+      props.updateUserId(id);
+    }
+  }
 
-  const [images, setImages] = React.useState({ imageFiles: [] });
+  const [images, setImages] = useState({ imageFiles: [] });
 
   const updateUploadedFiles = (files) => {
     setImages({ ...images, imageFiles: files }, ()=> { console.log(images); });

@@ -13,6 +13,7 @@ import ConfirmationPage from './ConfirmationPage.jsx';
 
 const initialState = {
   step: 0,
+  userId: null,
   title: 'n/a',
   category: 'n/a',
   brand: 'n/a',
@@ -27,6 +28,7 @@ const initialState = {
   latLng: {},
   address: 'n/a'
 };
+console.log('initial state', initialState);
 
 class PostItem extends Component {
   constructor (props) {
@@ -35,6 +37,7 @@ class PostItem extends Component {
     this.reset = this.reset.bind(this);
     this.changeToPrevious = this.changeToPrevious.bind(this);
     this.changeToNext = this.changeToNext.bind(this);
+    this.updateUserId = this.updateUserId.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUploadPhotos = this.handleUploadPhotos.bind(this);
     this.handleSelectLocation = this.handleSelectLocation.bind(this);
@@ -56,6 +59,10 @@ class PostItem extends Component {
     this.setState ({
       step: step + 1
     });
+  }
+
+  updateUserId (id) {
+    this.setState({ userId: id });
   }
 
   handleChange (input) {
@@ -106,14 +113,13 @@ class PostItem extends Component {
       photosArr.push(photo['data_url']);
     });
 
-    if ( photosArr.length === this.state.photos.length ) {
+    if ( photosArr.length === this.state.photos.length) {
       this.setState({
         availableFrom: dateFrom,
-        availableTo: dateTo
+        availableTo: dateTo,
       }, () => {
-        const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = this.state;
-        const bodyParams = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photosArr };
-        console.log('bodyParams', bodyParams);
+        const { userId, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng } = this.state;
+        const bodyParams = { userId, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photosArr };
         axios.post('/postItem', bodyParams)
           .then((response) => { this.changeToNext(); })
           .catch((error) => {});
@@ -123,8 +129,8 @@ class PostItem extends Component {
 
   render () {
     const { step } = this.state;
-    const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address, latLng } = this.state;
-    const values = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address, latLng };
+    const { userId, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address, latLng } = this.state;
+    const values = { userId, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, photos, address, latLng };
 
     switch (step) {
     case 1:
@@ -133,6 +139,7 @@ class PostItem extends Component {
           changeToNext={this.changeToNext}
           handleChange={this.handleChange}
           handleUploadPhotos={this.handleUploadPhotos}
+          updateUserId={this.updateUserId}
           values={values}
         />
       );
