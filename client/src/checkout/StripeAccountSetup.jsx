@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Button } from 'react-bootstrap';
 import { FaStripe } from 'react-icons/fa';
-import RefundButton from './RefundButton.jsx';
 
 const StripeAccountSetup = () => {
   const [status, setStatus] = useState('');
@@ -30,16 +29,12 @@ const StripeAccountSetup = () => {
   };
 
   return (
-    <>
-      <Container className='pt-5 text-center' style={{ minHeight: '50vh' }}>
-        <h1>Stripe Account Setup</h1>
-        <h2>Setup an account to recieve payments from your listings!</h2>
-        <h3>Status of Stripe Account: <strong>{status}</strong></h3>
-        <Button onClick={handleClick} className='mt-3'><FaStripe size={50} /></Button>
-      </Container>
-      {/* REMOVE REFUND BUTTON AFTER INTEGRATION WITH ACCOUNT */}
-      <RefundButton />
-    </>
+    <Container className='pt-5 text-center' style={{ minHeight: '50vh' }}>
+      <h1>Stripe Account Setup</h1>
+      <h2>Setup an account to recieve payments from your listings!</h2>
+      <h3>Status of Stripe Account: <strong>{status}</strong></h3>
+      <Button onClick={handleClick} className='mt-3'><FaStripe size={50} /></Button>
+    </Container>
 
   );
 };
