@@ -4,7 +4,7 @@ import Table from 'react-bootstrap/Table';
 import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 import {Link } from 'react-router-dom';
 import moment from 'moment';
-
+import RefundButton from '../checkout/RefundButton.jsx';
 import Image from 'react-bootstrap/Image';
 export default function Tables (props) {
   props.column;
@@ -31,6 +31,7 @@ export default function Tables (props) {
     var p = 0;
     var c = 0;
     // create the table rows based off of the input values
+
     values.map(t => {
 
       tRows.push(
@@ -53,7 +54,9 @@ export default function Tables (props) {
               }
             })//<img src={t[col.dataField][0]} width="75" height="100%" />
           }
-          <td><button className="btn btn-primary btn-sm"> { moment(t.availableto).isBefore(moment(new Date())) ? <p>available</p> : <p>unavailable</p>}</button></td>
+          {/* <td><button className="btn btn-primary btn-sm"> { moment(t.availableto).isBefore(moment(new Date())) ? <p>available</p> : <p>unavailable</p>}</button></td> */}
+
+          <td><RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/></td>
         </tr>);
     });
 
