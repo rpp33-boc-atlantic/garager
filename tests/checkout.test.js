@@ -64,6 +64,16 @@ describe('CHECKOUT SESSION', () => {
     Stripe.prototype.accounts = {
       retrieve: bothTrue,
     };
+
+    const checkoutSuccess = jest.fn(() => ({
+      url: 'localhost:3000/CheckoutSuccess'
+    }));
+    
+    Stripe.prototype.checkout = {
+      sessions: {
+        create: checkoutSuccess,
+      }
+    }; 
     
     await supertest(server).post('/checkout/create-session')
       .send({ ownerID: 5, dateRange: ['2022-07-23T04:00:00.000Z', '2022-07-25T04:00:00.000Z'], rate: 55.00 })

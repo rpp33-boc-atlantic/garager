@@ -26,7 +26,6 @@ module.exports = {
             if (!accountInfo.details_submitted || !accountInfo.charges_enabled) {
               res.status(500).send('Item owner has an incomplete Stripe Account Setup');
             } else { // Owner has a Stripe Account, so proceed to checkout
-              console.log('test point now');
               // First, get transaction_id from DB by inserting transactions table with NOT NULL data (rate, pickUpDate, returnDate)
               models.checkoutSession.post(rate, pickUpDate, returnDate, async (err, transactionID) => {
                 if (err) {
@@ -66,7 +65,6 @@ module.exports = {
               });
             }
           } catch (err) {
-            console.log('ARE WE GETTING HERE?');
             res.status(500).send({
               error: err.message,
             });
