@@ -2,6 +2,7 @@
 const client = require('../database/database.js');
 const fs = require('fs');
 module.exports = {
+  // returns all transactions for a user
   rentals: {
     get: (renter_id, callback) => {
 
@@ -18,7 +19,7 @@ module.exports = {
           callback(err, null);
         });
     }
-  },
+  }, // returns all items for an owner
   listings: {
     get: (owner_id, callback) => {
 
@@ -36,6 +37,7 @@ module.exports = {
 
     },
   },
+  // return data about earnings, total number of transactions and number of items rented out in last 7 or 30 days
   earnings: {
     get: (owner_id, callback) => {
       const query = {
@@ -82,6 +84,7 @@ module.exports = {
 
     },
   },
+  // returns data about any selected user
   profile: {
 
     get: (user_id, callback) => {
@@ -91,7 +94,7 @@ module.exports = {
       };
       return client.query(query)
         .then((profileData)=>{
-          console.log('data', profileData);
+          // console.log('data', profileData);
           callback(null, profileData.rows);
         })
         .catch (err => {
@@ -101,6 +104,7 @@ module.exports = {
 
     },
   },
+  // writes data for a specific table to a file. default  table is provided in controller.
   data: {
     get: (table, callback) => {
 
