@@ -25,8 +25,3 @@ module.exports = {
     }
   }
 };
-
-
-
-// const query = `SELECT i.item_id, i.title, i.brand, i.model, i.itemdescription, i.price, i.nyop, i.min_price, i.availablefrom, i.availableto,
-// i.address, i.photos, u.firstname, u.lastname, u.email, u.userphoto, u.datejoined from items i JOIN users u on i.user_id = u.user_id WHERE item_id = ${parseInt(itemID)};`;
