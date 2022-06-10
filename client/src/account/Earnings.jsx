@@ -10,16 +10,17 @@ import EarningsCard from './EarningsCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import '../App.css';
 import getData from './getData.jsx';
-
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 export default function Earnings () {
 
   let [earnings, setEarnings] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-
+  const {userId, user} = useUserAuth();
+  // console.log('UserId earnings', userId, user.email);
   useEffect(()=> {
-    if (dataLoading ) {
-      getData(9, '/account/my-earnings')
+    if (dataLoading) {
+      getData(4, '/account/my-earnings')
         .then(data => {
           setEarnings(data);
           console.log('data', data);
@@ -39,7 +40,7 @@ export default function Earnings () {
           <EarningsCard className="justify-content-md-center" values={earnings} duration='Monthly'/>
         </Col>
         <Col xs={12}md={4} className='theme-blue justify-content-md-center'>
-          <EarningsCard values={earnings} duration='Total' />
+          <EarningsCard className="justify-content-md-center" values={earnings} duration='Total'/>
         </Col>
       </Row>
     </Container>

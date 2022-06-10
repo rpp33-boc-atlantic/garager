@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
@@ -20,15 +19,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
-
-// *NOTE: PLEASE KEEP ABOVE ROUTES SETUP* Session needed for creating stripe accounts
-app.use(
-  session({
-    secret: 'atlantic BOC',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 
 // ROUTES SETUP
 app.use('/account', accountRouter);
