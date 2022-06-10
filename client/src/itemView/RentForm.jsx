@@ -159,3 +159,4 @@ class RentForm extends React.Component {
 }
 
 export default RentForm;
+
