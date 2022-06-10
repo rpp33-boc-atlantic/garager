@@ -20,17 +20,19 @@ const Messages = ( props ) => {
   const location = useLocation();
 
   let itemID = null;
+  let userEmail = null;
   if ( location.state ) {
     itemID = location.state.itemID;
+    userEmail = location.state.userEmail;
   }
 
   useEffect(() => {
+    if ( user.email ) {
+      getUserInfo();
+    }
     if ( itemID && !threadAdded ) {
       updateThreadAdded(true);
       addThread();
-    }
-    if ( user.email ) {
-      getUserInfo();
     }
     if ( threads.length === 0 && user.email ) {
       getThreads();
@@ -43,12 +45,13 @@ const Messages = ( props ) => {
   const getUserInfo = async () => {
     const result = await axios.get(`/messages/threads/user?email=${user.email}`);
     changeUserData( result.data );
+    return;
   };
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: 38,
-      renterId: 1,
+      itemId: itemID,
+      renterEmail: userEmail,
       timeUpdated: Date.now()
     });
     getThreads();

@@ -9,21 +9,24 @@ module.exports = {
       let result = await db.query( query );
       let userId = result.rows[0].user_id;
 
-      query = `select * from threads where (owner_id = ${ userId } or renter_id = ${ userId })`;
+      query = `select * from threads where (owner_id = ${ userId } or renter_id = ${ userId }) order by time_updated desc`;
       return db.query( query );
     },
 
     post: async ( thread ) => {
       let query = 'select user_id from items where item_id=' + thread.itemId;
       let result = await db.query( query );
-      // let ownerId = result.rows[0].user_id; FIX THIS!
-      let ownerId = 0;
+      let ownerId = result.rows[0].user_id;
+
+      query = `select user_id from users where email ilike '${ thread.renterEmail }'`;
+      result = await db.query( query );
+      let renterId = result.rows[0].user_id;
 
       query = `insert into threads
                (item_id, owner_id, renter_id, owner_viewed, renter_viewed, time_updated)
                values($1, $2, $3, $4, $5, $6)`;
 
-      const values = [ thread.itemId, ownerId, thread.renterId, false, false, thread.timeUpdated ];
+      const values = [ thread.itemId, ownerId, renterId, false, false, thread.timeUpdated ];
       return await db.query( query, values );
     },
 

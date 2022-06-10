@@ -9,42 +9,44 @@ const ThreadList = ( props ) => {
   };
 
   return (
-    <ListGroup id='thread-list'>
-      {
-        props.threads.map(( thread, index ) => {
+    <div id='thread-list'>
+      <ListGroup>
+        {
+          props.threads.map(( thread, index ) => {
 
-          if ( index === props.activeThread ) {
-            return (
-              <ListGroup.Item
-                active aria-label={ `thread-tile-${ index }` }
-                key={ index }
-                action
-                onClick={ () => handleClick( index ) }>
+            if ( index === props.activeThread ) {
+              return (
+                <ListGroup.Item
+                  active aria-label={ `thread-tile-${ index }` }
+                  key={ index }
+                  action
+                  onClick={ () => handleClick( index ) }>
 
-                <ThreadTile
-                  userData={ props.userData }
-                  thread={ thread }/>
+                  <ThreadTile
+                    userData={ props.userData }
+                    thread={ thread }/>
 
-              </ListGroup.Item>
-            );
+                </ListGroup.Item>
+              );
 
-          } else {
-            return (
-              <ListGroup.Item
-                aria-label={ `thread-tile-${ index }` }
-                key={ index }
-                action onClick={ () => handleClick( index ) }>
+            } else {
+              return (
+                <ListGroup.Item
+                  aria-label={ `thread-tile-${ index }` }
+                  key={ index }
+                  action onClick={ () => handleClick( index ) }>
 
-                <ThreadTile
-                  userData={ props.userData }
-                  thread={ thread }/>
+                  <ThreadTile
+                    userData={ props.userData }
+                    thread={ thread }/>
 
-              </ListGroup.Item>
-            );
-          }
-        })
-      }
-    </ListGroup>
+                </ListGroup.Item>
+              );
+            }
+          })
+        }
+      </ListGroup>
+    </div>
   );
 };
 

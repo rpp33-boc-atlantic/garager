@@ -19,6 +19,7 @@ module.exports = {
           threadId: thread.thread_id,
           itemName: productInfo.rows[0].title,
           itemImageUrl: productInfo.rows[0].photos[0],
+          itemId: thread.item_id,
           ownerId: thread.owner_id,
           ownerName: `${ ownerInfo.rows[0].firstname } ${ ownerInfo.rows[0].lastname }`,
           ownerImageUrl: ownerInfo.rows[0].userphoto,
