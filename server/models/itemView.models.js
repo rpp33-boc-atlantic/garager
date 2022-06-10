@@ -16,7 +16,7 @@ module.exports = {
         .then(data => {
           result.datesBooked = data.rows;
           return result;
-        })
+        });
     },
     delete: (itemID) => {
       const query = `DELETE FROM items where item_id=${itemID}`;

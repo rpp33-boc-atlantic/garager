@@ -107,9 +107,9 @@ const Item = (props) => {
   } else {
     return (
       <div>
-          <div className='alert alert-success alert-dismissible fade show successDelete' role="alert" style={{display: 'none'}}>
-            <strong>Post has been succesfully deleted.</strong>
-          </div>
+        <div className='alert alert-success alert-dismissible fade show successDelete' role="alert" style={{display: 'none'}}>
+          <strong>Post has been succesfully deleted.</strong>
+        </div>
         <Container>
           <CarouselContainer className='gallery' images={imagesData}/>
           <OwnerInfo className='owner' details={ownerInfoData} user={user}/>

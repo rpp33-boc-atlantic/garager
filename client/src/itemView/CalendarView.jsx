@@ -83,7 +83,7 @@ const CalendarView = (props) => {
         onChange={onChange}
         calendarType={'US'}
       />
-      <h6 style={{ padding: '.4em', paddingTop:'.8em'}}>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
+      <h6 style={{ padding: '.4em', paddingTop: '.8em'}}>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
       <h6 style={{ padding: '.4em'}}>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>
     </div>
   );
