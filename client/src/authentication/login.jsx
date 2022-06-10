@@ -9,7 +9,6 @@ import {
   linkWithCredential
 } from 'firebase/auth';
 import { auth } from '../firebase';
-import FacebookLogin from 'react-facebook-login';
 import background from '../img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
 import './style.css';
 
@@ -119,7 +118,10 @@ const Login = () => {
                 </div>
               </Form>
               <hr />
-              <FacebookLogin cssClass='fb-login-button btn btn-primary' onClick = {handleFacebookSignIn} icon='fa-facebook'/>
+              <Button className = 'fb-login-button' onClick = {handleFacebookSignIn}>
+                <i className="fa fa-facebook fa-fw"></i>
+                Login with Facebook
+              </Button>
               <div className='w-100 text-center mt-2'>
             Don't have an account? <Link to='/Signup'>Sign up</Link>
               </div>
