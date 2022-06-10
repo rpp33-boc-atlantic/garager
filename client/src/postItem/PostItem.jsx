@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
@@ -97,21 +98,27 @@ class PostItem extends Component {
   handlePost (e) {
     //axios post request
     const date = e.target.value.split(',');
-    const dateFrom = moment(date[0]).format('YYYY-MM-DD');
-    const dateTo = moment(date[1]).format('YYYY-MM-DD');
+    const dateFrom = moment(date[0]).toISOString();
+    const dateTo = moment(date[1]).toISOString();
+    const photosArr = [];
 
-    this.setState({
-      availableFrom: dateFrom,
-      availableTo: dateTo
-    }, () => {
-      const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = this.state;
-      const bodyParams = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos };
-      console.log('bodyParams', bodyParams);
-      axios.post('/postItem', bodyParams)
-        .then((response) => { this.changeToNext(); })
-        .catch((error) => {});
+    this.state.photos.map((photo) => {
+      photosArr.push(photo['data_url']);
     });
 
+    if ( photosArr.length === this.state.photos.length ) {
+      this.setState({
+        availableFrom: dateFrom,
+        availableTo: dateTo
+      }, () => {
+        const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = this.state;
+        const bodyParams = { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photosArr };
+        console.log('bodyParams', bodyParams);
+        axios.post('/postItem', bodyParams)
+          .then((response) => { this.changeToNext(); })
+          .catch((error) => {});
+      });
+    }
   }
 
   render () {

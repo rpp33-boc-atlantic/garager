@@ -11,6 +11,7 @@ const Homepage = () => {
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: '100vh' }}
       ></Container>
+      <Link to={`/Item/id=${11}`}>Go to Item</Link>
     </div>
   );
 };

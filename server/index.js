@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
@@ -21,15 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client')));
 
-// *NOTE: PLEASE KEEP ABOVE ROUTES SETUP* Session needed for creating stripe accounts
-app.use(
-  session({
-    secret: 'atlantic BOC',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
 // ROUTES SETUP
 app.use('/account', accountRouter);
 app.use('/messages', messagesRoutes);
@@ -41,10 +31,14 @@ app.use('/auth', authRouter);
 
 app.get('/s3url', async (req, res) => {
   const url = await generateUploadURL();
-  res.send({url});
+  res.send({ url });
 });
 
 // app.get('/get-data', accountRouter);
+
+app.get('/test', (req, res) => {
+  res.send('TEST OK');
+});
 
 // All other routes must go above this function
 app.get('/*', (req, res) => {
