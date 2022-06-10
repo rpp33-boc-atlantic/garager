@@ -38,7 +38,7 @@ const Step1 = (props) => {
   };
 
   return (
-    <div className="mx-auto" style={{padding: '5em'}}>
+    <div className="border mx-auto" style={{padding: '5em'}}>
       <h3>What do you want to rent out ?</h3>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Group>

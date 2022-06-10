@@ -28,7 +28,6 @@ const initialState = {
   latLng: {},
   address: 'n/a'
 };
-console.log('initial state', initialState);
 
 class PostItem extends Component {
   constructor (props) {
