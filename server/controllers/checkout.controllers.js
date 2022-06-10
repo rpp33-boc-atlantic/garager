@@ -18,7 +18,7 @@ module.exports = {
       models.checkAccountCompletion.get(ownerID, async (err, stripeID) => {
         // If they don't, send alert that rent cannot occur
         if (err || !stripeID) {
-          res.status(500).send('Item owner has an incomplete Stripe Account Setup');
+          res.status(500).send('Item owner has not setup a Stripe Account');
         } else {
           try {
             const accountInfo = await stripe.accounts.retrieve(stripeID);
