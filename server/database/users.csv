@@ -12,8 +12,6 @@ user_id,firstname,lastname,email,userphoto,phone,address,datejoined,stripe_id
 3,Russ,Hanneman,Russ.Hanneman@iCloud.com,,616.570.8611,"2528 Skyline Street, Lansing, MI 68761",2022-06-02T04:00:00.000Z,
 4,Jack,Barker,Jack.Barker@hotmail.com,,586.508.0125,"3185 Moore Ct, Marquette, MI 52345",2022-06-02T04:00:00.000Z,acct_1L7uB0QGUt2gvFzT
 6,Lorie,Bream,Lorie.Bream@gmail.com,,586.207.6803,"1753 Ellen Ct, Menominee, MI 72052",2022-06-02T04:00:00.000Z,acct_1L7yii4bJYHzZVOU
-16,test,test2,test3,,,,,
-21,,,test9090@gmail.com,,,,,
 7,Gavin,Belson,Gavin.Belson@yahoo.com,,810.521.0446,"1162 Pine Rd, Menominee, MI 89348",2022-06-02T04:00:00.000Z,acct_1L8GgbQAYa5HjPph
 32,Wen ,Dai,arielddw@gmail.com,,,,,
 5,Michael,Scott,Michael.Scott@gmail.com,https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png,586.055.5712,"3430 Locust Cir, Lansing, MI 83651",2022-06-02T04:00:00.000Z,acct_1L7y5c9APWIdFUQG

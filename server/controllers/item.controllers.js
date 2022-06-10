@@ -7,14 +7,15 @@ module.exports = {
       let itemID = req.query.ID.substring(3);
       models.itemData.get(itemID)
         .then(data => {
-          res.status(200).send(data);
+          if (data.details === undefined) {
+            res.status(404).send({ 'message': 'Error 404 Item Not Found'});
+          } else {
+            res.status(200).send(data);
+          }
         })
         .catch(error => {
           res.status(500).send(error);
         });
-      // console.log('logging here', ttr);
-      // res.status(200).send('data');
-
     },
     delete: (req, res) => {
       let itemID = req.body.ID;
@@ -26,8 +27,6 @@ module.exports = {
         .catch(error => {
           res.status(500).send(error);
         });
-
-      res.status(200).send('should be deleting item info');
     }
   }
 };
