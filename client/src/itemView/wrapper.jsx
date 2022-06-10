@@ -52,7 +52,7 @@ const Item = (props) => {
   // console.log('this should be the user email', user.email);
 
   //new way to get userId (from local storage)
-  const currentId = localStorage.getItem('currentId');
+  const currentId = parseInt(localStorage.getItem('currentId'));
   // console.log('current userId from localstorage', currentId);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ const Item = (props) => {
         toggleAlert();
       })
       .catch(error => {
-        console.log('error in deleting item', error);
+        alert('Error in deleting item.')
       });
   };
 
