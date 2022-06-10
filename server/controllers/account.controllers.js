@@ -60,7 +60,7 @@ module.exports = {
         if (err) {
           res.status(500).send(err);
         } else {
-          console.log('datalistings', data);
+          // console.log('datalistings', data);
           res.status(200).send(data);
         }
       });

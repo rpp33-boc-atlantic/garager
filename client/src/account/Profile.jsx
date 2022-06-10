@@ -17,22 +17,27 @@ import { useUserAuth } from '../context/UserAuthContext.jsx';
 // var users = require('../data/dataFunctions/users.json');
 // var user = users[0];
 export default function Profile () {
-  let [user, setUser] = useState([]);
+  let [profile, setProfile ] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-
+  const {userId, user} = useUserAuth();
   let { id } = useParams();
-  id = id.substring(3);
+  id = isNaN(id) ? id.substring(3) : id;
+
   useEffect(()=> {
 
     if (dataLoading ) {
-      console.log('user data: here');
-
-      console.log('id', id);
-      getData(id, `/account/my-profile`).then(data => {
-        console.log('user data:', data);
-        setUser(data[0]);
+      console.log('user data: here', userId, id);
+      if (id === userId ) {
+        console.log('id matches', id);
         setDataLoading(false);
-      });
+      } else {
+
+        getData(id, `/account/my-profile`).then(data => {
+          console.log('user data:', data);
+          setProfile(data[0]);
+          setDataLoading(false);
+        });
+      }
     }
 
   }, [] );
@@ -44,11 +49,11 @@ export default function Profile () {
       <Row >
         <Col></Col>
         <Col>
-          <ProfileCard user= {user}></ProfileCard>
+          <ProfileCard user= {profile}></ProfileCard>
           {/* {/* <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {user.userPhoto} /> */}
         </Col >
         <Col xs={8}>
-          <ProfileTabs user ={user}></ProfileTabs> (wider)
+          <ProfileTabs user ={profile}></ProfileTabs> (wider)
         </Col>
         <Col></Col>
       </Row>
@@ -64,4 +69,8 @@ export default function Profile () {
 
 // UPDATE users
 // SET userphoto = 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
-// where user_id = 5;
+// // where user_id = 5;
+
+// UPDATE users
+// set userphoto = 'https://www.incimages.com/uploaded_files/image/1920x1080/tom-haverford-parks-recreation_39318.jpg'
+// where user_id = 10 or user_id = 118;

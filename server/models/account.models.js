@@ -92,7 +92,7 @@ module.exports = {
       return client.query(query)
         .then((profileData)=>{
           console.log('data', profileData);
-          callback(null, profileData);
+          callback(null, profileData.rows);
         })
         .catch (err => {
           console.log('err@models-account-profile');
