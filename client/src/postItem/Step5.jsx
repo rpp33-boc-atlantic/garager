@@ -14,7 +14,7 @@ const Step5 = (props) => {
 
   return (
     <div className="mx-auto" style={{padding: '5em'}}>
-      <h1 className='text-center'>Avaibility Range</h1>
+      <h1 className='text-center'>Availability Range</h1>
       <br/>
       <div className='calendar-container d-flex justify-content-center' >
         <Calendar
