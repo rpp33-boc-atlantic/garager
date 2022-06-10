@@ -121,7 +121,7 @@ const Login = () => {
                 </div>
               </Form>
               <hr />
-              <FacebookLogin cssClass='fb-login-button btn btn-primary' onClick = {handleFacebookSignIn} icon="fa-facebook"/>
+              <FacebookLogin cssClass='fb-login-button btn btn-primary' onClick = {handleFacebookSignIn} icon="fa-facebook-f"/>
               <div className='w-100 text-center mt-2'>
             Don't have an account? <Link to='/Signup'>Sign up</Link>
               </div>
