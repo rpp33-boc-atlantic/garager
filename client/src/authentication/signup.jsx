@@ -53,7 +53,7 @@ const Signup = () => {
                 <br></br>
                 <Form.Group id='email'>
                   <Form.Label> Email</Form.Label>
-                  <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value)}/>
+                  <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value.toLowerCase())}/>
                 </Form.Group>
                 <br></br>
                 <Form.Group id='password'>
