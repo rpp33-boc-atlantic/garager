@@ -17,10 +17,16 @@ describe('Test Item View', () => {
 
   test('Sending GET request to /item/itemData with item number that does not exist', async() => {
     await request(server)
-      .get('/item/itemData/ID=7799')
-      .expect(404);
+      .get('/item/itemData/ID=hh')
+      .expect(404)
+      .then((response) => {
+        expect(response.body.message).toEqual('Error 404 Item Not Found');
+      });
   });
-
+  // afterAll(done => {
+  //   server.close();
+  //   done();
+  // });
 });
 
 
