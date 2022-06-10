@@ -24,7 +24,7 @@ jobs:
           run: echo RDS_PASSWORD=${{ secrets.RDS_PASSWORD }} >> .env
         -
           name: Install packages
-          run: npm install
+          run: npm install -f
         -
           name: Run Tests
           run: npm run ci:test
