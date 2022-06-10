@@ -56,7 +56,6 @@ const Step2 = (props) => {
         <Form.Group>
           <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control
-            style={{height: '10em'}}
             required
             type="text" maxLength={500}
             id="brand"
