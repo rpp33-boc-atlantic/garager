@@ -3,14 +3,6 @@ const supertest = require('supertest');
 const server = require('../server/index.js');
 const { Stripe } = require('stripe');
 
-// const details_submitted = jest.fn(() => ({
-//   details_submitted: false,
-// }));
-
-// Stripe.prototype.accounts = {
-//   retrieve: details_submitted,
-// };
-
 describe('CHECKOUT SESSION', () => {
   it('returns a 500 error if no stripe account is associated with an owner', async () => {
     await supertest(server).post('/checkout/create-session')
