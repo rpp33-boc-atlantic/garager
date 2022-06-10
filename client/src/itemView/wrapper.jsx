@@ -53,7 +53,7 @@ const Item = (props) => {
 
   //new way to get userId (from local storage)
   const currentId = localStorage.getItem('currentId');
-  console.log('current userId from localstorage', currentId);
+  // console.log('current userId from localstorage', currentId);
 
   useEffect(() => {
     let mounted = true;
@@ -95,7 +95,7 @@ const Item = (props) => {
       });
   };
 
-  const deleteButton = userId === itemData.details.user_id ? <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button> : null;
+  const deleteButton = currentId === itemData.details.user_id ? <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button> : null;
   const ownerInfoData = itemData.details.item_id ? itemData.details : fakeProps;
   const itemDetailsData = itemData.details.item_id ? itemData.details : fakeProps;
   const rentFormData = itemData.details.item_id ? itemData : fakeProps;
@@ -119,7 +119,7 @@ const Item = (props) => {
           <CarouselContainer className='gallery' images={imagesData}/>
           <OwnerInfo className='owner' details={ownerInfoData} user={user}/>
           <ItemDetails className='details' details={itemDetailsData}/>
-          <RentForm className='form' itemInfo={rentFormData} userID={userId} userEmail={user.email}/>
+          <RentForm className='form' itemInfo={rentFormData} userID={currentId} userEmail={user.email}/>
           {deleteButton}
         </Container>
       </div>
