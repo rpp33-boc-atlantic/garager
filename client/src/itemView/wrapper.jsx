@@ -75,11 +75,6 @@ const Item = (props) => {
     return () => mounted = false;
   }, [dataLoading]);
 
-  const toggleAlert = () => {
-    const successDelete = document.querySelector('.successDelete');
-    successDelete.style.display = 'block';
-  };
-
   const deleteItem = () => {
     const itemID = itemData.details.item_id;
     axios.delete('/item/itemData', {
@@ -88,7 +83,6 @@ const Item = (props) => {
       }
     })
       .then(response => {
-        // toggleAlert();
       })
       .catch(error => {
         alert('Error in deleting item.');
@@ -112,9 +106,6 @@ const Item = (props) => {
   } else {
     return (
       <div>
-        <div className='alert alert-success alert-dismissible fade show successDelete' role="alert" style={{display: 'none'}}>
-          <strong>Post has been succesfully deleted.</strong>
-        </div>
         <Container>
           <CarouselContainer className='gallery' images={imagesData}/>
           <OwnerInfo className='owner' details={ownerInfoData} user={user}/>
