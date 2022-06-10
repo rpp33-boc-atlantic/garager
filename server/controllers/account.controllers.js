@@ -9,7 +9,7 @@ module.exports = {
   rentals: {
     get: (req, res) => {
       let renter_id = req.query.id;
-      // console.log('RENTALS');
+      // console.log('RENTALS', renter_id);
       // res.send('this route will send back current transaction information');
       models.rentals.get(renter_id, (err, data) => {
         if (err) {
@@ -55,6 +55,7 @@ module.exports = {
   profile: {
     get: (req, res) => {
       let user_id = req.query.id;
+      console.log('USERS', user_id);
       // console.log('looking for data for user', user_id);
       models.profile.get(user_id, (err, data) => {
         if (err) {

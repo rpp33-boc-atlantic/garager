@@ -35,7 +35,6 @@ const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
-
     <UserAuthContextProvider>
       <NavLinks socketIO={socketIO} />
       <Routes>
@@ -57,6 +56,5 @@ root.render(
         </Route>
       </Routes>
     </UserAuthContextProvider>
-
   </BrowserRouter>
 );
