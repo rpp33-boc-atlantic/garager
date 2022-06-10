@@ -54,6 +54,10 @@ const Item = (props) => {
   const { user, userId } = useUserAuth();
   console.log('this should be the user id', userId);
 
+  //new way to get userId (from local storage)
+  const currentId = localStorage.getItem('currentId');
+  console.log('current userId from localstorage', currentId);
+
   useEffect(() => {
     let mounted = true;
     axios.get('/item/itemData', {
