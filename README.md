@@ -32,12 +32,17 @@ npm run build-dev
 ```
 npm start
 ```
+5. Set up PostgreSQL database locally
+```
+psql postgres
+\i <path to server/database/schema.sql>
+```
+Update user, host and password to localhost when running local database.
+
 4. "test" jest testing
 ```
 npm test
 ```
-
-### PostgreSQL Database Setup:
 
 ### Deploy Production
 
