@@ -6,7 +6,6 @@ import moment from 'moment';
 
 const Container = styled.div`
   display: grid;
-  // background: white;
   padding: 1em;
 `;
 
@@ -76,6 +75,8 @@ class RentForm extends React.Component {
     var sugPrice = this.state.suggestedPrice;
     var sugPriceIsValid = false;
     if (sugPrice !== null && sugPrice.length !== 0) {
+      console.log('suggested price right here', parseInt(sugPrice));
+      console.log('minimum price right here', parseInt(this.props.itemInfo.details.min_price));
       if (parseInt(sugPrice) < parseInt(this.props.itemInfo.details.min_price)) {
         this.toggleAlert('on');
         return false;
@@ -85,31 +86,36 @@ class RentForm extends React.Component {
       }
     }
 
-    const pd = new Date(this.state.dateRange[0].toLocaleDateString('en-US'));
-    const rd = new Date(this.state.dateRange[1].toLocaleDateString('en-US'));
-    const diffTime = Math.abs(rd - pd);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const formattedPD = moment(pd).format().substring(0, 10);
-    const formattedRD = moment(rd).format().substring(0, 10);
-
-    var cost;
-    var rateUsed = this.props.itemInfo.details.price;
-    if (sugPriceIsValid) {
-      if (formattedPD === formattedRD) {
-        cost = 1 * parseInt(sugPrice);
-        rateUsed = parseInt(sugPrice);
-      } else {
-        cost = diffDays * parseInt(sugPrice);
-        rateUsed = parseInt(sugPrice);
-      }
+    if (this.state.dateRange[0] === undefined || this.state.dateRange[1] === undefined) {
+      alert('Please choose a proper range of dates.')
+      return [false];
     } else {
-      if (formattedPD === formattedRD) {
-        cost = this.props.itemInfo.price;
+      const pd = new Date(this.state.dateRange[0].toLocaleDateString('en-US'));
+      const rd = new Date(this.state.dateRange[1].toLocaleDateString('en-US'));
+      const diffTime = Math.abs(rd - pd);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const formattedPD = moment(pd).format().substring(0, 10);
+      const formattedRD = moment(rd).format().substring(0, 10);
+
+      var cost;
+      var rateUsed = this.props.itemInfo.details.price;
+      if (sugPriceIsValid) {
+        if (formattedPD === formattedRD) {
+          cost = 1 * parseInt(sugPrice);
+          rateUsed = parseInt(sugPrice);
+        } else {
+          cost = diffDays * parseInt(sugPrice);
+          rateUsed = parseInt(sugPrice);
+        }
       } else {
-        cost = diffDays * this.props.itemInfo.details.price;
+        if (formattedPD === formattedRD) {
+          cost = this.props.itemInfo.price;
+        } else {
+          cost = diffDays * this.props.itemInfo.details.price;
+        }
       }
+      return [cost * 100, rateUsed];
     }
-    return [cost * 100, rateUsed];
   }
 
   grabDateRange(range) {
@@ -123,7 +129,7 @@ class RentForm extends React.Component {
   toggleAlert(status) {
     const tooLow = document.querySelector('.tooLow');
     const isHidden = tooLow.style.display === 'none';
-    if (isHidden) {
+    if (isHidden && status === 'on') {
       tooLow.style.display = 'block';
     } else if (status === 'off') {
       tooLow.style.display = 'none';
@@ -132,7 +138,7 @@ class RentForm extends React.Component {
   }
 
   render() {
-    var suggestedPrice = <NYOP style={{ padding: '.4em'}}><label htmlFor='suggestedPrice'>Suggested price per day ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange}></input> <br></br></NYOP>;
+    var suggestedPrice = <NYOP style={{ padding: '.4em'}}><label htmlFor='suggestedPrice'>Suggested price per day ($):</label> <input type='number' min="0" step="1" placeholder='Round to nearest $' id='suggestedPrice' name='suggestedPrice' onChange={this.handleChange} ></input> <br></br></NYOP>;
     var suggestedPriceLine = this.props.itemInfo.details.nyop ? suggestedPrice : null;
 
     return (
