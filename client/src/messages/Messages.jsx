@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import sampleThreads from './liveChatSamples.js';
 import ThreadList from './ThreadList.jsx';
 import ChatList from './ChatList.jsx';
-import { Row } from 'react-bootstrap';
+import DetailPane from './DetailPane.jsx';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 import './MessageStyles.css';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom'; // JO ADDED THIS LINE
+import { useLocation } from 'react-router-dom';
+import '../App.css';
 
 const Messages = ( props ) => {
 
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
   const [ threadAdded, updateThreadAdded ] = useState(false);
-  const [ userData, changeUserData ] = useState('');
+  const [ userData, changeUserData ] = useState({});
 
   const { user } = useUserAuth();
   const threadRef = useRef([]);
@@ -47,7 +47,7 @@ const Messages = ( props ) => {
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: 32,
+      itemId: 38,
       renterId: 1,
       timeUpdated: Date.now()
     });
@@ -94,7 +94,7 @@ const Messages = ( props ) => {
   return (
     <section>
 
-      <Row id='messages-row'>
+      <div id='messages-row'>
 
         {/* <input type='button' value='create thread' onClick={addThread}/> */}
 
@@ -103,7 +103,6 @@ const Messages = ( props ) => {
             threads={ threads }
             activeThread={ activeThread }
             changeThread={ changeThread }
-            email={ user.email }
             userData={ userData }
           />
         </div>
@@ -117,7 +116,15 @@ const Messages = ( props ) => {
           />
         </div>
 
-      </Row>
+        <div id='detail-column'>
+          <DetailPane
+            threads={ threads }
+            activeThread={ activeThread }
+            userData={ userData }
+          />
+        </div>
+
+      </div>
     </section>
   );
 };

@@ -18,7 +18,7 @@ export default function EarningsCard (props) {
 
 
   var duration = props.duration ? props.duration.toLowerCase() : '';
-  var values1 = props.values[0] ? props.values[0] : {};
+  var values1 = props.values[0] ? props.values[0] : {'weekly_transactions': 0, 'monthly_transactions': 0, 'total_transactions': 0, 'weekly': 0, 'monthly': 0, 'total': 0, 'weekly_items': 0, 'monthly_items': 0, 'total_items': 0 };
 
   return (
 
@@ -30,7 +30,7 @@ export default function EarningsCard (props) {
 
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <ListGroupItem> ${props.values[0] ? props.values[0][duration] : ''}</ListGroupItem>
+        <ListGroupItem> ${values1[duration]}</ListGroupItem>
         <ListGroupItem>from {values1[`${duration}_transactions`]} transactions </ListGroupItem>
         <ListGroupItem>from {values1[`${duration}_items`]} items </ListGroupItem>
       </ListGroup>

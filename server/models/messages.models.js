@@ -16,7 +16,8 @@ module.exports = {
     post: async ( thread ) => {
       let query = 'select user_id from items where item_id=' + thread.itemId;
       let result = await db.query( query );
-      let ownerId = result.rows[0].user_id;
+      // let ownerId = result.rows[0].user_id; FIX THIS!
+      let ownerId = 0;
 
       query = `insert into threads
                (item_id, owner_id, renter_id, owner_viewed, renter_viewed, time_updated)
@@ -60,7 +61,7 @@ module.exports = {
   productInfo: {
 
     get: async ( itemId ) => {
-      const query = 'select title from items where item_id = ' + itemId;
+      const query = 'select title, photos from items where item_id = ' + itemId;
       return db.query( query );
     }
   },
@@ -70,11 +71,11 @@ module.exports = {
     get: async ( userId, email ) => {
 
       if (userId !== null) {
-        const query = 'select firstname, lastname, email from users where user_id = ' + userId;
+        const query = 'select firstname, lastname, email, userphoto from users where user_id = ' + userId;
         return db.query( query );
 
       } else {
-        const query = `select firstname, lastname, user_id from users where email ilike '${email}'`;
+        const query = `select firstname, lastname, user_id, userphoto from users where email ilike '${email}'`;
         return db.query( query );
       }
     }
