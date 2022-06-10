@@ -13,7 +13,6 @@ import FacebookLogin from 'react-facebook-login';
 import background from '../img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
 import './style.css';
 
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -115,13 +114,12 @@ const Login = () => {
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder = 'Password' onChange = {(e) => setPassword(e.target.value)} />
                 </Form.Group>
-
                 <div className="d-grid gap-2">
                   <Button className = 'w-100' type='submit'>Log In</Button>
                 </div>
               </Form>
               <hr />
-              <FacebookLogin cssClass='fb-login-button btn btn-primary' onClick = {handleFacebookSignIn} icon="fa-facebook-f"/>
+              <FacebookLogin cssClass='fb-login-button btn btn-primary' onClick = {handleFacebookSignIn} icon='fa-facebook'/>
               <div className='w-100 text-center mt-2'>
             Don't have an account? <Link to='/Signup'>Sign up</Link>
               </div>
