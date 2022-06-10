@@ -6,7 +6,7 @@ module.exports = {
     get: (renter_id, callback) => {
 
       const query = {
-        text: `SELECT title, concat_ws(' ',firstName, lastName) as owner, owner_id,transaction_id, items.item_id, rate, pickupdate, returndate, photos FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
+        text: `SELECT title, concat_ws(' ',firstName, lastName) as owner, owner_id,transaction_id, items.item_id, rate, pickupdate, returndate, refunded, photos FROM transactions, users,items  WHERE renter_id = $1 AND users.user_id = transactions.owner_id AND items.item_id = transactions.item_id`,
         values: [renter_id]
       };
       return client.query(query)

@@ -55,8 +55,10 @@ export default function Tables (props) {
             })//<img src={t[col.dataField][0]} width="75" height="100%" />
           }
           {/* <td><button className="btn btn-primary btn-sm"> { moment(t.availableto).isBefore(moment(new Date())) ? <p>available</p> : <p>unavailable</p>}</button></td> */}
-
-          <td><RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/></td>
+          { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
+            '' :
+            <td><RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/></td> : ''
+          }
         </tr>);
     });
 

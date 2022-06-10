@@ -86,7 +86,7 @@ export default function RentalTabs(props) {
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
     var clickedColumn = 'returndate';
     pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    
+
     return [currentRentals, pastRentals];
   };
 
@@ -100,11 +100,11 @@ export default function RentalTabs(props) {
         <Tab eventKey="upcoming" title="Upcoming">
           {
             // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <RentalList rentals={rentals[0]}/>
-            rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables columns = {columns} values={rentals[0]}/>
+            rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables refundOption={true} columns = {columns} values={rentals[0]}/>
           }
         </Tab>
         <Tab eventKey="past" title="Past" >
-          { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <Tables columns = {columns} values={rentals[1]}/>}
+          { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <Tables refundOption={false}columns = {columns} values={rentals[1]}/>}
           {/* { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <RentalList rentals={rentals[1]}/>} */}
         </Tab>
 
