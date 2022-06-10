@@ -81,11 +81,15 @@ module.exports = {
         values: [user_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err))
-        .then((data)=>{
-          console.log('data', data);
-          callback(null, data.rows);
+        .then((profileData)=>{
+          console.log('data', profileData);
+          callback(null, profileData);
+        })
+        .catch (err => {
+          console.log('err@models-account-profile');
+          callback(err, null);
         });
+
     },
   },
   data: {
