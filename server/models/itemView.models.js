@@ -19,10 +19,8 @@ module.exports = {
         })
     },
     delete: (itemID) => {
-      console.log('item id in delete model', itemID);
-      // const queryi = `DELETE FROM items where item_id=${itemID}`;
-      const tempQuery = `SELECT * FROM items where item_id=${itemID}`;
-      return client.query(tempQuery)
+      const query = `DELETE FROM items where item_id=${itemID}`;
+      return client.query(query)
         .catch (error => console.log('error in deleting item data', error));
     }
   }
