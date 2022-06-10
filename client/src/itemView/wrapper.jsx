@@ -48,7 +48,8 @@ const Item = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
   const { user, userId } = useUserAuth();
-  console.log('this should be the user id', userId);
+  // console.log('this should be the user id', userId);
+  // console.log('this should be the user email', user.email);
 
   useEffect(() => {
     let mounted = true;
@@ -114,7 +115,7 @@ const Item = (props) => {
           <CarouselContainer className='gallery' images={imagesData}/>
           <OwnerInfo className='owner' details={ownerInfoData} user={user}/>
           <ItemDetails className='details' details={itemDetailsData}/>
-          <RentForm className='form' itemInfo={rentFormData} userID={userId}/>
+          <RentForm className='form' itemInfo={rentFormData} userID={userId} userEmail={user.email}/>
           {deleteButton}
         </Container>
       </div>
@@ -123,3 +124,4 @@ const Item = (props) => {
 };
 
 export default Item;
+

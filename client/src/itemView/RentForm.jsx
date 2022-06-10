@@ -56,7 +56,8 @@ class RentForm extends React.Component {
         priceInCents: cost,
         dateRange: this.state.dateRange,
         rate: result[1],
-        userID: this.props.userID
+        userID: this.props.userID,
+        userEmail: this.props.userEmail
       };
       console.log('itemInfo before passing to checkout', itemInfo);
 

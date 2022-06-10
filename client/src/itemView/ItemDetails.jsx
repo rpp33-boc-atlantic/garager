@@ -34,12 +34,12 @@ const ItemDetails = (props) => {
   return (
     <Container>
       <div className='inside'>
-        <h4>Model</h4>
-        {modelInfo}
-      </div>
-      <div className='inside'>
         <h4>Brand</h4>
         {brandInfo}
+      </div>
+      <div className='inside'>
+        <h4>Model</h4>
+        {modelInfo}
       </div>
       <div className='description inside'>
         <h4>Description</h4>
