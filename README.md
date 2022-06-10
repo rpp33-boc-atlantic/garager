@@ -57,7 +57,7 @@ We used Github's Actions to trigger new Docker image built on any merge to Main 
 #### To Run on AWS EC2 Instance:
 
 
-### AWS RDS Database:
+#### AWS RDS Database:
 
 
 ## Contributors
