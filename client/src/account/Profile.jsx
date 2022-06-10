@@ -11,6 +11,7 @@ import ProfileTabs from './ProfileTabs.jsx';
 import getData from './getData.jsx';
 import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 // var transactions = require('../data/dataFunctions/transactions.json');
 // var users = require('../data/dataFunctions/users.json');

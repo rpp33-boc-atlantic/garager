@@ -16,10 +16,11 @@ export default function Earnings () {
 
   let [earnings, setEarnings] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-
+  const {userId, user} = useUserAuth();
+  // console.log('UserId earnings', userId, user.email);
   useEffect(()=> {
-    if (dataLoading ) {
-      getData(9, '/account/my-earnings')
+    if (dataLoading) {
+      getData(4, '/account/my-earnings')
         .then(data => {
           setEarnings(data);
           console.log('data', data);
