@@ -88,14 +88,14 @@ const Item = (props) => {
       }
     })
       .then(response => {
-        toggleAlert();
+        // toggleAlert();
       })
       .catch(error => {
         alert('Error in deleting item.');
       });
   };
 
-  const deleteButton = currentId === itemData.details.user_id ? <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}>Delete Post</button> : null;
+  const deleteButton = currentId === itemData.details.user_id ? <button onClick={deleteItem} className="btn btn-primary btn-sm" style={{width: '7.5em'}}><Link to={'../my-listings'} style={{color: 'white', textDecoration: 'none'}}>Delete Post</Link></button> : null;
   const ownerInfoData = itemData.details.item_id ? itemData.details : fakeProps;
   const itemDetailsData = itemData.details.item_id ? itemData.details : fakeProps;
   const rentFormData = itemData.details.item_id ? itemData : fakeProps;
