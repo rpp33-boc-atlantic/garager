@@ -107,21 +107,20 @@ const Login = () => {
               <h2 className='text-center mb-4'>Log In</h2>
               {error && <Alert variant='danger'>{error}</Alert>}
               <Form onSubmit = {handleSubmit}>
-                <Form.Group id='email'>
+                <Form.Group className='mb-3' controlId='formBasicEmail'>
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder = 'Email Address' onChange = {(e) => setEmail(e.target.value)}/>
                 </Form.Group>
-                <br></br>
-                <Form.Group id='password'>
+                <Form.Group className='mb-3' controlId='formBasicPassword'>
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder = 'Password' onChange = {(e) => setPassword(e.target.value)} />
                 </Form.Group>
-                <br></br>
-                <Button className = 'w-100' type='submit'>Log In</Button>
+
+                <div className="d-grid gap-2">
+                  <Button className = 'w-100' type='submit'>Log In</Button>
+                </div>
               </Form>
-              <div className='w-100 text-center mt-2'>
-            or Log in with Facebook
-              </div>
+              <hr />
               <FacebookLogin cssClass='fb-login-button btn btn-primary' onClick = {handleFacebookSignIn} icon="fa-facebook"/>
               <div className='w-100 text-center mt-2'>
             Don't have an account? <Link to='/Signup'>Sign up</Link>

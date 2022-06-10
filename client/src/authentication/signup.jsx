@@ -43,27 +43,25 @@ const Signup = () => {
               <h2 className='text-center mb-4'>Sign Up</h2>
               {error && <Alert variant='danger'>{error}</Alert>}
               <Form onSubmit = {handleSubmit}>
-                <Form.Group id='firstname'>
+                <Form.Group className='mb-3' controlId='formBasicFirstname'>
                   <Form.Label> First Name</Form.Label>
                   <Form.Control type='name' placeholder='First Name' onChange = {(e) => setFirstName(e.target.value)}/>
                 </Form.Group>
-                <br></br>
-                <Form.Group id='lastname'>
+                <Form.Group className='mb-3' controlId='formBasicLastname'>
                   <Form.Label> Last Name</Form.Label>
                   <Form.Control type='name' placeholder='Last Name' onChange = {(e) => setLastName(e.target.value)}/>
                 </Form.Group>
-                <br></br>
-                <Form.Group id='email'>
+                <Form.Group className='mb-3' controlId='formBasicEmail'>
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder='Email Address' onChange = {(e) => setEmail(e.target.value)}/>
                 </Form.Group>
-                <br></br>
-                <Form.Group id='password'>
+                <Form.Group className='mb-3' controlId='formBasicPassword'>
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder='Password' onChange = {(e) => setPassword(e.target.value)}/>
                 </Form.Group>
-                <br></br>
-                <Button className = 'w-100' type='submit'>Sign Up</Button>
+                <div className="d-grid gap-2">
+                  <Button className = 'w-100' type='submit'>Sign Up</Button>
+                </div>
               </Form>
               <div className='w-100 text-center mt-2'>
               Already have an account? <Link to='/Login'>Log In</Link>

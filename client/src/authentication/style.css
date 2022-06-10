@@ -13,4 +13,5 @@
   height: 'auto';
   /* Center and scale the image nicely */
   background-size: cover;
+  background-position: center center;
 }
