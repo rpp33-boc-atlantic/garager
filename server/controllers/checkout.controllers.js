@@ -1,13 +1,14 @@
 /* eslint-disable camelcase */
 const { STRIPE_SECRET_KEY, STRIPE_SECRET_ENDPOINT } = require('../../config.js');
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
-const YOUR_DOMAIN = 'http://localhost:3000';
+// const YOUR_DOMAIN = 'http://localhost:3000'; ***** Refactored to use origin for deployed or localhost
 const models = require('../models/checkout.models.js');
-const moment = require('moment');
 
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
+      const origin = `${req.headers.origin}`;
+      console.log('origin', origin);
       const renterID = 9; // Kelly Kapoor ***** NEED TO REFACTOR HARDCODED DATA
 
       const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate } = req.body;
@@ -25,6 +26,7 @@ module.exports = {
             if (!accountInfo.details_submitted || !accountInfo.charges_enabled) {
               res.status(500).send('Item owner has an incomplete Stripe Account Setup');
             } else { // Owner has a Stripe Account, so proceed to checkout
+              console.log('test point now');
               // First, get transaction_id from DB by inserting transactions table with NOT NULL data (rate, pickUpDate, returnDate)
               models.checkoutSession.post(rate, pickUpDate, returnDate, async (err, transactionID) => {
                 if (err) {
@@ -45,8 +47,8 @@ module.exports = {
                       },
                     ],
                     mode: 'payment',
-                    success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${itemID}&owner_name=${ownerName}&item_name=${itemName}`,
-                    cancel_url: `${YOUR_DOMAIN}/CheckoutCancel?item_id=${itemID}`,
+                    success_url: `${origin}/CheckoutSuccess?item_id=${itemID}&owner_name=${ownerName}&item_name=${itemName}`,
+                    cancel_url: `${origin}/CheckoutCancel?item_id=${itemID}`,
                     payment_intent_data: {
                       metadata: {
                         transaction_id: transactionID,
@@ -64,6 +66,7 @@ module.exports = {
               });
             }
           } catch (err) {
+            console.log('ARE WE GETTING HERE?');
             res.status(500).send({
               error: err.message,
             });
@@ -145,7 +148,7 @@ module.exports = {
   checkAccountCompletion: {
     get: async (req, res) => {
       // console.log('userID', req.query.userID);
-      const userID = req.query.userID;  
+      const userID = req.query.userID;
       models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
