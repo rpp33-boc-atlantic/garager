@@ -5,6 +5,8 @@ import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 // import ListingList from './ListingList.jsx';
 import Tables from './Tables.jsx';
+import Earnings from './Earnings.jsx';
+
 
 
 export default function ListingTabs(props) {
@@ -29,6 +31,9 @@ export default function ListingTabs(props) {
     text: 'image'
   }];
 
+  // props.items.map(item => {
+  //   item.photos = item.photos === null ? [] : item.photos.split(',');
+  // });
 
   var PostMessage = function (props) {
     return (
@@ -45,10 +50,13 @@ export default function ListingTabs(props) {
 
         <Tab eventKey="listings" title="Listings">
           {/* {props.listings.length === 0 ? <PostMessage/> : <ListingList/>} */}
-          {props.transactions.length === 0 ? <PostMessage/> : <Tables columns = {columns} values = {props.items}/>}
+          {props.items.length === 0 ? <PostMessage/> : <Tables columns = {columns} values = {props.items}/>}
         </Tab>
         <Tab eventKey="earnings" title="Earnings">
-          <div style={{size: '20px'}}>You have earned a total of </div> <h1>  ${props.earnings} </h1> from {props.rentedItems} items.
+          {/* <div style={{size: '20px'}}>You have earned a total of </div> <h1>  ${props.earnings} </h1> from {props.rentedItems} items. */}
+          <Container className="h-25">
+            <Earnings></Earnings>
+          </Container>
         </Tab>
         <Tab eventKey="Saved" title="Saved" disabled>
         </Tab>

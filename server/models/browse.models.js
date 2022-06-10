@@ -33,6 +33,7 @@ module.exports = {
         "FROM items I " +
         "GROUP BY I.item_id";
       let items = await db.query(query);
+      console.log(items);
       return items;
     }
   }

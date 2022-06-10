@@ -12,12 +12,13 @@ const Search = (props) => {
       <span className="column-title">FIND RENTALS</span>
       <div className="search-function">
         <span className="search-title">Keyword</span>
-        <input type="text" id="keyword-search" placeholder="Search Here!" onChange={props.keywordSearch}></input>
+        <label htmlFor="keyword-search" hidden>keyword-search</label>
+        <input type="text" id="keyword-search" name="keyword-search" placeholder="Search Here!" onChange={props.keywordSearch}></input>
       </div>
       <div className="search-function">
         <span className="search-title">Location</span>
         <div id="mile-radius-search">
-          <select name="distance" id="distance-dropdown" onChange={props.radiusSearch}>
+          <select name="distance" id="distance-dropdown" data-testid="distance" onChange={props.radiusSearch}>
             <option value="24902">any</option>
             <option value="10">10</option>
             <option value="25">25</option>
@@ -26,7 +27,8 @@ const Search = (props) => {
             <option value="150">150</option>
           </select>
           <span>&nbsp;miles from&nbsp;</span>
-          <input type="text" id="zipcode-search" placeholder="ZIP Code" onChange={props.zipCodeSearch}></input>
+          <label htmlFor="zipcode-search" hidden>zipcode-search</label>
+          <input type="text" id="zipcode-search" name="zipcode-search" placeholder="ZIP Code" onChange={props.zipCodeSearch}></input>
         </div>
       </div>
       <div className="search-function">
@@ -37,12 +39,16 @@ const Search = (props) => {
             placeholderText={'MM/DD/YYYY'}
             selected={props.startDate}
             onChange={props.startDateSearch}
+            startDate={props.startDate}
+            endDate={props.endDate}
           />
           <span> to </span>
           <DatePicker
             placeholderText={'MM/DD/YYYY'}
             selected={props.endDate}
             onChange={props.endDateSearch}
+            startDate={props.startDate}
+            endDate={props.endDate}
           />
         </div>
       </div>

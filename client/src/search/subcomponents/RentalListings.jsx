@@ -30,9 +30,9 @@ class RentalListings extends React.Component {
     return (
       <div id="rental-listings">
         {this.props.rentals.map((rental) =>
-          <Link to={`Item/id=${rental.id}`} key={rental.id} className="go-to-item-listing">
+          <Link to={`../Item/id=${rental.id}`} key={rental.id} className="go-to-item-listing">
             <div className="rental-listing">
-              {rental.details.image.length ?
+              {rental.details.image ?
                 <img src={rental.details.image[0]}></img> :
                 <img src={categories[rental.details.category].image}></img>
               }
@@ -41,7 +41,7 @@ class RentalListings extends React.Component {
                   <div className="listing-title">
                     <span className="rental-category">{rental.details.category}</span>
                     <span>&nbsp;|&nbsp;</span>
-                    <span>
+                    <span data-testid="rental-title">
                       {this.props.query ?
                         this.highlightKeywordSearch(this.props.query, rental.name) :
                         rental.name

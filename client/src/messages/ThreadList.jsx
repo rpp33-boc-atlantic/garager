@@ -9,7 +9,7 @@ const ThreadList = ( props ) => {
   };
 
   return (
-    <ListGroup variant='flush' id='thread-list'>
+    <ListGroup id='thread-list'>
       {
         props.threads.map(( thread, index ) => {
 
@@ -21,7 +21,9 @@ const ThreadList = ( props ) => {
                 action
                 onClick={ () => handleClick( index ) }>
 
-                <ThreadTile thread={ thread }/>
+                <ThreadTile
+                  userData={ props.userData }
+                  thread={ thread }/>
 
               </ListGroup.Item>
             );
@@ -33,7 +35,9 @@ const ThreadList = ( props ) => {
                 key={ index }
                 action onClick={ () => handleClick( index ) }>
 
-                <ThreadTile thread={ thread }/>
+                <ThreadTile
+                  userData={ props.userData }
+                  thread={ thread }/>
 
               </ListGroup.Item>
             );

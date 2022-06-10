@@ -11,6 +11,7 @@ import {
 
 import { auth } from '../firebase';
 
+import axios from 'axios';
 
 const userAuthContext = createContext();
 
@@ -19,6 +20,7 @@ const userAuthContext = createContext();
 //wrapping all of the logic of handling state, updating state and pushing out these values to the child components
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState({});
+  const [userId, setUserId] = useState('initial value');
 
   function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
@@ -37,12 +39,44 @@ export function UserAuthContextProvider({ children }) {
     return signOut(auth);
   }
 
+  function registerUser(firstName, lastName, email) {
+    let bodyParam = {firstName, lastName, email};
+    axios.post('/auth', bodyParam)
+      .then((res) => {
+        if (res.data !== '') {
+          console.log('post res should return userId for new user', res.data.user_id);
+        }
+        console.log('succesfully register new user in the db');
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+
+  function getUserId(email) {
+    axios.get('/auth', {
+      params: {
+        email: email
+      }
+    })
+      .then((res) => {
+        console.log('get res', res.data.user_id);
+        const newUserId = res.data.user_id;
+        setUserId(newUserId);
+      })
+      .catch((err) => {
+        console.log('err getting user id', err.message);
+      });
+  }
 
   //run only once, when the components did mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log('userAuth', currentUser);
       setUser(currentUser);
+      if (currentUser) {
+        getUserId(currentUser.email);
+      }
     });
     return () => {
       //clean up while components un-mount
@@ -52,7 +86,7 @@ export function UserAuthContextProvider({ children }) {
 
 
   return (
-    <userAuthContext.Provider value={{user, signUp, logIn, facebookSignIn, logOut}}>
+    <userAuthContext.Provider value={{user, userId, signUp, logIn, facebookSignIn, logOut, registerUser}}>
       {children}
     </userAuthContext.Provider>
   );

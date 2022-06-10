@@ -11,8 +11,8 @@ class SearchBrowse extends React.Component {
     this.state = {
       allCategories: categories,
       allRentals: [],
-      filteredRentals: [],
-      selectedCategories: [],
+      filteredRentals: this.props.rentals || [],
+      selectedCategories: this.props.categories || [],
       startDate: '',
       endDate: '',
       query: '',
