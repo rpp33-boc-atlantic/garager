@@ -91,7 +91,7 @@ const Item = (props) => {
         toggleAlert();
       })
       .catch(error => {
-        alert('Error in deleting item.')
+        alert('Error in deleting item.');
       });
   };
 
