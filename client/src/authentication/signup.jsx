@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Form, Button, Card, Alert, Container } from 'react-bootstrap';
 import { Link, useNavigate} from 'react-router-dom';
 import {useUserAuth} from '../context/UserAuthContext.jsx';
-import background from '../img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
+import background from '../img/no-text-background.jpg';
 import './style.css';
 
 const Signup = () => {

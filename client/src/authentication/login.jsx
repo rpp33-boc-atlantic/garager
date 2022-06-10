@@ -9,7 +9,7 @@ import {
   linkWithCredential
 } from 'firebase/auth';
 import { auth } from '../firebase';
-import background from '../img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
+import background from '../img/no-text-background.jpg';
 import './style.css';
 
 const Login = () => {
