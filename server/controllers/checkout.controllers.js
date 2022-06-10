@@ -150,7 +150,7 @@ module.exports = {
       models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
-        } else if (!stripeID) {
+        } else if (!stripeID || stripeID === 'null') {
           res.send('Incomplete - please create an account.');
         } else {
           try {
