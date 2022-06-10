@@ -10,9 +10,12 @@ module.exports = {
         values: [renter_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err))
         .then((databaseStuff)=>{
           callback(null, databaseStuff.rows);
+        })
+        .catch (err => {
+          console.log('err@models-account-rentals');
+          callback(err, null);
         });
     }
   },
@@ -24,9 +27,11 @@ module.exports = {
         values: [owner_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err))
         .then((data)=>{
           callback(null, data.rows);
+        }).catch (err => {
+          console.log('err@models-account-listings');
+          callback(err, null);
         });
 
     },
@@ -66,11 +71,15 @@ module.exports = {
         values: [owner_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err))
         .then((data)=>{
           console.log('earnings', data.rows);
           callback(null, data.rows);
+        })
+        .catch (err => {
+          console.log('err@models-account-earnings');
+          callback(err, null);
         });
+
     },
   },
   profile: {
@@ -100,11 +109,14 @@ module.exports = {
         // values: [owner_id]
       };
       return client.query(query)
-        .catch (err => console.log('err@models-post-item', err))
         .then((databaseStuff)=>{
           // console.log('');
           fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(databaseStuff.rows, null, 2));
           callback(null, databaseStuff.rows);
+        })
+        .catch (err => {
+          console.log('err@models-account-data');
+          callback(err, null);
         });
     },
   }
