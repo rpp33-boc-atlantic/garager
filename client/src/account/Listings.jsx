@@ -7,7 +7,7 @@ import getData from './getData.jsx';
 
 // var transactions = require('../data/dataFunctions/transactions.json');
 // var items = require('../data/dataFunctions/items.json');
-
+const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : false;
 export default function Listings () {
 
   // let [transactions, setTransactions] = useState([]);
@@ -17,8 +17,8 @@ export default function Listings () {
 
   useEffect(()=> {
 
-    if (dataLoading ) {
-      getData(8, '/account/my-listings').then(data => {
+    if (dataLoading && localId ) {
+      getData(localId, '/account/my-listings').then(data => {
         setItems(data);
         setDataLoading(false);
       });

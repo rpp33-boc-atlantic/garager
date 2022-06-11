@@ -13,14 +13,14 @@ var items = require('../../../server/database/items.json');
 
 export default function Rentals () {
 
-  let [transactions, setTransactions] = useState(null);
+  let [transactions, setTransactions] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
-  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : 11;
+  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : false;
 
   useEffect(()=> {
 
-    if (dataLoading ) {
+    if (dataLoading and localId ) {
       getData(localId, '/account/my-rentals').then(data => {
         setTransactions(data);
         setDataLoading(false);
