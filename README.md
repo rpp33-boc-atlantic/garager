@@ -88,6 +88,7 @@ Members of the Atlantic Team:
 
 ### Payments: Stripe Integration
 * Checkout Session - Rent an Item
+
 ![checkoutSession](https://user-images.githubusercontent.com/89096566/173196885-6b38d7f8-a1bb-4c61-8761-a4ec428a9114.gif)
 
 * Setup a Connected Account
