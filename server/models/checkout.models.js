@@ -78,7 +78,7 @@ module.exports = {
         if (err) {
           console.log('ERROR in models.checkout.refund.getStripeID:', err);
           callback(err);
-        } else if (!res.rows[0].stripe_id) {
+        } else if (!res.rows[0].stripe_id || res.rows[0].stripe_id === 'null') {
           callback('The owner does not have a Stripe Account. Please message the owner directly for a refund.');
         } else {
           callback(null, res.rows[0].stripe_id);
