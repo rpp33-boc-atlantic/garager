@@ -1,52 +1,29 @@
-// test('should display something', () => {
-
 const request = require('supertest');
 const server = require('../server/index.js');
 
 describe('Test Item View', () => {
 
-  // it ('GET item data request /item/ItemData', (done) => {
-  //   request(server)
-  //     .get('/item/itemData/ID=16661')
-  //     .expect(404)
-  //     .end((err, res) => {
-  //       if (err) { return done(err); }
-  //       return done();
-  //     });
+  it('Should return 200 status code for GET request to /item/itemData with appropriate params', async() => {
+    await request(server)
+      .get('/item/itemData/')
+      .query({ ID: 'ID=11' })
+      .expect(200);
+  });
 
-  // })
+  it('Should return 404 status code for GET request to /item/itemData for nonexistant item', async() => {
+    await request(server)
+      .get('/item/itemData/')
+      .query({ ID: 'ID=777' })
+      .expect(404)
+      .then((res) => {
+        expect(res.text).toEqual('{\"message\":\"Error 404 Item Not Found\"}');
+      });
+  });
 
-
-
-  // beforeAll(done => {
-  //   done();
-  // });
-
-  // test('Sending GET request to /item/itemData with item number that does not exist', async() => {
-  //   await request(server)
-  //     .get('/item/itemData/ID=16661')
-  //     .expect(404)
-  //     // .then((response) => {
-  //     //   expect(response.body.message).toEqual('Error 404 Item Not Found');
-  //     // });
-  // });
-
-  // test('Sending GET request to /item/itemData with appropriate params', async() => {
-  //   await request(server)
-  //     .get('/asdfasdfs')
-  //     .expect(500);
-  // });
-  // afterAll(done => {
-  //   server.close();
-  //   done();
-  // });
+  it('Should return 500 status code for GET request to /item/itemData', async() => {
+    await request(server)
+      .get('/item/itemData/')
+      .query({ ID: 'ID=p757h' })
+      .expect(500);
+  });
 });
-
-
-
-
-
-
-
-//   expect('Item-view!').toMatch(/^Item(.*)/);
-// });
