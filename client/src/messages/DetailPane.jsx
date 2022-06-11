@@ -8,7 +8,7 @@ const DetailPane = ( props ) => {
 
   if (!thread) { return null; }
 
-  if (props.userData.userId === thread.ownerId) {
+  if (props.userId === thread.ownerId) {
     username = thread.renterName;
     userImage = thread.renterImageUrl;
   } else {
@@ -35,7 +35,12 @@ const DetailPane = ( props ) => {
         <Card.Img variant="top" src={ thread.itemImageUrl } />
         <Card.Body>
           <Card.Text>{ thread.itemName }</Card.Text>
-          <Button variant="primary" id='detail-item-button'>View item</Button>
+          <Button
+            variant="primary"
+            id='detail-item-button'
+            href={ `item/id=${thread.itemId}` }>
+            View item
+          </Button>
         </Card.Body>
       </Card>
     </div>

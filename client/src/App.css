@@ -1,13 +1,13 @@
-@font-face {
+/* @font-face {
   font-family: "SanFrancisco";
   src:
     url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff2") format("woff2"),
     url("https://cdn.rawgit.com/AllThingsSmitty/fonts/25983b71/SanFrancisco/sanfranciscodisplay-regular-webfont.woff") format("woff");
-}
+} */
 
-html, body {
+/* html, body {
   font-family: "SanFrancisco";
-}
+} */
 
 .theme-beige {
   background-color: #F9EBC8;
@@ -24,3 +24,15 @@ html, body {
 .theme-blue {
   background-color: #A0BCC2;
 }
+
+.navbar-nav {
+  background-color: #A0BCC2;
+  padding-left: 3%;
+}
+
+/* .nav-item {
+  margin-left: 1%;
+} */
+/* .nav-link {
+  margin-left: 1%;
+} */

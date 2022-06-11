@@ -5,6 +5,9 @@ import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Tables from './Tables.jsx';
+import {SiFacebook} from 'react-icons/si';
+import {MdOutlineMarkEmailRead} from 'react-icons/md';
+import Stack from 'react-bootstrap/Stack';
 /// I may eventually delete this because I made my Table component
 
 export default function ProfileTabs (props) {
@@ -14,20 +17,26 @@ export default function ProfileTabs (props) {
   return ( <Container>
     <Tabs defaultActiveKey="address" id="profileTabs" className='mb-3s'
     >
-      <Tab eventKey="address" title="Address">
+      <Tab eventKey="address" title="Reviews">
         {
-          <div>{user.address}</div>
-        // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <RentalList rentals={rentals[0]}/>
-          // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables columns = {columns} values={rentals[0]}/>
+          <Container className = 'profContainer'>
+            <Stack gap={2}>
+              <p> Reviews would go here</p>
+            </Stack>
+          </Container>
+
         }
       </Tab>
       <Tab eventKey="verified  " title="Verified With" >
-        {/* { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <Tables columns = {columns} values={rentals[1]}/>} */}
-        {/* { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <RentalList rentals={rentals[1]}/>} */}
+        <Container className = 'profContainer'>
+          <Stack gap={3}>
+            <h6> facebook <SiFacebook></SiFacebook></h6>
+            <h6> email <MdOutlineMarkEmailRead></MdOutlineMarkEmailRead></h6>
+          </Stack>
+        </Container>
       </Tab>
 
-      <Tab eventKey="Saved" title="Saved" disabled>
-      </Tab>
+      {/* <Tab eventKey="Saved" title="Saved" disabled>  </Tab>*/}
     </Tabs>
   </Container>
   );

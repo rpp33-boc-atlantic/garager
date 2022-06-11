@@ -5,6 +5,8 @@ import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Tables from './Tables.jsx';
+import StackVersion from './StackVersion.jsx';
+
 
 import moment from 'moment';
 
@@ -36,7 +38,7 @@ export default function RentalTabs(props) {
   }, {
     dataField: 'owner',
     text: 'Owner',
-    link: '../my-profile',
+    link: '../profile',
     sort: true,
     param: 'owner_id',
     photo: 'userPhoto'
@@ -59,14 +61,14 @@ export default function RentalTabs(props) {
     text: 'image'
   }];
 
+
+
   var pastRentals = [];
   var currentRentals = [];
 
   var mapper = (transactions, items) => {
 
-    items = items;
-    var c = 0;
-    var p = 0;
+
     // iterate through items and sort by past or current
     if (transactions) {
       transactions.map((t) => {
@@ -86,7 +88,7 @@ export default function RentalTabs(props) {
     currentRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
     var clickedColumn = 'returndate';
     pastRentals.sort((a, b) => { return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0; });
-    
+
     return [currentRentals, pastRentals];
   };
 
@@ -94,34 +96,22 @@ export default function RentalTabs(props) {
 
   return (
 
-    <Container>
+    <Container style={{paddingTop: '30px'}}>
       <Tabs defaultActiveKey="upcoming" id="rentalTabs" className='mb-3s'
       >
         <Tab eventKey="upcoming" title="Upcoming">
           {
-            // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <RentalList rentals={rentals[0]}/>
-            rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables columns = {columns} values={rentals[0]}/>
+            rentals[0].length === 0 ? <BrowseMessage time='current'/> : <StackVersion refundOption={true} columns = {columns} values={rentals[0]}/>
           }
         </Tab>
         <Tab eventKey="past" title="Past" >
-          { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <Tables columns = {columns} values={rentals[1]}/>}
-          {/* { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <RentalList rentals={rentals[1]}/>} */}
+          {rentals[1].length === 0 ? <BrowseMessage time='current'/> : <StackVersion refundOption={true} columns = {columns} values={rentals[1]}/> }
         </Tab>
 
-        <Tab eventKey="Saved" title="Saved" disabled>
-        </Tab>
+        {/* <Tab eventKey="Saved" title="Saved" disabled>  </Tab> */}
+
       </Tabs>
     </Container>
 
   );
 }
-
-// UPDATE items
-//         SET latlng = (select replace(latlng, '|', ',lng:') from items where s.item_id = item_id) as s;
-//      select latlng from (select item_id, latlng from items where item_id = 2) as s;
-
-// update items
-//   set latlng = case
-//             when item_id >= 0 then replace(latlng, 'lng','"lng"')
-//             else latlng
-//           end;

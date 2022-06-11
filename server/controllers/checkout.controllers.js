@@ -1,16 +1,16 @@
 /* eslint-disable camelcase */
 const { STRIPE_SECRET_KEY, STRIPE_SECRET_ENDPOINT } = require('../../config.js');
 const stripe = require('stripe')(STRIPE_SECRET_KEY);
-const YOUR_DOMAIN = 'http://localhost:3000';
+// const YOUR_DOMAIN = 'http://localhost:3000'; ***** Refactored to use origin for deployed or localhost
 const models = require('../models/checkout.models.js');
-const moment = require('moment');
 
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
-      const renterID = 9; // Kelly Kapoor ***** NEED TO REFACTOR HARDCODED DATA
+      const origin = `${req.headers.origin}`;
 
-      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate } = req.body;
+      // console.log('req.body.userEmail (aka renter email)', req.body.userEmail); <-- in case Messages needs this
+      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate, userID: renterID } = req.body;
       const pickUpDate = req.body.dateRange[0];
       const returnDate = req.body.dateRange[1];
 
@@ -18,7 +18,7 @@ module.exports = {
       models.checkAccountCompletion.get(ownerID, async (err, stripeID) => {
         // If they don't, send alert that rent cannot occur
         if (err || !stripeID) {
-          res.status(500).send('Item owner has an incomplete Stripe Account Setup');
+          res.status(500).send('Item owner has not setup a Stripe Account');
         } else {
           try {
             const accountInfo = await stripe.accounts.retrieve(stripeID);
@@ -45,8 +45,8 @@ module.exports = {
                       },
                     ],
                     mode: 'payment',
-                    success_url: `${YOUR_DOMAIN}/CheckoutSuccess?item_id=${itemID}&owner_name=${ownerName}&item_name=${itemName}`,
-                    cancel_url: `${YOUR_DOMAIN}/CheckoutCancel?item_id=${itemID}`,
+                    success_url: `${origin}/CheckoutSuccess?item_id=${itemID}&owner_name=${ownerName}&item_name=${itemName}`,
+                    cancel_url: `${origin}/CheckoutCancel?item_id=${itemID}`,
                     payment_intent_data: {
                       metadata: {
                         transaction_id: transactionID,
@@ -144,17 +144,15 @@ module.exports = {
   },
   checkAccountCompletion: {
     get: async (req, res) => {
-      // console.log('userID', req.query.userID);
-      const userID = req.query.userID;  
+      const userID = req.query.userID;
       models.checkAccountCompletion.get(userID, async (err, stripeID) => {
         if (err) {
           res.status(500).send(err);
-        } else if (!stripeID) {
+        } else if (!stripeID || stripeID === 'null') {
           res.send('Incomplete - please create an account.');
         } else {
           try {
             const accountInfo = await stripe.accounts.retrieve(stripeID);
-            // console.log('accountInfo', accountInfo);
             if (!accountInfo.details_submitted) {
               res.send('In-progress - please continue to fill out the details to setup your account.');
             } else if (!accountInfo.charges_enabled) {
@@ -224,7 +222,6 @@ module.exports = {
       if (event.type === 'payment_intent.succeeded') {
         const paymentIntent = event.data.object;
         // UPDATE TRANSACTIONS TABLE WITH PAYMENTINTENT_ID, PAYMENT_STATUS, AND METADATA USING METADATA'S TRANSACTION_ID
-        console.log('payment_intent.succeeded TRIGGERED');
         models.webhook.post.paymentIntent(paymentIntent.id, paymentIntent.metadata, 'completed', (error, response) => {
           if (error) {
             res.status(500).send(error);
@@ -233,7 +230,6 @@ module.exports = {
           }
         });
       } else {
-        console.log(`Unhandled event type ${event.type}`);
         res.send();
       }
     }

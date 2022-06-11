@@ -1,20 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 import './searchBrowse.css';
-
-import rentalListings from '../data/exampleRentals.js';
-import categories from '../data/categories.js';
-
 import Search from './subcomponents/Search.jsx';
 import Browse from './subcomponents/Browse.jsx';
+import categories from '../data/categories.js';
 
 class SearchBrowse extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       allCategories: categories,
-      allRentals: rentalListings,
-      filteredRentals: rentalListings,
+      allRentals: [],
+      filteredRentals: [],
       selectedCategories: [],
       startDate: '',
       endDate: '',
@@ -45,7 +42,18 @@ class SearchBrowse extends React.Component {
   }
 
   componentDidMount() {
-    this.selectAllCategories();
+    axios.get('/browse/items')
+      .then((response) => {
+        let items = response.data;
+        this.setState({
+          allRentals: items
+        }, () => {
+          this.selectAllCategories();
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   searchRentals = () => {
@@ -83,14 +91,14 @@ class SearchBrowse extends React.Component {
   };
 
   retrieveRelatedWords = async (keyword) => {
-    return axios.get('/browse/RelatedWords', {
+    return axios.get('/browse/relatedWords', {
       params: {
         keyword: keyword
       }
     })
       .then((response) => {
-        let RelatedWords = response.data;
-        return RelatedWords;
+        let relatedWords = response.data;
+        return relatedWords;
       })
       .catch((error) => {
         console.log(error);
@@ -103,12 +111,14 @@ class SearchBrowse extends React.Component {
     let relatedWords = this.state.relatedWords;
 
     for (const rental of rentals) {
-      if ((rental.name.indexOf(keyword) !== -1) || (rental.details.description.indexOf(keyword) !== -1)) {
+      let name = rental.name.toLowerCase();
+      let description = rental.details.description.toLowerCase();
+      if ((name.indexOf(keyword) !== -1) || (description.indexOf(keyword) !== -1)) {
         filteredRentals.push(rental);
         continue;
       }
       for (const relatedWord of relatedWords) {
-        if ((rental.name.indexOf(relatedWord.word) !== -1) || (rental.details.description.indexOf(relatedWord.word) !== -1)) {
+        if ((name.indexOf(relatedWord.word) !== -1) || (description.indexOf(relatedWord.word) !== -1)) {
           filteredRentals.push(rental);
           break;
         }
@@ -212,34 +222,50 @@ class SearchBrowse extends React.Component {
   };
 
   handleStartDateSearch = (event) => {
-    this.setState({
-      startDate: event.getTime()
-    }, () => {
-      this.searchRentals();
-    });
+    if (!event) {
+      this.setState({
+        startDate: ''
+      }, () => {
+        this.searchRentals();
+      });
+    } else {
+      this.setState({
+        startDate: event.getTime()
+      }, () => {
+        this.searchRentals();
+      });
+    }
   };
 
   handleEndDateSearch = (event) => {
-    this.setState({
-      endDate: event.getTime()
-    }, () => {
-      this.searchRentals();
-    });
+    if (!event) {
+      this.setState({
+        endDate: ''
+      }, () => {
+        this.searchRentals();
+      });
+    } else {
+      this.setState({
+        endDate: event.getTime()
+      }, () => {
+        this.searchRentals();
+      });
+    }
   };
 
   filterByAvailability = (rentals) => {
     let filteredRentals = [];
-    let startDate = this.state.startDate;
-    let endDate = this.state.endDate;
+    let startDate = this.state.startDate / 1000;
+    let endDate = this.state.endDate / 1000;
 
-    if (startDate > endDate) {
+    if (startDate > endDate && endDate) {
       return filteredRentals;
     }
 
     if (startDate && endDate) {
       for (const rental of rentals) {
         if (startDate > rental.details.availability.startDate && endDate < rental.details.availability.endDate) {
-          if (rental.details.availability.rentedDates.length) {
+          if (rental.details.availability.rentedDates && rental.details.availability.rentedDates.length) {
             if (!this.checkDatesRented(startDate, endDate, rental.details.availability.rentedDates)) {
               continue;
             }
@@ -326,8 +352,11 @@ class SearchBrowse extends React.Component {
     let zipCodeInput = document.getElementById('zipcode-search');
     zipCodeInput.value = '';
 
+    let sortInput = document.getElementById('sort-dropdown');
+    sortInput.selectedIndex = 0;
+
     this.setState({
-      allRentals: rentalListings,
+      filteredRentals: this.state.allRentals,
       startDate: '',
       endDate: '',
       query: '',
