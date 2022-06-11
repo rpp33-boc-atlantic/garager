@@ -13,7 +13,7 @@ module.exports = {
       // res.send('this route will send back current transaction information');
       models.rentals.get(renter_id, (err, data) => {
         if (err) {
-          console.log('err', err);
+          console.log('RENTALS ERROR', err);
           res.status(500).send(err);
         } else {
           // console.log('datarentals', data);
@@ -29,7 +29,8 @@ module.exports = {
       // console.log('LISTINGS');
       models.listings.get(owner_id, (err, data) => {
         if (err) {
-          res.status(500).send(err);
+          console.log('LISTINGS ERROR', err);
+          res.status(500).send(err, err);
         } else {
           // console.log('LISTINGS', data);
           res.status(200).send(data);
@@ -44,6 +45,7 @@ module.exports = {
       // console.log('looking for data for user', user_id);
       models.earnings.get(user_id, (err, data) => {
         if (err) {
+          console.log('EARNINGS ERROR', err);
           res.status(500).send(err);
         } else {
           // console.log('datalistings', data);
@@ -58,6 +60,7 @@ module.exports = {
       console.log('looking for data for user', user_id);
       models.profile.get(user_id, (err, data) => {
         if (err) {
+          console.log('PROFILE ERROR', err);
           res.status(500).send(err);
         } else {
           // console.log('datalistings', data);
