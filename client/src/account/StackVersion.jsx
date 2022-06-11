@@ -10,6 +10,8 @@ import Image from 'react-bootstrap/Image';
 import Stack from 'react-bootstrap/Stack';
 import '../App.css';
 import './accountStyles.css';
+import noImagePhoto from '../itemView/samplePhotos/unavailable-image.jpeg';
+
 export default function TableStack (props) {
   props.column;
   const [state, setState] = useState(false);
@@ -71,7 +73,7 @@ export default function TableStack (props) {
             }
           </Stack>
 
-          <div className='photoCol'><Image className = 'itemPhoto' src={t.photos[0]} thumbnail width={'210px'} height={'auto'} /></div>
+          <div className='photoCol'><Image className = 'itemPhoto' src={t.photos[0] ? t.photos[0] : noImagePhoto} thumbnail width={'210px'} height={'auto'} /></div>
         </Stack>
 
       );

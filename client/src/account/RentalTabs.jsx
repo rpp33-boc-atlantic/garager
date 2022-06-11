@@ -61,57 +61,14 @@ export default function RentalTabs(props) {
     text: 'image'
   }];
 
-  // const columns = [{
-  //   text: {
 
-  //     0:
-  //    {
-  //      dataField: 'title',
-  //      title: 'Item Name',
-  //      link: '../item',
-  //      sort: true,
-  //      param: 'item_id',
-  //      photo: 'photos'
-  //    },
-  //     1: {
-  //       dataField: 'owner',
-  //       text: 'Owner',
-  //       link: '../my-profile',
-  //       sort: true,
-  //       param: 'owner_id',
-  //       photo: 'userPhoto'
-  //     },
-  //     2: {
-  //       dataField: 'rate',
-  //       text: 'Price',
-  //       sort: true
-  //     }, 3:
-  //   {
-  //     dataField: 'pickupdate',
-  //     text: 'Checkout Date',
-  //     sort: true
-  //   }, 4:
-  //   {
-  //     dataField: 'returndate',
-  //     text: 'Return Date',
-  //     sort: true
-  //   }
-  //   },
-
-  //   image:
-  // {
-  //   dataField: 'photos',
-  //   text: 'image'
-  // }}];
 
   var pastRentals = [];
   var currentRentals = [];
 
   var mapper = (transactions, items) => {
 
-    items = items;
-    var c = 0;
-    var p = 0;
+
     // iterate through items and sort by past or current
     if (transactions) {
       transactions.map((t) => {
@@ -144,36 +101,17 @@ export default function RentalTabs(props) {
       >
         <Tab eventKey="upcoming" title="Upcoming">
           {
-            // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables refundOption={true} columns = {columns} values={rentals[0]}/>
             rentals[0].length === 0 ? <BrowseMessage time='current'/> : <StackVersion refundOption={true} columns = {columns} values={rentals[0]}/>
-
           }
         </Tab>
         <Tab eventKey="past" title="Past" >
-          { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <Tables refundOption={false}columns = {columns} values={rentals[1]}/>}
-          {/* { rentals[1].length === 0 ? <BrowseMessage time='past'/> : <RentalList rentals={rentals[1]}/>} */}
+          {rentals[1].length === 0 ? <BrowseMessage time='current'/> : <StackVersion refundOption={true} columns = {columns} values={rentals[1]}/> }
         </Tab>
 
-        <Tab eventKey="Saved" title="Saved" disabled>
-        </Tab>
+        {/* <Tab eventKey="Saved" title="Saved" disabled>  </Tab> */}
+
       </Tabs>
     </Container>
 
   );
 }
-
-// UPDATE items
-//         SET latlng = (select replace(latlng, '|', ',lng:') from items where s.item_id = item_id) as s;
-//      select latlng from (select item_id, latlng from items where item_id = 2) as s;
-
-// update items
-//   set latlng = case
-//             when item_id >= 0 then replace(latlng, 'lng','"lng"')
-//             else latlng
-//           end;
-/* dataField: 'dates',
-    // dataField1: 'pickupdate',
-    // dataField2: 'returndate',
-    text: 'Checkout Date / Return date',
-    sort: true
-    */
