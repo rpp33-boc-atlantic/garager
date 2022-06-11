@@ -10,6 +10,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
 import {FiEdit3} from 'react-icons/fi';
+import moment from 'moment';
 
 // import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 
@@ -34,18 +35,18 @@ export default function ProfileCard (props) {
         {props.accountOwner ? <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstname + ' ' + props.user.lastname} <FiEdit3/> </Card.Title> : <Card.Title>   {props.user.firstname + ' ' + props.user.lastname} </Card.Title>}
 
         <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+          {props.user.address}
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>{props.user.phone}</ListGroupItem>
         <ListGroupItem>{props.user.email}</ListGroupItem>
-        <ListGroupItem>{props.user.dateJoined}</ListGroupItem>
+        {/* <ListGroupItem>{}</ListGroupItem> */}
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+        <ListGroupItem>Date Joined: { moment(props.user.datejoined).format('MMMM Do YYYY')}</ListGroupItem>
+        {/* <Card.Link href="#">Card Link</Card.Link>
+        <Card.Link href="#">Another Link</Card.Link> */}
       </Card.Body>
     </Card>
 

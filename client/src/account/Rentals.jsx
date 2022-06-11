@@ -6,17 +6,13 @@ import RentalTabs from './RentalTabs.jsx';
 import {useState, useEffect} from 'react';
 import getData from './getData.jsx';
 
-// const axios = require('axios');
-
-var transactions = require('../../../server/database/transactions.json');
-var items = require('../../../server/database/items.json');
 
 export default function Rentals () {
 
   let [transactions, setTransactions] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
-  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : false;
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : false;
 
   useEffect(()=> {
 
@@ -24,6 +20,10 @@ export default function Rentals () {
       getData(localId, '/account/my-rentals').then(data => {
         setTransactions(data);
         setDataLoading(false);
+      }).catch(err => {
+        console.log('err ', err);
+        setDataLoading(false);
+        throw (err);
       });
     }
 
@@ -34,7 +34,6 @@ export default function Rentals () {
 
   return <RentalTabs m='auto' past = {false} transactions={transactions} />;
 }
-
 
 
 

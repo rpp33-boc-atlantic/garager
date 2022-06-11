@@ -21,7 +21,6 @@ export default function EarningsCard (props) {
   var values1 = props.values[0] ? props.values[0] : {'weekly_transactions': 0, 'monthly_transactions': 0, 'total_transactions': 0, 'weekly': 0, 'monthly': 0, 'total': 0, 'weekly_items': 0, 'monthly_items': 0, 'total_items': 0 };
 
   return (
-
     <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title > {props.duration} Report</Card.Title>

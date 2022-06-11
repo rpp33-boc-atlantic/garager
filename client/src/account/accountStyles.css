@@ -10,6 +10,10 @@
   height: 220px;
   word-wrap: break-word;
   justify-content: center;
+  width: 90%;
+}
+.textRow{
+  text-size-adjust: auto;
 }
 .textCol{
    background-color:  white;
