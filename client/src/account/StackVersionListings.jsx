@@ -1,9 +1,9 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import RefundButton from '../checkout/RefundButton.jsx';
 import Image from 'react-bootstrap/Image';
@@ -42,18 +42,7 @@ export default function StackVersionListings (props) {
           setClickedColumn(['title', textStates['title']]);
           setTextStates['title'](!textStates['title']);
         }}> Item Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        {/* <h5 onClick ={()=> {
-          setClickedColumn(['owner', textStates['owner']]);
-          setTextStates['owner'](!textStates['owner']);
-        }}> Owner:{textStates['owner'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5> */}
-        {/* <h5 onClick ={()=> {
-          setClickedColumn(['pickupdate', textStates['pickupdate']]);
-          setTextStates['pickupdate'](!textStates['pickupdate']);
-        }}> Pickup:{textStates['pickupdate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
-          setClickedColumn(['returndate', textStates['returndate']]);
-          setTextStates['returndate'](!textStates['returndate']);
-        }}> Return:{textStates['returndate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5> */}
+
       </Stack>);
 
 
