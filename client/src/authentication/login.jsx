@@ -78,7 +78,7 @@ const Login = () => {
           .then((res) => {
             registerUser('', '', email);
             alert('Succesfully linked accounts');
-            navigate('/');
+            navigate('/SearchBrowse');
           })
           .catch((err) => {
             console.log('failed to link account', err.message);
