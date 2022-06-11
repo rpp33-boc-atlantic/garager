@@ -222,19 +222,35 @@ class SearchBrowse extends React.Component {
   };
 
   handleStartDateSearch = (event) => {
-    this.setState({
-      startDate: event.getTime()
-    }, () => {
-      this.searchRentals();
-    });
+    if (!event) {
+      this.setState({
+        startDate: ''
+      }, () => {
+        this.searchRentals();
+      });
+    } else {
+      this.setState({
+        startDate: event.getTime()
+      }, () => {
+        this.searchRentals();
+      });
+    }
   };
 
   handleEndDateSearch = (event) => {
-    this.setState({
-      endDate: event.getTime()
-    }, () => {
-      this.searchRentals();
-    });
+    if (!event) {
+      this.setState({
+        endDate: ''
+      }, () => {
+        this.searchRentals();
+      });
+    } else {
+      this.setState({
+        endDate: event.getTime()
+      }, () => {
+        this.searchRentals();
+      });
+    }
   };
 
   filterByAvailability = (rentals) => {
