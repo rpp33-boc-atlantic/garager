@@ -9,9 +9,9 @@ module.exports = {
     post: async (req, res) => {
       const origin = `${req.headers.origin}`;
       console.log('origin', origin);
-      const renterID = 9; // Kelly Kapoor ***** NEED TO REFACTOR HARDCODED DATA
 
-      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate } = req.body;
+      // console.log('req.body.userEmail (aka renter email)', req.body.userEmail); <-- in case Messages needs this
+      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate, userID: renterID } = req.body;
       const pickUpDate = req.body.dateRange[0];
       const returnDate = req.body.dateRange[1];
 
