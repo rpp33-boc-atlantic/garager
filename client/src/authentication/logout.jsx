@@ -22,7 +22,7 @@ const Logout = () => {
   if (user) {
     return (
       <>
-        <div className='p-4 box mt-1 text-center'>
+        <div className='p-2 box text-center'>
           Welcome
           <br></br>
           {user.email}
@@ -35,7 +35,7 @@ const Logout = () => {
   } else {
     return (
       <>
-        <div className='p-4 box mt-3 text-center'>
+        <div className='p-2 box text-center'>
           Hello.Welcome!
         </div>
         <div className='d-grid gap-2'>

@@ -9,7 +9,8 @@ import {
   linkWithCredential
 } from 'firebase/auth';
 import { auth } from '../firebase';
-
+import background from '../img/no-text-background.jpg';
+import './style.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -93,7 +94,7 @@ const Login = () => {
 
 
   return (
-    <>
+    <div className = 'loginbg' style={{ backgroundImage: `url(${background})`}} >
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: '100vh' }}
@@ -104,22 +105,23 @@ const Login = () => {
               <h2 className='text-center mb-4'>Log In</h2>
               {error && <Alert variant='danger'>{error}</Alert>}
               <Form onSubmit = {handleSubmit}>
-                <Form.Group id='email'>
+                <Form.Group className='mb-3' controlId='formBasicEmail'>
                   <Form.Label> Email</Form.Label>
                   <Form.Control type='email' placeholder = 'Email Address' onChange = {(e) => setEmail(e.target.value.toLowerCase())}/>
                 </Form.Group>
-                <br></br>
-                <Form.Group id='password'>
+                <Form.Group className='mb-3' controlId='formBasicPassword'>
                   <Form.Label> Password</Form.Label>
                   <Form.Control type='password' placeholder = 'Password' onChange = {(e) => setPassword(e.target.value)} />
                 </Form.Group>
-                <br></br>
-                <Button className = 'w-100' type='submit'>Log In</Button>
+                <div className="d-grid gap-2">
+                  <Button className = 'w-100' type='submit'>Log In</Button>
+                </div>
               </Form>
-              <div className='w-100 text-center mt-2'>
-            or Log in with Facebook
-              </div>
-              <Button className = 'w-100' onClick = {handleFacebookSignIn}>Facebook Login</Button>
+              <hr />
+              <Button className = 'fb-login-button' onClick = {handleFacebookSignIn}>
+                <i className="fa fa-facebook fa-fw"></i>
+                Login with Facebook
+              </Button>
               <div className='w-100 text-center mt-2'>
             Don't have an account? <Link to='/Signup'>Sign up</Link>
               </div>
@@ -127,7 +129,7 @@ const Login = () => {
           </Card>
         </div>
       </Container>
-    </>
+    </div>
   );
 };
 
