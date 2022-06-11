@@ -45,17 +45,15 @@ export default function RentalTabs(props) {
     text: 'Price',
     sort: true
   }, {
-    dataField: 'dates',
-    dataField1: 'pickupdate',
-    dataField2: 'returndate',
-    text: 'Checkout Date / Return date',
+    dataField: 'pickupdate',
+    text: 'Checkout Date',
     sort: true
   },
-  // {
-  //   dataField: 'returndate',
-  //   text: 'Return Date',
-  //   sort: true
-  // },
+  {
+    dataField: 'returndate',
+    text: 'Return Date',
+    sort: true
+  },
   {
     dataField: 'photos',
     text: 'image'
@@ -127,3 +125,9 @@ export default function RentalTabs(props) {
 //             when item_id >= 0 then replace(latlng, 'lng','"lng"')
 //             else latlng
 //           end;
+/* dataField: 'dates',
+    // dataField1: 'pickupdate',
+    // dataField2: 'returndate',
+    text: 'Checkout Date / Return date',
+    sort: true
+    */

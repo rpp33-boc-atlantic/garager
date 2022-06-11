@@ -46,11 +46,10 @@ export default function Tables (props) {
                   // if item is an array of photos create img tag using first img in array
                 } else if (col.dataField === 'photos' && t[col.dataField].length > 0) {
                   return <td className={'table-row'} key={c++}>   <Image src={t.photos[0]} thumbnail width={'200px'} /></td>;
-                }// if item is a date format correctly
+                  // if item is a date format correctly
+                } else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
+                  return <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td>;
 
-                // } else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
-                else if (col.dataField === 'dates') {
-                  return <td className={'table-row'} key={c++}> {moment(t[col.dataField1]).format('MMMM Do YYYY') } / {moment(t[col.dataField2]).format('MMMM Do YYYY')}</td>;
                   // otherwise insert as normal data
                 } else {
                   return <td className={'table-row'} key={c++}>{t[col.dataField]}</td>;
@@ -106,26 +105,26 @@ export default function Tables (props) {
           {
             props.columns.map((col, i)=> {
 
-              //   return col.sort ? <th key = {i} onClick ={()=> {
-              //     setClickedColumn([col.dataField, textStates[col.dataField]]);
-              //     setTextStates[col.dataField](!textStates[col.dataField]);
-              //   }}> {col.text}{textStates[col.dataField] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
-              //     <th key = {i}>{col.text}</th>;
-              // })
-
-              if (col.sort) {
-                return <th className={'table-headers'} key = {i} onClick ={()=> {
-                  setClickedColumn([col.dataField, textStates[col.dataField]]);
-                  setTextStates[col.dataField](!textStates[col.dataField]);
-                }} > {col.text}{textStates[col['returndate']] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>;
-
-              } else {
-                return <th key = {i}>{col.text}</th>;
-              }
-
-
-
+              return col.sort ? <th key = {i} onClick ={()=> {
+                setClickedColumn([col.dataField, textStates[col.dataField]]);
+                setTextStates[col.dataField](!textStates[col.dataField]);
+              }}> {col.text}{textStates[col.dataField] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
+                <th key = {i}>{col.text}</th>;
             })
+
+            // if (col.sort) {
+            //   return <th className={'table-headers'} key = {i} onClick ={()=> {
+            //     setClickedColumn([col.dataField, textStates[col.dataField]]);
+            //     setTextStates[col.dataField](!textStates[col.dataField]);
+            //   }} > {col.text}{textStates[col['returndate']] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>;
+
+            // } else {
+            //   return <th key = {i}>{col.text}</th>;
+            // }
+
+
+
+          })
           }
 
 
@@ -142,3 +141,7 @@ export default function Tables (props) {
 }
 
 
+/**else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
+                  return <td key={c++}> <img src={t[col.dataField][0]} width="75" height="100%" /> </td>;
+                // else if (col.dataField === 'dates') {
+                //   return <td className={'table-row'} key={c++}> {moment(t[col.dataField1]).format('MMMM Do YYYY') } / {moment(t[col.dataField2]).format('MMMM Do YYYY')}</td>; */
