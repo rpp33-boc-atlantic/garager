@@ -31,7 +31,8 @@ export default function ProfileCard (props) {
       <Card.Img variant="top" src={props.user.userphoto} />
       <Card.Body>
         {/* onMouseEnter={() => this.someHandler */}
-        <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstname + ' ' + props.user.lastname} <FiEdit3/> </Card.Title>
+        {props.accountOwner ? <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstname + ' ' + props.user.lastname} <FiEdit3/> </Card.Title> : <Card.Title>   {props.user.firstname + ' ' + props.user.lastname} </Card.Title>}
+
         <Card.Text>
       Some quick example text to build on the card title and make up the bulk of
       the card's content.

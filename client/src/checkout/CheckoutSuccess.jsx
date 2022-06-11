@@ -6,7 +6,6 @@ const CheckoutSuccess = () => {
   const [ownerName, setOwnerName] = useState(`the item's owner`);
   const [itemName, setItemName] = useState('item');
 
-
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     const queryItemID = query.get('item_id');
