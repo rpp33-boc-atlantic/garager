@@ -13,18 +13,14 @@ import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 
-// var transactions = require('../data/dataFunctions/transactions.json');
-// var users = require('../data/dataFunctions/users.json');
-// var user = users[0];
+
 export default function Profile () {
   let [profile, setProfile ] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
-  // const {userId, user} = useUserAuth();
 
 
-  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : 11;
-
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : '';
   let [accountOwner, setAccountOwner] = useState(false);
   // console.log('LOCAL ID --FAST RESPONSE TIME', localId);
 
@@ -38,11 +34,13 @@ export default function Profile () {
     if (dataLoading ) {
 
       getData(id, `/account/my-profile`).then(data => {
-        // console.log('user data:', data);
+
         setProfile(data[0]);
         setDataLoading(false);
-
-
+      }).catch(err => {
+        console.log('err ', err);
+        setDataLoading(false);
+        throw (err);
       });
     }
   }

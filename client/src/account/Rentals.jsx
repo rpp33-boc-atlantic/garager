@@ -20,6 +20,10 @@ export default function Rentals () {
       getData(localId, '/account/my-rentals').then(data => {
         setTransactions(data);
         setDataLoading(false);
+      }).catch(err => {
+        console.log('err ', err);
+        setDataLoading(false);
+        throw (err);
       });
     }
 
@@ -30,7 +34,6 @@ export default function Rentals () {
 
   return <RentalTabs m='auto' past = {false} transactions={transactions} />;
 }
-
 
 
 
