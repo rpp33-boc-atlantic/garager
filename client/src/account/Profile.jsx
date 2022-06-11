@@ -17,25 +17,46 @@ import { useUserAuth } from '../context/UserAuthContext.jsx';
 // var users = require('../data/dataFunctions/users.json');
 // var user = users[0];
 export default function Profile () {
-  let [user, setUser] = useState([]);
+  let [profile, setProfile ] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
+  // const {userId, user} = useUserAuth();
+
+
+  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : 11;
+
+  let [accountOwner, setAccountOwner] = useState(false);
+  // console.log('LOCAL ID --FAST RESPONSE TIME', localId);
+
+
+  //get id from url
   let { id } = useParams();
-  id = id.substring(3);
+  id = isNaN(id) ? id.substring(3) : id;
+
   useEffect(()=> {
 
     if (dataLoading ) {
-      console.log('user data: here');
 
-      console.log('id', id);
       getData(id, `/account/my-profile`).then(data => {
-        console.log('user data:', data);
-        setUser(data[0]);
+        // console.log('user data:', data);
+        setProfile(data[0]);
         setDataLoading(false);
+
+
       });
     }
+  }
 
-  }, [] );
+  , [] );
+  useEffect(()=> {
+    if (id === localId) {
+      setAccountOwner(true);
+    }
+  }
+
+  , [ accountOwner] );
+
+
 
   return ( <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
 
@@ -44,11 +65,11 @@ export default function Profile () {
       <Row >
         <Col></Col>
         <Col>
-          <ProfileCard user= {user}></ProfileCard>
+          <ProfileCard user= {profile} accountOwner={accountOwner}></ProfileCard>
           {/* {/* <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {user.userPhoto} /> */}
         </Col >
         <Col xs={8}>
-          <ProfileTabs user ={user}></ProfileTabs> (wider)
+          <ProfileTabs user ={profile} accountOwner={accountOwner}></ProfileTabs> (wider)
         </Col>
         <Col></Col>
       </Row>
@@ -64,4 +85,19 @@ export default function Profile () {
 
 // UPDATE users
 // SET userphoto = 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
-// where user_id = 5;
+// // where user_id = 5;
+
+// UPDATE users
+// set userphoto = 'https://www.incimages.com/uploaded_files/image/1920x1080/tom-haverford-parks-recreation_39318.jpg'
+// where user_id = 10 or user_id = 118;
+
+// UPDATE users
+// set email = 'wandavision@ucsf.edu '
+// where user_id = 0;
+// delete from users where user_id = 138
+
+// delete
+// from users
+// where firstName like '%est%' OR lastName like '%est%';
+// update users
+// set email = lower(email)
