@@ -78,7 +78,7 @@ Members of the Atlantic Team:
 ### Post an Item
 * Post an item through multiple steps instruction with data validation and suggestion.
 
-<img src="https://user-images.githubusercontent.com/88979402/173195190-e382f771-880a-42cd-abf9-1e7e70169d0a.gif" width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/88979402/173197542-07a0cb3c-7431-4c52-b638-34dd81e8aedc.gif" width="50%" height="50%">
 
 ### Item View
 
