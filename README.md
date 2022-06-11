@@ -93,7 +93,7 @@ Members of the Atlantic Team:
 
 * Setup a Connected Account
 
-![setupAccount](https://user-images.githubusercontent.com/89096566/173197060-83339a67-1737-4752-8ba8-856413ed8182.gif)
+![setupStripeAccount](https://user-images.githubusercontent.com/89096566/173197115-16a29f6d-effc-4263-8437-39e245976034.gif)
 
 * Refund
 ---
