@@ -20,7 +20,7 @@ export default function Rentals () {
 
   useEffect(()=> {
 
-    if (dataLoading and localId ) {
+    if (dataLoading && localId ) {
       getData(localId, '/account/my-rentals').then(data => {
         setTransactions(data);
         setDataLoading(false);
