@@ -61,7 +61,7 @@ const Messages = ( props ) => {
   const getThreads = async () => {
     const result = await axios.get(`/messages/threads?id=${ currentId }`);
     threadRef.current = result.data;
-    updateThreads ( result.data ); j
+    updateThreads ( result.data );
   };
 
   const addMessage = ( message ) => {

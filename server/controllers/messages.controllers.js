@@ -41,9 +41,9 @@ module.exports = {
 
     post: async ( req, res ) => {
       try {
-        await models.threads.post ( req.body );
+        await models.threads.post( req.body );
       } catch (err) {
-        console.log(err);
+        console.log('duplicate item id in message threads');
         res.end();
       }
       res.end();
