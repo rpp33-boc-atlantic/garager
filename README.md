@@ -92,6 +92,9 @@ Members of the Atlantic Team:
 ![checkoutSession](https://user-images.githubusercontent.com/89096566/173196885-6b38d7f8-a1bb-4c61-8761-a4ec428a9114.gif)
 
 * Setup a Connected Account
+
+![setupAccount](https://user-images.githubusercontent.com/89096566/173197060-83339a67-1737-4752-8ba8-856413ed8182.gif)
+
 * Refund
 ---
 ## License
