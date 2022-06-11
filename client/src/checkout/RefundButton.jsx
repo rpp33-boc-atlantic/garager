@@ -19,7 +19,7 @@ const RefundButton = (props) => {
   };
 
   return (
-    <Button onClick={handleClick}>Cancel</Button>
+    <Button disabled ={props.disabled}onClick={handleClick}>Cancel</Button>
   );
 };
 
