@@ -61,6 +61,8 @@ export function UserAuthContextProvider({ children }) {
     })
       .then((res) => {
         console.log('get res', res.data.user_id);
+        //use localstorage to save userId for current session instead of using state(async)
+        window.localStorage.setItem('currentId', res.data.user_id);
         const newUserId = res.data.user_id;
         setUserId(newUserId);
       })

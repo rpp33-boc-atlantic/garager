@@ -10,7 +10,6 @@ import moment from 'moment';
 const CalendarView = (props) => {
   // const disabledRanges = [['2022-06-03', '2022-06-04'], ['2022-06-10', '2022-06-15']];
   const disabledRanges = props.datesBooked;
-  // console.log('disabled ranges right here', disabledRanges);
 
   const [value, setValue] = useState(new Date());
 
@@ -18,7 +17,6 @@ const CalendarView = (props) => {
     if (checkIfConflict(nextValue)) {
       alert('Please fix dates. Make sure proposed rent range does not include dates where item is unavailable');
     } else {
-      // fix this so that it's handled asynchronously
       setValue(nextValue);
       props.grabDateRange(nextValue);
     }
@@ -31,9 +29,7 @@ const CalendarView = (props) => {
   };
 
   const isWithinRange = (date, range) => {
-    // console.log('range in iswithinrange', range);
     return isWithinInterval(date, { start: parseISO(range['json_build_array'][0]), end: parseISO(range['json_build_array'][1]) });
-    // return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
   };
 
   const isWithinRanges = (date, ranges) => {
@@ -41,9 +37,7 @@ const CalendarView = (props) => {
   };
 
   const isWithinRange2 = (date, range) => {
-    // console.log('range in iswithinrange', range);
     return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
-    // return isWithinInterval(date, { start: parseISO(range[0]), end: parseISO(range[1]) });
   };
 
   const checkIfConflict = (proposedRange) => {
@@ -84,15 +78,13 @@ const CalendarView = (props) => {
       <Calendar
         tileDisabled={tileDisabled}
         minDate={minimumDate}
-        // minDate={new Date()}
         maxDate={new Date(props.availabilityRange.availableto)}
         selectRange
         onChange={onChange}
         calendarType={'US'}
       />
-      <h6 style={{ padding: '.4em', paddingTop:'.8em'}}>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
+      <h6 style={{ padding: '.4em', paddingTop: '.8em'}}>Pick Up Date: {value[0] ? value[0].toLocaleDateString('en-US') : null}</h6>
       <h6 style={{ padding: '.4em'}}>Return Date: {value[1] ? value[1].toLocaleDateString('en-US') : null}</h6>
-      {/* {console.log(value)} */}
     </div>
   );
 
