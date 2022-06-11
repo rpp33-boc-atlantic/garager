@@ -3,13 +3,43 @@
 
 .table-headers{
   font-size: large;
-  /* color: blue; */
   font-family: 'SanFrancisco','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.tableRow{
+  padding: 5px;
+  height: 220px;
+  word-wrap: break-word;
+  justify-content: center;
+}
+.textCol{
+   background-color:  white;
+   border-bottom: 20px solid #A0BCC2;
+   max-width: 60%;
+   padding: 1%;
+   height: inherit;
+}
+.photoCol{
+  width: 200px;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:  white;
+  margin-top: 1%;
+}
+.itemPhoto {
+  max-height: 85%;
+  width: auto;
+  margin-top: 3px;
 
-.table-row{
-  font-size: medium;
-  color: red;
-  font-size: large;
-  font-family: 'SanFrancisco','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+a {
+  color: black;
+  /* #DAE5D0 */
+  /* #F9EBC8 */
+  /* #A0BCC2; */
+}
+.tbsContainer {
+  background-color:  #DAE5D0;
+  margin-top: 10px;
 }

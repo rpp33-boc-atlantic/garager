@@ -5,6 +5,8 @@ import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Tables from './Tables.jsx';
+import StackVersion from './StackVersion.jsx';
+
 
 import moment from 'moment';
 
@@ -59,6 +61,49 @@ export default function RentalTabs(props) {
     text: 'image'
   }];
 
+  // const columns = [{
+  //   text: {
+
+  //     0:
+  //    {
+  //      dataField: 'title',
+  //      title: 'Item Name',
+  //      link: '../item',
+  //      sort: true,
+  //      param: 'item_id',
+  //      photo: 'photos'
+  //    },
+  //     1: {
+  //       dataField: 'owner',
+  //       text: 'Owner',
+  //       link: '../my-profile',
+  //       sort: true,
+  //       param: 'owner_id',
+  //       photo: 'userPhoto'
+  //     },
+  //     2: {
+  //       dataField: 'rate',
+  //       text: 'Price',
+  //       sort: true
+  //     }, 3:
+  //   {
+  //     dataField: 'pickupdate',
+  //     text: 'Checkout Date',
+  //     sort: true
+  //   }, 4:
+  //   {
+  //     dataField: 'returndate',
+  //     text: 'Return Date',
+  //     sort: true
+  //   }
+  //   },
+
+  //   image:
+  // {
+  //   dataField: 'photos',
+  //   text: 'image'
+  // }}];
+
   var pastRentals = [];
   var currentRentals = [];
 
@@ -94,13 +139,14 @@ export default function RentalTabs(props) {
 
   return (
 
-    <Container>
+    <Container style={{paddingTop: '30px'}}>
       <Tabs defaultActiveKey="upcoming" id="rentalTabs" className='mb-3s'
       >
         <Tab eventKey="upcoming" title="Upcoming">
           {
-            // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <RentalList rentals={rentals[0]}/>
-            rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables refundOption={true} columns = {columns} values={rentals[0]}/>
+            // rentals[0].length === 0 ? <BrowseMessage time='current'/> : <Tables refundOption={true} columns = {columns} values={rentals[0]}/>
+            rentals[0].length === 0 ? <BrowseMessage time='current'/> : <StackVersion refundOption={true} columns = {columns} values={rentals[0]}/>
+
           }
         </Tab>
         <Tab eventKey="past" title="Past" >
