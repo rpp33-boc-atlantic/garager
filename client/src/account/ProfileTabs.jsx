@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Tables from './Tables.jsx';
 import {SiFacebook} from 'react-icons/si';
 import {MdOutlineMarkEmailRead} from 'react-icons/md';
+import Stack from 'react-bootstrap/Stack';
 /// I may eventually delete this because I made my Table component
 
 export default function ProfileTabs (props) {
@@ -18,14 +19,20 @@ export default function ProfileTabs (props) {
     >
       <Tab eventKey="address" title="Reviews">
         {
-        
-          <p> Reviews would go here</p>
+          <Container className = 'profContainer'>
+            <Stack gap={2}>
+              <p> Reviews would go here</p>
+            </Stack>
+          </Container>
+
         }
       </Tab>
       <Tab eventKey="verified  " title="Verified With" >
-        <Container>
-          <h6> facebook <SiFacebook></SiFacebook></h6>
-          <h6> email <MdOutlineMarkEmailRead></MdOutlineMarkEmailRead></h6>
+        <Container className = 'profContainer'>
+          <Stack gap={3}>
+            <h6> facebook <SiFacebook></SiFacebook></h6>
+            <h6> email <MdOutlineMarkEmailRead></MdOutlineMarkEmailRead></h6>
+          </Stack>
         </Container>
       </Tab>
 

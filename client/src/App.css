@@ -24,3 +24,15 @@
 .theme-blue {
   background-color: #A0BCC2;
 }
+
+.navbar-nav {
+  background-color: #A0BCC2;
+  padding-left: 3%;
+}
+
+/* .nav-item {
+  margin-left: 1%;
+} */
+/* .nav-link {
+  margin-left: 1%;
+} */

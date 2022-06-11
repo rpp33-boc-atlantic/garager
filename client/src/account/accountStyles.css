@@ -46,6 +46,11 @@ a {
 .tbsContainer {
   background-color:  #DAE5D0;
   margin-top: 10px;
+
+}
+.profContainer {
+  padding-top: 2%;
+  background-color:  #DAE5D0;
 }
 .cancelButton {
    margin-top: auto;
