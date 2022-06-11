@@ -43,3 +43,6 @@ a {
   background-color:  #DAE5D0;
   margin-top: 10px;
 }
+.cancelButton {
+   margin-top: auto;
+}

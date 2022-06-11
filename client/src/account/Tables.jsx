@@ -6,6 +6,7 @@ import {Link } from 'react-router-dom';
 import moment from 'moment';
 import RefundButton from '../checkout/RefundButton.jsx';
 import Image from 'react-bootstrap/Image';
+import Stack from 'react-bootstrap/Stack';
 import '../App.css';
 import './accountStyles.css';
 export default function Tables (props) {
@@ -42,13 +43,13 @@ export default function Tables (props) {
             props.columns.map((col) => {
               {
                 if (col.link) { // if item is a link create link using the col param and link
-                  return <td className={'table-row'} key={c++}> <Link to={`${col.link}/id=${t[col.param]}`}>{t[col.dataField]}</Link> </td>;
+                  return <td className={'table-row'} key={c++}> <h4> <Link to={`${col.link}/id=${t[col.param]}`}>{t[col.dataField]}</Link></h4> </td>;
                   // if item is an array of photos create img tag using first img in array
                 } else if (col.dataField === 'photos' && t[col.dataField].length > 0) {
                   return <td className={'table-row'} key={c++}>   <Image src={t.photos[0]} thumbnail width={'200px'} /></td>;
                   // if item is a date format correctly
                 } else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
-                  return <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td>;
+                  return <td className={'table-row'}key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td>;
 
                   // otherwise insert as normal data
                 } else {
@@ -98,7 +99,7 @@ export default function Tables (props) {
   }, [clickedColumn]);
 
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover size='sm'>
       <thead>
         <tr>
           {/* {// this code dynamically creates the table headers */}

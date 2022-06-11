@@ -67,7 +67,7 @@ export default function TableStack (props) {
             <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
-              <td><RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/></td> : ''
+              <div className = 'cancelButton'> <RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/> </div> : ''
             }
           </Stack>
 

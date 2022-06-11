@@ -16,37 +16,12 @@ export default function Rentals () {
   let [transactions, setTransactions] = useState(null);
   let [dataLoading, setDataLoading] = useState(true);
 
-  // var getData = (id)=>{
-
-  //   return axios.get('/account/my-rentals', {
-  //     params: {
-  //       // eslint-disable-next-line camelcase
-  //       id: id
-  //     }
-  //   })
-  //     .then(function (response) {
-  //       console.log('data returned', response.data);
-  //       setTransactions(response.data);
-  //       setDataLoading(false);
-  //     })
-  //     .catch(function (error) {
-  //       console.log('error', error);
-  //     })
-  //     .then(function () {
-  //     // always executed
-  //     });
-
-  // };
+  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : 11;
 
   useEffect(()=> {
-    // dataLoading ? getData(9) : null;
 
-
-    // var data = dataLoading ? getData2(9) : null;
-
-    // !dataloading ? setTransactions(data) : null;
     if (dataLoading ) {
-      getData(9, '/account/my-rentals').then(data => {
+      getData(localId, '/account/my-rentals').then(data => {
         setTransactions(data);
         setDataLoading(false);
       });
