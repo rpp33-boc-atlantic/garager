@@ -13,7 +13,7 @@ import '../App.css';
 const NavLinks = (props) => {
   // this navbar uses a menu toggle for that reactively collapses for smaller screens.
   const [expanded, setExpanded] = useState(false);
-  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : 11;
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : '';
 
   // sets up socketIO for new message notifications
   useEffect(() => {

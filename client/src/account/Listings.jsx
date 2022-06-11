@@ -7,7 +7,7 @@ import getData from './getData.jsx';
 
 // var transactions = require('../data/dataFunctions/transactions.json');
 // var items = require('../data/dataFunctions/items.json');
-const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : false;
+const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : false;
 export default function Listings () {
 
   // let [transactions, setTransactions] = useState([]);

@@ -12,7 +12,7 @@ import '../App.css';
 import './accountStyles.css';
 import noImagePhoto from '../itemView/samplePhotos/unavailable-image.jpeg';
 
-export default function StackVersion (props) {
+export default function StackVersionListings (props) {
   props.column;
   const [state, setState] = useState(false);
 
@@ -42,18 +42,18 @@ export default function StackVersion (props) {
           setClickedColumn(['title', textStates['title']]);
           setTextStates['title'](!textStates['title']);
         }}> Item Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
+        {/* <h5 onClick ={()=> {
           setClickedColumn(['owner', textStates['owner']]);
           setTextStates['owner'](!textStates['owner']);
-        }}> Owner:{textStates['owner'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
+        }}> Owner:{textStates['owner'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5> */}
+        {/* <h5 onClick ={()=> {
           setClickedColumn(['pickupdate', textStates['pickupdate']]);
           setTextStates['pickupdate'](!textStates['pickupdate']);
         }}> Pickup:{textStates['pickupdate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
         <h5 onClick ={()=> {
           setClickedColumn(['returndate', textStates['returndate']]);
           setTextStates['returndate'](!textStates['returndate']);
-        }}> Return:{textStates['returndate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
+        }}> Return:{textStates['returndate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5> */}
       </Stack>);
 
 
@@ -64,9 +64,9 @@ export default function StackVersion (props) {
       tRows.push(
         <Stack className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
-            <div> <h4> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4> </div>
+            <div> <h4> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['price']}/day  </h4> </div>
             <div> <h5><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5></div>
-            <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
+            {/* <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div> */}
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
               <div className = 'cancelButton'> <RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/> </div> : ''

@@ -23,7 +23,7 @@ export default function Profile () {
   // const {userId, user} = useUserAuth();
 
 
-  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : 11;
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : 11;
 
   let [accountOwner, setAccountOwner] = useState(false);
   // console.log('LOCAL ID --FAST RESPONSE TIME', localId);
