@@ -12,7 +12,9 @@ const socketIO = require('socket.io')(server, {
 // sets up server for socket connection
 socketIO.on('connection', ( socket ) => {
   socket.on('message', ( message ) => {
-    socketIO.emit('message', message);
+    const socketMessage = { ...message };
+    socketMessage['user_id'] = message.userId;
+    socketIO.emit('message', socketMessage);
     controller.messages.post(message);
   });
 });

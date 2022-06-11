@@ -13,6 +13,7 @@ const Messages = ( props ) => {
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
   const [ threadAdded, updateThreadAdded ] = useState(false);
+  const [ threadsLoading, changeThreadsLoading ] = useState(true);
   // const [ userData, changeUserData ] = useState({});
 
   // const { user } = useUserAuth();
@@ -55,6 +56,7 @@ const Messages = ( props ) => {
       renterId: currentId,
       timeUpdated: Date.now()
     });
+    window.history.replaceState({}, document.title);
     getThreads();
   };
 
@@ -62,6 +64,7 @@ const Messages = ( props ) => {
     const result = await axios.get(`/messages/threads?id=${ currentId }`);
     threadRef.current = result.data;
     updateThreads ( result.data );
+    changeThreadsLoading( false );
   };
 
   const addMessage = ( message ) => {
@@ -93,6 +96,17 @@ const Messages = ( props ) => {
     };
     props.socketIO.emit( 'message', newMessage );
   };
+
+  if ( threadsLoading ) {
+    return (
+      <div id='messages-loading'>
+        <img
+          id='messages-loading-icon'
+          src='https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif'
+        />
+      </div>
+    );
+  }
 
   return (
     <section>
