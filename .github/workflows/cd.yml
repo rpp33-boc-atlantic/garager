@@ -58,4 +58,5 @@ jobs:
             --env AWS_ACCESS_KEY=${{ secrets.AWS_ACCESS_KEY }} \
             --env RDS_PASSWORD=${{ secrets.RDS_PASSWORD }} \
             --env STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }} \
+            --env MAPS_API_KEY=${{ secrets.MAPS_API_KEY }} \
             "joemitz/garager:$TAGNAME"
