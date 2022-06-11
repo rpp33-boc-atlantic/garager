@@ -8,9 +8,8 @@ const moment = require('moment');
 module.exports = {
   checkoutSession: {
     post: async (req, res) => {
-      const renterID = 9; // Kelly Kapoor ***** NEED TO REFACTOR HARDCODED DATA
-
-      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate } = req.body;
+      // console.log('req.body.userEmail (aka renter email)', req.body.userEmail);
+      const { name: itemName, itemID, owner: ownerName, ownerID, priceInCents, rate, userID: renterID } = req.body;
       const pickUpDate = req.body.dateRange[0];
       const returnDate = req.body.dateRange[1];
 
