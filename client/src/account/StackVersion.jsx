@@ -31,12 +31,13 @@ export default function StackVersion (props) {
   const [clickedColumn, setClickedColumn] = useState(['', false]);
   const [values, setValues] = useState(props.values);
 
-  var tRows = [];
-  var mapRows = ()=> {
+  let tRows = [];
+  let key = 0;
+  let mapRows = ()=> {
 
     //CREATE THE SORTING OPTIONS AT THE TOP
     tRows.push(
-      <Stack direction="horizontal" gap={4}>
+      <Stack key={key++} direction="horizontal" gap={4}>
         <h4> Sort By: </h4>
         <h5 onClick ={()=> {
           setClickedColumn(['title', textStates['title']]);
@@ -62,7 +63,7 @@ export default function StackVersion (props) {
     values.map(t => {
 
       tRows.push(
-        <Stack className='tableRow' direction="horizontal" >
+        <Stack key={key++} className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
             <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4>
             <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5>
