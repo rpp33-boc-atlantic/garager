@@ -38,7 +38,7 @@ export default function RentalTabs(props) {
   }, {
     dataField: 'owner',
     text: 'Owner',
-    link: '../my-profile',
+    link: '../profile',
     sort: true,
     param: 'owner_id',
     photo: 'userPhoto'

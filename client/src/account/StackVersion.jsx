@@ -65,7 +65,7 @@ export default function TableStack (props) {
         <Stack className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
             <div> <h4> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4> </div>
-            <div> <h5><Link to={`../profile/id=${t['user_id']}`}>{t['owner']} </Link> </h5></div>
+            <div> <h5><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5></div>
             <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
@@ -88,7 +88,7 @@ export default function TableStack (props) {
   // eslint-disable-next-line func-style
   function handleSort() {
     const sortedList = [...values].sort((a, b) => {
-      console.log('clickedC in sort', clickedColumn);
+      // console.log('clickedC in sort', clickedColumn);
       if (clickedColumn[1] === false) {
         return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0;
       } else {
