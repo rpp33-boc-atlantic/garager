@@ -34,7 +34,7 @@ const rentalListings = [
       availability: {
         startDate: 1454066800000,
         endDate: 1654066800000,
-        rentedDates: [1656140400000]
+        rentedDates: []
       },
       transactions: 10
     }
@@ -54,7 +54,7 @@ const rentalListings = [
       availability: {
         startDate: 1754066800000,
         endDate: 1856572400000,
-        rentedDates: [1656140400000]
+        rentedDates: []
       },
       transactions: 0
     }
@@ -74,9 +74,9 @@ const rentalListings = [
       availability: {
         startDate: 1654066800000,
         endDate: 1656572400000,
-        rentedDates: [[1656140400000, 1656140400000]]
+        rentedDates: []
       },
-      traansactions: 20
+      transactions: 20
     }
   }
 ];
