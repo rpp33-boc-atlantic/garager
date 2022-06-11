@@ -30,7 +30,7 @@ module.exports = {
       models.listings.get(owner_id, (err, data) => {
         if (err) {
           console.log('LISTINGS ERROR', err);
-          res.status(500).send(err, err);
+          res.status(500).send(err, null);
         } else {
           // console.log('LISTINGS', data);
           res.status(200).send(data);
