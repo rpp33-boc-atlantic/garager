@@ -1,10 +1,9 @@
+// THIS COMPONENT'S FUNCTIONALITY IS IN RENTFORM (SEE handleSubmit)
 import React from 'react';
 import axios from 'axios';
 
 const CheckoutButton = () => {
-
   const handleClick = async () => {
-    console.log('clicked here checkout button');
     // ***** replace with actual ItemView Data *****
     const itemInfo = {
       name: 'kayak from Kevin Krim',

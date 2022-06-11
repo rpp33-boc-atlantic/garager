@@ -7,7 +7,6 @@ const StripeAccountSetup = () => {
   const [status, setStatus] = useState('');
 
   const userId = localStorage.getItem('currentId');
-  console.log('current userId from localstorage in stripe account', userId);
 
   useEffect(() => {
     axios.get('/checkout/check-account-completion', {
@@ -21,7 +20,6 @@ const StripeAccountSetup = () => {
       .catch((error) => {
         console.log('ERROR from /check-account-completion', error);
       });
-
   });
 
   const handleClick = () => {
@@ -43,7 +41,6 @@ const StripeAccountSetup = () => {
       <h3>Status of Stripe Account: <strong>{status}</strong></h3>
       <Button onClick={handleClick} className='mt-3'><FaStripe size={50} /></Button>
     </Container>
-
   );
 };
 
