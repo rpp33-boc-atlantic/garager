@@ -1,6 +1,6 @@
 # G A R A G E R
 
-<em>Garager</em> is an application based on the peer-to-peer economy like Airbnb. Users can list items from their garage for rent (like tools, equipment, camping gear, decorations, etc.). Users can also search for items they need and rent them when they become available. 
+<em>Garager</em> is an application based on the peer-to-peer economy like Airbnb. Users can list items from their garage for rent (like tools, equipment, camping gear, decorations, etc.). Users can also search for items they need and rent them when they become available.
 
 ## Installation (Local Development)
 1. Download Github repo:
@@ -16,7 +16,7 @@ npm install
 
 * The address and coordinates are sourced via API service with Google Maps. To get API key: ...
 * To get Firebase API:...
-* To get Stripe keys: 
+* To get Stripe keys:
    1. [Create](https://dashboard.stripe.com/register) an account or [Sign into](https://dashboard.stripe.com/login) your account
    2. Locate the **For developers** section in appropriate dashboard for publishable and secret keys. [Live mode dasboard](https://dashboard.stripe.com/dashboard) | [Test mode dashboard](https://dashboard.stripe.com/test/dashboard)
 
@@ -76,9 +76,9 @@ Members of the Atlantic Team:
 ### Search / Browse
 
 ### Post an Item
-* Post an item through multiple steps instruction with data validation and suggestion. 
-![postitem](https://user-images.githubusercontent.com/88979402/173195190-e382f771-880a-42cd-abf9-1e7e70169d0a.gif)
+* Post an item through multiple steps instruction with data validation and suggestion.
 
+<img src="https://user-images.githubusercontent.com/88979402/173195190-e382f771-880a-42cd-abf9-1e7e70169d0a.gif" width="50%" height="50%">
 
 ### Item View
 
