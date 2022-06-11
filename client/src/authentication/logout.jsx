@@ -22,7 +22,7 @@ const Logout = () => {
   if (user) {
     return (
       <>
-        <div className='p-2 box text-center'>
+        <div className='p-2 box text-center navbar-nav'>
           Welcome
           <br></br>
           {user.email}
