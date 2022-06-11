@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import image from './img/hal-gatewood-v7WyjiyXNr4-unsplash.jpg';
-
+import './authentication/style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from 'react-bootstrap';
 const Homepage = () => {
   return (
-    <div>
-      <img style={{ width: '100%', height: 'auto', }} alt='tools image' src={image}></img>
+    <div className = 'loginbg' style={{ backgroundImage: `url(${image})`}}>
+      <Container
+        className="d-flex align-items-center justify-content-center"
+        style={{ minHeight: '100vh' }}
+      ></Container>
+      <Link to={`/Item/id=${11}`}>Go to Item</Link>
     </div>
   );
 };

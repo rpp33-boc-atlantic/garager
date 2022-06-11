@@ -2,43 +2,36 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Button } from 'react-bootstrap';
 import { FaStripe } from 'react-icons/fa';
-import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 const StripeAccountSetup = () => {
   const [status, setStatus] = useState('');
 
-  const { userId } = useUserAuth();
+  const userId = localStorage.getItem('currentId');
 
   useEffect(() => {
-    if (userId !== 'initial value') {
-      axios.get('/checkout/check-account-completion', {
-        params: {
-          userID: userId
-        }
+    axios.get('/checkout/check-account-completion', {
+      params: {
+        userID: userId
+      }
+    })
+      .then((response) => {
+        setStatus(response.data);
       })
-        .then((response) => {
-          setStatus(response.data);
-        })
-        .catch((error) => {
-          console.log('ERROR from /check-account-completion', error);
-        });
-    }
+      .catch((error) => {
+        console.log('ERROR from /check-account-completion', error);
+      });
   });
 
   const handleClick = () => {
-    if (userId !== 'initial value') {
-      axios.post('/checkout/onboard-user', {
-        userID: userId
+    axios.post('/checkout/onboard-user', {
+      userID: userId
+    })
+      .then((response) => {
+        window.location = response.data.url;
       })
-        .then((response) => {
-          window.location = response.data.url;
-        })
-        .catch((error) => {
-          console.log('ERROR from stripe setup', error);
-        });
-    } else {
-      alert('No user ID associated with logged in user');
-    }
+      .catch((error) => {
+        console.log('ERROR from stripe setup', error);
+      });
   };
 
   return (
@@ -48,7 +41,6 @@ const StripeAccountSetup = () => {
       <h3>Status of Stripe Account: <strong>{status}</strong></h3>
       <Button onClick={handleClick} className='mt-3'><FaStripe size={50} /></Button>
     </Container>
-
   );
 };
 

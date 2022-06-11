@@ -78,7 +78,7 @@ module.exports = {
         if (err) {
           console.log('ERROR in models.checkout.refund.getStripeID:', err);
           callback(err);
-        } else if (!res.rows[0].stripe_id) {
+        } else if (!res.rows[0].stripe_id || res.rows[0].stripe_id === 'null') {
           callback('The owner does not have a Stripe Account. Please message the owner directly for a refund.');
         } else {
           callback(null, res.rows[0].stripe_id);
@@ -103,7 +103,7 @@ module.exports = {
   webhook: {
     post: {
       paymentIntent: (paymentIntentID, metadata, paymentStatus, callback) => {
-        // UPDATE transactions SET paymentIntent_id = 'pi_3L8bJL9APWIdFUQG1B8QlfPH', payment_status = 'completed', owner_id = 5, renter_id = 8, item_id = 1 WHERE transaction_id = 222;
+        // UPDATE transactions SET paymentIntent_id = 'pi_3L9LJU9APWIdFUQG1H86q0Ac', payment_status = 'completed', owner_id = 5, renter_id = 1, item_id = 8 WHERE transaction_id = 277;
         const queryText = `UPDATE transactions 
         SET paymentIntent_id = '${paymentIntentID}',
             owner_id = ${metadata.owner_id},
