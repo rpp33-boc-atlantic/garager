@@ -39,9 +39,11 @@ const NavLinks = (props) => {
           <Nav.Link as={Link} to='Messages' onClick={() => setTimeout(() => { setExpanded(false); }, 150)} >
             <GoMail size='30px' /><Badge pill bg='danger'></Badge>
           </Nav.Link>
+          <Logout />
         </Nav>
+
       </Navbar.Collapse>
-      <Logout />
+
       {/* </Container> */}
     </Navbar>
   );
