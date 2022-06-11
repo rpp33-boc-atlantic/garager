@@ -96,6 +96,9 @@ Members of the Atlantic Team:
 ![setupStripeAccount](https://user-images.githubusercontent.com/89096566/173197115-16a29f6d-effc-4263-8437-39e245976034.gif)
 
 * Refund
+
+![refundGIF](https://user-images.githubusercontent.com/89096566/173197419-0a9e5d79-af1b-49e7-9a10-1df53815f795.gif)
+
 ---
 ## License
 <a href="">?</a>
