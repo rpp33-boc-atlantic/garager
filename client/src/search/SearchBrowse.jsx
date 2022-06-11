@@ -11,8 +11,8 @@ class SearchBrowse extends React.Component {
     this.state = {
       allCategories: categories,
       allRentals: [],
-      filteredRentals: this.props.rentals || [],
-      selectedCategories: this.props.categories || [],
+      filteredRentals: [],
+      selectedCategories: [],
       startDate: '',
       endDate: '',
       query: '',
@@ -91,14 +91,14 @@ class SearchBrowse extends React.Component {
   };
 
   retrieveRelatedWords = async (keyword) => {
-    return axios.get('/browse/RelatedWords', {
+    return axios.get('/browse/relatedWords', {
       params: {
         keyword: keyword
       }
     })
       .then((response) => {
-        let RelatedWords = response.data;
-        return RelatedWords;
+        let relatedWords = response.data;
+        return relatedWords;
       })
       .catch((error) => {
         console.log(error);
@@ -239,8 +239,8 @@ class SearchBrowse extends React.Component {
 
   filterByAvailability = (rentals) => {
     let filteredRentals = [];
-    let startDate = this.state.startDate;
-    let endDate = this.state.endDate;
+    let startDate = this.state.startDate / 1000;
+    let endDate = this.state.endDate / 1000;
 
     if (startDate > endDate && endDate) {
       return filteredRentals;
@@ -249,7 +249,7 @@ class SearchBrowse extends React.Component {
     if (startDate && endDate) {
       for (const rental of rentals) {
         if (startDate > rental.details.availability.startDate && endDate < rental.details.availability.endDate) {
-          if (rental.details.availability.rentedDates.length) {
+          if (rental.details.availability.rentedDates && rental.details.availability.rentedDates.length) {
             if (!this.checkDatesRented(startDate, endDate, rental.details.availability.rentedDates)) {
               continue;
             }

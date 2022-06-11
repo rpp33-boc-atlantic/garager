@@ -13,7 +13,7 @@ const Search = (props) => {
       <div className="search-function">
         <span className="search-title">Keyword</span>
         <label htmlFor="keyword-search" hidden>keyword-search</label>
-        <input type="text" id="keyword-search" name="keyword-search" placeholder="Search Here!" onChange={props.keywordSearch}></input>
+        <input type="text" className="search-input" id="keyword-search" name="keyword-search" placeholder="Search Here!" onChange={props.keywordSearch}></input>
       </div>
       <div className="search-function">
         <span className="search-title">Location</span>
@@ -28,7 +28,7 @@ const Search = (props) => {
           </select>
           <span>&nbsp;miles from&nbsp;</span>
           <label htmlFor="zipcode-search" hidden>zipcode-search</label>
-          <input type="text" id="zipcode-search" name="zipcode-search" placeholder="ZIP Code" onChange={props.zipCodeSearch}></input>
+          <input type="text" className="search-input" id="zipcode-search" name="zipcode-search" placeholder="ZIP Code" onChange={props.zipCodeSearch}></input>
         </div>
       </div>
       <div className="search-function">
@@ -41,6 +41,7 @@ const Search = (props) => {
             onChange={props.startDateSearch}
             startDate={props.startDate}
             endDate={props.endDate}
+            className="datepicker-input search-input"
           />
           <span> to </span>
           <DatePicker
@@ -49,6 +50,8 @@ const Search = (props) => {
             onChange={props.endDateSearch}
             startDate={props.startDate}
             endDate={props.endDate}
+            className="datepicker-input search-input"
+
           />
         </div>
       </div>

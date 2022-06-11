@@ -32,7 +32,7 @@ class RentalListings extends React.Component {
         {this.props.rentals.map((rental) =>
           <Link to={`../Item/id=${rental.id}`} key={rental.id} className="go-to-item-listing">
             <div className="rental-listing">
-              {rental.details.image ?
+              {(rental.details.image && rental.details.image.length) ?
                 <img src={rental.details.image[0]}></img> :
                 <img src={categories[rental.details.category].image}></img>
               }
