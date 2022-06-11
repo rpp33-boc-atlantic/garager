@@ -32,7 +32,7 @@ export default function ProfileCard (props) {
       <Card.Body>
         {/* onMouseEnter={() => this.someHandler */}
         <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstname + ' ' + props.user.lastname} <FiEdit3/> </Card.Title>
-        <Card.Text>
+        <Card.Text >
       Some quick example text to build on the card title and make up the bulk of
       the card's content.
         </Card.Text>

@@ -6,6 +6,8 @@ import {Link } from 'react-router-dom';
 import moment from 'moment';
 import RefundButton from '../checkout/RefundButton.jsx';
 import Image from 'react-bootstrap/Image';
+import '../App.css';
+import './accountStyles.css';
 export default function Tables (props) {
   props.column;
   const [state, setState] = useState(false);
@@ -40,16 +42,18 @@ export default function Tables (props) {
             props.columns.map((col) => {
               {
                 if (col.link) { // if item is a link create link using the col param and link
-                  return <td key={c++}> <Link to={`${col.link}/id=${t[col.param]}`}>{t[col.dataField]}</Link> </td>;
+                  return <td className={'table-row'} key={c++}> <Link to={`${col.link}/id=${t[col.param]}`}>{t[col.dataField]}</Link> </td>;
                   // if item is an array of photos create img tag using first img in array
                 } else if (col.dataField === 'photos' && t[col.dataField].length > 0) {
-                  return <td key={c++}>   <Image src={t.photos[0]} thumbnail width={'200px'} /></td>;
-                  // if item is a date format correctly
-                } else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
-                  return <td key={c++}> {moment(t[col.dataField]).format('MMMM Do YYYY')}</td>;
+                  return <td className={'table-row'} key={c++}>   <Image src={t.photos[0]} thumbnail width={'200px'} /></td>;
+                }// if item is a date format correctly
+
+                // } else if (t[col.dataField] && t[col.dataField].length > 5 && moment(t[col.dataField], 'YYYY-MM-DD T HH:mm:ss').isValid()) {
+                else if (col.dataField === 'dates') {
+                  return <td className={'table-row'} key={c++}> {moment(t[col.dataField1]).format('MMMM Do YYYY') } / {moment(t[col.dataField2]).format('MMMM Do YYYY')}</td>;
                   // otherwise insert as normal data
                 } else {
-                  return <td key={c++}>{t[col.dataField]}</td>;
+                  return <td className={'table-row'} key={c++}>{t[col.dataField]}</td>;
                 }
               }
             })//<img src={t[col.dataField][0]} width="75" height="100%" />
@@ -72,7 +76,7 @@ export default function Tables (props) {
   // eslint-disable-next-line func-style
   function handleSort() {
     const sortedList = [...values].sort((a, b) => {
-      // console.log('clickedC in sort', clickedColumn);
+      console.log('clickedC in sort', clickedColumn);
       if (clickedColumn[1] === false) {
         return a[clickedColumn[0]] < b[clickedColumn[0]] ? -1 : a[clickedColumn[0]] > b[clickedColumn[0]] ? 1 : 0;
       } else {
@@ -98,14 +102,34 @@ export default function Tables (props) {
     <Table striped bordered hover>
       <thead>
         <tr>
-          {// this code dynamically creates the table headers
+          {/* {// this code dynamically creates the table headers */}
+          {
             props.columns.map((col, i)=> {
-              return col.sort ? <th key = {i} onClick ={()=> {
-                setClickedColumn([col.dataField, textStates[col.dataField]]);
-                setTextStates[col.dataField](!textStates[col.dataField]);
-              }}> {col.text}{textStates[col.dataField] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
-                <th key = {i}>{col.text}</th>;
-            })}
+
+              //   return col.sort ? <th key = {i} onClick ={()=> {
+              //     setClickedColumn([col.dataField, textStates[col.dataField]]);
+              //     setTextStates[col.dataField](!textStates[col.dataField]);
+              //   }}> {col.text}{textStates[col.dataField] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th> :
+              //     <th key = {i}>{col.text}</th>;
+              // })
+
+              if (col.sort) {
+                return <th className={'table-headers'} key = {i} onClick ={()=> {
+                  setClickedColumn([col.dataField, textStates[col.dataField]]);
+                  setTextStates[col.dataField](!textStates[col.dataField]);
+                }} > {col.text}{textStates[col['returndate']] ? <BsSortUpAlt/> : <BsSortDownAlt/> }  </th>;
+
+              } else {
+                return <th key = {i}>{col.text}</th>;
+              }
+
+
+
+            })
+          }
+
+
+
         </tr>
       </thead>
       <tbody>

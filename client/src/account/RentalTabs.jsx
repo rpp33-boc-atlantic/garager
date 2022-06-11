@@ -45,15 +45,17 @@ export default function RentalTabs(props) {
     text: 'Price',
     sort: true
   }, {
-    dataField: 'pickupdate',
-    text: 'Checkout Date',
+    dataField: 'dates',
+    dataField1: 'pickupdate',
+    dataField2: 'returndate',
+    text: 'Checkout Date / Return date',
     sort: true
   },
-  {
-    dataField: 'returndate',
-    text: 'Return Date',
-    sort: true
-  },
+  // {
+  //   dataField: 'returndate',
+  //   text: 'Return Date',
+  //   sort: true
+  // },
   {
     dataField: 'photos',
     text: 'image'

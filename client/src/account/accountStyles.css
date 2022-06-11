@@ -1,0 +1,15 @@
+
+
+
+.table-headers{
+  font-size: large;
+  /* color: blue; */
+  font-family: 'SanFrancisco','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.table-row{
+  font-size: medium;
+  color: red;
+  font-size: large;
+  font-family: 'SanFrancisco','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
