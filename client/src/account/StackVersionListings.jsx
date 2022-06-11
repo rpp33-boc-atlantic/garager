@@ -10,10 +10,11 @@ import Image from 'react-bootstrap/Image';
 import Stack from 'react-bootstrap/Stack';
 import '../App.css';
 import './accountStyles.css';
+
 import noImagePhoto from '../itemView/samplePhotos/unavailable-image.jpeg';
 
 export default function StackVersionListings (props) {
-  props.column;
+
   const [state, setState] = useState(false);
 
   //create dynamic state for all columns added
