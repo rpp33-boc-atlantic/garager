@@ -58,7 +58,8 @@ const Step4 = (props) => {
     setAddress(selectedAddress);
     geocodeByAddress(selectedAddress)
       .then((results) => {
-        const zipcode = results[0].address_components[7].long_name;
+        const zipcodeIndex = results[0].address_components.length - 1;
+        const zipcode = results[0].address_components[zipcodeIndex].long_name;
         if (validateZipcode(zipcode)) {
           getLatLng(results[0])
             .then((latLng) => {

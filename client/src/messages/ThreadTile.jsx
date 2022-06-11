@@ -16,7 +16,7 @@ const ThreadTile = ( props ) => {
   };
 
   const username =
-    props.thread.ownerId === props.userData.userId
+    props.thread.ownerId === props.userId
       ? props.thread.renterName
       : props.thread.ownerName;
 

@@ -2,9 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
-
 const RefundButton = (props) => {
-
   const handleClick = async () => {
     const refundData = {
       transactionID: props.transaction_id,
@@ -21,7 +19,7 @@ const RefundButton = (props) => {
   };
 
   return (
-    <Button onClick={handleClick}>Cancel</Button>
+    <Button disabled ={props.disabled}onClick={handleClick}>Cancel</Button>
   );
 };
 

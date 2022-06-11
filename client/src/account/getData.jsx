@@ -3,18 +3,17 @@ const axios = require('axios');
 
 var getData = async (id, url) => {
 
-  return await axios.get(`${url}`, {
-    params: {
-      id: id
-    }
-  })
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (error) {
-      console.log('error', error);
+  try {
+    let data = await axios.get(`${url}`, {
+      params: {
+        id: id
+      }
     });
-
+    return data.data;
+  } catch (error) {
+    console.log('getData:error ', error);
+    throw error;
+  }
 
 };
 export default getData;

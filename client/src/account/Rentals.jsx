@@ -6,49 +6,24 @@ import RentalTabs from './RentalTabs.jsx';
 import {useState, useEffect} from 'react';
 import getData from './getData.jsx';
 
-// const axios = require('axios');
-
-var transactions = require('../../../server/database/transactions.json');
-var items = require('../../../server/database/items.json');
 
 export default function Rentals () {
 
-  let [transactions, setTransactions] = useState(null);
+  let [transactions, setTransactions] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
-  // var getData = (id)=>{
-
-  //   return axios.get('/account/my-rentals', {
-  //     params: {
-  //       // eslint-disable-next-line camelcase
-  //       id: id
-  //     }
-  //   })
-  //     .then(function (response) {
-  //       console.log('data returned', response.data);
-  //       setTransactions(response.data);
-  //       setDataLoading(false);
-  //     })
-  //     .catch(function (error) {
-  //       console.log('error', error);
-  //     })
-  //     .then(function () {
-  //     // always executed
-  //     });
-
-  // };
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : false;
 
   useEffect(()=> {
-    // dataLoading ? getData(9) : null;
 
-
-    // var data = dataLoading ? getData2(9) : null;
-
-    // !dataloading ? setTransactions(data) : null;
-    if (dataLoading ) {
-      getData(9, '/account/my-rentals').then(data => {
+    if (dataLoading && localId ) {
+      getData(localId, '/account/my-rentals').then(data => {
         setTransactions(data);
         setDataLoading(false);
+      }).catch(err => {
+        console.log('err ', err);
+        setDataLoading(false);
+        throw (err);
       });
     }
 
@@ -59,7 +34,6 @@ export default function Rentals () {
 
   return <RentalTabs m='auto' past = {false} transactions={transactions} />;
 }
-
 
 
 

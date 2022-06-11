@@ -13,11 +13,13 @@ import '../App.css';
 const NavLinks = (props) => {
   // this navbar uses a menu toggle for that reactively collapses for smaller screens.
   const [expanded, setExpanded] = useState(false);
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : '';
+
   // sets up socketIO for new message notifications
   useEffect(() => {
     props.socketIO.on('message', (message) => { });
   });
-  var prof = `profile/:' + ${10}`;
+
   return (
     <Navbar sticky="top" expand="md" className='theme-blue' expanded={expanded} variant='light' style={{ maxHeight: '70px' }}>
       {/* <Container> */}
@@ -31,7 +33,7 @@ const NavLinks = (props) => {
             <NavDropdown.Item as={Link} to='my-listings' onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>My Listings</NavDropdown.Item>
             <NavDropdown.Item as={Link} to='my-rentals' onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>My Rentals</NavDropdown.Item>
             <NavDropdown.Item as={Link} to='PostItem' onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Post Item</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to={`my-profile/${10}`} onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Profile</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to={`profile/${localId}`} onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Profile</NavDropdown.Item>
             <NavDropdown.Item as={Link} to='Stripe-Account-Setup'onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Stripe Account Setup</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link as={Link} to='Messages' onClick={() => setTimeout(() => { setExpanded(false); }, 150)} >

@@ -32,9 +32,9 @@ const Step2 = (props) => {
           <Form.Label htmlFor="category">Category</Form.Label>
           <select className="form-select" id="validationCustom04" onChange={handleChange('category')} required>
             <option selected disabled value="">Choose...</option>
-            { Object.keys(categories).map((key) => {
+            { Object.keys(categories).map((key, index) => {
               return (
-                <option value={key}>{categories[key].name}</option>
+                <option key={index} value={key}>{categories[key].name}</option>
               );
             }) }
           </select>
