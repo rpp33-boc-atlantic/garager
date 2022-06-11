@@ -103,17 +103,20 @@ const Browse = (props) => {
 
   return (
     <div id="browse-column">
-      <span>RENTALS NEAR YOU</span>
-      <div id="browse-sort">
-        <span>Sort items by </span>
-        <select name="browse-sort-options" id="sort-dropdown" onChange={handleBrowseSort} defaultValue="select">
-          <option value="price-low-high">Price: Low to High</option>
-          <option value="price-high-low">Price: High to Low</option>
-          <option value="alphabet-a-z">Alphabet: A to Z</option>
-          <option value="alphabet-z-a">Alphabet: Z to A</option>
-          <option value="popular-low-high">Popular: Low to High</option>
-          <option value="popular-high-low">Popular: High to Low</option>
-        </select>
+      <div id="browse-header">
+        <span className="column-title">RENTALS NEAR YOU</span>
+        <div id="browse-sort">
+          <span>Sort items by </span>
+          <select name="browse-sort-options" id="sort-dropdown" data-testid="sort-methods" onChange={handleBrowseSort}>
+            <option default hidden>Select Method</option>
+            <option value="price-low-high">Price: Low to High</option>
+            <option value="price-high-low">Price: High to Low</option>
+            <option value="alphabet-a-z">Alphabet: A to Z</option>
+            <option value="alphabet-z-a">Alphabet: Z to A</option>
+            <option value="popular-low-high">Popular: Low to High</option>
+            <option value="popular-high-low">Popular: High to Low</option>
+          </select>
+        </div>
       </div>
       <RentalListings
         rentals={rentals}

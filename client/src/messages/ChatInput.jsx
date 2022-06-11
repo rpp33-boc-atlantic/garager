@@ -24,6 +24,7 @@ const ChatInput = ( props ) => {
         aria-label='chat-input'
         value={ inputValue }
         onChange={ handleChange }
+        placeholder='Type a message...'
       />
 
       {/* <Button>

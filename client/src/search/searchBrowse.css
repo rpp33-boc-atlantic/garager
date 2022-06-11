@@ -5,14 +5,31 @@ SEARCH/BROWSE
 #search-browse-view {
   display: flex;
   flex-direction: row;
+  height: 100%;
+}
+
+.column-title {
+  font-weight: bold;
+  font-size: larger;
 }
 
 /*---------------------------------------
 SEARCH
 ---------------------------------------*/
 
+#availability-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .category-icon-off {
   opacity: 0.6;
+}
+
+.category-icon-off:hover, .category-icon-on:hover {
+  cursor: pointer;
 }
 
 #category-multiselect {
@@ -21,7 +38,7 @@ SEARCH
 
 .category-search img {
   max-width: 33%;
-  padding: 3%;
+  padding: 2%;
 }
 
 #category-search-icons {
@@ -31,19 +48,50 @@ SEARCH
   justify-content: space-between;
 }
 
+#clear-filters {
+  font-style: italic;
+}
+
+.datepicker-input {
+  width: 100%;
+  align-self: center;
+}
+
 #search-categories {
   display: flex;
   flex-direction: column;
 }
 
 #search-column {
+  background-color: rgb(254, 251, 231);
   display: flex;
   flex-direction: column;
-  max-width: 30%;
+  max-height: 100%;
+  max-width: 25%;
+  padding: 2%;
+}
+
+.search-input {
+  text-align: center;
+}
+
+.search-function {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid black;
+  padding: 15px 0;
+}
+
+.search-title {
+  font-weight: bold;
+  align-self: center;
+  padding-bottom: 5px;
 }
 
 .search-query {
   font-weight: bold;
+  background-color: rgb(218, 229, 208);
 }
 
 #mile-radius-search {
@@ -65,27 +113,88 @@ BROWSE
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  padding: 2% 2% 0 2%;
+}
+
+#browse-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}
+
+a.go-to-item-listing {
+  color: black;
+  text-decoration: none;
+}
+
+.go-to-item-listing {
+  overflow: hidden;
+}
+
+#listing-header {
+  font-weight: bold;
+}
+
+.listing-text {
+  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+#listing-title {
+  justify-content: left;
 }
 
 .rental-listing img {
-  max-width: 25%;
-  padding: 3%;
+  border-right: 2px solid black;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  aspect-ratio: 1 / 1;
+  max-height: 100%;
+  padding-right: 3%;
 }
 
 .rental-listing {
+  border-bottom: solid 2px black;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+  height: 20%;
+  padding: 0 3% 3% 3%;
+  margin: 3%;
+}
+
+#rental-listings {
+  display: inline-block;
+  height: 100vh;
+  overflow: auto;
+}
+
+.rental-listing:hover {
+  cursor: pointer;
+}
+
+.rental-category {
+  font-weight: bold;
+}
+
+.rental-description {
+  font-size: small;
+}
+
+.rental-price {
+  font-weight: bold;
+  font-style: italic;
+  font-size: small;
 }
 
 .listing-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.listing-text {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
 }
