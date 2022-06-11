@@ -89,7 +89,7 @@ Members of the Atlantic Team:
 ### Payments: Stripe Integration
 * Checkout Session - Rent an Item: Users are able to rent an item or return to the app to cancel the checkout process.
 
-![checkoutSession](https://user-images.githubusercontent.com/89096566/173196885-6b38d7f8-a1bb-4c61-8761-a4ec428a9114.gif)
+![checkoutGIF](https://user-images.githubusercontent.com/89096566/173197676-786ce4e4-7a9d-4a32-8b2a-ce298985bccb.gif)
 
 * Setup a Connected Account: Users are able to create a Stripe connected account to be paid directly when an item of theirs is rented out through the checkout process.
 
