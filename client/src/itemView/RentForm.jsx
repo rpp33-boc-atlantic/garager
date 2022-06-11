@@ -59,11 +59,9 @@ class RentForm extends React.Component {
         userID: this.props.userID,
         userEmail: this.props.userEmail
       };
-      console.log('itemInfo before passing to checkout', itemInfo);
 
       axios.post('/checkout/create-session', itemInfo)
         .then((response) => {
-          console.log('response from checkoutButton', response);
           window.location = response.data.url;
         })
         .catch((error) => {
@@ -76,8 +74,6 @@ class RentForm extends React.Component {
     var sugPrice = this.state.suggestedPrice;
     var sugPriceIsValid = false;
     if (sugPrice !== null && sugPrice.length !== 0) {
-      console.log('suggested price right here', parseInt(sugPrice));
-      console.log('minimum price right here', parseInt(this.props.itemInfo.details.min_price));
       if (parseInt(sugPrice) < parseInt(this.props.itemInfo.details.min_price)) {
         this.toggleAlert('on');
         return false;
@@ -123,7 +119,7 @@ class RentForm extends React.Component {
     this.setState({
       dateRange: range
     }, () => {
-      console.log('state', this.state.dateRange);
+      // console.log('state', this.state.dateRange);
     });
   }
 
