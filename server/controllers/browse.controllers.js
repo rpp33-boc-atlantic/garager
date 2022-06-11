@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 const { MAPS_API_KEY, THESAURUS_API_KEY } = require('../../config.js');
 const axios = require('axios');
+const models = require('../models/browse.models.js');
 
 module.exports = {
   location: {
@@ -30,6 +31,12 @@ module.exports = {
         .catch((error) => {
           res.status(500).send(error);
         });
+    }
+  },
+  items: {
+    get: async (req, res) => {
+      let results = await models.items.get();
+      res.send(results.rows);
     }
   }
 };

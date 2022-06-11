@@ -10,6 +10,20 @@
   border-color: #37875a;
 }
 
+#messages-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+
+#messages-loading-icon {
+  height: 50%;
+  width: 50%;
+}
+
 #messages-row {
   position: absolute;
   top: 0;
@@ -29,6 +43,7 @@
 .list-group-item {
   border-bottom: solid;
   border-color: #f2f2f2;
+  padding: 10px;
 }
 
 .list-group-item.active {
@@ -43,16 +58,17 @@
 }
 
 .thread-tile {
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .thread-name {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
+  font-family: Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .thread-item {
-  font-size: 18px;
+  font-size: 16px;
   color: gray;
 }
 

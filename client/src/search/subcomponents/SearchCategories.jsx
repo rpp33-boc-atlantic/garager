@@ -17,7 +17,6 @@ class SearchCategories extends React.Component {
   render() {
     return (
       <div id="search-categories">
-        <span>Categories</span>
         <div id='category-multiselect'>
           <a onClick={this.props.selectAll}>Select All</a>
           <span> | </span>
@@ -25,8 +24,8 @@ class SearchCategories extends React.Component {
         </div>
         <div id="category-seach-icons">
           {Object.keys(this.props.categories).map((category) =>
-            <a className="category-search" key={category} title={this.props.categories[category].name} onClick={this.props.categorySearch}>
-              <img className={this.highlightSelectedCategories(this.props.categories[category].name)} src={this.props.categories[category].image} id={category} alt={this.props.categories[category].name}></img>
+            <a className="category-search" key={category} title={category} onClick={this.props.categorySearch}>
+              <img className={this.highlightSelectedCategories(category)} src={this.props.categories[category].image} id={category} alt={category}></img>
             </a>
           )}
         </div>
