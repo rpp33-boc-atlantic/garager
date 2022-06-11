@@ -103,7 +103,7 @@ module.exports = {
   webhook: {
     post: {
       paymentIntent: (paymentIntentID, metadata, paymentStatus, callback) => {
-        // UPDATE transactions SET paymentIntent_id = 'pi_3L9IrO9APWIdFUQG0je9LkXg', payment_status = 'completed', owner_id = 5, renter_id = 1, item_id = 1 WHERE transaction_id = 256;
+        // UPDATE transactions SET paymentIntent_id = 'pi_3L9LJU9APWIdFUQG1H86q0Ac', payment_status = 'completed', owner_id = 5, renter_id = 1, item_id = 8 WHERE transaction_id = 277;
         const queryText = `UPDATE transactions 
         SET paymentIntent_id = '${paymentIntentID}',
             owner_id = ${metadata.owner_id},
