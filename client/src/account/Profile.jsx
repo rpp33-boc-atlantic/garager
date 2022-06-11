@@ -26,7 +26,7 @@ export default function Profile () {
 
   //get id from url
   let { id } = useParams();
-  id = isNaN(id) ? id.substring(3) : id;
+  id = isNaN(id) ? id === 'undefined' ? localId : id.substring(3) : id;
 
   useEffect(()=> {
 

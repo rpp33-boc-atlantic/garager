@@ -33,7 +33,7 @@ const NavLinks = (props) => {
             <NavDropdown.Item as={Link} to='my-listings' onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>My Listings</NavDropdown.Item>
             <NavDropdown.Item as={Link} to='my-rentals' onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>My Rentals</NavDropdown.Item>
             <NavDropdown.Item as={Link} to='PostItem' onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Post Item</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to={`profile/${localId}`} onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Profile</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to={`profile/id=${localId}`} onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Profile</NavDropdown.Item>
             <NavDropdown.Item as={Link} to='Stripe-Account-Setup'onClick={() => setTimeout(() => { setExpanded(false); }, 150)}>Stripe Account Setup</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link as={Link} to='Messages' onClick={() => setTimeout(() => { setExpanded(false); }, 150)} >
