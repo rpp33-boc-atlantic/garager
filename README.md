@@ -91,7 +91,7 @@ Members of the Atlantic Team:
 
 ![checkoutGIF](https://user-images.githubusercontent.com/89096566/173197676-786ce4e4-7a9d-4a32-8b2a-ce298985bccb.gif)
 
-* Setup a Connected Account: Users are able to create a Stripe connected account to be paid directly when an item of theirs is rented out through the checkout process.
+* Setup a Connected Account: Users are able to create a Stripe connected account to be paid directly when an item of theirs is rented out through the checkout process. They can return to the app at different stages of creating the account without having to start from the beginning each time.
 
 ![setupStripeAccount](https://user-images.githubusercontent.com/89096566/173197115-16a29f6d-effc-4263-8437-39e245976034.gif)
 
