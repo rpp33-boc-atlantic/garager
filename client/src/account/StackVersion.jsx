@@ -64,9 +64,9 @@ export default function StackVersion (props) {
       tRows.push(
         <Stack className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
-            <div> <h4> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4> </div>
-            <div> <h5><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5></div>
-            <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
+            <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4>
+            <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5>
+            <div className='textRow'> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
               <div className = 'cancelButton'> <RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/> </div> : ''

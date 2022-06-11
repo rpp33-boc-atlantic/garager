@@ -64,8 +64,8 @@ export default function StackVersionListings (props) {
       tRows.push(
         <Stack key={key++} className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
-            <h4> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['price']}/day  </h4>
-            <h5><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5>
+            <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['price']}/day  </h4>
+            {/* <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5> */}
             {/* <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div> */}
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
