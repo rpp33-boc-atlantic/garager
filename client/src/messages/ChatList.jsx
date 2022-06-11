@@ -11,7 +11,7 @@ const ChatList = ( props ) => {
         {
           props.messages.map(( message, index ) => {
 
-            if ( message.user_id === props.userData.userId ) {
+            if ( message.user_id === props.userId ) {
               return (
                 <ChatBubble key={ index } message={ message } user='me' />
               );

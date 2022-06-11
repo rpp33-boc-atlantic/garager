@@ -5,7 +5,7 @@ module.exports = {
   threads: {
 
     get: async ( req, res ) => {
-      const result = await models.threads.get( req.query.email );
+      const result = await models.threads.get( req.query.id );
       const newThreads = [];
       let newThread, threadMessages, productInfo, ownerInfo, renterInfo;
 
@@ -40,7 +40,12 @@ module.exports = {
     },
 
     post: async ( req, res ) => {
-      await models.threads.post ( req.body );
+      try {
+        await models.threads.post ( req.body );
+      } catch (err) {
+        console.log(err);
+        res.end();
+      }
       res.end();
     },
 
@@ -60,10 +65,11 @@ module.exports = {
   user: {
 
     get: async ( req, res ) => {
-      const result = await models.userInfo.get( null, req.query.email );
+      const result = await models.userInfo.get( req.query.id );
       const userInfo = {
         username: `${ result.rows[0].firstname } ${ result.rows[0].lastname }`,
-        userId: result.rows[0].user_id
+        userId: result.rows[0].user_id,
+        email: result.rows[0].email
       };
       res.send( userInfo );
     }

@@ -8,7 +8,7 @@ const DetailPane = ( props ) => {
 
   if (!thread) { return null; }
 
-  if (props.userData.userId === thread.ownerId) {
+  if (props.userId === thread.ownerId) {
     username = thread.renterName;
     userImage = thread.renterImageUrl;
   } else {
