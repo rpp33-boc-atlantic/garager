@@ -13,20 +13,15 @@ import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 
-// var transactions = require('../data/dataFunctions/transactions.json');
-// var users = require('../data/dataFunctions/users.json');
-// var user = users[0];
+
 export default function Profile () {
   let [profile, setProfile ] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
 
-  // const {userId, user} = useUserAuth();
 
 
-  const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : 11;
-
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : 'noId';
   let [accountOwner, setAccountOwner] = useState(false);
-  // console.log('LOCAL ID --FAST RESPONSE TIME', localId);
 
 
   //get id from url
@@ -38,11 +33,13 @@ export default function Profile () {
     if (dataLoading ) {
 
       getData(id, `/account/my-profile`).then(data => {
-        // console.log('user data:', data);
+
         setProfile(data[0]);
         setDataLoading(false);
-
-
+      }).catch(err => {
+        console.log('err ', err);
+        setDataLoading(false);
+        throw (err);
       });
     }
   }
@@ -63,13 +60,12 @@ export default function Profile () {
     <Container fluid={true} style={{'paddingTop': '10px'}}>
 
       <Row >
-        <Col></Col>
-        <Col>
+        <Col xs={{span: 6}} md={{ span: 4 }} style={{margin: '2%'}}>
           <ProfileCard user= {profile} accountOwner={accountOwner}></ProfileCard>
-          {/* {/* <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {user.userPhoto} /> */}
+          {/* <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {profile.userPhoto} /> */}
         </Col >
-        <Col xs={8}>
-          <ProfileTabs user ={profile} accountOwner={accountOwner}></ProfileTabs> (wider)
+        <Col xs={12} md={6} style={{margin: '2%'}}>
+          <ProfileTabs user ={profile} accountOwner={accountOwner}></ProfileTabs>
         </Col>
         <Col></Col>
       </Row>

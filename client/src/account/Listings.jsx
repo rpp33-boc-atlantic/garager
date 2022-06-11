@@ -5,15 +5,14 @@ import {useState, useEffect} from 'react';
 import getData from './getData.jsx';
 
 
-// var transactions = require('../data/dataFunctions/transactions.json');
-// var items = require('../data/dataFunctions/items.json');
-const localId = localStorage.getItem('userId') ? localStorage.getItem('userId') : false;
+
+
+
 export default function Listings () {
 
-  // let [transactions, setTransactions] = useState([]);
   let [items, setItems] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : false;
 
   useEffect(()=> {
 
@@ -21,6 +20,10 @@ export default function Listings () {
       getData(localId, '/account/my-listings').then(data => {
         setItems(data);
         setDataLoading(false);
+      }).catch(err => {
+        console.log('err ', err);
+        setDataLoading(false);
+        throw (err);
       });
     }
 
@@ -28,7 +31,7 @@ export default function Listings () {
 
 
 
-  return <ListingTabs items={items} m='auto' earnings = {454} rentedItems = {3}/>;
+  return <ListingTabs items={items} m='auto' />;
 
 
 

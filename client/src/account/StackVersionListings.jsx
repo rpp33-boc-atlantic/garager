@@ -1,19 +1,20 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Container from 'react-bootstrap/Container';
 import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import RefundButton from '../checkout/RefundButton.jsx';
 import Image from 'react-bootstrap/Image';
 import Stack from 'react-bootstrap/Stack';
 import '../App.css';
 import './accountStyles.css';
+
 import noImagePhoto from '../itemView/samplePhotos/unavailable-image.jpeg';
 
-export default function StackVersion (props) {
-  props.column;
+export default function StackVersionListings (props) {
+
   const [state, setState] = useState(false);
 
   //create dynamic state for all columns added
@@ -31,10 +32,9 @@ export default function StackVersion (props) {
   const [clickedColumn, setClickedColumn] = useState(['', false]);
   const [values, setValues] = useState(props.values);
 
-  let tRows = [];
-  let key = 0;
-  let mapRows = ()=> {
-
+  var tRows = [];
+  var mapRows = ()=> {
+    var key = 0;
     //CREATE THE SORTING OPTIONS AT THE TOP
     tRows.push(
       <Stack key={key++} direction="horizontal" gap={4}>
@@ -43,18 +43,7 @@ export default function StackVersion (props) {
           setClickedColumn(['title', textStates['title']]);
           setTextStates['title'](!textStates['title']);
         }}> Item Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
-          setClickedColumn(['owner', textStates['owner']]);
-          setTextStates['owner'](!textStates['owner']);
-        }}> Owner:{textStates['owner'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
-          setClickedColumn(['pickupdate', textStates['pickupdate']]);
-          setTextStates['pickupdate'](!textStates['pickupdate']);
-        }}> Pickup:{textStates['pickupdate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
-          setClickedColumn(['returndate', textStates['returndate']]);
-          setTextStates['returndate'](!textStates['returndate']);
-        }}> Return:{textStates['returndate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
+
       </Stack>);
 
 
@@ -65,9 +54,9 @@ export default function StackVersion (props) {
       tRows.push(
         <Stack key={key++} className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
-            <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4>
-            <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5>
-            <div className='textRow'> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
+            <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['price']}/day  </h4>
+            {/* <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5> */}
+            {/* <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div> */}
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
               <div className = 'cancelButton'> <RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/> </div> : ''

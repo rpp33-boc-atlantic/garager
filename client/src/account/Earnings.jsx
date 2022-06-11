@@ -10,28 +10,31 @@ import EarningsCard from './EarningsCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import '../App.css';
 import getData from './getData.jsx';
-import { useUserAuth } from '../context/UserAuthContext.jsx';
+
 
 export default function Earnings () {
 
   let [earnings, setEarnings] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-  const {userId, user} = useUserAuth();
-  // console.log('UserId earnings', userId, user.email);
+  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : false;
+
   useEffect(()=> {
-    if (dataLoading) {
-      getData(4, '/account/my-earnings')
+    if (dataLoading && localId) {
+      // console.log('fetching earnings data', localId);
+      getData(localId, '/account/my-earnings')
         .then(data => {
           setEarnings(data);
-          console.log('data', data);
+          // console.log('data', data);
           setDataLoading(false);
         });
     }
   }, [dataLoading, earnings]);
 
+  // THIS COMPONENT DISPLAYS DATA ON PAST WEEK, MONTH and TOTAL EARNINGS
+
   return ( <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
 
-    <Container className='theme-green' style={{display: 'flex'}} >
+    <Container className='theme-green' style={{display: 'flex', marginTop: '1%'}} >
       <Row style={{margin: 'auto', paddingTop: '20px', paddingBottom: '20px'}}>
         <Col xs={12}md={4} className='theme-blue justify-content-md-center' >
           <EarningsCard values={earnings} duration='Weekly'/>
