@@ -13,49 +13,53 @@ const Messages = ( props ) => {
   const [ threads, updateThreads ] = useState([]);
   const [ activeThread, changeThread ] = useState(0);
   const [ threadAdded, updateThreadAdded ] = useState(false);
-  const [ userData, changeUserData ] = useState({});
+  // const [ userData, changeUserData ] = useState({});
 
-  const { user } = useUserAuth();
+  // const { user } = useUserAuth();
   const threadRef = useRef([]);
   const location = useLocation();
+  const currentId = parseInt( localStorage.getItem( 'currentId' ));
 
   let itemID = null;
+  // let userEmail = null;
   if ( location.state ) {
     itemID = location.state.itemID;
+    // userEmail = location.state.userEmail;
   }
 
   useEffect(() => {
+    // if ( currentId ) {
+    //   getUserInfo();
+    // }
     if ( itemID && !threadAdded ) {
       updateThreadAdded(true);
       addThread();
     }
-    if ( user.email ) {
-      getUserInfo();
-    }
-    if ( threads.length === 0 && user.email ) {
+    if ( threads.length === 0 && currentId ) {
       getThreads();
     }
     props.socketIO.on('message', ( message ) => {
       addMessage( message );
     });
-  }, [ user ]);
+  }, []);
 
-  const getUserInfo = async () => {
-    const result = await axios.get(`/messages/threads/user?email=${user.email}`);
-    changeUserData( result.data );
-  };
+  // const getUserInfo = async () => {
+  //   const result = await axios.get(`/messages/threads/user?id=${ currentId }`);
+  //   changeUserData( result.data );
+  //   return;
+  // };
 
   const addThread = async () => {
     await axios.post('/messages/threads', {
-      itemId: 38,
-      renterId: 1,
+      itemId: itemID,
+      renterId: currentId,
       timeUpdated: Date.now()
     });
     getThreads();
   };
 
   const getThreads = async () => {
-    const result = await axios.get(`/messages/threads?email=${user.email}`);
+    const result = await axios.get(`/messages/threads?id=${ currentId }`);
     threadRef.current = result.data;
     updateThreads ( result.data );
   };
@@ -82,8 +86,7 @@ const Messages = ( props ) => {
     }
     let newMessage = {
       threadId: threads[ activeThread ].threadId,
-      email: user.email,
-      'user_id': userData.userId,
+      userId: currentId,
       text: message,
       imageUrl: null,
       timeCreated: Date.now()
@@ -103,7 +106,7 @@ const Messages = ( props ) => {
             threads={ threads }
             activeThread={ activeThread }
             changeThread={ changeThread }
-            userData={ userData }
+            userId={ currentId }
           />
         </div>
 
@@ -112,7 +115,7 @@ const Messages = ( props ) => {
             threads={ threads }
             messages={ threads.length > 0 ? threads[ activeThread ].messages : [] }
             sendMessage={ sendMessage }
-            userData={ userData }
+            userId={ currentId }
           />
         </div>
 
@@ -120,7 +123,7 @@ const Messages = ( props ) => {
           <DetailPane
             threads={ threads }
             activeThread={ activeThread }
-            userData={ userData }
+            userId={ currentId }
           />
         </div>
 

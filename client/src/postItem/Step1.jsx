@@ -7,7 +7,7 @@ import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 const Step1 = (props) => {
   if (!props.values.userId) {
-    const { userId } = useUserAuth();
+    const userId = localStorage.getItem('currentId');
     if (userId !== 'initial value') {
       const id = userId;
       props.updateUserId(id);

@@ -37,6 +37,11 @@
   color: black;
 }
 
+#thread-list {
+  overflow: auto;
+  max-height: 100%;
+}
+
 .thread-tile {
   font-size: 18px;
 }
