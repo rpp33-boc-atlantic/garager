@@ -31,7 +31,7 @@ module.exports = {
             WHERE T.item_id=I.item_id)
           ) AS details
         FROM items I
-        WHERE extract(epoch FROM I.availableFrom) < extract(epoch from now())
+        WHERE extract(epoch FROM I.availableTo) > extract(epoch from now())
         GROUP BY I.item_id;`;
       let items = await db.query(query);
       return items;
