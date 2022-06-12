@@ -15,25 +15,30 @@ import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 
 export default function Profile () {
+
   let [profile, setProfile ] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-
-
-
-  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : 'noId';
+  const localId = localStorage.getItem('currentId');
   let [accountOwner, setAccountOwner] = useState(false);
-
-
-  //get id from url
   let { id } = useParams();
   id = isNaN(id) ? id === 'undefined' ? localId : id.substring(3) : id;
+  let [curId, setCurId] = useState(id);
+  //get id from url
+
 
   useEffect(()=> {
+    console.log('call');
+    setCurId(id);
+    if (id === localId) {
+      setAccountOwner(true);
+    }
+    if (id !== curId) {
+      setDataLoading(true);
+    }
 
-    if (dataLoading ) {
+    if (dataLoading || !accountOwner ) {
 
       getData(id, `/account/my-profile`).then(data => {
-
         setProfile(data[0]);
         setDataLoading(false);
       }).catch(err => {
@@ -44,14 +49,8 @@ export default function Profile () {
     }
   }
 
-  , [] );
-  useEffect(()=> {
-    if (id === localId) {
-      setAccountOwner(true);
-    }
-  }
+  , [id, accountOwner] );
 
-  , [ accountOwner] );
 
 
 
@@ -76,24 +75,3 @@ export default function Profile () {
   </ThemeProvider>
   );
 }
-
-
-
-// UPDATE users
-// SET userphoto = 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
-// // where user_id = 5;
-
-// UPDATE users
-// set userphoto = 'https://www.incimages.com/uploaded_files/image/1920x1080/tom-haverford-parks-recreation_39318.jpg'
-// where user_id = 10 or user_id = 118;
-
-// UPDATE users
-// set email = 'wandavision@ucsf.edu '
-// where user_id = 0;
-// delete from users where user_id = 138
-
-// delete
-// from users
-// where firstName like '%est%' OR lastName like '%est%';
-// update users
-// set email = lower(email)
