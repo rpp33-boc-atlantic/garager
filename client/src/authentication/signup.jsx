@@ -11,9 +11,7 @@ const Signup = () => {
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
   const [error, setError] = useState('');
-  //pass sign up function using useUserAuth custom hook
   const { signUp, logOut, registerUser} = useUserAuth();
-  //redirect user back to login page after sign up
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {

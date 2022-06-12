@@ -6,7 +6,6 @@ import { auth } from '../firebase';
 const PrivateRoute = ({children}) => {
   //check if user is authenticated, if not, redirect to login
   let { user } = useUserAuth();
-  //console.log('Check user in PrivateRoute: ', user);
   if (!user) {
     return <Navigate to='/login'/>;
   }
