@@ -8,9 +8,15 @@
 .tableRow{
   padding: 5px;
   height: 220px;
+
   word-wrap: break-word;
+  /* justify-content: center; */
+}
+.hstack{
   justify-content: center;
-  width: 90%;
+}
+.options{
+  justify-content: flex-start;
 }
 .textRow{
   text-size-adjust: auto;
@@ -24,6 +30,7 @@
 }
 .photoCol{
   width: 200px;
+  max-width: 400px;
   height: inherit;
   display: flex;
   align-items: center;
@@ -46,6 +53,8 @@ a {
 .tbsContainer {
   background-color:  #DAE5D0;
   margin-top: 10px;
+  justify-content: center;
+  align-content: center;
 
 }
 .profContainer {
@@ -54,4 +63,26 @@ a {
 }
 .cancelButton {
    margin-top: auto;
+}
+
+/* these styles change the size of the text in the rentals */
+@media (max-width:550px) {
+  h4 {font-size:.60rem; }
+  h3 {font-size:.75rem; }
+  h2 {font-size:.9rem; }
+  h1 {font-size:1rem; }
+}
+
+@media (min-width: 551px) {
+  h4 {font-size:.9rem; }
+  h3 {font-size:1rem; }
+  h2 {font-size:1rem; }
+  h1 {font-size:1.25rem; }
+}
+
+@media (min-width: 950px) {
+  h4 {font-size:1rem;}
+  h3 {font-size:1.3rem;}
+  h2 {font-size:1.3rem;}
+  h1 {font-size:1.5rem;}
 }

@@ -9,16 +9,18 @@ import { GoMail } from 'react-icons/go';
 import Badge from 'react-bootstrap/Badge';
 import Logout from '../authentication/logout.jsx';
 import '../App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavLinks = (props) => {
   // this navbar uses a menu toggle for that reactively collapses for smaller screens.
   const [expanded, setExpanded] = useState(false);
-  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : '';
-
+  const id = localStorage.getItem('currentId');
+  const [localId, setLocalId] = useState( id);
   // sets up socketIO for new message notifications
   useEffect(() => {
     props.socketIO.on('message', (message) => { });
   });
+
 
   return (
     <Navbar sticky="top" expand="md" className='theme-blue' expanded={expanded} variant='light' style={{ maxHeight: '70px' }}>

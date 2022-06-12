@@ -37,24 +37,24 @@ export default function StackVersion (props) {
 
     //CREATE THE SORTING OPTIONS AT THE TOP
     tRows.push(
-      <Stack key={key++} direction="horizontal" gap={4}>
-        <h4> Sort By: </h4>
-        <h5 onClick ={()=> {
+      <Stack className ='options' key={key++} direction="horizontal" gap={3}>
+        <h3> Sort By: </h3>
+        <h3 onClick ={()=> {
           setClickedColumn(['title', textStates['title']]);
           setTextStates['title'](!textStates['title']);
-        }}> Item Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
+        }}> Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h3>
+        <h3 onClick ={()=> {
           setClickedColumn(['owner', textStates['owner']]);
           setTextStates['owner'](!textStates['owner']);
-        }}> Owner:{textStates['owner'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
+        }}> Owner:{textStates['owner'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h3>
+        <h3 onClick ={()=> {
           setClickedColumn(['pickupdate', textStates['pickupdate']]);
           setTextStates['pickupdate'](!textStates['pickupdate']);
-        }}> Pickup:{textStates['pickupdate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
-        <h5 onClick ={()=> {
+        }}> Pickup:{textStates['pickupdate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h3>
+        <h3 onClick ={()=> {
           setClickedColumn(['returndate', textStates['returndate']]);
           setTextStates['returndate'](!textStates['returndate']);
-        }}> Return:{textStates['returndate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
+        }}> Return:{textStates['returndate'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h3>
       </Stack>);
 
 
@@ -65,9 +65,10 @@ export default function StackVersion (props) {
       tRows.push(
         <Stack key={key++} className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
-            <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['rate']}/day  </h4>
-            <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5>
-            <div className='textRow'> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div>
+            <Link to={`../item/id=${t['item_id']}`}> <h1 className='textRow'>{t['title']} ${t['rate']}/day  </h1>  </Link>
+            <h2 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h2>
+            <h4 className='textRow'> {moment(t['pickupdate']).format('MMMM Do YYYY')} - </h4>
+            <h4>  {moment(t['returndate']).format('MMMM Do YYYY')} </h4>
             { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
               '' :
               <div className = 'cancelButton'> <RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/> </div> : ''
@@ -112,9 +113,9 @@ export default function StackVersion (props) {
   }, [clickedColumn]);
 
   return (
-    <Container>
-      <Stack className='tbsContainer' >{tRows}</Stack>
-    </Container>
+
+    <Stack className='tbsContainer' >{tRows}</Stack>
+
   );
 
 }
