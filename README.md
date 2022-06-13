@@ -72,14 +72,12 @@ Members of the Atlantic Team:
 
 ## Features
 ### Authentication
-* Sign up with email and password
-
-https://user-images.githubusercontent.com/88808070/173258515-eab5cbaa-0344-499a-a1fb-89a2a3792c5a.mp4
-
-* Log in with email and password 
+* Sign up/ Log in with email and password
 
 
-https://user-images.githubusercontent.com/88808070/173258594-ebe3503a-4998-4bec-910f-8f38c03ce7e4.mp4
+
+https://user-images.githubusercontent.com/88808070/173258979-e0b65d92-b041-4f88-a03b-90b205f6b516.mp4
+
 
 * Link Facebbok account with registered email account. User cannot create multiple accounts with the same email.
 
