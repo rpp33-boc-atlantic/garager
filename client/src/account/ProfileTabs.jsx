@@ -4,7 +4,6 @@ import React, {useState} from 'react';
 import TabContent from 'react-bootstrap/TabContent';
 import {Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import Tables from './Tables.jsx';
 import {SiFacebook} from 'react-icons/si';
 import {MdOutlineMarkEmailRead} from 'react-icons/md';
 import Stack from 'react-bootstrap/Stack';

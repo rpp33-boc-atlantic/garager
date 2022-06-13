@@ -20,11 +20,9 @@ export default function Earnings () {
 
   useEffect(()=> {
     if (dataLoading && localId) {
-      // console.log('fetching earnings data', localId);
       getData(localId, '/account/my-earnings')
         .then(data => {
           setEarnings(data);
-          // console.log('data', data);
           setDataLoading(false);
         });
     }
