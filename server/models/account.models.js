@@ -15,7 +15,7 @@ module.exports = {
           callback(null, databaseStuff.rows);
         })
         .catch (err => {
-          console.log('err@models-account-rentals');
+          // console.log('err@models-account-rentals');
           callback(err, null);
         });
     }
@@ -31,7 +31,7 @@ module.exports = {
         .then((data)=>{
           callback(null, data.rows);
         }).catch (err => {
-          console.log('err@models-account-listings');
+          // console.log('err@models-account-listings');
           callback(err, null);
         });
 
@@ -74,14 +74,13 @@ module.exports = {
       };
       return client.query(query)
         .then((data)=>{
-          console.log('earnings', data.rows);
+          // console.log('earnings', data.rows);
           callback(null, data.rows);
         })
         .catch (err => {
-          console.log('err@models-account-earnings');
+          // console.log('err@models-account-earnings');
           callback(err, null);
         });
-
     },
   },
   // returns data about any selected user
@@ -98,7 +97,7 @@ module.exports = {
           callback(null, profileData.rows);
         })
         .catch (err => {
-          console.log('err@models-account-profile');
+          // console.log('err@models-account-profile');
           callback(err, null);
         });
 
@@ -106,20 +105,22 @@ module.exports = {
   },
   // writes data for a specific table to a file. default  table is provided in controller.
   data: {
-    get: (table, callback) => {
+    get: (table, writeTable, callback) => {
 
+      var text = 'SELECT * from ' + table;
       const query = {
-        text: `SELECT * from ${table}`,
-        // values: [owner_id]
+        text: text
       };
       return client.query(query)
-        .then((databaseStuff)=>{
-          // console.log('');
-          fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(databaseStuff.rows, null, 2));
-          callback(null, databaseStuff.rows);
+        .then((data)=>{
+        //uncomment if you want to download tables
+          // if (writeTable) {
+          //   fs.writeFileSync(`client/src/data/dataFunctions/${table}.json`, JSON.stringify(data.rows, null, 2));
+          // }
+          callback(null, data.rows);
         })
         .catch (err => {
-          console.log('err@models-account-data');
+          // console.log('err@models-account-data');
           callback(err, null);
         });
     },
