@@ -13,8 +13,8 @@ module.exports = {
       // res.send('this route will send back current transaction information');
       models.rentals.get(renter_id, (err, data) => {
         if (err) {
-          console.log('RENTALS ERROR', err);
-          res.status(500).send(err);
+          // console.log('RENTALS ERROR', Object.keys(err));
+          res.sendStatus(400);
         } else {
           // console.log('datarentals', data);
           res.status(200).send(data);
@@ -29,8 +29,7 @@ module.exports = {
       // console.log('LISTINGS');
       models.listings.get(owner_id, (err, data) => {
         if (err) {
-          console.log('LISTINGS ERROR', err);
-          res.status(500).send(err, null);
+          res.sendStatus(400);
         } else {
           // console.log('LISTINGS', data);
           res.status(200).send(data);
@@ -45,8 +44,7 @@ module.exports = {
       // console.log('looking for data for user', user_id);
       models.earnings.get(user_id, (err, data) => {
         if (err) {
-          console.log('EARNINGS ERROR', err);
-          res.status(500).send(err);
+          res.sendStatus(400);
         } else {
           // console.log('datalistings', data);
           res.status(200).send(data);
@@ -57,11 +55,11 @@ module.exports = {
   profile: {
     get: (req, res) => {
       let user_id = req.query.id;
-      console.log('looking for data for user', user_id);
+      // console.log('looking for data for user', user_id);
       models.profile.get(user_id, (err, data) => {
         if (err) {
-          console.log('PROFILE ERROR', err);
-          res.status(500).send(err);
+          // console.log('PROFILE ERROR', err);
+          res.sendStatus(400);
         } else {
           // console.log('datalistings', data);
           res.status(200).send(data);
@@ -71,14 +69,17 @@ module.exports = {
   },
   data: {
     get: (req, res) => {
-      let table = req.query.table ? req.query.table : 'items';
+      // let table = req.query.table ? req.query.table : 'items';
+      let table = req.query.table;
+      let writeTable = req.query.writetable ? req.query.writetable : false;
       // console.log('table', table);
       // var table = params.get('table-name') ? params.get('table-name') : 'items';
-      models.data.get( table, (err, data) => {
+      models.data.get(table, writeTable, (err, data) => {
         if (err) {
-          res.status(500).send(err);
+          res.sendStatus(400);
         } else {
-          res.send(data);
+          // console.log('data controller', data.rows);
+          res.status(200).send(data);
         }
       });
     },

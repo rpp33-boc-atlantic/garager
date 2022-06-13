@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --watch --coverage ./tests",
     "test:messages": "jest --coverage tests/messages.test.js",
+    "test:account": "jest --coverage tests/account.test.js",
     "test:authentication": "jest tests/authTest/ --detectOpenHandles --collectCoverage",
     "test:auth":"jest --coverage tests/authorization.test.js",
     "test:postItem": "jest --coverage tests/post-item.test.js",

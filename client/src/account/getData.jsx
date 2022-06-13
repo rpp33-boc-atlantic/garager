@@ -9,9 +9,10 @@ var getData = async (id, url) => {
         id: id
       }
     });
+   
     return data.data;
   } catch (error) {
-    console.log('getData:error ', error);
+
     throw error;
   }
 
