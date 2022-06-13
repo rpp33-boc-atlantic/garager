@@ -13,21 +13,13 @@ import {FiEdit3} from 'react-icons/fi';
 import moment from 'moment';
 
 // import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
-
-// var transactions = require('../data/dataFunctions/transactions.json');
-// var users = require('../data/dataFunctions/users.json');
-// var user = users[0];
-
-
 export default function ProfileCard (props) {
+  
   const [profileEdit, setProfileEdit] = useState(false);
   const [values, setValues] = useState(props.values);
-  // return <Button variant="contained">Hello World</Button>;
-  // return <BasicTabs listings = {false} m='auto' earnings = {454} rentedItems = {3}/>;
+
   return (
 
-  // <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {user.userPhoto} /> </Col>
-  // props.user.firstName + ' ' + props.user.lastName
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={props.user.userphoto} />
       <Card.Body>
