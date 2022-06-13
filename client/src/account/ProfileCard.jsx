@@ -14,26 +14,23 @@ import moment from 'moment';
 
 // import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 export default function ProfileCard (props) {
-  
+
   const [profileEdit, setProfileEdit] = useState(false);
   const [values, setValues] = useState(props.values);
 
   return (
 
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '19rem' }}>
       <Card.Img variant="top" src={props.user.userphoto} />
       <Card.Body>
         {/* onMouseEnter={() => this.someHandler */}
         {props.accountOwner ? <Card.Title onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.firstname + ' ' + props.user.lastname} <FiEdit3/> </Card.Title> : <Card.Title>   {props.user.firstname + ' ' + props.user.lastname} </Card.Title>}
 
-        <Card.Text>
-          {props.user.address}
-        </Card.Text>
+        {props.accountOwner ? <Card.Text onClick={(() => { setProfileEdit(!profileEdit); })}>   {props.user.address} <FiEdit3/> </Card.Text> : <Card.Text>   {props.user.address} </Card.Text>}
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroupItem>{props.user.phone}</ListGroupItem>
         <ListGroupItem>{props.user.email}</ListGroupItem>
-        {/* <ListGroupItem>{}</ListGroupItem> */}
       </ListGroup>
       <Card.Body>
         <ListGroupItem>Date Joined: { moment(props.user.datejoined).format('MMMM Do YYYY')}</ListGroupItem>

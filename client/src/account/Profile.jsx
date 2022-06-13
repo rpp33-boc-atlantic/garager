@@ -59,11 +59,11 @@ export default function Profile () {
     <Container fluid={true} style={{'paddingTop': '10px'}}>
 
       <Row >
-        <Col xs={{span: 6}} md={4} lg={4} style={{margin: '2%'}}>
+        <Col xs={12} md={5} lg={4} style={{margin: '2%'}}>
           <ProfileCard user= {profile} accountOwner={accountOwner}></ProfileCard>
           {/* <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {profile.userPhoto} /> */}
         </Col >
-        <Col xs={10} sm={5} md={4} lg={4} style={{margin: '2%'}}>
+        <Col xs={12} sm={5} md={4} lg={4} style={{margin: '2%'}}>
           <ProfileTabs user ={profile} accountOwner={accountOwner}></ProfileTabs>
         </Col>
         <Col></Col>
