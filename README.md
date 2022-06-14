@@ -94,9 +94,9 @@ https://user-images.githubusercontent.com/88808070/173258713-a2750350-d803-42d2-
 ### Accounts
  * List all items owned by a user. 
  * View earnings and statistics about item transactions
-   [ListingsEarnings](https://user-images.githubusercontent.com/8378155/173496663-a7ca8534-8d71-497a-91e0-1969fd49f775.gif)
+   ![ListingsEarnings](https://user-images.githubusercontent.com/8378155/173496663-a7ca8534-8d71-497a-91e0-1969fd49f775.gif)
  * View all current and upcoming rentals booked in the site and also review past transactions
- * [Rentals](https://user-images.githubusercontent.com/8378155/173497830-b332e033-b1b5-46f7-855b-093d4825695b.gif)
+ * ![Rentals](https://user-images.githubusercontent.com/8378155/173497830-b332e033-b1b5-46f7-855b-093d4825695b.gif)
 
 
 *
