@@ -156,3 +156,19 @@ module.exports = {
 
 
 // //  AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
+
+
+// UPDATE ITEMS
+// SET photos = '{"https://www.sylvansport.com/wp-content/uploads/2020/10/cloud-layer-double-studio-1.jpg","https://www.sylvansport.com/wp-content/uploads/2020/10/cloud-layer-double-studio-4.jpg","https://www.sylvansport.com/wp-content/uploads/2020/10/cloud-layer-double-studio-5.jpg","https://www.sylvansport.com/wp-content/uploads/2020/10/cloud-layer-double-studio-2.jpg"}'::text[],
+// itemdescription = 'The Cloud Layer Double sleeping bag is the perfect camping companion, whether it’s a 20° night or a 60° summer evening. Larger than a Queen-sized mattress, its spacious design, organic cotton sheet, and compatible mattress make it feel like a real bed. Its many layer combinations make it the most adaptable sleeping bag out there.',
+// title='CLOUD LAYER DOUBLE 3 season sleeping bag'
+// where item_id = 21;
+
+
+
+
+// price=89,
+// min_price=80,
+// title='4m Luna Bell Tent - FIRE Canvas 320',
+// brand='Luna'
+// where item_id = 37;
