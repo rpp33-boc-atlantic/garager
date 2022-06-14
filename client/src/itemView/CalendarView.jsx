@@ -45,7 +45,6 @@ const CalendarView = (props) => {
 
     for (var i = 0; i < disabledRanges.length; i++) {
       var firstDay = moment(disabledRanges[i]['json_build_array'][0]).format('l');
-      console.log('first day', firstDay);
       if (isWithinRange2(new Date(firstDay), formattedRange)) {
         return true;
       }

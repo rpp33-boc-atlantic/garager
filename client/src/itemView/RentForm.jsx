@@ -38,7 +38,7 @@ class RentForm extends React.Component {
     this.setState({
       [e.target.id]: e.target.value
     }, ()=> {
-      console.log('state', this.state);
+      // console.log('state', this.state);
     });
   }
 
@@ -65,7 +65,7 @@ class RentForm extends React.Component {
           window.location = response.data.url;
         })
         .catch((error) => {
-          alert(error.response.data); // <-- ADDED BY JO FOR SIMPLE ERROR HANDLING
+          alert(error.response.data);
         });
     }
   }
