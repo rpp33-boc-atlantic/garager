@@ -49,6 +49,7 @@ module.exports = {
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-7
           AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
           AND owner_id = $1
+          AND refunded = false
           GROUP BY owner_id
          ),month as(
          SELECT
@@ -58,6 +59,7 @@ module.exports = {
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-30
           AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
           AND owner_id = $1
+          AND refunded = false
           GROUP BY owner_id
          ),totalearnings as
          (
@@ -66,6 +68,7 @@ module.exports = {
             owner_id
             FROM transactions
             WHERE owner_id = $1
+            AND refunded = false
             GROUP BY owner_id
            )
          SELECT monthly, weekly, total, owner_id, total_transactions,monthly_transactions,weekly_transactions,weekly_items,monthly_items,total_items
