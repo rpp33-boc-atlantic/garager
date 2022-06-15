@@ -9,7 +9,6 @@ const Container = styled.div`
   padding-right: 2em;
   padding-bottom: 4em;
   padding-left: 2em;
-
   grid-row: 1 / 3;
   grid-template-columns: 1fr;
   justify-content: start;

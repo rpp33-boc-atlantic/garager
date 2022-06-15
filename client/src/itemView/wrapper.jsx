@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useParams, NavLink} from 'react-router-dom';
+import { Link, useLocation, useParams, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import CarouselContainer from './CarouselContainer.jsx';
 import ItemDetails from './ItemDetails.jsx';
@@ -48,12 +48,7 @@ const Item = (props) => {
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
   const { user, userId } = useUserAuth();
-  // console.log('this should be the user id', userId);
-  // console.log('this should be the user email', user.email);
-
-  //new way to get userId (from local storage)
   const currentId = parseInt(localStorage.getItem('currentId'));
-  // console.log('current userId from localstorage', currentId);
 
   useEffect(() => {
     let mounted = true;
@@ -64,7 +59,6 @@ const Item = (props) => {
     })
       .then(response => {
         if (mounted) {
-          console.log('response after fetching item data', response.data);
           setData(response.data);
           setDataLoading(false);
         }

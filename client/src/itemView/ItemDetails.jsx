@@ -3,11 +3,8 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: grid;
-  // background: white;
   padding: 1em;
-  // align-self: start;
   grid-template-columns: 1fr 1fr;
-  // text-indent: .8em
   grid-auto-rows: minmax(60px, auto);
   grid-template-rows: 5em 1fr;
 
@@ -21,7 +18,6 @@ const Container = styled.div`
     grid-column: 1 / 4;
   }
   .inside {
-    // background: white;
   }
 `;
 
@@ -47,7 +43,6 @@ const ItemDetails = (props) => {
       </div>
     </Container>
   );
-
 };
 
 export default ItemDetails;
