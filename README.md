@@ -88,6 +88,12 @@ https://user-images.githubusercontent.com/88808070/173258713-a2750350-d803-42d2-
 <img src="https://user-images.githubusercontent.com/88979402/173197542-07a0cb3c-7431-4c52-b638-34dd81e8aedc.gif" width="50%" height="50%">
 
 ### Item View
+* The renter is able to view images, details, and availability of an item to book it for a range of dates. The renter may also suggest a price in case the item owner has enabled the Name Your Own Price feature.
+![Item View and Choosing a Range of Dates](https://user-images.githubusercontent.com/83668987/173741564-4fea97df-d705-4660-92cd-8248431dd706.gif)
+
+* Proper error handling in case an item post has been deleted by its owner. The button to delete a listing is visible only to the owner.
+![Proper Error Handling](https://user-images.githubusercontent.com/83668987/173741702-2877cb11-97ce-4431-aca7-95bbc07c3e01.gif)
+
 
 ### Messages
 
