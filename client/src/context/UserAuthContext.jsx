@@ -46,7 +46,7 @@ export function UserAuthContextProvider({ children }) {
         if (res.data !== '') {
           console.log('post res should return userId for new user', res.data.user_id);
         }
-        console.log('succesfully register new user in the db');
+        console.log('succesful post request to users table');
       })
       .catch((err) => {
         console.log(err.message);
@@ -60,9 +60,9 @@ export function UserAuthContextProvider({ children }) {
       }
     })
       .then((res) => {
-        console.log('get res', res.data.user_id);
-        //use localstorage to save userId for current session instead of using state(async)
+        //method1: use localstorage to save userId for current session instead of using state(async)
         window.localStorage.setItem('currentId', res.data.user_id);
+        //method2: use state to preserve userInfo (left here to avoid breaking other components)
         const newUserId = res.data.user_id;
         setUserId(newUserId);
       })
@@ -74,7 +74,6 @@ export function UserAuthContextProvider({ children }) {
   //run only once, when the components did mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log('userAuth', currentUser);
       setUser(currentUser);
       if (currentUser) {
         getUserId(currentUser.email);
