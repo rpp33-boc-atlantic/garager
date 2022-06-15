@@ -47,7 +47,7 @@ const Item = (props) => {
   });
   const [dataLoading, setDataLoading] = useState(true);
   let { id } = useParams();
-  const { user, userId } = useUserAuth();
+  const { user } = useUserAuth();
   const currentId = parseInt(localStorage.getItem('currentId'));
 
   useEffect(() => {
