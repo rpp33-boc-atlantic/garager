@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import RentalTabs from './RentalTabs.jsx';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';

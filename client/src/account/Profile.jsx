@@ -9,25 +9,25 @@ import Col from 'react-bootstrap/Col';
 import ProfileCard from './ProfileCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import getData from './getData.jsx';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 
 export default function Profile () {
 
-  let [profile, setProfile ] = useState([]);
+  let [profile, setProfile] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
   const localId = localStorage.getItem('currentId');
   let [accountOwner, setAccountOwner] = useState(false);
-  let { id } = useParams();
+  let {id} = useParams();
   id = isNaN(id) ? id === 'undefined' ? localId : id.substring(3) : id;
   let [curId, setCurId] = useState(id);
   //get id from url
 
 
   useEffect(()=> {
-    console.log('call');
+
     setCurId(id);
     if (id === localId) {
       setAccountOwner(true);

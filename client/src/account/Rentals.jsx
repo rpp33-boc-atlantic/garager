@@ -3,7 +3,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import RentalTabs from './RentalTabs.jsx';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import getData from './getData.jsx';
 
 
@@ -36,19 +36,3 @@ export default function Rentals () {
 }
 
 
-
-// Make a request for a user with a given ID
-// axios.get('/user?ID=12345')
-//   .then(function (response) {
-//     // handle success
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   });
-
-// Optionally the request above could also be done as

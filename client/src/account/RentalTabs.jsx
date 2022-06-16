@@ -1,8 +1,8 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import TabContent from 'react-bootstrap/TabContent';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import StackVersion from './StackVersion.jsx';
 

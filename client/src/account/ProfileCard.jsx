@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import RentalTabs from './RentalTabs.jsx';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -9,10 +9,9 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
-import {FiEdit3} from 'react-icons/fi';
+import { FiEdit3 } from 'react-icons/fi';
 import moment from 'moment';
 
-// import { BsSortDownAlt, BsSortUpAlt } from 'react-icons/bs';
 export default function ProfileCard (props) {
 
   const [profileEdit, setProfileEdit] = useState(false);
