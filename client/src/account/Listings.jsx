@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import ListingTabs from './ListingTabs.jsx';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import getData from './getData.jsx';
 
 

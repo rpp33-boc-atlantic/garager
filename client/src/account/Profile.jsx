@@ -9,31 +9,36 @@ import Col from 'react-bootstrap/Col';
 import ProfileCard from './ProfileCard.jsx';
 import ProfileTabs from './ProfileTabs.jsx';
 import getData from './getData.jsx';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useUserAuth } from '../context/UserAuthContext.jsx';
 
 
 export default function Profile () {
-  let [profile, setProfile ] = useState([]);
+
+  let [profile, setProfile] = useState([]);
   let [dataLoading, setDataLoading] = useState(true);
-
-
-
-  const localId = localStorage.getItem('currentId') ? localStorage.getItem('currentId') : 'noId';
+  const localId = localStorage.getItem('currentId');
   let [accountOwner, setAccountOwner] = useState(false);
-
-
-  //get id from url
-  let { id } = useParams();
+  let {id} = useParams();
   id = isNaN(id) ? id === 'undefined' ? localId : id.substring(3) : id;
+  let [curId, setCurId] = useState(id);
+  //get id from url
+
 
   useEffect(()=> {
 
-    if (dataLoading ) {
+    setCurId(id);
+    if (id === localId) {
+      setAccountOwner(true);
+    }
+    if (id !== curId) {
+      setDataLoading(true);
+    }
+
+    if (dataLoading || !accountOwner ) {
 
       getData(id, `/account/my-profile`).then(data => {
-
         setProfile(data[0]);
         setDataLoading(false);
       }).catch(err => {
@@ -44,14 +49,8 @@ export default function Profile () {
     }
   }
 
-  , [] );
-  useEffect(()=> {
-    if (id === localId) {
-      setAccountOwner(true);
-    }
-  }
+  , [id, accountOwner] );
 
-  , [ accountOwner] );
 
 
 
@@ -60,40 +59,16 @@ export default function Profile () {
     <Container fluid={true} style={{'paddingTop': '10px'}}>
 
       <Row >
-        <Col xs={{span: 6}} md={{ span: 4 }} style={{margin: '2%'}}>
+        <Col xs={12} md={5} lg={4} style={{margin: '2%'}}>
           <ProfileCard user= {profile} accountOwner={accountOwner}></ProfileCard>
           {/* <Image thumbnail = {true} width = {600}roundedCircle = {true} fluid = {true} src = {profile.userPhoto} /> */}
         </Col >
-        <Col xs={12} md={6} style={{margin: '2%'}}>
+        <Col xs={12} sm={5} md={4} lg={4} style={{margin: '2%'}}>
           <ProfileTabs user ={profile} accountOwner={accountOwner}></ProfileTabs>
         </Col>
         <Col></Col>
       </Row>
-      <Row>
-      </Row>
-      <Row></Row>
     </Container>
   </ThemeProvider>
   );
 }
-
-
-
-// UPDATE users
-// SET userphoto = 'https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png'
-// // where user_id = 5;
-
-// UPDATE users
-// set userphoto = 'https://www.incimages.com/uploaded_files/image/1920x1080/tom-haverford-parks-recreation_39318.jpg'
-// where user_id = 10 or user_id = 118;
-
-// UPDATE users
-// set email = 'wandavision@ucsf.edu '
-// where user_id = 0;
-// delete from users where user_id = 138
-
-// delete
-// from users
-// where firstName like '%est%' OR lastName like '%est%';
-// update users
-// set email = lower(email)

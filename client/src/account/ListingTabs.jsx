@@ -1,7 +1,7 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import React, {useState} from 'react';
-import {Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 // import ListingList from './ListingList.jsx';
 // import Tables from './Tables.jsx';
@@ -33,9 +33,7 @@ export default function ListingTabs(props) {
     text: 'image'
   }];
 
-  // props.items.map(item => {
-  //   item.photos = item.photos === null ? [] : item.photos.split(',');
-  // });
+
 
   var PostMessage = function (props) {
     return (

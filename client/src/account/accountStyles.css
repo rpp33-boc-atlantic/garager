@@ -1,29 +1,36 @@
 
 
 
-.table-headers{
+.table-headers {
   font-size: large;
   font-family: 'SanFrancisco','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.tableRow{
+.tableRow {
   padding: 5px;
   height: 220px;
+
   word-wrap: break-word;
-  justify-content: center;
-  width: 90%;
+  /* justify-content: center; */
 }
-.textRow{
+.hstack {
+  justify-content: center;
+}
+.options {
+  justify-content: flex-start;
+}
+.textRow {
   text-size-adjust: auto;
 }
-.textCol{
+.textCol {
    background-color:  white;
    border-bottom: 20px solid #A0BCC2;
    max-width: 60%;
    padding: 1%;
    height: inherit;
 }
-.photoCol{
+.photoCol {
   width: 200px;
+  max-width: 400px;
   height: inherit;
   display: flex;
   align-items: center;
@@ -46,6 +53,9 @@ a {
 .tbsContainer {
   background-color:  #DAE5D0;
   margin-top: 10px;
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 30px;
 
 }
 .profContainer {
@@ -54,4 +64,27 @@ a {
 }
 .cancelButton {
    margin-top: auto;
+}
+
+/* these styles change the size of the text in the rentals */
+@media (max-width:550px) {
+  h4 { font-size:.60rem; }
+  h3 { font-size:.75rem; }
+  h2 { font-size:.9rem; }
+  h1 { font-size:1rem; }
+}
+
+@media (min-width: 551px) {
+  h4 { font-size:.9rem; }
+  h3 { font-size:1rem; }
+  h2 { font-size:1rem; }
+  h1 { font-size:1.25rem; }
+}
+
+@media (min-width: 950px) {
+  h4 { font-size:1rem; }
+  h3 { font-size:1.2rem; }
+  h2 { font-size:1.2rem; }
+  h1 { font-size:1.3rem; }
+
 }

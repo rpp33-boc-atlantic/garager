@@ -49,6 +49,7 @@ module.exports = {
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-7
           AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
           AND owner_id = $1
+          AND refunded = false
           GROUP BY owner_id
          ),month as(
          SELECT
@@ -58,6 +59,7 @@ module.exports = {
           NOW()::DATE-EXTRACT(DOW FROM NOW())::INTEGER-30
           AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER
           AND owner_id = $1
+          AND refunded = false
           GROUP BY owner_id
          ),totalearnings as
          (
@@ -66,6 +68,7 @@ module.exports = {
             owner_id
             FROM transactions
             WHERE owner_id = $1
+            AND refunded = false
             GROUP BY owner_id
            )
          SELECT monthly, weekly, total, owner_id, total_transactions,monthly_transactions,weekly_transactions,weekly_items,monthly_items,total_items
@@ -129,27 +132,3 @@ module.exports = {
 
 };
 
-
-// post: (userID, reqbody) => {
-//   const { title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos } = reqbody;
-//   const query = {
-//     text: 'INSERT INTO items(user_id, title, category, brand, model, itemdescription, price, nyop, min_price, availablefrom, availableto, address, latlng, photos) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)',
-//     values: [userID, title, category, brand, model, itemDescription, price, nameYourOwnPrice, minimunAcceptedPrice, availableFrom, availableTo, address, latLng, photos]
-//   };
-//   return client.query(query)
-//     .catch (err => console.log('err@models-post-item', err));
-// };
-// /+ COALESCE(col2,0)
-
-// SELECT
-//  sum(rate) AS total,
-//  owner_id
-//  FROM transactions
-//  WHERE owner_id = 7
-//  GROUP BY owner_id;
-
-
-
-
-
-// //  AND NOW()::DATE-EXTRACT(DOW from NOW())::INTEGER

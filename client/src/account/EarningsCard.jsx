@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import RentalTabs from './RentalTabs.jsx';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
-import {FcMoneyTransfer} from 'react-icons/fc';
+import { FcMoneyTransfer } from 'react-icons/fc';
 
 
 export default function EarningsCard (props) {

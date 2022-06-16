@@ -37,12 +37,12 @@ export default function StackVersionListings (props) {
     var key = 0;
     //CREATE THE SORTING OPTIONS AT THE TOP
     tRows.push(
-      <Stack key={key++} direction="horizontal" gap={4}>
-        <h4> Sort By: </h4>
-        <h5 onClick ={()=> {
+      <Stack className = 'options' key={key++} direction="horizontal" gap={3}>
+        <h3> Sort By: </h3>
+        <h3 onClick ={()=> {
           setClickedColumn(['title', textStates['title']]);
           setTextStates['title'](!textStates['title']);
-        }}> Item Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h5>
+        }}> Item Name:{textStates['title'] ? <BsSortUpAlt/> : <BsSortDownAlt/> } </h3>
 
       </Stack>);
 
@@ -54,15 +54,8 @@ export default function StackVersionListings (props) {
       tRows.push(
         <Stack key={key++} className='tableRow' direction="horizontal" >
           <Stack className='textCol' gap={1}>
-            <h4 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['price']}/day  </h4>
-            {/* <h5 className='textRow'><Link to={`../profile/id=${t['owner_id']}`}>{t['owner']} </Link> </h5> */}
-            {/* <div> {moment(t['pickupdate']).format('MMMM Do YYYY')} -  {moment(t['returndate']).format('MMMM Do YYYY')} </div> */}
-            { props.refundOption ? t['refunded'] || (moment(t.pickupdate).isBefore(moment(new Date()))) ?
-              '' :
-              <div className = 'cancelButton'> <RefundButton owner_id = {t['owner_id']} transaction_id={t['transaction_id']}/> </div> : ''
-            }
+            <h1 className='textRow'> <Link to={`../item/id=${t['item_id']}`}>{t['title']} </Link>  ${t['price']}/day  </h1>
           </Stack>
-
           <div className='photoCol'><Image className = 'itemPhoto' src={t.photos[0] ? t.photos[0] : noImagePhoto} thumbnail width={'210px'} height={'auto'} /></div>
         </Stack>
 
