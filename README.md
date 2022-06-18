@@ -1,6 +1,24 @@
 # G A R A G E R
 
 <em>Garager</em> is an application based on the peer-to-peer economy like Airbnb. Users can list items from their garage for rent (like tools, equipment, camping gear, decorations, etc.). Users can also search for items they need and rent them when they become available.
+## Table of Contents
+  1. <a href='#installation-local-development'> Installation</a>
+
+  2. <a href='#dependencies'> Dependencies</a>
+
+  3. <a href='#production-deployment'> Production Deployment</a>
+
+  4. <a href='#contributors'> Contributors</a>
+
+  5. <a href='#features'> Features</a>
+   * <a href='#authentication'> Authentication</a>
+   * <a href='#search--browse'> Search / Browse</a>
+   * <a href='#post-an-item'> Post an Item</a>
+   * <a href='#item-view'> Item View</a>
+   * <a href='#messages'> Messaages</a>
+   * <a href='#payments-stripe-integration'> Payments: Stripe Integration</a>
+ 
+  6. <a href='#tech-stack'> Tech Stack</a>
 
 ## Installation (Local Development)
 1. Download Github repo:
