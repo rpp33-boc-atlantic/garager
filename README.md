@@ -112,7 +112,7 @@ https://user-images.githubusercontent.com/88808070/173258713-a2750350-d803-42d2-
 ### Payments: Stripe Integration
 * Checkout Session - Rent an Item: Users are able to rent an item or return to the app to cancel the checkout process.
 
-![checkoutGIF](https://user-images.githubusercontent.com/89096566/173197676-786ce4e4-7a9d-4a32-8b2a-ce298985bccb.gif)
+![checkoutSession-faster-GIF](https://user-images.githubusercontent.com/89096566/174423456-59f3eb88-c97c-4a1a-bc0b-e96a0f68c2dd.gif)
 
 * Setup a Connected Account: Users are able to create a Stripe connected account to be paid directly when an item of theirs is rented out through the checkout process. They can return to the app at different stages of creating the account without having to start from the beginning each time.
 
