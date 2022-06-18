@@ -16,6 +16,7 @@
    * <a href='#post-an-item'> Post an Item</a>
    * <a href='#item-view'> Item View</a>
    * <a href='#messages'> Messaages</a>
+   * <a href='#accounts'> Accounts</a>
    * <a href='#payments-stripe-integration'> Payments: Stripe Integration</a>
  
   6. <a href='#tech-stack'> Tech Stack</a>
